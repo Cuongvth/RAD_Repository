@@ -1,0 +1,17 @@
+W:\Git\Computer_Vision\Back_End\CMS_Infrastructure\obj\Debug\net6.0\CMS_Infrastructure.csproj.AssemblyReference.cache
+W:\Git\Computer_Vision\Back_End\CMS_Infrastructure\obj\Debug\net6.0\CMS_Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+W:\Git\Computer_Vision\Back_End\CMS_Infrastructure\obj\Debug\net6.0\CMS_Infrastructure.AssemblyInfoInputs.cache
+W:\Git\Computer_Vision\Back_End\CMS_Infrastructure\obj\Debug\net6.0\CMS_Infrastructure.AssemblyInfo.cs
+W:\Git\Computer_Vision\Back_End\CMS_Infrastructure\obj\Debug\net6.0\CMS_Infrastructure.csproj.CoreCompileInputs.cache
+W:\Git\Computer_Vision\Back_End\CMS_Infrastructure\bin\Debug\net6.0\CMS_Infrastructure.deps.json
+W:\Git\Computer_Vision\Back_End\CMS_Infrastructure\bin\Debug\net6.0\CMS_Infrastructure.runtimeconfig.json
+W:\Git\Computer_Vision\Back_End\CMS_Infrastructure\bin\Debug\net6.0\CMS_Infrastructure.dll
+W:\Git\Computer_Vision\Back_End\CMS_Infrastructure\bin\Debug\net6.0\CMS_Infrastructure.pdb
+W:\Git\Computer_Vision\Back_End\CMS_Infrastructure\bin\Debug\net6.0\CMS_WebDesignCore.dll
+W:\Git\Computer_Vision\Back_End\CMS_Infrastructure\bin\Debug\net6.0\CMS_WebDesignCore.pdb
+W:\Git\Computer_Vision\Back_End\CMS_Infrastructure\obj\Debug\net6.0\CMS_Infrastructure.csproj.CopyComplete
+W:\Git\Computer_Vision\Back_End\CMS_Infrastructure\obj\Debug\net6.0\CMS_Infrastructure.dll
+W:\Git\Computer_Vision\Back_End\CMS_Infrastructure\obj\Debug\net6.0\refint\CMS_Infrastructure.dll
+W:\Git\Computer_Vision\Back_End\CMS_Infrastructure\obj\Debug\net6.0\CMS_Infrastructure.pdb
+W:\Git\Computer_Vision\Back_End\CMS_Infrastructure\obj\Debug\net6.0\CMS_Infrastructure.genruntimeconfig.cache
+W:\Git\Computer_Vision\Back_End\CMS_Infrastructure\obj\Debug\net6.0\ref\CMS_Infrastructure.dll
