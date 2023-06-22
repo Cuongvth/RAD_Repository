@@ -2,6 +2,7 @@
 using CMS_Infrastructure.Context;
 using CMS_WebDesignCore.Enums;
 using CMS_WebDesignCore.IBusiness;
+using CMS_WebDesignCore.Wrap;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CMS_Web.Controllers
@@ -46,6 +47,21 @@ namespace CMS_Web.Controllers
         public async Task<IActionResult> ThongTinCoChinhXacCCCD(int CCCDID, PropCCCDEnum prop, bool isTrue)
         {
             return Ok(await _admin.ThongTinCoChinhXacCCCD(CCCDID, prop, isTrue));
+        }
+        [HttpPost("nhandangtructiep")]
+        public async Task<IActionResult> NhanDangTrucTiep(IFormFile matTruoc, IFormFile matSau)
+        {
+            CheckResult cr = await _admin.NhanDangTrucTiep(matTruoc);
+            switch (cr.Type)
+            {
+                case TypeCard.UNKNOW:
+                    return BadRequest("Không nhận dạng được!");
+                case TypeCard.CCCD:
+                    return Ok(await _admin.NhanDangCCCDTrucTiep(matTruoc, matSau));
+                case TypeCard.BLX:
+                    return Ok(await _admin.NhanDangBLXTrucTiep(matTruoc, matSau));
+                default: return BadRequest("Lỗi");
+            }
         }
     }
 }

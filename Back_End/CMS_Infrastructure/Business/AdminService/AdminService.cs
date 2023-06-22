@@ -139,12 +139,93 @@ namespace CMS_Infrastructure.Business.AdminService
                     await _context.SaveChangesAsync();
                     return ActionStatus.THANHCONG;
                 case PropCCCDEnum.HOTEN:
-                    cccd.IsSoCCCD = isTrue;
+                    cccd.IsHoTen = isTrue;
+                    await _context.SaveChangesAsync();
+                    return ActionStatus.THANHCONG;
+                case PropCCCDEnum.COGIATRIDEN:
+                    cccd.IsCoGiaTriDen = isTrue;
+                    await _context.SaveChangesAsync();
+                    return ActionStatus.THANHCONG;
+                case PropCCCDEnum.NGAYTHANGNAMSINH:
+                    cccd.IsNgayThangNamSinh = isTrue;
+                    await _context.SaveChangesAsync();
+                    return ActionStatus.THANHCONG;
+                case PropCCCDEnum.GIOITINH:
+                    cccd.IsGioiTinh = isTrue;
+                    await _context.SaveChangesAsync();
+                    return ActionStatus.THANHCONG;
+                case PropCCCDEnum.QUOCTICH:
+                    cccd.IsQuocTich = isTrue;
+                    await _context.SaveChangesAsync();
+                    return ActionStatus.THANHCONG;
+                case PropCCCDEnum.QUEQUAN:
+                    cccd.IsQueQuan = isTrue;
+                    await _context.SaveChangesAsync();
+                    return ActionStatus.THANHCONG;
+                case PropCCCDEnum.VNM:
+                    cccd.IsVNM = isTrue;
+                    await _context.SaveChangesAsync();
+                    return ActionStatus.THANHCONG;
+                case PropCCCDEnum.NOITHUONGTRU:
+                    cccd.IsNoiThuongTru = isTrue;
+                    await _context.SaveChangesAsync();
+                    return ActionStatus.THANHCONG;
+                case PropCCCDEnum.DACDIEMNHANDANG:
+                    cccd.IsDacDiemNhanDang = isTrue;
+                    await _context.SaveChangesAsync();
+                    return ActionStatus.THANHCONG;
+                case PropCCCDEnum.NGAYDANGKY:
+                    cccd.IsNgayDangKy = isTrue;
                     await _context.SaveChangesAsync();
                     return ActionStatus.THANHCONG;
                 default:
                     return ActionStatus.THATBAI;
             }
+        }
+
+        public async Task<GoogleIdenDTO<CanCuocCongDan>> NhanDangCCCDTrucTiep(IFormFile matTruoc, IFormFile matSau)
+        {
+            GoogleIdenDTO<CanCuocCongDan> result = new GoogleIdenDTO<CanCuocCongDan>();
+            DuLieu dl = new DuLieu();
+            dl.Status = CMS_WebDesignCore.Enums.StatusData.CHUANHANDANG;
+            dl.ThoiGianThem = DateTime.Now;
+            dl.MatTruoc = FilePlugin.File2ByteArr(matTruoc);
+            dl.MatSau = FilePlugin.File2ByteArr(matSau);
+            FullInfo<CanCuocCongDan> canCuocCongDan = MapDataCCCD.CCCDGanChip(GoogleVisionAPI.LayThongTinTrenThe(Convert.ToBase64String(dl.MatTruoc)), GoogleVisionAPI.LayThongTinTrenThe(Convert.ToBase64String(dl.MatSau)));
+            await _context.AddAsync(dl);
+            await _context.SaveChangesAsync();
+            canCuocCongDan.Data.DuLieuId = dl.Id;
+            await _context.AddAsync(canCuocCongDan.Data);
+            await _context.SaveChangesAsync();
+            result.Result = canCuocCongDan;
+            result.Status = IdenEnum.NHANDANGTHANHCONG;
+            return result;
+        }
+
+        public async Task<GoogleIdenDTO<GiayPhepLaiXe>> NhanDangBLXTrucTiep(IFormFile matTruoc, IFormFile matSau)
+        {
+            GoogleIdenDTO<GiayPhepLaiXe> result = new GoogleIdenDTO<GiayPhepLaiXe>();
+            DuLieu dl = new DuLieu();
+            dl.Status = CMS_WebDesignCore.Enums.StatusData.CHUANHANDANG;
+            dl.ThoiGianThem = DateTime.Now;
+            dl.MatTruoc = FilePlugin.File2ByteArr(matTruoc);
+            dl.MatSau = FilePlugin.File2ByteArr(matSau);
+            FullInfo<GiayPhepLaiXe> blx = MapDataBLX.BLXAddData(GoogleVisionAPI.LayThongTinTrenThe(Convert.ToBase64String(dl.MatTruoc)), GoogleVisionAPI.LayThongTinTrenThe(Convert.ToBase64String(dl.MatSau)));
+            await _context.AddAsync(dl);
+            await _context.SaveChangesAsync();
+            blx.Data.DuLieuId = dl.Id;
+            await _context.AddAsync(blx.Data);
+            await _context.SaveChangesAsync();
+            result.Result = blx;
+            result.Status = IdenEnum.NHANDANGTHANHCONG;
+            return result;
+        }
+
+        public async Task<CheckResult> NhanDangTrucTiep(IFormFile matTruoc)
+        {
+
+            CheckResult cr = GoogleVisionAPI.NhanDangThe(Convert.ToBase64String(FilePlugin.File2ByteArr(matTruoc)));
+            return cr;
         }
     }
 }

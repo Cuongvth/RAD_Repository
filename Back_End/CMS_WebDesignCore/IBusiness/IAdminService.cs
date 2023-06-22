@@ -22,6 +22,9 @@ namespace CMS_WebDesignCore.IBusiness
         Task<GoogleIdenDTO<GiayPhepLaiXe>> NhanDangBLX(int duLieuId);
         Task<CheckResult> NhanDang(int duLieuId);
         Task<ActionStatus> ThongTinCoChinhXacCCCD(int CCCDID, PropCCCDEnum prop, bool isTrue);
+        Task<GoogleIdenDTO<CanCuocCongDan>> NhanDangCCCDTrucTiep(IFormFile matTruoc, IFormFile matSau);
+        Task<GoogleIdenDTO<GiayPhepLaiXe>> NhanDangBLXTrucTiep(IFormFile matTruoc, IFormFile matSau);
+        Task<CheckResult> NhanDangTrucTiep(IFormFile matTruoc);
         Task fake();
     }
 }
