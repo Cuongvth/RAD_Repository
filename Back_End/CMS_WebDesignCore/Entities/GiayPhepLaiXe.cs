@@ -1,8 +1,7 @@
 ﻿namespace CMS_WebDesignCore.Entities
 {
-    public partial class GiayPhepLaiXe
+    public partial class GiayPhepLaiXe : BaseEntity
     {
-        public int Id { get; set; }
         public string? So { get; set; }
         public string? HoTen { get; set; }
         public string? NgaySinh { get; set; }
@@ -22,8 +21,8 @@
         public int? DoChinhXacNgayTrungTuyen { get; set; }
         public int? DoChinhXacNgayDangKi { get; set; }
         public bool? ChinhXac { get; set; }
-        public int? DuLieuId { get; set; }
+        public int DuLieuId { get; set; }
 
-        public virtual DuLieu? DuLieu { get; set; }
+        public DuLieu DuLieu { get; set; }
     }
 }

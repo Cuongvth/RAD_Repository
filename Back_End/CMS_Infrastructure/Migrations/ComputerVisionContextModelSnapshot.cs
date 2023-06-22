@@ -25,7 +25,10 @@ namespace CMS_Infrastructure.Migrations
             modelBuilder.Entity("CMS_WebDesignCore.Entities.CanCuocCongDan", b =>
                 {
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<bool?>("ChinhXac")
                         .HasColumnType("bit");
@@ -67,12 +70,10 @@ namespace CMS_Infrastructure.Migrations
                         .HasColumnType("int");
 
                     b.Property<int?>("DoChinhXacVnm")
-                        .HasColumnType("int")
-                        .HasColumnName("DoChinhXacVNM");
+                        .HasColumnType("int");
 
-                    b.Property<int?>("DuLieuId")
-                        .HasColumnType("int")
-                        .HasColumnName("DuLieu_Id");
+                    b.Property<int>("DuLieuId")
+                        .HasColumnType("int");
 
                     b.Property<string>("GioiTinh")
                         .HasColumnType("nvarchar(max)");
@@ -99,39 +100,46 @@ namespace CMS_Infrastructure.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Vnm")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("VNM");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("DuLieuId");
 
-                    b.ToTable("CanCuocCongDan", (string)null);
+                    b.ToTable("CanCuocCongDans");
                 });
 
             modelBuilder.Entity("CMS_WebDesignCore.Entities.DuLieu", b =>
                 {
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
                     b.Property<byte[]>("MatSau")
+                        .IsRequired()
                         .HasColumnType("varbinary(max)");
 
                     b.Property<byte[]>("MatTruoc")
+                        .IsRequired()
                         .HasColumnType("varbinary(max)");
 
-                    b.Property<int?>("Status")
+                    b.Property<int>("Status")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.ToTable("DuLieu", (string)null);
+                    b.ToTable("DuLieus");
                 });
 
             modelBuilder.Entity("CMS_WebDesignCore.Entities.GiayPhepLaiXe", b =>
                 {
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<bool?>("ChinhXac")
                         .HasColumnType("bit");
@@ -166,9 +174,8 @@ namespace CMS_Infrastructure.Migrations
                     b.Property<int?>("DoChinhXacSo")
                         .HasColumnType("int");
 
-                    b.Property<int?>("DuLieuId")
-                        .HasColumnType("int")
-                        .HasColumnName("DuLieu_Id");
+                    b.Property<int>("DuLieuId")
+                        .HasColumnType("int");
 
                     b.Property<string>("GioiTinh")
                         .HasColumnType("nvarchar(max)");
@@ -198,14 +205,16 @@ namespace CMS_Infrastructure.Migrations
 
                     b.HasIndex("DuLieuId");
 
-                    b.ToTable("GiayPhepLaiXe", (string)null);
+                    b.ToTable("GiayPhepLaiXes");
                 });
 
             modelBuilder.Entity("CMS_WebDesignCore.Entities.CanCuocCongDan", b =>
                 {
                     b.HasOne("CMS_WebDesignCore.Entities.DuLieu", "DuLieu")
-                        .WithMany("CanCuocCongDans")
-                        .HasForeignKey("DuLieuId");
+                        .WithMany()
+                        .HasForeignKey("DuLieuId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("DuLieu");
                 });
@@ -213,17 +222,12 @@ namespace CMS_Infrastructure.Migrations
             modelBuilder.Entity("CMS_WebDesignCore.Entities.GiayPhepLaiXe", b =>
                 {
                     b.HasOne("CMS_WebDesignCore.Entities.DuLieu", "DuLieu")
-                        .WithMany("GiayPhepLaiXes")
-                        .HasForeignKey("DuLieuId");
+                        .WithMany()
+                        .HasForeignKey("DuLieuId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("DuLieu");
-                });
-
-            modelBuilder.Entity("CMS_WebDesignCore.Entities.DuLieu", b =>
-                {
-                    b.Navigation("CanCuocCongDans");
-
-                    b.Navigation("GiayPhepLaiXes");
                 });
 #pragma warning restore 612, 618
         }

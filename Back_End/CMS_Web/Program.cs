@@ -21,11 +21,7 @@ builder.Services.AddCors(options =>
                       });
 });
 
-builder.Services.AddDbContext<ComputerVisionContext>(options =>
-{
-    string connectionString = builder.Configuration.GetConnectionString("local");
-    _ = options.UseSqlServer(connectionString);
-});
+
 
 WebApplication app = builder.Build();
 

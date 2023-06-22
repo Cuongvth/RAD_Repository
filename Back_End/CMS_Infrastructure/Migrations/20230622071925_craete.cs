@@ -5,29 +5,31 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CMS_Infrastructure.Migrations
 {
-    public partial class create : Migration
+    public partial class craete : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "DuLieu",
+                name: "DuLieus",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false),
-                    MatTruoc = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
-                    MatSau = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
-                    Status = table.Column<int>(type: "int", nullable: true)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    MatTruoc = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
+                    MatSau = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
+                    Status = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_DuLieu", x => x.Id);
+                    table.PrimaryKey("PK_DuLieus", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "CanCuocCongDan",
+                name: "CanCuocCongDans",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     So = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     HoTen = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     NgaySinh = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -38,7 +40,7 @@ namespace CMS_Infrastructure.Migrations
                     QueQuan = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DacDiemNhanDang = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     NgayCap = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    VNM = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Vnm = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DoChinhXacSo = table.Column<int>(type: "int", nullable: true),
                     DoChinhXacHoTen = table.Column<int>(type: "int", nullable: true),
                     DoChinhXacNgaySinh = table.Column<int>(type: "int", nullable: true),
@@ -49,25 +51,27 @@ namespace CMS_Infrastructure.Migrations
                     DoChinhXacQueQuan = table.Column<int>(type: "int", nullable: true),
                     DoChinhXacDacDiemNhanDang = table.Column<int>(type: "int", nullable: true),
                     DoChinhXacNgayCap = table.Column<int>(type: "int", nullable: true),
-                    DoChinhXacVNM = table.Column<int>(type: "int", nullable: true),
+                    DoChinhXacVnm = table.Column<int>(type: "int", nullable: true),
                     ChinhXac = table.Column<bool>(type: "bit", nullable: true),
-                    DuLieu_Id = table.Column<int>(type: "int", nullable: true)
+                    DuLieuId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CanCuocCongDan", x => x.Id);
+                    table.PrimaryKey("PK_CanCuocCongDans", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_CanCuocCongDan_DuLieu_DuLieu_Id",
-                        column: x => x.DuLieu_Id,
-                        principalTable: "DuLieu",
-                        principalColumn: "Id");
+                        name: "FK_CanCuocCongDans_DuLieus_DuLieuId",
+                        column: x => x.DuLieuId,
+                        principalTable: "DuLieus",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "GiayPhepLaiXe",
+                name: "GiayPhepLaiXes",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     So = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     HoTen = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     NgaySinh = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -87,39 +91,40 @@ namespace CMS_Infrastructure.Migrations
                     DoChinhXacNgayTrungTuyen = table.Column<int>(type: "int", nullable: true),
                     DoChinhXacNgayDangKi = table.Column<int>(type: "int", nullable: true),
                     ChinhXac = table.Column<bool>(type: "bit", nullable: true),
-                    DuLieu_Id = table.Column<int>(type: "int", nullable: true)
+                    DuLieuId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_GiayPhepLaiXe", x => x.Id);
+                    table.PrimaryKey("PK_GiayPhepLaiXes", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_GiayPhepLaiXe_DuLieu_DuLieu_Id",
-                        column: x => x.DuLieu_Id,
-                        principalTable: "DuLieu",
-                        principalColumn: "Id");
+                        name: "FK_GiayPhepLaiXes_DuLieus_DuLieuId",
+                        column: x => x.DuLieuId,
+                        principalTable: "DuLieus",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_CanCuocCongDan_DuLieu_Id",
-                table: "CanCuocCongDan",
-                column: "DuLieu_Id");
+                name: "IX_CanCuocCongDans_DuLieuId",
+                table: "CanCuocCongDans",
+                column: "DuLieuId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_GiayPhepLaiXe_DuLieu_Id",
-                table: "GiayPhepLaiXe",
-                column: "DuLieu_Id");
+                name: "IX_GiayPhepLaiXes_DuLieuId",
+                table: "GiayPhepLaiXes",
+                column: "DuLieuId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "CanCuocCongDan");
+                name: "CanCuocCongDans");
 
             migrationBuilder.DropTable(
-                name: "GiayPhepLaiXe");
+                name: "GiayPhepLaiXes");
 
             migrationBuilder.DropTable(
-                name: "DuLieu");
+                name: "DuLieus");
         }
     }
 }
