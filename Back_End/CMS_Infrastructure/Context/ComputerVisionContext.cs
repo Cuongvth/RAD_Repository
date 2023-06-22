@@ -1,4 +1,4 @@
-﻿using CMS_WebDesignCore.Entities;
+﻿using CMS_Infrastructure.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace CMS_Infrastructure.Context
@@ -14,9 +14,9 @@ namespace CMS_Infrastructure.Context
         {
         }
 
-        public virtual DbSet<CitizenIdentification> CitizenIdentifications { get; set; } = null!;
-        public virtual DbSet<Datum> Data { get; set; } = null!;
-        public virtual DbSet<DrivingLicense> DrivingLicenses { get; set; } = null!;
+        public virtual DbSet<CanCuocCongDan> CanCuocCongDans { get; set; } = null!;
+        public virtual DbSet<DuLieu> DuLieus { get; set; } = null!;
+        public virtual DbSet<GiayPhepLaiXe> GiayPhepLaiXes { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -28,31 +28,47 @@ namespace CMS_Infrastructure.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            _ = modelBuilder.Entity<CitizenIdentification>(entity =>
+            _ = modelBuilder.Entity<CanCuocCongDan>(entity =>
             {
-                _ = entity.ToTable("CitizenIdentification");
+                _ = entity.ToTable("CanCuocCongDan");
 
                 _ = entity.Property(e => e.Id).ValueGeneratedNever();
 
-                _ = entity.HasOne(d => d.Data)
-                    .WithMany(p => p.CitizenIdentifications)
-                    .HasForeignKey(d => d.DataId);
+                _ = entity.Property(e => e.DoChinhXacVnm).HasColumnName("DoChinhXacVNM");
+
+                _ = entity.Property(e => e.DuLieuId).HasColumnName("DuLieu_Id");
+
+                _ = entity.Property(e => e.Vnm).HasColumnName("VNM");
+
+                _ = entity.HasOne(d => d.DuLieu)
+                    .WithMany(p => p.CanCuocCongDans)
+                    .HasForeignKey(d => d.DuLieuId)
+                    .HasConstraintName("CanCuocCongDan_DuLieu");
             });
 
-            _ = modelBuilder.Entity<Datum>(entity =>
+            _ = modelBuilder.Entity<DuLieu>(entity =>
             {
+                _ = entity.ToTable("DuLieu");
+
                 _ = entity.Property(e => e.Id).ValueGeneratedNever();
+
+                _ = entity.Property(e => e.MatSau).HasColumnType("image");
+
+                _ = entity.Property(e => e.MatTruoc).HasColumnType("image");
             });
 
-            _ = modelBuilder.Entity<DrivingLicense>(entity =>
+            _ = modelBuilder.Entity<GiayPhepLaiXe>(entity =>
             {
-                _ = entity.ToTable("DrivingLicense");
+                _ = entity.ToTable("GiayPhepLaiXe");
 
                 _ = entity.Property(e => e.Id).ValueGeneratedNever();
 
-                _ = entity.HasOne(d => d.Data)
-                    .WithMany(p => p.DrivingLicenses)
-                    .HasForeignKey(d => d.DataId);
+                _ = entity.Property(e => e.DuLieuId).HasColumnName("DuLieu_Id");
+
+                _ = entity.HasOne(d => d.DuLieu)
+                    .WithMany(p => p.GiayPhepLaiXes)
+                    .HasForeignKey(d => d.DuLieuId)
+                    .HasConstraintName("GiayPhepLaiXe_DuLieu");
             });
 
             OnModelCreatingPartial(modelBuilder);
