@@ -1,13 +1,15 @@
 <template>
-  <v-row>
-    <v-col cols="7">
-      <GetCard :getData="getData" :cardData="cardData"></GetCard>
-      <CanCuoc v-if="type == 1" :cardData="cardData" />
-    </v-col>
-    <v-col cols="5">
-      <TextCard></TextCard>
-    </v-col>
-  </v-row>
+  <div style="margin: 50px">
+    <v-row>
+      <v-col cols="7">
+        <GetCard :getData="getData" :cardData="cardData"></GetCard>
+        <CanCuoc v-if="type == 1" :cardData="cardData" />
+      </v-col>
+      <v-col cols="5">
+        <TextCard></TextCard>
+      </v-col>
+    </v-row>
+  </div>
   <v-overlay
     persistent
     v-model="overlayVisible"

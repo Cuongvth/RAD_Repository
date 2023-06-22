@@ -2,7 +2,7 @@
   <v-layout class="rounded rounded-md">
     <HeaderAdmin />
     <NavsBar />
-    <v-main style="min-height: 100vh; margin: 20px">
+    <v-main style="min-height: 100vh">
       <router-view />
     </v-main>
   </v-layout>

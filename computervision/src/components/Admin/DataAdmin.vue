@@ -29,7 +29,7 @@
         </td>
         <td>19/10/2003</td>
         <td>{{ item.status == 1 ? "Chưa nhận diện" : "Đã nhận diện" }}</td>
-        <td><v-btn color="#4d96ff">Nhận dạng</v-btn></td>
+        <td><ShowDataCard /></td>
       </tr>
     </tbody>
   </v-table>
@@ -37,8 +37,10 @@
 
 <script>
 import DemoAPI from "../../api/DemoRD/DemoAPI.js";
+import ShowDataCard from "./ShowDataCard.vue";
 export default {
   name: "DataAdmin",
+  components: { ShowDataCard },
   data() {
     return {
       desserts: null,
