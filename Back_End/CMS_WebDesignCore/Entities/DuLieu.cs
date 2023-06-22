@@ -8,7 +8,7 @@
             GiayPhepLaiXes = new HashSet<GiayPhepLaiXe>();
         }
 
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public byte[]? MatTruoc { get; set; }
         public byte[]? MatSau { get; set; }
         public int? Status { get; set; }

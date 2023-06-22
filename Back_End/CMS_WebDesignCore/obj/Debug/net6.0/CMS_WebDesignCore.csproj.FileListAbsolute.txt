@@ -10,3 +10,15 @@ W:\Git\Computer_Vision\Back_End\CMS_WebDesignCore\obj\Debug\net6.0\CMS_WebDesign
 W:\Git\Computer_Vision\Back_End\CMS_WebDesignCore\obj\Debug\net6.0\refint\CMS_WebDesignCore.dll
 W:\Git\Computer_Vision\Back_End\CMS_WebDesignCore\obj\Debug\net6.0\CMS_WebDesignCore.pdb
 W:\Git\Computer_Vision\Back_End\CMS_WebDesignCore\obj\Debug\net6.0\ref\CMS_WebDesignCore.dll
+C:\Users\LTS\Documents\GitHub\Computer_Vision\Back_End\CMS_WebDesignCore\bin\Debug\net6.0\CMS_WebDesignCore.deps.json
+C:\Users\LTS\Documents\GitHub\Computer_Vision\Back_End\CMS_WebDesignCore\bin\Debug\net6.0\CMS_WebDesignCore.dll
+C:\Users\LTS\Documents\GitHub\Computer_Vision\Back_End\CMS_WebDesignCore\bin\Debug\net6.0\CMS_WebDesignCore.pdb
+C:\Users\LTS\Documents\GitHub\Computer_Vision\Back_End\CMS_WebDesignCore\obj\Debug\net6.0\CMS_WebDesignCore.csproj.AssemblyReference.cache
+C:\Users\LTS\Documents\GitHub\Computer_Vision\Back_End\CMS_WebDesignCore\obj\Debug\net6.0\CMS_WebDesignCore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\LTS\Documents\GitHub\Computer_Vision\Back_End\CMS_WebDesignCore\obj\Debug\net6.0\CMS_WebDesignCore.AssemblyInfoInputs.cache
+C:\Users\LTS\Documents\GitHub\Computer_Vision\Back_End\CMS_WebDesignCore\obj\Debug\net6.0\CMS_WebDesignCore.AssemblyInfo.cs
+C:\Users\LTS\Documents\GitHub\Computer_Vision\Back_End\CMS_WebDesignCore\obj\Debug\net6.0\CMS_WebDesignCore.csproj.CoreCompileInputs.cache
+C:\Users\LTS\Documents\GitHub\Computer_Vision\Back_End\CMS_WebDesignCore\obj\Debug\net6.0\CMS_WebDesignCore.dll
+C:\Users\LTS\Documents\GitHub\Computer_Vision\Back_End\CMS_WebDesignCore\obj\Debug\net6.0\refint\CMS_WebDesignCore.dll
+C:\Users\LTS\Documents\GitHub\Computer_Vision\Back_End\CMS_WebDesignCore\obj\Debug\net6.0\CMS_WebDesignCore.pdb
+C:\Users\LTS\Documents\GitHub\Computer_Vision\Back_End\CMS_WebDesignCore\obj\Debug\net6.0\ref\CMS_WebDesignCore.dll

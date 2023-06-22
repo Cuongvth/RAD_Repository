@@ -1,0 +1,17 @@
+C:\Users\LTS\Documents\GitHub\Computer_Vision\Back_End\CMS_Infrastructure\bin\Release\net6.0\CMS_Infrastructure.deps.json
+C:\Users\LTS\Documents\GitHub\Computer_Vision\Back_End\CMS_Infrastructure\bin\Release\net6.0\CMS_Infrastructure.runtimeconfig.json
+C:\Users\LTS\Documents\GitHub\Computer_Vision\Back_End\CMS_Infrastructure\bin\Release\net6.0\CMS_Infrastructure.dll
+C:\Users\LTS\Documents\GitHub\Computer_Vision\Back_End\CMS_Infrastructure\bin\Release\net6.0\CMS_Infrastructure.pdb
+C:\Users\LTS\Documents\GitHub\Computer_Vision\Back_End\CMS_Infrastructure\bin\Release\net6.0\CMS_WebDesignCore.dll
+C:\Users\LTS\Documents\GitHub\Computer_Vision\Back_End\CMS_Infrastructure\bin\Release\net6.0\CMS_WebDesignCore.pdb
+C:\Users\LTS\Documents\GitHub\Computer_Vision\Back_End\CMS_Infrastructure\obj\Release\net6.0\CMS_Infrastructure.csproj.AssemblyReference.cache
+C:\Users\LTS\Documents\GitHub\Computer_Vision\Back_End\CMS_Infrastructure\obj\Release\net6.0\CMS_Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\LTS\Documents\GitHub\Computer_Vision\Back_End\CMS_Infrastructure\obj\Release\net6.0\CMS_Infrastructure.AssemblyInfoInputs.cache
+C:\Users\LTS\Documents\GitHub\Computer_Vision\Back_End\CMS_Infrastructure\obj\Release\net6.0\CMS_Infrastructure.AssemblyInfo.cs
+C:\Users\LTS\Documents\GitHub\Computer_Vision\Back_End\CMS_Infrastructure\obj\Release\net6.0\CMS_Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\LTS\Documents\GitHub\Computer_Vision\Back_End\CMS_Infrastructure\obj\Release\net6.0\CMS_Infrastructure.csproj.CopyComplete
+C:\Users\LTS\Documents\GitHub\Computer_Vision\Back_End\CMS_Infrastructure\obj\Release\net6.0\CMS_Infrastructure.dll
+C:\Users\LTS\Documents\GitHub\Computer_Vision\Back_End\CMS_Infrastructure\obj\Release\net6.0\refint\CMS_Infrastructure.dll
+C:\Users\LTS\Documents\GitHub\Computer_Vision\Back_End\CMS_Infrastructure\obj\Release\net6.0\CMS_Infrastructure.pdb
+C:\Users\LTS\Documents\GitHub\Computer_Vision\Back_End\CMS_Infrastructure\obj\Release\net6.0\CMS_Infrastructure.genruntimeconfig.cache
+C:\Users\LTS\Documents\GitHub\Computer_Vision\Back_End\CMS_Infrastructure\obj\Release\net6.0\ref\CMS_Infrastructure.dll
