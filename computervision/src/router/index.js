@@ -1,5 +1,6 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import AdminLayout from "@/components/Admin/AdminLayout.vue";
+import DataAdmin from "@/components/Admin/DataAdmin.vue";
 import DetailsCanCuoc from "@/components/Admin/DetailsCanCuoc.vue";
 import HistoryAdmin from "@/components/Admin/HistoryAdmin.vue";
 import CheckCard from "@/components/Admin/Add/CheckCard.vue";
@@ -26,6 +27,10 @@ const routes = [
       {
         path: "detailscancuoc",
         component: DetailsCanCuoc,
+      },
+      {
+        path: "data",
+        component: DataAdmin,
       },
     ],
   },

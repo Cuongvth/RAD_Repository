@@ -52,6 +52,11 @@ export default {
           title: "Lịch sử",
           to: "/admin/history",
         },
+        {
+          icon: "mdi-view-dashboard",
+          title: "Dữ liệu",
+          to: "/admin/data",
+        },
       ],
       navgroups: [
         {

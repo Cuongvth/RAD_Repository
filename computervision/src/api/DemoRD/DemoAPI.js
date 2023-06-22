@@ -16,6 +16,17 @@ class DemoAPI {
         });
     });
   }
+  getDuLieu() {
+    return new Promise((resolve, reject) => {
+      HTTP.get(`admin/getdulieu?page=1&pageSize=5`)
+        .then((response) => {
+          resolve(response.data);
+        })
+        .catch((error) => {
+          reject(error);
+        });
+    });
+  }
 }
 
 module.exports = new DemoAPI();
