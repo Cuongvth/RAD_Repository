@@ -3,7 +3,7 @@ import AdminLayout from "@/components/Admin/AdminLayout.vue";
 import DataAdmin from "@/components/Admin/DataAdmin.vue";
 import DetailsCanCuoc from "@/components/Admin/DetailsCanCuoc.vue";
 import HistoryAdmin from "@/components/Admin/HistoryAdmin.vue";
-import CheckCard from "@/components/Admin/Add/CheckCard.vue";
+import CheckCard from "@/components/Admin/CheckLocal/CheckCard.vue";
 import MainVue from "@/components/Main/MainVue.vue";
 const routes = [
   {

@@ -48,8 +48,16 @@ export default {
   },
   methods: {
     async getData() {
-      var result = await DemoAPI.getDuLieu();
-      this.desserts = result;
+      try {
+        this.$store.commit("setOverlayVisible", true);
+        this.desserts = await DemoAPI.getDuLieu();
+        this.$store.commit("setOverlayVisible", false);
+        this.$store.commit("setSnackBarContent", "Xác nhận thành công");
+      } catch (error) {
+        this.$store.commit("setOverlayVisible", false);
+        this.$store.commit("setSnackBarContent", "Không tải được dữ liệu");
+        return;
+      }
     },
   },
   created() {

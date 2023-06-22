@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import CheckCard from "../Admin/Add/CheckCard.vue";
+import CheckCard from "../Admin/CheckInData/CheckCard.vue";
 export default {
   name: "DataAdmin",
   components: { CheckCard },

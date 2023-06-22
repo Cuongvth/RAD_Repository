@@ -73,14 +73,6 @@
       Kiểm tra</v-btn
     >
   </div>
-  <v-snackbar v-model="snackbar">
-    {{ text }}
-    <template v-slot:actions>
-      <v-btn color="green" variant="text" @click="snackbar = false">
-        Đóng
-      </v-btn>
-    </template>
-  </v-snackbar>
 </template>
 
 <script>
@@ -89,16 +81,16 @@ export default {
     return {
       selectFile: [null, null],
       dataImage: ["", ""],
-      snackbar: false,
-      text: "",
     };
   },
   methods: {
     async submit() {
       this.btnLoading = true;
       if (this.selectFile[0] == null || this.selectFile[1] == null) {
-        this.text = "Không được để trống hình ảnh!";
-        this.snackbar = true;
+        this.$store.commit(
+          "setSnackBarContent",
+          "Không được để trống hình ảnh!"
+        );
         this.btnLoading = false;
         return;
       }
@@ -121,8 +113,10 @@ export default {
         this.selectFile[index][0].type == "image/jpg"
       ) {
         if (this.selectFile[index][0].size > 2048576) {
-          this.text = "File quá nặng chỉ hỗ trợ file dung lượng < 1MB";
-          this.snackbar = true;
+          this.$store.commit(
+            "setSnackBarContent",
+            "File quá nặng chỉ hỗ trợ file dung lượng < 1MB"
+          );
           return;
         }
         const reader = new FileReader();
@@ -131,9 +125,10 @@ export default {
         };
         reader.readAsDataURL(this.selectFile[index][0]);
       } else {
-        this.text =
-          "Vui lòng chọn đúng file định dạng ảnh! Các định dạng được hỗ trợ: JPG, JPEG, PNG";
-        this.snackbar = true;
+        this.$store.commit(
+          "setSnackBarContent",
+          "Vui lòng chọn đúng file định dạng ảnh! Các định dạng được hỗ trợ: JPG, JPEG, PNG"
+        );
         return;
       }
     },

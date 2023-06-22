@@ -1,5 +1,4 @@
 <template>
-  <h3 class="text-center">Căn cước công dân</h3>
   <v-card-text>
     <v-container>
       <v-row>
@@ -257,6 +256,7 @@
 export default {
   data() {
     return {
+      data: null,
       checkSoCCCD: true,
       checkHoTen: true,
       checkNgayThangNamSinh: true,
