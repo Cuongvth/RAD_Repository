@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CMS_Infrastructure.Migrations
 {
-    public partial class craete : Migration
+    public partial class create : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -17,6 +17,8 @@ namespace CMS_Infrastructure.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     MatTruoc = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
                     MatSau = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
+                    ThoiGianThem = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ThoiGianXacNhan = table.Column<DateTime>(type: "datetime2", nullable: true),
                     Status = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -30,29 +32,29 @@ namespace CMS_Infrastructure.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    So = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SoCCCD = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     HoTen = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    NgaySinh = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    NgayThangNamSinh = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     GioiTinh = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     QuocTich = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    NgayHetHan = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DiaChiThuongTru = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     QueQuan = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    NoiThuongTru = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CoGiaTriDen = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DacDiemNhanDang = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    NgayCap = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Vnm = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DoChinhXacSo = table.Column<int>(type: "int", nullable: true),
-                    DoChinhXacHoTen = table.Column<int>(type: "int", nullable: true),
-                    DoChinhXacNgaySinh = table.Column<int>(type: "int", nullable: true),
-                    DoChinhXacGioiTinh = table.Column<int>(type: "int", nullable: true),
-                    DoChinhXacQuocTich = table.Column<int>(type: "int", nullable: true),
-                    DoChinhXacNgayHetHan = table.Column<int>(type: "int", nullable: true),
-                    DoChinhXacDiaChiThuongTru = table.Column<int>(type: "int", nullable: true),
-                    DoChinhXacQueQuan = table.Column<int>(type: "int", nullable: true),
-                    DoChinhXacDacDiemNhanDang = table.Column<int>(type: "int", nullable: true),
-                    DoChinhXacNgayCap = table.Column<int>(type: "int", nullable: true),
-                    DoChinhXacVnm = table.Column<int>(type: "int", nullable: true),
-                    ChinhXac = table.Column<bool>(type: "bit", nullable: true),
+                    NgayDangKy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    VNM = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsSoCCCD = table.Column<bool>(type: "bit", nullable: true),
+                    IsHoTen = table.Column<bool>(type: "bit", nullable: true),
+                    IsNgayThangNamSinh = table.Column<bool>(type: "bit", nullable: true),
+                    IsGioiTinh = table.Column<bool>(type: "bit", nullable: true),
+                    IsQuocTich = table.Column<bool>(type: "bit", nullable: true),
+                    IsQueQuan = table.Column<bool>(type: "bit", nullable: true),
+                    IsNoiThuongTru = table.Column<bool>(type: "bit", nullable: true),
+                    IsCoGiaTriDen = table.Column<bool>(type: "bit", nullable: true),
+                    IsDacDiemNhanDang = table.Column<bool>(type: "bit", nullable: true),
+                    IsNgayDangKy = table.Column<bool>(type: "bit", nullable: true),
+                    IsVNM = table.Column<bool>(type: "bit", nullable: true),
+                    DungTatCa = table.Column<bool>(type: "bit", nullable: true),
                     DuLieuId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -75,22 +77,22 @@ namespace CMS_Infrastructure.Migrations
                     So = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     HoTen = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     NgaySinh = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    GioiTinh = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    QuocTich = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    NoiCuTru = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    NgayDangKy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Hang = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DiaChi = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PhuongTienDuocPhep = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    MoTaXeDuocSuDung = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     NgayTrungTuyen = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    NgayDangKi = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DoChinhXacSo = table.Column<int>(type: "int", nullable: true),
-                    DoChinhXacHoTen = table.Column<int>(type: "int", nullable: true),
-                    DoChinhXacNgaySinh = table.Column<int>(type: "int", nullable: true),
-                    DoChinhXacGioiTinh = table.Column<int>(type: "int", nullable: true),
-                    DoChinhXacHang = table.Column<int>(type: "int", nullable: true),
-                    DoChinhXacDiaChi = table.Column<int>(type: "int", nullable: true),
-                    DoChinhXacPhuongTienDuocPhep = table.Column<int>(type: "int", nullable: true),
-                    DoChinhXacNgayTrungTuyen = table.Column<int>(type: "int", nullable: true),
-                    DoChinhXacNgayDangKi = table.Column<int>(type: "int", nullable: true),
-                    ChinhXac = table.Column<bool>(type: "bit", nullable: true),
+                    IsSo = table.Column<bool>(type: "bit", nullable: true),
+                    IsHoTen = table.Column<bool>(type: "bit", nullable: true),
+                    IsNgaySinh = table.Column<bool>(type: "bit", nullable: true),
+                    IsQuocTich = table.Column<bool>(type: "bit", nullable: true),
+                    IsNoiCuTru = table.Column<bool>(type: "bit", nullable: true),
+                    IsNgayDangKy = table.Column<bool>(type: "bit", nullable: true),
+                    IsHang = table.Column<bool>(type: "bit", nullable: true),
+                    IsMoTaXeDuocSuDung = table.Column<bool>(type: "bit", nullable: true),
+                    IsNgayTrungTuyen = table.Column<bool>(type: "bit", nullable: true),
+                    DungTatCa = table.Column<bool>(type: "bit", nullable: true),
                     DuLieuId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>

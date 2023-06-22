@@ -12,7 +12,7 @@ namespace CMS_Infrastructure.Context
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //   _ = optionsBuilder.UseSqlServer("Server=LOTUS-PC\\SQLEXPRESS;Database=djxuyen1_rd;User ID=sa;Password=1231234;Encrypt=True;TrustServerCertificate=True;");
-            //    _ = optionsBuilder.UseSqlServer("Server=125.212.224.205;Database=djxuyen1_rd;User ID=djxuyen1_remote;Password=Mamama99@;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;");
+            //  _ = optionsBuilder.UseSqlServer("Server=125.212.224.205;Database=djxuyen1_rd;User ID=djxuyen1_remote;Password=Mamama99@;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;");
             _ = optionsBuilder.UseSqlServer("Server=localhost;Database=djxuyen1_rd;User ID=djxuyen1_remote;Password=Mamama99@;Connect Timeout=30;Encrypt=True;TrustServerCertificate=True;");
         }
 

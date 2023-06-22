@@ -4,7 +4,7 @@
     {
         KHONGDUDUIEU = 1,
         THANHCONG = 2,
-        BLX = 3,
-        CCCD = 4
+        THATBAI = 3,
+        NOTFOUND = 4
     }
 }

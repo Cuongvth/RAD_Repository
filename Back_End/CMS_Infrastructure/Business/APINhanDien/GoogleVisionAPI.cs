@@ -18,7 +18,7 @@ namespace CMS_Infrastructure.Business.APINhanDien
 {
     public class GoogleVisionAPI
     {
-        private static string[] GetInfo(string data)
+        public static string[] LayThongTinTrenThe(string data)
         {
             // Thay thế "your-api-key" bằng API key của bạn
             var apiKey = "AIzaSyCR6UzC-4bo0gHXR419CPQoi2GQM0tldNY";
@@ -65,9 +65,9 @@ namespace CMS_Infrastructure.Business.APINhanDien
             }
             return result[0].Split("\n");
         }
-        public static CheckResult CheckTypeCard(string data)
+        public static CheckResult NhanDangThe(string data)
         {
-            string[] dataRender = GetInfo(data);
+            string[] dataRender = LayThongTinTrenThe(data);
             for (int i = 0; i < dataRender.Length; i++)
             {
                 if (dataRender[i].Contains("CĂN CƯỚC CÔNG DÂN") || dataRender[i].Contains("GIẤY CHỨNG MINH NHÂN DÂN") || dataRender[i].Contains("CHỨNG MINH NHÂN DÂN"))
@@ -82,7 +82,7 @@ namespace CMS_Infrastructure.Business.APINhanDien
                 {
                     return new CheckResult()
                     {
-                        Type = TypeCard.CCCD,
+                        Type = TypeCard.BLX,
                         Data = dataRender
                     };
                 }
