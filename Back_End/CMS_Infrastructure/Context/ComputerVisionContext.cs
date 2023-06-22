@@ -1,4 +1,4 @@
-﻿using CMS_Infrastructure.Models;
+﻿using CMS_WebDesignCore.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace CMS_Infrastructure.Context
@@ -42,8 +42,7 @@ namespace CMS_Infrastructure.Context
 
                 _ = entity.HasOne(d => d.DuLieu)
                     .WithMany(p => p.CanCuocCongDans)
-                    .HasForeignKey(d => d.DuLieuId)
-                    .HasConstraintName("CanCuocCongDan_DuLieu");
+                    .HasForeignKey(d => d.DuLieuId);
             });
 
             _ = modelBuilder.Entity<DuLieu>(entity =>
@@ -51,10 +50,6 @@ namespace CMS_Infrastructure.Context
                 _ = entity.ToTable("DuLieu");
 
                 _ = entity.Property(e => e.Id).ValueGeneratedNever();
-
-                _ = entity.Property(e => e.MatSau).HasColumnType("image");
-
-                _ = entity.Property(e => e.MatTruoc).HasColumnType("image");
             });
 
             _ = modelBuilder.Entity<GiayPhepLaiXe>(entity =>
@@ -67,8 +62,7 @@ namespace CMS_Infrastructure.Context
 
                 _ = entity.HasOne(d => d.DuLieu)
                     .WithMany(p => p.GiayPhepLaiXes)
-                    .HasForeignKey(d => d.DuLieuId)
-                    .HasConstraintName("GiayPhepLaiXe_DuLieu");
+                    .HasForeignKey(d => d.DuLieuId);
             });
 
             OnModelCreatingPartial(modelBuilder);

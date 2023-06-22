@@ -1,4 +1,4 @@
-﻿namespace CMS_Infrastructure.Models
+﻿namespace CMS_WebDesignCore.Entities
 {
     public partial class DuLieu
     {
