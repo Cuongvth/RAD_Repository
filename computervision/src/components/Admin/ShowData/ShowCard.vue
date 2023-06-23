@@ -8,8 +8,10 @@
     <v-window-item key="0" value="0"
       ><CanCuoc v-if="type == 1" :cardData="cardData" />
     </v-window-item>
-    <v-window-item key="1" value="1"> </v-window-item>
-    <v-window-item key="2" value="2"> <TextCard /></v-window-item>
+    <v-window-item key="1" value="1"> aaaaaaaaaaaaa</v-window-item>
+    <v-window-item key="2" value="2">
+      <TextCard :googleMatTruoc="googleMatTruoc" :googleMatSau="googleMatSau"
+    /></v-window-item>
   </v-window>
 </template>
 
@@ -20,19 +22,14 @@ export default {
   components: { CanCuoc, TextCard },
   name: "ShowCard",
   data() {
-    return {
-      tab: null,
-    };
+    return { tab: null };
   },
-  watch: {
-    cardData: {
-      handler() {
-        this.tab = 0;
-      },
-      immediate: true,
-    },
+  props: {
+    type: Number,
+    cardData: Object,
+    googleMatTruoc: Array,
+    googleMatSau: Array,
   },
-  props: { type: Number, cardData: Object },
 };
 </script>
 

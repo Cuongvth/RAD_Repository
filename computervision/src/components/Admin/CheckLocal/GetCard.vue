@@ -85,13 +85,11 @@ export default {
   },
   methods: {
     async submit() {
-      this.btnLoading = true;
       if (this.selectFile[0] == null || this.selectFile[1] == null) {
         this.$store.commit(
           "setSnackBarContent",
           "Không được để trống hình ảnh!"
         );
-        this.btnLoading = false;
         return;
       }
       const formData = new FormData();
@@ -104,7 +102,6 @@ export default {
         this.selectFile[1] ? this.selectFile[1][0] : null
       );
       this.getData(formData);
-      this.btnLoading = false;
     },
     onFileSelect(index) {
       if (

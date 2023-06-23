@@ -300,6 +300,94 @@ export default {
     },
   },
   watch: {
+    checkSoCCCD: {
+      handler(newValue) {
+        if (newValue == true) {
+          this.accuracSoCCCD = 100;
+        }
+      },
+      immediate: true,
+    },
+    checkHoTen: {
+      handler(newValue) {
+        if (newValue == true) {
+          this.accuracHoTen = 100;
+        }
+      },
+      immediate: true,
+    },
+    checkNgayThangNamSinh: {
+      handler(newValue) {
+        if (newValue == true) {
+          this.accuracNgayThangNamSinh = 100;
+        }
+      },
+      immediate: true,
+    },
+    checkGioiTinh: {
+      handler(newValue) {
+        if (newValue == true) {
+          this.accuracGioiTinh = 100;
+        }
+      },
+      immediate: true,
+    },
+    checkQuocTich: {
+      handler(newValue) {
+        if (newValue == true) {
+          this.accuracQuocTich = 100;
+        }
+      },
+      immediate: true,
+    },
+    checkQueQuan: {
+      handler(newValue) {
+        if (newValue == true) {
+          this.accuracQueQuan = 100;
+        }
+      },
+      immediate: true,
+    },
+    checkNoiThuongTru: {
+      handler(newValue) {
+        if (newValue == true) {
+          this.accuracNoiThuongTru = 100;
+        }
+      },
+      immediate: true,
+    },
+    checkCoGiaTriDen: {
+      handler(newValue) {
+        if (newValue == true) {
+          this.accuracCoGiaTriDen = 100;
+        }
+      },
+      immediate: true,
+    },
+    checkDacDiemNhanDang: {
+      handler(newValue) {
+        if (newValue == true) {
+          this.accuracDacDiemNhanDang = 100;
+        }
+      },
+      immediate: true,
+    },
+    checkNgayDangKy: {
+      handler(newValue) {
+        if (newValue == true) {
+          this.accuracNgayDangKy = 100;
+        }
+      },
+      immediate: true,
+    },
+    checkVnm: {
+      handler(newValue) {
+        if (newValue == true) {
+          this.accuracVnm = 100;
+        }
+      },
+      immediate: true,
+    },
     cardData: {
       handler(newValue) {
         this.data = newValue;

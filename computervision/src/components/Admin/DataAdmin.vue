@@ -29,7 +29,13 @@
         </td>
         <td>19/10/2003</td>
         <td>{{ item.status == 1 ? "Chưa nhận diện" : "Đã nhận diện" }}</td>
-        <td><ShowDataCard /></td>
+        <td>
+          <ShowDataCard
+            :dataId="item.id"
+            :matTruoc="item.matTruoc"
+            :matSau="item.matSau"
+          />
+        </td>
       </tr>
     </tbody>
   </v-table>

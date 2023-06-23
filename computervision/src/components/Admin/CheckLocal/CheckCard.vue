@@ -1,9 +1,17 @@
 <template>
   <div style="margin: 50px">
     <GetCard :getData="getData" />
-    <div style="margin-top: 100px">
-      <ShowCard :type="type" :cardData="cardData" />
+    <div style="margin-top: 50px">
+      <ShowCard
+        :type="type"
+        :cardData="cardData"
+        :googleMatTruoc="googleMatTruoc"
+        :googleMatSau="googleMatSau"
+      />
     </div>
+    <v-btn v-if="dochinhXac.duDuLieu" style="margin-top: 50px"
+      >Xác nhận độ chính xác</v-btn
+    >
   </div>
 </template>
 
@@ -16,7 +24,16 @@ export default {
   data() {
     return {
       cardData: null,
+      googleMatTruoc: null,
+      googleMatSau: null,
       type: 0,
+      dochinhXac: {
+        toanVanTruoc: 100,
+        toanVanSau: 100,
+        truongDuLieu: {},
+        loaiThe: true,
+        duDuLieu: false,
+      },
     };
   },
   methods: {
@@ -24,7 +41,7 @@ export default {
       var result = null;
       try {
         this.$store.commit("setOverlayVisible", true);
-        result = await DemoAPI.check(formData);
+        result = await DemoAPI.checkDataLocal(formData);
         this.$store.commit("setOverlayVisible", false);
       } catch (error) {
         this.$store.commit("setOverlayVisible", false);
@@ -34,14 +51,23 @@ export default {
       if (result.status == 3) {
         this.$store.commit("setSnackBarContent", "Xác nhận thành công");
         this.type = 2;
-        this.cardData = result.data;
+        this.googleMatTruoc = result.result.googleMatTruoc;
+        this.googleMatSau = result.result.googleMatSau;
+        this.cardData = result.result.data;
       } else if (result.status == 4) {
         this.$store.commit("setSnackBarContent", "Xác nhận thành công");
-        this.cardData = result.data;
+        this.cardData = result.result.data;
+        this.googleMatTruoc = result.result.googleMatTruoc;
+        this.googleMatSau = result.result.googleMatSau;
         this.type = 1;
       } else {
         this.$store.commit("setSnackBarContent", "Không nhận dạng được");
-        this.type = 0;
+        // Phải xóa
+        this.cardData = result.result.data;
+        this.googleMatTruoc = result.result.googleMatTruoc;
+        this.googleMatSau = result.result.googleMatSau;
+        // Phải sửa thành 0
+        this.type = 1;
       }
     },
   },

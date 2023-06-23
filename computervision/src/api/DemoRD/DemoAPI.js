@@ -1,14 +1,27 @@
 const { HTTP } = require("../HTTPs");
 
 class DemoAPI {
-  check(form) {
+  checkDataLocal(form) {
     return new Promise((resolve, reject) => {
-      HTTP.post(`api/r&d/check`, form, {
+      HTTP.post(`admin/nhandangtructiep`, form, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       })
         .then((response) => {
+          console.log(response);
+          resolve(response.data);
+        })
+        .catch((error) => {
+          reject(error);
+        });
+    });
+  }
+  checkInData(id) {
+    return new Promise((resolve, reject) => {
+      HTTP.get(`admin/nhandang`, { duLieuId: id })
+        .then((response) => {
+          console.log(response);
           resolve(response.data);
         })
         .catch((error) => {
