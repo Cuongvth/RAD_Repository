@@ -2,7 +2,12 @@
   <div>
     <GetCard :getData="getData" :matTruoc="matTruoc" :matSau="matSau" />
     <div style="margin-top: 100px">
-      <ShowCard :type="type" :cardData="cardData" />
+      <ShowCard
+        :type="type"
+        :cardData="cardData"
+        :googleMatTruoc="googleMatTruoc"
+        :googleMatSau="googleMatSau"
+      />
     </div>
   </div>
 </template>

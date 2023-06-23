@@ -20,7 +20,6 @@ class DemoAPI {
     return new Promise((resolve, reject) => {
       HTTP.get(`admin/nhandang?duLieuId=${id}`)
         .then((response) => {
-          console.log(response);
           resolve(response.data);
         })
         .catch((error) => {
