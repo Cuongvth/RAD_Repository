@@ -1,5 +1,5 @@
 <template>
-  <div style="margin: 50px">
+  <div>
     <GetCard :getData="getData" />
     <div style="margin-top: 50px">
       <ShowCard
@@ -48,26 +48,16 @@ export default {
         this.$store.commit("setSnackBarContent", "Không nhận dạng được");
         return;
       }
-      if (result.status == 3) {
+      if (result.status == 1) {
         this.$store.commit("setSnackBarContent", "Xác nhận thành công");
-        this.type = 2;
+        this.type = result.result.type;
+        console.log(this.type);
         this.googleMatTruoc = result.result.googleMatTruoc;
         this.googleMatSau = result.result.googleMatSau;
         this.cardData = result.result.data;
-      } else if (result.status == 4) {
-        this.$store.commit("setSnackBarContent", "Xác nhận thành công");
-        this.cardData = result.result.data;
-        this.googleMatTruoc = result.result.googleMatTruoc;
-        this.googleMatSau = result.result.googleMatSau;
-        this.type = 1;
       } else {
         this.$store.commit("setSnackBarContent", "Không nhận dạng được");
-        // Phải xóa
-        this.cardData = result.result.data;
-        this.googleMatTruoc = result.result.googleMatTruoc;
-        this.googleMatSau = result.result.googleMatSau;
-        // Phải sửa thành 0
-        this.type = 1;
+        this.type = 0;
       }
     },
   },

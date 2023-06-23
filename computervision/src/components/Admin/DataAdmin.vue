@@ -39,6 +39,12 @@
       </tr>
     </tbody>
   </v-table>
+  <v-pagination
+    v-if="this.$store.getters.getOverlayVisible == false"
+    v-model="page"
+    :length="15"
+    :total-visible="5"
+  ></v-pagination>
 </template>
 
 <script>
@@ -49,6 +55,7 @@ export default {
   components: { ShowDataCard },
   data() {
     return {
+      page: 1,
       desserts: null,
     };
   },
@@ -56,7 +63,7 @@ export default {
     async getData() {
       try {
         this.$store.commit("setOverlayVisible", true);
-        this.desserts = await DemoAPI.getDuLieu();
+        this.desserts = await DemoAPI.getDuLieu(this.page, 10);
         this.$store.commit("setOverlayVisible", false);
         this.$store.commit("setSnackBarContent", "Xác nhận thành công");
       } catch (error) {
@@ -68,6 +75,14 @@ export default {
   },
   created() {
     this.getData();
+  },
+  watch: {
+    page: {
+      handler() {
+        this.getData();
+      },
+      immediate: true,
+    },
   },
 };
 </script>

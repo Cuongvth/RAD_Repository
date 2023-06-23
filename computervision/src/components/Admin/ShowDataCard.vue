@@ -3,7 +3,7 @@
     <template v-slot:activator="{ props }">
       <v-btn color="#4d96ff" v-bind="props"> Chi tiết </v-btn>
     </template>
-    <v-card style="background-color: white">
+    <v-card style="background-color: white; padding: 0 50px; padding-top: 50px">
       <CheckCard
         :dataId="dataId"
         :matTruoc="matTruoc"

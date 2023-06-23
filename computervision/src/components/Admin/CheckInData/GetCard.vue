@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-row>
-      <v-col cols="6">
+      <v-col cols="4">
         <img
           :src="`data:image/jpeg;base64, ` + matTruoc"
           alt=""
@@ -9,7 +9,7 @@
           v-if="matTruoc.length > 0"
         />
       </v-col>
-      <v-col cols="6">
+      <v-col cols="4">
         <img
           :src="`data:image/jpeg;base64, ` + matSau"
           alt=""

@@ -9,7 +9,6 @@ class DemoAPI {
         },
       })
         .then((response) => {
-          console.log(response);
           resolve(response.data);
         })
         .catch((error) => {
@@ -19,7 +18,7 @@ class DemoAPI {
   }
   checkInData(id) {
     return new Promise((resolve, reject) => {
-      HTTP.get(`admin/nhandang`, { duLieuId: id })
+      HTTP.get(`admin/nhandang?duLieuId=${id}`)
         .then((response) => {
           console.log(response);
           resolve(response.data);
@@ -29,9 +28,9 @@ class DemoAPI {
         });
     });
   }
-  getDuLieu() {
+  getDuLieu(page, pageSize) {
     return new Promise((resolve, reject) => {
-      HTTP.get(`admin/getdulieu?page=1&pageSize=5`)
+      HTTP.get(`admin/getdulieu?page=${page}&pageSize=${pageSize}`)
         .then((response) => {
           resolve(response.data);
         })

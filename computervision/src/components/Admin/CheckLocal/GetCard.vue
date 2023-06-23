@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-row>
-      <v-col cols="6">
+      <v-col cols="4">
         <img
           :src="`data:image/jpeg;base64, ` + dataImage[0]"
           alt=""
@@ -9,7 +9,7 @@
           v-if="dataImage[0].length > 0"
         />
       </v-col>
-      <v-col cols="6">
+      <v-col cols="4">
         <img
           :src="`data:image/jpeg;base64, ` + dataImage[1]"
           alt=""
@@ -19,7 +19,7 @@
       </v-col>
     </v-row>
     <v-row>
-      <v-col cols="6">
+      <v-col cols="4">
         <v-btn
           color="#4d96ff"
           style="height: 35px; width: 104px; font-size: 14px; font-weight: 400"
@@ -38,7 +38,7 @@
           style="display: none"
         ></v-file-input>
       </v-col>
-      <v-col cols="6">
+      <v-col cols="4">
         <v-btn
           color="#4d96ff"
           style="height: 35px; width: 104px; font-size: 14px; font-weight: 400"
