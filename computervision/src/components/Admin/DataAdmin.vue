@@ -27,7 +27,7 @@
             v-if="item.matSau.length > 0"
           />
         </td>
-        <td>19/10/2003</td>
+        <td>{{ item.thoiGianThem.substring(0, 10) }}</td>
         <td>{{ item.status == 1 ? "Chưa nhận diện" : "Đã nhận diện" }}</td>
         <td>
           <ShowDataCard
@@ -42,8 +42,8 @@
   <v-pagination
     v-if="this.$store.getters.getOverlayVisible == false"
     v-model="page"
-    :length="15"
-    :total-visible="5"
+    :length="100"
+    :total-visible="10"
   ></v-pagination>
 </template>
 
