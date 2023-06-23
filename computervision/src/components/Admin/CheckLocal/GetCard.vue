@@ -70,8 +70,8 @@
       "
       @click="submit()"
     >
-      Kiểm tra</v-btn
-    >
+      <v-icon icon="mdi mdi-credit-card-scan" size="20"
+    /></v-btn>
   </div>
 </template>
 

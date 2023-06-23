@@ -73,8 +73,8 @@
             readonly
             v-model="data.noiCuTru"
             density="compact"
-            label="Sex"
-            hint="Sex"
+            label="Address"
+            hint="Address"
             variant="outlined"
           ></v-text-field>
         </v-col>
@@ -117,8 +117,8 @@
             readonly
             v-model="data.hang"
             density="compact"
-            label="Date of expiry"
-            hint="Date of expiry"
+            label="Class"
+            hint="Class"
             variant="outlined"
           ></v-text-field>
         </v-col>
@@ -139,8 +139,8 @@
             readonly
             v-model="data.moTaXeDuocSuDung"
             density="compact"
-            label="Place of residence"
-            hint="Place of residence"
+            label="Vehicles are allowed to use"
+            hint="Vehicles are allowed to use"
             variant="outlined"
           ></v-text-field>
         </v-col>
@@ -161,8 +161,8 @@
             readonly
             v-model="data.ngayTrungTuyen"
             density="compact"
-            label="Place of onigin"
-            hint="Place of onigin"
+            label="Admission date"
+            hint="Admission date"
             variant="outlined"
           ></v-text-field>
         </v-col>
@@ -183,8 +183,8 @@
             readonly
             v-model="data.ngayDangKy"
             density="compact"
-            label="Date supply"
-            hint="Date supply"
+            label="Registration date"
+            hint="Registration date"
             variant="outlined"
           ></v-text-field>
         </v-col>

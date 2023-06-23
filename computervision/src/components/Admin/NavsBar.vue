@@ -49,6 +49,10 @@ export default {
           icon: "mdi mdi-format-list-bulleted-square",
           to: "/admin/data",
         },
+        {
+          icon: "mdi mdi-information-outline",
+          to: "/admin/info",
+        },
       ],
       navgroups: [],
     };

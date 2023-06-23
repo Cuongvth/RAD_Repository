@@ -1,7 +1,9 @@
 <template>
   <v-dialog v-model="dialog" maxWidth="1000" maxHeight="800">
     <template v-slot:activator="{ props }">
-      <v-btn color="#4d96ff" v-bind="props"> Chi tiết </v-btn>
+      <v-btn color="#4d96ff" v-bind="props"
+        ><v-icon icon="mdi mdi-credit-card-scan" size="20"
+      /></v-btn>
     </template>
     <v-card style="background-color: white; padding: 0 50px; padding-top: 50px">
       <CheckCard
