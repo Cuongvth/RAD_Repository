@@ -13,6 +13,7 @@ namespace CMS_Infrastructure.Plugins
         public static FullInfo<CanCuocCongDan> CCCDGanChip(string[] dataMatTruoc, string[] dataMatSau)
         {
             FullInfo<CanCuocCongDan> data = new FullInfo<CanCuocCongDan>();
+            data.Type = CMS_WebDesignCore.Enums.TypeCard.CCCD;
             CanCuocCongDan result = new CanCuocCongDan();
             int i = 0;
             foreach (var item in dataMatTruoc)

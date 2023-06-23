@@ -13,6 +13,7 @@ namespace CMS_Infrastructure.Plugins
         public static FullInfo<GiayPhepLaiXe> BLXAddData(string[] dataMatTruoc, string[] dataMatSau)
         {
             FullInfo<GiayPhepLaiXe> data = new FullInfo<GiayPhepLaiXe>();
+            data.Type = CMS_WebDesignCore.Enums.TypeCard.BLX;
             GiayPhepLaiXe result = new GiayPhepLaiXe();
             int i = 0;
             foreach (var item in dataMatTruoc)
