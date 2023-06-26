@@ -63,15 +63,14 @@
       color="#4d96ff"
       style="
         height: 35px;
-        width: 104px;
         font-size: 14px;
         font-weight: 400;
         margin: 20px 0 0 0;
       "
       @click="submit()"
     >
-      <v-icon icon="mdi mdi-credit-card-scan" size="20"
-    /></v-btn>
+      <v-icon icon="mdi mdi-credit-card-scan" size="20" />Nhận dạng</v-btn
+    >
   </div>
 </template>
 

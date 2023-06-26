@@ -15,13 +15,18 @@ namespace CMS_WebDesignCore.IBusiness
     {
 
         Task<IQueryable<CanCuocCongDan>> GetCanCuocPage(int page, int pageSize);
+        Task<int> GetCanCuocCount();
+        Task<int> GetBLXCount();
+        Task<int> GetDuLieuCount();
+        Task<IQueryable<GiayPhepLaiXe>> GetBLX(int id);
+        Task<IQueryable<CanCuocCongDan>> GetCanCuoc(int id);
         Task<IQueryable<DuLieu>> GetDuLieuPage(int page, int pageSize);
         Task<IQueryable<GiayPhepLaiXe>> GetBLXPage(int page, int pageSize);
         Task<ActionStatus> ThemDuLieu(IFormFile matTruoc, IFormFile matSau);
         Task<GoogleIdenDTO<CanCuocCongDan>> NhanDangCCCD(int duLieuId);
         Task<GoogleIdenDTO<GiayPhepLaiXe>> NhanDangBLX(int duLieuId);
         Task<CheckResult> NhanDang(int duLieuId);
-        Task<ActionStatus> ThongTinCoChinhXacCCCD(int CCCDID, PropCCCDEnum prop, bool isTrue);
+        Task<ActionStatus> ThongTinCoChinhXacCCCD(int CCCDID, PropCCCDEnum prop, int isTrue);
         Task<GoogleIdenDTO<CanCuocCongDan>> NhanDangCCCDTrucTiep(IFormFile matTruoc, IFormFile matSau);
         Task<GoogleIdenDTO<GiayPhepLaiXe>> NhanDangBLXTrucTiep(IFormFile matTruoc, IFormFile matSau);
         Task<CheckResult> NhanDangTrucTiep(IFormFile matTruoc);

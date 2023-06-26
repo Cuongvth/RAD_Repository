@@ -1,4 +1,5 @@
 <template>
+  <v-alert style="font-size: 25px; font-weight: 600">Dữ liệu chờ xử lí</v-alert>
   <v-table>
     <thead>
       <tr>
@@ -42,7 +43,7 @@
   <v-pagination
     v-if="this.$store.getters.getOverlayVisible == false"
     v-model="page"
-    :length="100"
+    :length="pageCount"
     :total-visible="10"
   ></v-pagination>
 </template>
@@ -57,6 +58,7 @@ export default {
     return {
       page: 1,
       desserts: null,
+      pageCount: 0,
     };
   },
   methods: {
@@ -64,6 +66,7 @@ export default {
       try {
         this.$store.commit("setOverlayVisible", true);
         this.desserts = await DemoAPI.getDuLieu(this.page, 10);
+        this.pageCount = (await DemoAPI.getDuLieuCount()) / 10 + 1;
         this.$store.commit("setOverlayVisible", false);
         this.$store.commit("setSnackBarContent", "Xác nhận thành công");
       } catch (error) {

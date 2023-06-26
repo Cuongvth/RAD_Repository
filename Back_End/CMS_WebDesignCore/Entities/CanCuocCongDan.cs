@@ -13,17 +13,17 @@
         public string? DacDiemNhanDang { get; set; }
         public string? NgayDangKy { get; set; }
         public string? VNM { get; set; }
-        public bool? IsSoCCCD { get; set; }
-        public bool? IsHoTen { get; set; }
-        public bool? IsNgayThangNamSinh { get; set; }
-        public bool? IsGioiTinh { get; set; }
-        public bool? IsQuocTich { get; set; }
-        public bool? IsQueQuan { get; set; }
-        public bool? IsNoiThuongTru { get; set; }
-        public bool? IsCoGiaTriDen { get; set; }
-        public bool? IsDacDiemNhanDang { get; set; }
-        public bool? IsNgayDangKy { get; set; }
-        public bool? IsVNM { get; set; }
+        public int? IsSoCCCD { get; set; }
+        public int? IsHoTen { get; set; }
+        public int? IsNgayThangNamSinh { get; set; }
+        public int? IsGioiTinh { get; set; }
+        public int? IsQuocTich { get; set; }
+        public int? IsQueQuan { get; set; }
+        public int? IsNoiThuongTru { get; set; }
+        public int? IsCoGiaTriDen { get; set; }
+        public int? IsDacDiemNhanDang { get; set; }
+        public int? IsNgayDangKy { get; set; }
+        public int? IsVNM { get; set; }
         public bool? DungTatCa { get; set; }
         public override string? ToString()
         {

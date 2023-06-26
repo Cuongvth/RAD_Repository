@@ -1,4 +1,7 @@
 <template>
+  <v-alert style="font-size: 25px; font-weight: 600"
+    >Nhận dạng trực tiếp</v-alert
+  >
   <div>
     <GetCard :getData="getData" />
     <div style="margin-top: 50px">
@@ -48,10 +51,10 @@ export default {
         this.$store.commit("setSnackBarContent", "Không nhận dạng được");
         return;
       }
+      console.log(result);
       if (result.status == 1) {
         this.$store.commit("setSnackBarContent", "Xác nhận thành công");
         this.type = result.result.type;
-        console.log(this.type);
         this.googleMatTruoc = result.result.googleMatTruoc;
         this.googleMatSau = result.result.googleMatSau;
         this.cardData = result.result.data;

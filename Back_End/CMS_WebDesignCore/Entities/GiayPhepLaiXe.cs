@@ -12,15 +12,15 @@
         public string? MoTaXeDuocSuDung { get; set; }
         public string? NgayTrungTuyen { get; set; }
 
-        public bool? IsSo { get; set; }
-        public bool? IsHoTen { get; set; }
-        public bool? IsNgaySinh { get; set; }
-        public bool? IsQuocTich { get; set; }
-        public bool? IsNoiCuTru { get; set; }
-        public bool? IsNgayDangKy { get; set; }
-        public bool? IsHang { get; set; }
-        public bool? IsMoTaXeDuocSuDung { get; set; }
-        public bool? IsNgayTrungTuyen { get; set; }
+        public int? IsSo { get; set; }
+        public int? IsHoTen { get; set; }
+        public int? IsNgaySinh { get; set; }
+        public int? IsQuocTich { get; set; }
+        public int? IsNoiCuTru { get; set; }
+        public int? IsNgayDangKy { get; set; }
+        public int? IsHang { get; set; }
+        public int? IsMoTaXeDuocSuDung { get; set; }
+        public int? IsNgayTrungTuyen { get; set; }
         public bool? DungTatCa { get; set; }
         public override string? ToString()
         {

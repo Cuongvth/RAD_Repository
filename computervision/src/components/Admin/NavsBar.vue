@@ -42,8 +42,12 @@ export default {
           to: "/admin/dashboard",
         },
         {
-          icon: "mdi mdi-history",
-          to: "/admin/history",
+          icon: "mdi mdi-card-account-details-outline",
+          to: "/admin/cancuoc",
+        },
+        {
+          icon: "mdi mdi-card-account-details-outline",
+          to: "/admin/blx",
         },
         {
           icon: "mdi mdi-format-list-bulleted-square",

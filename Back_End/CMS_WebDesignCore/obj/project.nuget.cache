@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "fvlO6Kue3KPoSKh5n5SqIxyFP4rcdpWDZQ2kE7TXtH3oofN+Pot3NJ8wU2wjL8IzJiamB6DtQvOFWMR6cR+Uxw==",
+  "dgSpecHash": "Vcf8+gW5gA6VPB8Vr7mH0wi+dddozHJ+JCxwCn0VtCHFFqmo79BH789cUDfs3eTzNMPsQxFa5aqVL1VwVn4mCg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\LTS\\Documents\\GitHub\\Computer_Vision\\Back_End\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj",
+  "projectFilePath": "W:\\Git\\Computer_Vision\\Back_End\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\LTS\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
-    "C:\\Users\\LTS\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.1\\microsoft.extensions.primitives.5.0.1.nupkg.sha512",
-    "C:\\Users\\LTS\\.nuget\\packages\\system.io.pipelines\\5.0.2\\system.io.pipelines.5.0.2.nupkg.sha512"
+    "C:\\Users\\Acer\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
+    "C:\\Users\\Acer\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.1\\microsoft.extensions.primitives.5.0.1.nupkg.sha512",
+    "C:\\Users\\Acer\\.nuget\\packages\\system.io.pipelines\\5.0.2\\system.io.pipelines.5.0.2.nupkg.sha512"
   ],
   "logs": []
 }

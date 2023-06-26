@@ -23,6 +23,41 @@ namespace CMS_Web.Controllers
         {
             return Ok(await _admin.GetDuLieuPage(page, pageSize));
         }
+        [HttpGet("getcancuoc")]
+        public async Task<IActionResult> GetCanCuoc(int page, int pageSize)
+        {
+            return Ok(await _admin.GetCanCuocPage(page, pageSize));
+        }
+        [HttpGet("getonecancuoc")]
+        public async Task<IActionResult> GetOneCanCuoc(int id)
+        {
+            return Ok(await _admin.GetCanCuoc(id));
+        }
+        [HttpGet("getoneblx")]
+        public async Task<IActionResult> GetOneBLX(int id)
+        {
+            return Ok(await _admin.GetBLX(id));
+        }
+        [HttpGet("getcancuoccount")]
+        public async Task<IActionResult> GetCanCuocCount()
+        {
+            return Ok(await _admin.GetCanCuocCount());
+        }
+        [HttpGet("getdulieucount")]
+        public async Task<IActionResult> GetDuLieuCount()
+        {
+            return Ok(await _admin.GetDuLieuCount());
+        }
+        [HttpGet("getblxcount")]
+        public async Task<IActionResult> GetBLXCount()
+        {
+            return Ok(await _admin.GetBLXCount());
+        }
+        [HttpGet("getblx")]
+        public async Task<IActionResult> GetBLX(int page, int pageSize)
+        {
+            return Ok(await _admin.GetBLXPage(page, pageSize));
+        }
         [HttpPost("themdulieu")]
         public async Task<IActionResult> ThemDuLieu(IFormFile matTruoc, IFormFile matSau)
         {
@@ -44,7 +79,7 @@ namespace CMS_Web.Controllers
             }
         }
         [HttpGet("danhgiadulieucccd")]
-        public async Task<IActionResult> ThongTinCoChinhXacCCCD(int CCCDID, PropCCCDEnum prop, bool isTrue)
+        public async Task<IActionResult> ThongTinCoChinhXacCCCD(int CCCDID, PropCCCDEnum prop, int isTrue)
         {
             return Ok(await _admin.ThongTinCoChinhXacCCCD(CCCDID, prop, isTrue));
         }
