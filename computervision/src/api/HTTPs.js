@@ -2,7 +2,7 @@ const axios = require("axios");
 
 class HTTPSingleton {
   static config = {
-    baseURL: "https://localhost:7228",
+    baseURL: "https://rd.dj-xuyenchi.edu.vn",
     headers: {
       "Content-Type": "application/json",
       "Access-Control-Allow-Origin": "*",
