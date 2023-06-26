@@ -14,7 +14,7 @@
 
 <script>
 import GetCard from "./GetCard.vue";
-import ShowCard from "../ShowData/ShowCard.vue";
+import ShowCard from "./ShowCard.vue";
 export default {
   components: { GetCard, ShowCard },
   data() {
