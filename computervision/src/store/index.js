@@ -25,7 +25,7 @@ export default createStore({
       state.snakbarcontent = value;
       setTimeout(() => {
         state.snakbar = false;
-      }, 5000);
+      }, 3000);
     },
   },
   actions: {},
