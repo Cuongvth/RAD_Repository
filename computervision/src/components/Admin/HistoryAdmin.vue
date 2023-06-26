@@ -23,17 +23,7 @@
         <td>{{ item.coGiaTriDen }}</td>
         <td>{{ item.ngayDangKy }}</td>
         <td>
-          <v-btn
-            color="#4d96ff"
-            style="
-              height: 35px;
-              width: 104px;
-              font-size: 14px;
-              font-weight: 400;
-            "
-          >
-            Details</v-btn
-          >
+          <v-btn color="#4d96ff"><v-icon icon="mdi mdi-details" /></v-btn>
         </td>
       </tr>
     </tbody>

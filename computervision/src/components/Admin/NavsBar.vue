@@ -1,14 +1,14 @@
 <template>
-  <v-navigation-drawer permanent>
+  <v-navigation-drawer width="80" border="0">
     <v-list v-model:opened="open">
       <v-list-item
+        style="border-radius: 5px; text-align: center; padding: 20px"
         v-for="nav in navsingles"
         :key="nav.to"
-        :prepend-icon="nav.icon"
-        :title="nav.title"
         :to="nav.to"
         :value="nav.to"
       >
+        <v-icon :icon="nav.icon" size="30"></v-icon>
       </v-list-item>
       <v-list-group
         v-for="nav in navgroups"
@@ -16,17 +16,12 @@
         :value="nav.value"
       >
         <template v-slot:activator="{ props }">
-          <v-list-item
-            v-bind="props"
-            :title="nav.title"
-            :prepend-icon="nav.icon"
-          ></v-list-item>
+          <v-list-item v-bind="props" :prepend-icon="nav.icon"></v-list-item>
         </template>
         <v-list-item
           v-for="sub in nav.subnav"
           :key="sub.to"
           :prepend-icon="sub.icon"
-          :title="sub.title"
           :to="sub.to"
           :value="sub.to"
         >
@@ -43,62 +38,23 @@ export default {
       open: [],
       navsingles: [
         {
-          icon: "mdi-view-dashboard",
-          title: "Kiểm tra",
+          icon: "mdi mdi-card-account-details-outline",
           to: "/admin/dashboard",
         },
         {
-          icon: "mdi-view-dashboard",
-          title: "Lịch sử",
+          icon: "mdi mdi-history",
           to: "/admin/history",
         },
-      ],
-      navgroups: [
         {
-          icon: "mdi mdi-account-supervisor",
-          title: "Tài khoản",
-          value: "taikhoan",
-          subnav: [
-            {
-              icon: "mdi mdi-account-supervisor",
-              title: "Danh sách tài khoản",
-              to: "/admin/courses",
-            },
-            {
-              icon: "mdi mdi-account-remove",
-              title: "Tài khoản vi phạm",
-              to: "/admin/courses",
-            },
-            {
-              icon: "mdi mdi-account-convert",
-              title: "Phân quyền tài khoản",
-              to: "/admin/courses",
-            },
-          ],
+          icon: "mdi mdi-format-list-bulleted-square",
+          to: "/admin/data",
         },
         {
-          icon: "mdi mdi-book-open",
-          title: "Giấy tờ",
-          value: "giayto",
-          subnav: [
-            {
-              icon: "mdi mdi-book-open",
-              title: "Căn cước",
-              to: "/admin/post",
-            },
-            {
-              icon: "mdi mdi-book-open",
-              title: "BLX",
-              to: "/admin/courses",
-            },
-            {
-              icon: "mdi mdi-book-open",
-              title: "Passport",
-              to: "/admin/courses",
-            },
-          ],
+          icon: "mdi mdi-information-outline",
+          to: "/admin/info",
         },
       ],
+      navgroups: [],
     };
   },
 };

@@ -1,8 +1,8 @@
 <template>
   <v-layout class="rounded rounded-md">
     <HeaderAdmin />
-    <NavsBar />
-    <v-main style="min-height: 100vh; margin: 20px">
+    <NavsBar style="margin-left: 10px" />
+    <v-main style="min-height: 100vh; margin: 50px">
       <router-view />
     </v-main>
   </v-layout>

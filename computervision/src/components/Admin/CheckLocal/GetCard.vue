@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-row>
-      <v-col cols="6">
+      <v-col cols="4">
         <img
           :src="`data:image/jpeg;base64, ` + dataImage[0]"
           alt=""
@@ -9,7 +9,7 @@
           v-if="dataImage[0].length > 0"
         />
       </v-col>
-      <v-col cols="6">
+      <v-col cols="4">
         <img
           :src="`data:image/jpeg;base64, ` + dataImage[1]"
           alt=""
@@ -19,7 +19,7 @@
       </v-col>
     </v-row>
     <v-row>
-      <v-col cols="6">
+      <v-col cols="4">
         <v-btn
           color="#4d96ff"
           style="height: 35px; width: 104px; font-size: 14px; font-weight: 400"
@@ -38,7 +38,7 @@
           style="display: none"
         ></v-file-input>
       </v-col>
-      <v-col cols="6">
+      <v-col cols="4">
         <v-btn
           color="#4d96ff"
           style="height: 35px; width: 104px; font-size: 14px; font-weight: 400"
@@ -70,17 +70,9 @@
       "
       @click="submit()"
     >
-      Kiểm tra</v-btn
-    >
+      <v-icon icon="mdi mdi-credit-card-scan" size="20"
+    /></v-btn>
   </div>
-  <v-snackbar v-model="snackbar">
-    {{ text }}
-    <template v-slot:actions>
-      <v-btn color="green" variant="text" @click="snackbar = false">
-        Đóng
-      </v-btn>
-    </template>
-  </v-snackbar>
 </template>
 
 <script>
@@ -89,17 +81,15 @@ export default {
     return {
       selectFile: [null, null],
       dataImage: ["", ""],
-      snackbar: false,
-      text: "",
     };
   },
   methods: {
     async submit() {
-      this.btnLoading = true;
       if (this.selectFile[0] == null || this.selectFile[1] == null) {
-        this.text = "Không được để trống hình ảnh!";
-        this.snackbar = true;
-        this.btnLoading = false;
+        this.$store.commit(
+          "setSnackBarContent",
+          "Không được để trống hình ảnh!"
+        );
         return;
       }
       const formData = new FormData();
@@ -112,7 +102,6 @@ export default {
         this.selectFile[1] ? this.selectFile[1][0] : null
       );
       this.getData(formData);
-      this.btnLoading = false;
     },
     onFileSelect(index) {
       if (
@@ -121,8 +110,10 @@ export default {
         this.selectFile[index][0].type == "image/jpg"
       ) {
         if (this.selectFile[index][0].size > 2048576) {
-          this.text = "File quá nặng chỉ hỗ trợ file dung lượng < 1MB";
-          this.snackbar = true;
+          this.$store.commit(
+            "setSnackBarContent",
+            "File quá nặng chỉ hỗ trợ file dung lượng < 1MB"
+          );
           return;
         }
         const reader = new FileReader();
@@ -131,9 +122,10 @@ export default {
         };
         reader.readAsDataURL(this.selectFile[index][0]);
       } else {
-        this.text =
-          "Vui lòng chọn đúng file định dạng ảnh! Các định dạng được hỗ trợ: JPG, JPEG, PNG";
-        this.snackbar = true;
+        this.$store.commit(
+          "setSnackBarContent",
+          "Vui lòng chọn đúng file định dạng ảnh! Các định dạng được hỗ trợ: JPG, JPEG, PNG"
+        );
         return;
       }
     },
