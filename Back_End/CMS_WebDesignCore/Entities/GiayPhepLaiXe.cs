@@ -1,29 +1,33 @@
 ﻿namespace CMS_WebDesignCore.Entities
 {
-    public partial class GiayPhepLaiXe
+    public partial class GiayPhepLaiXe : BaseEntity
     {
-        public int Id { get; set; }
         public string? So { get; set; }
         public string? HoTen { get; set; }
         public string? NgaySinh { get; set; }
-        public string? GioiTinh { get; set; }
+        public string? QuocTich { get; set; }
+        public string? NoiCuTru { get; set; }
+        public string? NgayDangKy { get; set; }
         public string? Hang { get; set; }
-        public string? DiaChi { get; set; }
-        public string? PhuongTienDuocPhep { get; set; }
+        public string? MoTaXeDuocSuDung { get; set; }
         public string? NgayTrungTuyen { get; set; }
-        public string? NgayDangKi { get; set; }
-        public int? DoChinhXacSo { get; set; }
-        public int? DoChinhXacHoTen { get; set; }
-        public int? DoChinhXacNgaySinh { get; set; }
-        public int? DoChinhXacGioiTinh { get; set; }
-        public int? DoChinhXacHang { get; set; }
-        public int? DoChinhXacDiaChi { get; set; }
-        public int? DoChinhXacPhuongTienDuocPhep { get; set; }
-        public int? DoChinhXacNgayTrungTuyen { get; set; }
-        public int? DoChinhXacNgayDangKi { get; set; }
-        public bool? ChinhXac { get; set; }
-        public int? DuLieuId { get; set; }
 
-        public virtual DuLieu? DuLieu { get; set; }
+        public bool? IsSo { get; set; }
+        public bool? IsHoTen { get; set; }
+        public bool? IsNgaySinh { get; set; }
+        public bool? IsQuocTich { get; set; }
+        public bool? IsNoiCuTru { get; set; }
+        public bool? IsNgayDangKy { get; set; }
+        public bool? IsHang { get; set; }
+        public bool? IsMoTaXeDuocSuDung { get; set; }
+        public bool? IsNgayTrungTuyen { get; set; }
+        public bool? DungTatCa { get; set; }
+        public override string? ToString()
+        {
+            return So + "-" + HoTen + "-" + NgaySinh + "-" + QuocTich + "-" + NoiCuTru + "-" + NgayDangKy + "-" + Hang + "-" + MoTaXeDuocSuDung + "-" + NgayTrungTuyen;
+        }
+        public int DuLieuId { get; set; }
+
+        public DuLieu DuLieu { get; set; }
     }
 }

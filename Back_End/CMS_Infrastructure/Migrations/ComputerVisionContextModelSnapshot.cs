@@ -25,54 +25,22 @@ namespace CMS_Infrastructure.Migrations
             modelBuilder.Entity("CMS_WebDesignCore.Entities.CanCuocCongDan", b =>
                 {
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<bool?>("ChinhXac")
-                        .HasColumnType("bit");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("CoGiaTriDen")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("DacDiemNhanDang")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("DiaChiThuongTru")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("DoChinhXacDacDiemNhanDang")
+                    b.Property<int>("DuLieuId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("DoChinhXacDiaChiThuongTru")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("DoChinhXacGioiTinh")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("DoChinhXacHoTen")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("DoChinhXacNgayCap")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("DoChinhXacNgayHetHan")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("DoChinhXacNgaySinh")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("DoChinhXacQueQuan")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("DoChinhXacQuocTich")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("DoChinhXacSo")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("DoChinhXacVnm")
-                        .HasColumnType("int")
-                        .HasColumnName("DoChinhXacVNM");
-
-                    b.Property<int?>("DuLieuId")
-                        .HasColumnType("int")
-                        .HasColumnName("DuLieu_Id");
+                    b.Property<bool?>("DungTatCa")
+                        .HasColumnType("bit");
 
                     b.Property<string>("GioiTinh")
                         .HasColumnType("nvarchar(max)");
@@ -80,13 +48,46 @@ namespace CMS_Infrastructure.Migrations
                     b.Property<string>("HoTen")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("NgayCap")
+                    b.Property<bool?>("IsCoGiaTriDen")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("IsDacDiemNhanDang")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("IsGioiTinh")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("IsHoTen")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("IsNgayDangKy")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("IsNgayThangNamSinh")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("IsNoiThuongTru")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("IsQueQuan")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("IsQuocTich")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("IsSoCCCD")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("IsVNM")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("NgayDangKy")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("NgayHetHan")
+                    b.Property<string>("NgayThangNamSinh")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("NgaySinh")
+                    b.Property<string>("NoiThuongTru")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("QueQuan")
@@ -95,83 +96,62 @@ namespace CMS_Infrastructure.Migrations
                     b.Property<string>("QuocTich")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("So")
+                    b.Property<string>("SoCCCD")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Vnm")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("VNM");
+                    b.Property<string>("VNM")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("DuLieuId");
 
-                    b.ToTable("CanCuocCongDan", (string)null);
+                    b.ToTable("CanCuocCongDans");
                 });
 
             modelBuilder.Entity("CMS_WebDesignCore.Entities.DuLieu", b =>
                 {
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
                     b.Property<byte[]>("MatSau")
+                        .IsRequired()
                         .HasColumnType("varbinary(max)");
 
                     b.Property<byte[]>("MatTruoc")
+                        .IsRequired()
                         .HasColumnType("varbinary(max)");
 
-                    b.Property<int?>("Status")
+                    b.Property<int>("Status")
                         .HasColumnType("int");
+
+                    b.Property<DateTime>("ThoiGianThem")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("ThoiGianXacNhan")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
-                    b.ToTable("DuLieu", (string)null);
+                    b.ToTable("DuLieus");
                 });
 
             modelBuilder.Entity("CMS_WebDesignCore.Entities.GiayPhepLaiXe", b =>
                 {
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<bool?>("ChinhXac")
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("DuLieuId")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("DungTatCa")
                         .HasColumnType("bit");
-
-                    b.Property<string>("DiaChi")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("DoChinhXacDiaChi")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("DoChinhXacGioiTinh")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("DoChinhXacHang")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("DoChinhXacHoTen")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("DoChinhXacNgayDangKi")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("DoChinhXacNgaySinh")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("DoChinhXacNgayTrungTuyen")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("DoChinhXacPhuongTienDuocPhep")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("DoChinhXacSo")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("DuLieuId")
-                        .HasColumnType("int")
-                        .HasColumnName("DuLieu_Id");
-
-                    b.Property<string>("GioiTinh")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Hang")
                         .HasColumnType("nvarchar(max)");
@@ -179,7 +159,37 @@ namespace CMS_Infrastructure.Migrations
                     b.Property<string>("HoTen")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("NgayDangKi")
+                    b.Property<bool?>("IsHang")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("IsHoTen")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("IsMoTaXeDuocSuDung")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("IsNgayDangKy")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("IsNgaySinh")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("IsNgayTrungTuyen")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("IsNoiCuTru")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("IsQuocTich")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("IsSo")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("MoTaXeDuocSuDung")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NgayDangKy")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NgaySinh")
@@ -188,7 +198,10 @@ namespace CMS_Infrastructure.Migrations
                     b.Property<string>("NgayTrungTuyen")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PhuongTienDuocPhep")
+                    b.Property<string>("NoiCuTru")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("QuocTich")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("So")
@@ -198,14 +211,16 @@ namespace CMS_Infrastructure.Migrations
 
                     b.HasIndex("DuLieuId");
 
-                    b.ToTable("GiayPhepLaiXe", (string)null);
+                    b.ToTable("GiayPhepLaiXes");
                 });
 
             modelBuilder.Entity("CMS_WebDesignCore.Entities.CanCuocCongDan", b =>
                 {
                     b.HasOne("CMS_WebDesignCore.Entities.DuLieu", "DuLieu")
-                        .WithMany("CanCuocCongDans")
-                        .HasForeignKey("DuLieuId");
+                        .WithMany()
+                        .HasForeignKey("DuLieuId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("DuLieu");
                 });
@@ -213,17 +228,12 @@ namespace CMS_Infrastructure.Migrations
             modelBuilder.Entity("CMS_WebDesignCore.Entities.GiayPhepLaiXe", b =>
                 {
                     b.HasOne("CMS_WebDesignCore.Entities.DuLieu", "DuLieu")
-                        .WithMany("GiayPhepLaiXes")
-                        .HasForeignKey("DuLieuId");
+                        .WithMany()
+                        .HasForeignKey("DuLieuId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("DuLieu");
-                });
-
-            modelBuilder.Entity("CMS_WebDesignCore.Entities.DuLieu", b =>
-                {
-                    b.Navigation("CanCuocCongDans");
-
-                    b.Navigation("GiayPhepLaiXes");
                 });
 #pragma warning restore 612, 618
         }

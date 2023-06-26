@@ -5,6 +5,11 @@ C:\Users\LTS\Documents\GitHub\Computer_Vision\Back_End\CMS_Web\obj\Release\net6.
 C:\Users\LTS\Documents\GitHub\Computer_Vision\Back_End\CMS_Web\obj\Release\net6.0\PubTmp\Out\CMS_Web.deps.json
 C:\Users\LTS\Documents\GitHub\Computer_Vision\Back_End\CMS_Web\obj\Release\net6.0\PubTmp\Out\CMS_Web.runtimeconfig.json
 C:\Users\LTS\Documents\GitHub\Computer_Vision\Back_End\CMS_Web\obj\Release\net6.0\PubTmp\Out\CMS_Web.pdb
+C:\Users\LTS\Documents\GitHub\Computer_Vision\Back_End\CMS_Web\obj\Release\net6.0\PubTmp\Out\Google.Apis.dll
+C:\Users\LTS\Documents\GitHub\Computer_Vision\Back_End\CMS_Web\obj\Release\net6.0\PubTmp\Out\Google.Apis.Auth.PlatformServices.dll
+C:\Users\LTS\Documents\GitHub\Computer_Vision\Back_End\CMS_Web\obj\Release\net6.0\PubTmp\Out\Google.Apis.Auth.dll
+C:\Users\LTS\Documents\GitHub\Computer_Vision\Back_End\CMS_Web\obj\Release\net6.0\PubTmp\Out\Google.Apis.Core.dll
+C:\Users\LTS\Documents\GitHub\Computer_Vision\Back_End\CMS_Web\obj\Release\net6.0\PubTmp\Out\Google.Apis.Vision.v1.dll
 C:\Users\LTS\Documents\GitHub\Computer_Vision\Back_End\CMS_Web\obj\Release\net6.0\PubTmp\Out\Microsoft.Data.SqlClient.dll
 C:\Users\LTS\Documents\GitHub\Computer_Vision\Back_End\CMS_Web\obj\Release\net6.0\PubTmp\Out\Microsoft.EntityFrameworkCore.dll
 C:\Users\LTS\Documents\GitHub\Computer_Vision\Back_End\CMS_Web\obj\Release\net6.0\PubTmp\Out\Microsoft.EntityFrameworkCore.Abstractions.dll
@@ -20,6 +25,7 @@ C:\Users\LTS\Documents\GitHub\Computer_Vision\Back_End\CMS_Web\obj\Release\net6.
 C:\Users\LTS\Documents\GitHub\Computer_Vision\Back_End\CMS_Web\obj\Release\net6.0\PubTmp\Out\Microsoft.IdentityModel.Tokens.dll
 C:\Users\LTS\Documents\GitHub\Computer_Vision\Back_End\CMS_Web\obj\Release\net6.0\PubTmp\Out\Microsoft.OpenApi.dll
 C:\Users\LTS\Documents\GitHub\Computer_Vision\Back_End\CMS_Web\obj\Release\net6.0\PubTmp\Out\Microsoft.Win32.SystemEvents.dll
+C:\Users\LTS\Documents\GitHub\Computer_Vision\Back_End\CMS_Web\obj\Release\net6.0\PubTmp\Out\Newtonsoft.Json.dll
 C:\Users\LTS\Documents\GitHub\Computer_Vision\Back_End\CMS_Web\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\LTS\Documents\GitHub\Computer_Vision\Back_End\CMS_Web\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\LTS\Documents\GitHub\Computer_Vision\Back_End\CMS_Web\obj\Release\net6.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll
