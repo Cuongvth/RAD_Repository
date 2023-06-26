@@ -51,7 +51,6 @@ export default {
         this.$store.commit("setSnackBarContent", "Không nhận dạng được");
         return;
       }
-      console.log(result);
       if (result.status == 1) {
         this.$store.commit("setSnackBarContent", "Xác nhận thành công");
         this.type = result.result.type;

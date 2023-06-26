@@ -1,25 +1,27 @@
 <template>
-  <div>
+  <div style="margin-left: 50px">
     <v-row>
-      <v-col cols="4">
+      <v-col cols="6">
         <img
           :src="`data:image/jpeg;base64, ` + dataImage[0]"
           alt=""
-          style="height: 400px; width: 300px"
+          :style="`height: 400px; width: 300px; transform: rotate(${rotater1}deg)`"
           v-if="dataImage[0].length > 0"
+          @click="rotater(1)"
         />
       </v-col>
-      <v-col cols="4">
+      <v-col cols="6">
         <img
           :src="`data:image/jpeg;base64, ` + dataImage[1]"
           alt=""
-          style="height: 400px; width: 300px"
+          :style="`height: 400px; width: 300px; transform: rotate(${rotater2}deg)`"
           v-if="dataImage[1].length > 0"
+          @click="rotater(2)"
         />
       </v-col>
     </v-row>
     <v-row>
-      <v-col cols="4">
+      <v-col cols="6">
         <v-btn
           color="#4d96ff"
           style="height: 35px; width: 104px; font-size: 14px; font-weight: 400"
@@ -38,7 +40,7 @@
           style="display: none"
         ></v-file-input>
       </v-col>
-      <v-col cols="4">
+      <v-col cols="6">
         <v-btn
           color="#4d96ff"
           style="height: 35px; width: 104px; font-size: 14px; font-weight: 400"
@@ -80,6 +82,8 @@ export default {
     return {
       selectFile: [null, null],
       dataImage: ["", ""],
+      rotater1: 90,
+      rotater2: 90,
     };
   },
   methods: {
@@ -101,6 +105,13 @@ export default {
         this.selectFile[1] ? this.selectFile[1][0] : null
       );
       this.getData(formData);
+    },
+    rotater(index) {
+      if (index == 1) {
+        this.rotater1 += 90;
+      } else if (index == 2) {
+        this.rotater2 += 90;
+      }
     },
     onFileSelect(index) {
       if (
