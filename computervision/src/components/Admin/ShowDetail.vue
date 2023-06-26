@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-model="dialog" maxWidth="1000" maxHeight="800">
+  <v-dialog v-model="dialog" maxWidth="1000" maxHeight="800" persistent>
     <template v-slot:activator="{ props }">
       <v-btn color="#4d96ff" v-bind="props"
         ><v-icon icon="mdi mdi-details" />Details</v-btn
