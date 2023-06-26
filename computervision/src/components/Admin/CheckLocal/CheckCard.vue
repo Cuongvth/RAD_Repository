@@ -12,9 +12,7 @@
         :googleMatSau="googleMatSau"
       />
     </div>
-    <v-btn v-if="dochinhXac.duDuLieu" style="margin-top: 50px"
-      >Xác nhận độ chính xác</v-btn
-    >
+    <v-btn style="margin-top: 50px">Xác nhận độ chính xác</v-btn>
   </div>
 </template>
 
@@ -35,7 +33,6 @@ export default {
         toanVanSau: 100,
         truongDuLieu: {},
         loaiThe: true,
-        duDuLieu: false,
       },
     };
   },
