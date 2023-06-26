@@ -38,7 +38,7 @@ export default {
       open: [],
       navsingles: [
         {
-          icon: "mdi mdi-card-account-details-outline",
+          icon: "mdi mdi-credit-card-scan-outline",
           to: "/admin/dashboard",
         },
         {
