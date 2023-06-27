@@ -6,6 +6,7 @@ using CMS_WebDesignCore.Enums;
 using CMS_WebDesignCore.IBusiness;
 using CMS_WebDesignCore.Wrap;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -23,16 +24,41 @@ namespace CMS_Infrastructure.Business.AdminService
             return query;
         }
 
+        public async Task<int> GetCanCuocCount()
+        {
+            return _context.CanCuocCongDans.Count();
+        }
+
+        public async Task<IQueryable<CanCuocCongDan>> GetCanCuoc(int id)
+        {
+            return _context.CanCuocCongDans.Where(c => c.Id == id).Include(c => c.DuLieu);
+        }
+
+        public async Task<IQueryable<GiayPhepLaiXe>> GetBLX(int id)
+        {
+            return _context.GiayPhepLaiXes.Where(c => c.Id == id).Include(c => c.DuLieu);
+        }
+
         public async Task<IQueryable<DuLieu>> GetDuLieuPage(int page, int pageSize)
         {
             var query = _context.DuLieus.Skip((page - 1) * pageSize).Take(pageSize);
             return query;
         }
 
+        public async Task<int> GetDuLieuCount()
+        {
+            return _context.DuLieus.Count();
+        }
+
         public async Task<IQueryable<GiayPhepLaiXe>> GetBLXPage(int page, int pageSize)
         {
             var query = _context.GiayPhepLaiXes.Skip((page - 1) * pageSize).Take(pageSize);
             return query;
+        }
+
+        public async Task<int> GetBLXCount()
+        {
+            return _context.GiayPhepLaiXes.Count();
         }
 
         //public async Task fake()
@@ -125,7 +151,7 @@ namespace CMS_Infrastructure.Business.AdminService
             return GoogleVisionAPI.NhanDangThe(Convert.ToBase64String(dl.MatTruoc));
         }
 
-        public async Task<ActionStatus> ThongTinCoChinhXacCCCD(int CCCDID, PropCCCDEnum prop, bool isTrue)
+        public async Task<ActionStatus> ThongTinCoChinhXacCCCD(int CCCDID, PropCCCDEnum prop, int isTrue)
         {
             CanCuocCongDan cccd = await _context.CanCuocCongDans.FindAsync(CCCDID);
             if (cccd == null)

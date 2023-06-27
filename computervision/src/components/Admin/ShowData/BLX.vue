@@ -1,7 +1,7 @@
 <template>
   <v-card-text>
     <v-container>
-      <v-row>
+      <v-row no-gutters>
         <v-col cols="9">
           <v-text-field
             readonly

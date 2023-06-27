@@ -48,38 +48,38 @@ namespace CMS_Infrastructure.Migrations
                     b.Property<string>("HoTen")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool?>("IsCoGiaTriDen")
-                        .HasColumnType("bit");
+                    b.Property<int?>("IsCoGiaTriDen")
+                        .HasColumnType("int");
 
-                    b.Property<bool?>("IsDacDiemNhanDang")
-                        .HasColumnType("bit");
+                    b.Property<int?>("IsDacDiemNhanDang")
+                        .HasColumnType("int");
 
-                    b.Property<bool?>("IsGioiTinh")
-                        .HasColumnType("bit");
+                    b.Property<int?>("IsGioiTinh")
+                        .HasColumnType("int");
 
-                    b.Property<bool?>("IsHoTen")
-                        .HasColumnType("bit");
+                    b.Property<int?>("IsHoTen")
+                        .HasColumnType("int");
 
-                    b.Property<bool?>("IsNgayDangKy")
-                        .HasColumnType("bit");
+                    b.Property<int?>("IsNgayDangKy")
+                        .HasColumnType("int");
 
-                    b.Property<bool?>("IsNgayThangNamSinh")
-                        .HasColumnType("bit");
+                    b.Property<int?>("IsNgayThangNamSinh")
+                        .HasColumnType("int");
 
-                    b.Property<bool?>("IsNoiThuongTru")
-                        .HasColumnType("bit");
+                    b.Property<int?>("IsNoiThuongTru")
+                        .HasColumnType("int");
 
-                    b.Property<bool?>("IsQueQuan")
-                        .HasColumnType("bit");
+                    b.Property<int?>("IsQueQuan")
+                        .HasColumnType("int");
 
-                    b.Property<bool?>("IsQuocTich")
-                        .HasColumnType("bit");
+                    b.Property<int?>("IsQuocTich")
+                        .HasColumnType("int");
 
-                    b.Property<bool?>("IsSoCCCD")
-                        .HasColumnType("bit");
+                    b.Property<int?>("IsSoCCCD")
+                        .HasColumnType("int");
 
-                    b.Property<bool?>("IsVNM")
-                        .HasColumnType("bit");
+                    b.Property<int?>("IsVNM")
+                        .HasColumnType("int");
 
                     b.Property<string>("NgayDangKy")
                         .HasColumnType("nvarchar(max)");
@@ -116,6 +116,21 @@ namespace CMS_Infrastructure.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("GoogleMatSau")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("GoogleMatTruoc")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("IsLoaiThe")
+                        .HasColumnType("bit");
+
+                    b.Property<int?>("IsMatSau")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("IsMatTruoc")
+                        .HasColumnType("int");
 
                     b.Property<byte[]>("MatSau")
                         .IsRequired()
@@ -159,32 +174,32 @@ namespace CMS_Infrastructure.Migrations
                     b.Property<string>("HoTen")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool?>("IsHang")
-                        .HasColumnType("bit");
+                    b.Property<int?>("IsHang")
+                        .HasColumnType("int");
 
-                    b.Property<bool?>("IsHoTen")
-                        .HasColumnType("bit");
+                    b.Property<int?>("IsHoTen")
+                        .HasColumnType("int");
 
-                    b.Property<bool?>("IsMoTaXeDuocSuDung")
-                        .HasColumnType("bit");
+                    b.Property<int?>("IsMoTaXeDuocSuDung")
+                        .HasColumnType("int");
 
-                    b.Property<bool?>("IsNgayDangKy")
-                        .HasColumnType("bit");
+                    b.Property<int?>("IsNgayDangKy")
+                        .HasColumnType("int");
 
-                    b.Property<bool?>("IsNgaySinh")
-                        .HasColumnType("bit");
+                    b.Property<int?>("IsNgaySinh")
+                        .HasColumnType("int");
 
-                    b.Property<bool?>("IsNgayTrungTuyen")
-                        .HasColumnType("bit");
+                    b.Property<int?>("IsNgayTrungTuyen")
+                        .HasColumnType("int");
 
-                    b.Property<bool?>("IsNoiCuTru")
-                        .HasColumnType("bit");
+                    b.Property<int?>("IsNoiCuTru")
+                        .HasColumnType("int");
 
-                    b.Property<bool?>("IsQuocTich")
-                        .HasColumnType("bit");
+                    b.Property<int?>("IsQuocTich")
+                        .HasColumnType("int");
 
-                    b.Property<bool?>("IsSo")
-                        .HasColumnType("bit");
+                    b.Property<int?>("IsSo")
+                        .HasColumnType("int");
 
                     b.Property<string>("MoTaXeDuocSuDung")
                         .HasColumnType("nvarchar(max)");

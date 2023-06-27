@@ -9,6 +9,7 @@
         :googleMatSau="googleMatSau"
       />
     </div>
+    <v-btn style="margin-top: 50px">Xác nhận độ chính xác</v-btn>
   </div>
 </template>
 
@@ -24,6 +25,12 @@ export default {
       type: 0,
       googleMatTruoc: null,
       googleMatSau: null,
+      dochinhXac: {
+        toanVanTruoc: 100,
+        toanVanSau: 100,
+        truongDuLieu: {},
+        loaiThe: true,
+      },
     };
   },
   methods: {
