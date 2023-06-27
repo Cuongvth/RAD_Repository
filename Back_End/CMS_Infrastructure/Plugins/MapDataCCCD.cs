@@ -1,9 +1,11 @@
-﻿using CMS_WebDesignCore.DTO;
+﻿using CMS_Infrastructure.Migrations;
+using CMS_WebDesignCore.DTO;
 using CMS_WebDesignCore.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace CMS_Infrastructure.Plugins
@@ -18,61 +20,115 @@ namespace CMS_Infrastructure.Plugins
             int i = 0;
             foreach (var item in dataMatTruoc)
             {
-                if (item.Contains("No.:"))
+                if (Regex.Matches(item.Trim(), @"\d{12}").Count > 0)
                 {
-                    result.SoCCCD = item.Split(":")[1].Trim();
+                    MatchCollection matches = Regex.Matches(item, @"\d{12}");
+                    result.SoCCCD = matches[0].Value;
                 }
-                if (item.Contains("Full name:"))
+                if (Regex.Matches(item.Trim(), @"(0?[1-9]|[1-2][0-9]|3[0-1])\/(0?[1-9]|1[0-2])\/([0-9]{4})").Count > 1)
                 {
-                    result.HoTen = dataMatTruoc[i + 1].Trim();
-
+                    MatchCollection matches = Regex.Matches(item, @"\d{12}");
+                    result.CoGiaTriDen = matches[0].Value;
+                    result.NgayThangNamSinh = matches[1].Value;
                 }
-                if (item.Contains("Date of birth:"))
+                if (Regex.Matches(item.Trim(), @"\b[\p{Lu}]+\b").Count == item.Trim().Split(" ").Length)
                 {
-                    result.NgayThangNamSinh = item.Split(":")[1].Trim();
+                    result.HoTen = item.Trim();
                 }
-                if (item.Contains("Sex:"))
+                if (item.Contains("No."))
                 {
-                    result.GioiTinh = item.Split(":")[1].Trim().Split(" ")[0];
+                    if (result.SoCCCD == null)
+                    {
+                        string pattern = @"\d";
+                        MatchCollection matches = Regex.Matches(item, pattern);
+                        if (matches.Count > 0)
+                        {
+                            result.SoCCCD = matches[0].Value;
+                        }
+                    }
                 }
-                if (item.Contains("Nationality:"))
+                if (item.Contains("Full name"))
                 {
-                    result.QuocTich = item.Split("Nationality:")[1].Trim();
+                    if (result.HoTen == null)
+                    {
+                        result.HoTen = dataMatTruoc[i + 1].Trim();
+                    }
                 }
-                if (item.Contains("Nationality."))
+                if (item.Contains("Date of birth"))
                 {
-                    result.QuocTich = item.Split("Nationality.")[1].Trim();
+                    string pattern = @"(0?[1-9]|[1-2][0-9]|3[0-1])\/(0?[1-9]|1[0-2])\/([0-9]{4})";
+                    MatchCollection matches = Regex.Matches(item, pattern);
+                    if (matches.Count > 0)
+                    {
+                        result.NgayThangNamSinh = matches[0].Value;
+                    }
+                    MatchCollection matches1 = Regex.Matches(dataMatTruoc[i + 1], pattern);
+                    if (matches1.Count > 0)
+                    {
+                        result.NgayThangNamSinh = matches1[0].Value;
+                    }
                 }
-                if (item.Contains("Place of origin:"))
+                if (item.Contains("Sex"))
+                {
+                    string pattern = @"Sex.+(Nam|Nữ).+Nationality";
+                    MatchCollection matches = Regex.Matches(item, pattern);
+                    if (matches.Count > 0)
+                    {
+                        string temp = matches[0].Value;
+                        if (temp.Contains("Nam"))
+                        {
+                            result.GioiTinh = "Nam";
+                        }
+                        else
+                        {
+                            result.GioiTinh = "Nữ";
+                        }
+                    }
+                }
+                if (item.Contains("Nationality"))
+                {
+                    string pattern = @"Nationality.+";
+                    MatchCollection matches = Regex.Matches(item, pattern);
+                    if (matches.Count > 0)
+                    {
+                        result.QuocTich = matches[0].Value.Replace("Nationality", "").Replace(":", "").Replace(".", "");
+                    }
+                }
+                if (item.Contains("Place of origin"))
                 {
                     result.QueQuan = dataMatTruoc[i + 1].Trim();
                 }
                 if (item.Contains("residence:"))
                 {
-                    if (result.NoiThuongTru == null)
-                    {
-                        result.NoiThuongTru = item.Split("residence:")[1].Trim() + " " + dataMatTruoc[i + 1].Trim();
-                    }
+                    result.NoiThuongTru = item.Split("residence:")[1].Trim() + " " + dataMatTruoc[i + 1].Trim();
+                }
+                if (item.Contains("residence."))
+                {
+                    if (result.NoiThuongTru == null) result.NoiThuongTru = item.Split("residence.")[1].Trim() + " " + dataMatTruoc[i + 1].Trim();
                 }
                 if (item.Contains("residence"))
                 {
-                    if (result.NoiThuongTru == null)
-                    {
-                        result.NoiThuongTru = item.Split("residence")[1].Trim() + " " + dataMatTruoc[i + 1].Trim();
-                    }
+                    if (result.NoiThuongTru == null) result.NoiThuongTru = item.Split("residence")[1].Trim() + " " + dataMatTruoc[i + 1].Trim();
                 }
                 if (item.Contains("Có giá trị đến:"))
                 {
-                    if (result.CoGiaTriDen == null)
+                    string pattern = @"(0?[1-9]|[1-2][0-9]|3[0-1])\/(0?[1-9]|1[0-2])\/([0-9]{4})";
+                    MatchCollection matches = Regex.Matches(item, pattern);
+                    if (matches.Count > 0)
                     {
-                        result.CoGiaTriDen = item.Split("Có giá trị đến:")[1].Trim();
+                        result.CoGiaTriDen = matches[0].Value;
                     }
                 }
                 if (item.Contains("Date of expiry"))
                 {
                     if (result.CoGiaTriDen == null)
                     {
-                        result.CoGiaTriDen = dataMatTruoc[i + 1];
+                        string pattern = @"(0?[1-9]|[1-2][0-9]|3[0-1])\/(0?[1-9]|1[0-2])\/([0-9]{4})";
+                        MatchCollection matches = Regex.Matches(dataMatTruoc[i + 1], pattern);
+                        if (matches.Count > 0)
+                        {
+                            result.CoGiaTriDen = matches[0].Value;
+                        }
                     }
                 }
                 i++;
@@ -80,18 +136,27 @@ namespace CMS_Infrastructure.Plugins
             i = 0;
             foreach (var item in dataMatSau)
             {
+                if (Regex.Matches(item, @"(0?[1-9]|[1-2][0-9]|3[0-1])\/(0?[1-9]|1[0-2])\/([0-9]{4})").Count > 0)
+                {
+                    string pattern = @"(0?[1-9]|[1-2][0-9]|3[0-1])\/(0?[1-9]|1[0-2])\/([0-9]{4})";
+                    MatchCollection matches = Regex.Matches(item, pattern);
+                    if (matches.Count > 0)
+                    {
+                        result.NgayDangKy = matches[0].Value;
+                    }
+                }
                 if (item.Contains("identification:"))
                 {
                     result.DacDiemNhanDang = dataMatSau[i + 1];
-                    if (!dataMatSau[i + 2].Contains("Date, month, year"))
+                    if (!dataMatSau[i + 2].Contains("year") || !dataMatSau[i + 2].Contains("month") || !dataMatSau[i + 2].Contains("Date"))
                     {
                         result.DacDiemNhanDang += " " + dataMatSau[i + 2];
                     }
 
                 }
-                if (item.Contains("Date, month, year"))
+                if (item.Contains("year") || item.Contains("month") || item.Contains("Date"))
                 {
-                    result.NgayDangKy = item.Split("year")[1].Replace(":", "").Trim();
+                   if(result.NgayDangKy == null) result.NgayDangKy = item.Split("year")[1].Replace(":", "").Replace(".", "").Trim();
                 }
                 i++;
             }
