@@ -92,7 +92,7 @@ namespace CMS_Infrastructure.Plugins
                     MatchCollection matches = Regex.Matches(item, @"Nationality.+");
                     if (matches.Count > 0)
                     {
-                        result.QuocTich = matches[0].Value.Replace("Nationality", "").Replace(":", "").Replace(".", "");
+                        result.QuocTich = matches[0].Value.Replace("Nationality", "").Replace(":", "").Replace(".", "").Trim();
                     }
                 }
                 if (item.Contains("Place of origin"))
