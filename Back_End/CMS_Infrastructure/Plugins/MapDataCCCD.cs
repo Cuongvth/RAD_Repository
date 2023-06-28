@@ -18,34 +18,38 @@ namespace CMS_Infrastructure.Plugins
             data.Type = CMS_WebDesignCore.Enums.TypeCard.CCCD;
             CanCuocCongDan result = new CanCuocCongDan();
             int i = 0;
+            string truoc = "";
             foreach (var item in dataMatTruoc)
             {
-                if (Regex.Matches(item.Trim(), @"\d{12}").Count > 0)
-                {
-                    MatchCollection matches = Regex.Matches(item, @"\d{12}");
-                    result.SoCCCD = matches[0].Value;
-                }
-                if (Regex.Matches(item.Trim(), @"(0?[1-9]|[1-2][0-9]|3[0-1])\/(0?[1-9]|1[0-2])\/([0-9]{4})").Count > 1)
-                {
-                    MatchCollection matches = Regex.Matches(item, @"\d{12}");
-                    result.CoGiaTriDen = matches[0].Value;
-                    result.NgayThangNamSinh = matches[1].Value;
-                }
+                truoc += ("\n" + item);
+            }
+            string sau = "";
+            foreach (var item in dataMatSau)
+            {
+                sau += ("\n" + item);
+            }
+            if (Regex.Matches(truoc.Trim(), @"\d{12}").Count > 0)
+            {
+                MatchCollection matches = Regex.Matches(truoc, @"\d{12}");
+                result.SoCCCD = matches[0].Value;
+            }
+            if (Regex.Matches(truoc.Trim(), @"(0?[1-9]|[1-2][0-9]|3[0-1])\/(0?[1-9]|1[0-2])\/([0-9]{4})").Count > 1)
+            {
+                MatchCollection matches = Regex.Matches(truoc, @"(0?[1-9]|[1-2][0-9]|3[0-1])\/(0?[1-9]|1[0-2])\/([0-9]{4})");
+                bool check = int.Parse(matches[0].Value.Substring(matches[0].Value.Length - 4)) - int.Parse(matches[1].Value.Substring(matches[1].Value.Length - 4)) > 0;
+                result.CoGiaTriDen = check ? matches[0].Value : matches[1].Value;
+                result.NgayThangNamSinh = check ? matches[1].Value : matches[0].Value;
+            }
+            if (Regex.Matches(sau, @"(0?[1-9]|[1-2][0-9]|3[0-1])\/(0?[1-9]|1[0-2])\/([0-9]{4})").Count > 0)
+            {
+                MatchCollection matches = Regex.Matches(sau, @"(0?[1-9]|[1-2][0-9]|3[0-1])\/(0?[1-9]|1[0-2])\/([0-9]{4})");
+                result.NgayDangKy = matches[0].Value;
+            }
+            foreach (var item in dataMatTruoc)
+            {
                 if (Regex.Matches(item.Trim(), @"\b[\p{Lu}]+\b").Count == item.Trim().Split(" ").Length)
                 {
                     result.HoTen = item.Trim();
-                }
-                if (item.Contains("No."))
-                {
-                    if (result.SoCCCD == null)
-                    {
-                        string pattern = @"\d";
-                        MatchCollection matches = Regex.Matches(item, pattern);
-                        if (matches.Count > 0)
-                        {
-                            result.SoCCCD = matches[0].Value;
-                        }
-                    }
                 }
                 if (item.Contains("Full name"))
                 {
@@ -56,13 +60,12 @@ namespace CMS_Infrastructure.Plugins
                 }
                 if (item.Contains("Date of birth"))
                 {
-                    string pattern = @"(0?[1-9]|[1-2][0-9]|3[0-1])\/(0?[1-9]|1[0-2])\/([0-9]{4})";
-                    MatchCollection matches = Regex.Matches(item, pattern);
+                    MatchCollection matches = Regex.Matches(item, @"(0?[1-9]|[1-2][0-9]|3[0-1])\/(0?[1-9]|1[0-2])\/([0-9]{4})");
                     if (matches.Count > 0)
                     {
                         result.NgayThangNamSinh = matches[0].Value;
                     }
-                    MatchCollection matches1 = Regex.Matches(dataMatTruoc[i + 1], pattern);
+                    MatchCollection matches1 = Regex.Matches(dataMatTruoc[i + 1], @"(0?[1-9]|[1-2][0-9]|3[0-1])\/(0?[1-9]|1[0-2])\/([0-9]{4})");
                     if (matches1.Count > 0)
                     {
                         result.NgayThangNamSinh = matches1[0].Value;
@@ -70,8 +73,7 @@ namespace CMS_Infrastructure.Plugins
                 }
                 if (item.Contains("Sex"))
                 {
-                    string pattern = @"Sex.+(Nam|Nữ).+Nationality";
-                    MatchCollection matches = Regex.Matches(item, pattern);
+                    MatchCollection matches = Regex.Matches(item, @"Sex.+(Nam|Nữ).+Nationality");
                     if (matches.Count > 0)
                     {
                         string temp = matches[0].Value;
@@ -87,8 +89,7 @@ namespace CMS_Infrastructure.Plugins
                 }
                 if (item.Contains("Nationality"))
                 {
-                    string pattern = @"Nationality.+";
-                    MatchCollection matches = Regex.Matches(item, pattern);
+                    MatchCollection matches = Regex.Matches(item, @"Nationality.+");
                     if (matches.Count > 0)
                     {
                         result.QuocTich = matches[0].Value.Replace("Nationality", "").Replace(":", "").Replace(".", "");
@@ -110,10 +111,9 @@ namespace CMS_Infrastructure.Plugins
                 {
                     if (result.NoiThuongTru == null) result.NoiThuongTru = item.Split("residence")[1].Trim() + " " + dataMatTruoc[i + 1].Trim();
                 }
-                if (item.Contains("Có giá trị đến:"))
+                if (item.Contains("Có giá trị đến"))
                 {
-                    string pattern = @"(0?[1-9]|[1-2][0-9]|3[0-1])\/(0?[1-9]|1[0-2])\/([0-9]{4})";
-                    MatchCollection matches = Regex.Matches(item, pattern);
+                    MatchCollection matches = Regex.Matches(item, @"(0?[1-9]|[1-2][0-9]|3[0-1])\/(0?[1-9]|1[0-2])\/([0-9]{4})");
                     if (matches.Count > 0)
                     {
                         result.CoGiaTriDen = matches[0].Value;
@@ -123,8 +123,7 @@ namespace CMS_Infrastructure.Plugins
                 {
                     if (result.CoGiaTriDen == null)
                     {
-                        string pattern = @"(0?[1-9]|[1-2][0-9]|3[0-1])\/(0?[1-9]|1[0-2])\/([0-9]{4})";
-                        MatchCollection matches = Regex.Matches(dataMatTruoc[i + 1], pattern);
+                        MatchCollection matches = Regex.Matches(dataMatTruoc[i + 1], @"(0?[1-9]|[1-2][0-9]|3[0-1])\/(0?[1-9]|1[0-2])\/([0-9]{4})");
                         if (matches.Count > 0)
                         {
                             result.CoGiaTriDen = matches[0].Value;
@@ -136,15 +135,6 @@ namespace CMS_Infrastructure.Plugins
             i = 0;
             foreach (var item in dataMatSau)
             {
-                if (Regex.Matches(item, @"(0?[1-9]|[1-2][0-9]|3[0-1])\/(0?[1-9]|1[0-2])\/([0-9]{4})").Count > 0)
-                {
-                    string pattern = @"(0?[1-9]|[1-2][0-9]|3[0-1])\/(0?[1-9]|1[0-2])\/([0-9]{4})";
-                    MatchCollection matches = Regex.Matches(item, pattern);
-                    if (matches.Count > 0)
-                    {
-                        result.NgayDangKy = matches[0].Value;
-                    }
-                }
                 if (item.Contains("identification:"))
                 {
                     result.DacDiemNhanDang = dataMatSau[i + 1];
@@ -156,7 +146,7 @@ namespace CMS_Infrastructure.Plugins
                 }
                 if (item.Contains("year") || item.Contains("month") || item.Contains("Date"))
                 {
-                   if(result.NgayDangKy == null) result.NgayDangKy = item.Split("year")[1].Replace(":", "").Replace(".", "").Trim();
+                    if (result.NgayDangKy == null) result.NgayDangKy = item.Split("year")[1].Replace(":", "").Replace(".", "").Trim();
                 }
                 i++;
             }
