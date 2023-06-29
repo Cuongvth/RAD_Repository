@@ -1,7 +1,7 @@
 <template>
   <VCard title="User Profile">
     <VCardText>
-      <VForm ref="form" @submit.prevent="onSubmit">
+      <VForm @submit.prevent="onSubmit">
         <VRow>
           <VCol cols="9">
             <AppTextField
@@ -18,6 +18,7 @@
               v-model="checkTruong[0]"
               :rules="[
                 requiredValidator,
+                valid,
                 betweenValidator(checkTruong[0], 0, 100),
               ]"
               density="compact"
@@ -41,6 +42,7 @@
               v-model="checkTruong[1]"
               :rules="[
                 requiredValidator,
+                valid,
                 betweenValidator(checkTruong[1], 0, 100),
               ]"
               density="compact"
@@ -64,6 +66,7 @@
               v-model="checkTruong[2]"
               :rules="[
                 requiredValidator,
+                valid,
                 betweenValidator(checkTruong[2], 0, 100),
               ]"
               density="compact"
@@ -87,6 +90,7 @@
               v-model="checkTruong[3]"
               :rules="[
                 requiredValidator,
+                valid,
                 betweenValidator(checkTruong[3], 0, 100),
               ]"
               density="compact"
@@ -110,6 +114,7 @@
               v-model="checkTruong[4]"
               :rules="[
                 requiredValidator,
+                valid,
                 betweenValidator(checkTruong[4], 0, 100),
               ]"
               density="compact"
@@ -133,6 +138,7 @@
               v-model="checkTruong[5]"
               :rules="[
                 requiredValidator,
+                valid,
                 betweenValidator(checkTruong[5], 0, 100),
               ]"
               density="compact"
@@ -156,6 +162,7 @@
               v-model="checkTruong[6]"
               :rules="[
                 requiredValidator,
+                valid,
                 betweenValidator(checkTruong[6], 0, 100),
               ]"
               density="compact"
@@ -179,6 +186,7 @@
               v-model="checkTruong[7]"
               :rules="[
                 requiredValidator,
+                valid,
                 betweenValidator(checkTruong[7], 0, 100),
               ]"
               density="compact"
@@ -202,6 +210,7 @@
               v-model="checkTruong[8]"
               :rules="[
                 requiredValidator,
+                valid,
                 betweenValidator(checkTruong[8], 0, 100),
               ]"
               density="compact"
@@ -229,14 +238,25 @@ import { betweenValidator, requiredValidator } from "@validators";
 import { useStore } from "vuex";
 
 var checkTruong = ref([100, 100, 100, 100, 100, 100, 100, 100, 100]);
-const form = ref(null);
 const store = useStore();
 
+var ok = true;
+
+function valid(value) {
+  if (value < 0 || value > 100 || !isNaN(value) || value.length == 0) {
+    ok = false;
+  }
+
+  return true;
+}
+
 function onSubmit() {
-  if (!form.value.checkValidity()) {
+  if (!ok) {
+    store.commit("setSnackBarContent", "Thất bại");
+
     return;
   }
-  props.setCheck(3, checkTruong);
+  props.setCheck(2, checkToanVan[1]);
   store.commit("setSnackBarContent", "Lưu thành công");
 }
 </script>

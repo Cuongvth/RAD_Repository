@@ -11,7 +11,7 @@
         <VCardText>
           <VWindow v-model="tab">
             <VWindowItem>
-              <VForm ref="form1" @submit.prevent="onSubmit1">
+              <VForm @submit.prevent="onSubmit1">
                 <VTextarea
                   rows="20"
                   :value="props.googleMatTruoc.join('\n')"
@@ -23,6 +23,7 @@
                   :rules="[
                     requiredValidator,
                     betweenValidator(checkToanVan[0], 0, 100),
+                    valid,
                   ]"
                   density="compact"
                   variant="outlined"
@@ -31,7 +32,7 @@
               </VForm>
             </VWindowItem>
             <VWindowItem>
-              <VForm ref="form2" @submit.prevent="onSubmit2">
+              <VForm @submit.prevent="onSubmit2">
                 <VTextarea
                   rows="20"
                   readonly
@@ -43,6 +44,7 @@
                   :rules="[
                     requiredValidator,
                     betweenValidator(checkToanVan[1], 0, 100),
+                    valid,
                   ]"
                   density="compact"
                   variant="outlined"
@@ -69,12 +71,22 @@ import { betweenValidator, requiredValidator } from "@validators";
 import { useStore } from "vuex";
 
 var checkToanVan = ref([100, 100]);
-const form1 = ref();
-const form2 = ref();
 const store = useStore();
 
+var ok = true;
+
+function valid(value) {
+  if (value < 0 || value > 100 || !isNaN(value) || value.length == 0) {
+    ok = false;
+  }
+
+  return true;
+}
+
 function onSubmit1() {
-  if (true) {
+  if (!ok) {
+    store.commit("setSnackBarContent", "Thất bại");
+
     return;
   }
   props.setCheck(1, checkToanVan[0]);
@@ -82,7 +94,9 @@ function onSubmit1() {
 }
 
 function onSubmit2() {
-  if (true) {
+  if (!ok) {
+    store.commit("setSnackBarContent", "Thất bại");
+
     return;
   }
   props.setCheck(2, checkToanVan[1]);
