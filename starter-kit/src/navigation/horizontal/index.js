@@ -1,12 +1,17 @@
 export default [
   {
-    title: 'Home',
-    to: { name: 'index' },
-    icon: { icon: 'tabler-smart-home' },
+    title: "Home",
+    to: { name: "index" },
+    icon: { icon: "tabler-smart-home" },
   },
   {
-    title: 'Second page',
-    to: { name: 'second-page' },
-    icon: { icon: 'tabler-file' },
+    title: "Nhận dạng trực tiếp",
+    to: { name: "nhan-dang-truc-tiep" },
+    icon: { icon: "tabler-file" },
   },
-]
+  {
+    title: "Dữ liệu chờ xử lí",
+    to: { name: "du-lieu-cho-xu-li" },
+    icon: { icon: "tabler-file" },
+  },
+];
