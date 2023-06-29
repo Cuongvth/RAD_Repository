@@ -6,6 +6,7 @@ class DemoAPI {
       HTTP.post(`admin/nhandangtructiep`, form, {
         headers: {
           "Content-Type": "multipart/form-data",
+          "Access-Control-Allow-Origin": "*",
         },
       })
         .then((response) => {

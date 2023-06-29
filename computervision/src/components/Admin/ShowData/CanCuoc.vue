@@ -203,7 +203,7 @@
         <v-col cols="9">
           <v-text-field
             readonly
-            v-model="data.ngayDangKi"
+            v-model="data.ngayDangKy"
             density="compact"
             label="Date supply"
             hint="Date supply"
