@@ -27,6 +27,6 @@ const props = defineProps({
   matSau: String,
 });
 
-import ShowCard from "@/views/ShowData/ShowCard.vue";
+import ShowCard from "@/views/CheckData/ShowCard.vue";
 import GetImage from "./getImage.vue";
 </script>

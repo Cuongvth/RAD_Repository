@@ -1,9 +1,7 @@
 <template>
-  <VDialog v-model="dialog" maxWidth="1000" maxHeight="800" persistent>
+  <VDialog v-model="dialog" maxWidth="1000" maxHeight="700" persistent>
     <template #activator="{ props }">
-      <VBtn v-bind="props"
-        ><VIcon icon="tabler-scan" size="20" />Nhận dạng</VBtn
-      >
+      <VBtn v-bind="props"><VIcon icon="tabler-scan" size="20" />Chi tiết</VBtn>
     </template>
     <DialogCloseBtn @click="dialog = !dialog" />
     <VCard style="padding: 20px">
