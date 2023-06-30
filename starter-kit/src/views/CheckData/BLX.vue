@@ -16,7 +16,11 @@
           <VCol cols="3">
             <AppTextField
               v-model="checkTruong[0]"
-              type="number"
+              :rules="[
+                requiredValidator,
+                valid,
+                betweenValidator(checkTruong[0], 0, 100),
+              ]"
               density="compact"
               label="No."
               hint="No."
@@ -36,7 +40,11 @@
           <VCol cols="3">
             <AppTextField
               v-model="checkTruong[1]"
-              type="number"
+              :rules="[
+                requiredValidator,
+                valid,
+                betweenValidator(checkTruong[1], 0, 100),
+              ]"
               density="compact"
               label="Full name"
               hint="Full name"
@@ -56,7 +64,11 @@
           <VCol cols="3">
             <AppTextField
               v-model="checkTruong[2]"
-              type="number"
+              :rules="[
+                requiredValidator,
+                valid,
+                betweenValidator(checkTruong[2], 0, 100),
+              ]"
               density="compact"
               label="Date of birth"
               hint="Date of birth"
@@ -76,7 +88,11 @@
           <VCol cols="3">
             <AppTextField
               v-model="checkTruong[3]"
-              type="number"
+              :rules="[
+                requiredValidator,
+                valid,
+                betweenValidator(checkTruong[3], 0, 100),
+              ]"
               density="compact"
               label="Address"
               hint="Address"
@@ -96,7 +112,11 @@
           <VCol cols="3">
             <AppTextField
               v-model="checkTruong[4]"
-              type="number"
+              :rules="[
+                requiredValidator,
+                valid,
+                betweenValidator(checkTruong[4], 0, 100),
+              ]"
               density="compact"
               label="Nationality"
               hint="Nationality"
@@ -116,7 +136,11 @@
           <VCol cols="3">
             <AppTextField
               v-model="checkTruong[5]"
-              type="number"
+              :rules="[
+                requiredValidator,
+                valid,
+                betweenValidator(checkTruong[5], 0, 100),
+              ]"
               density="compact"
               label="Class"
               hint="Class"
@@ -136,7 +160,11 @@
           <VCol cols="3">
             <AppTextField
               v-model="checkTruong[6]"
-              type="number"
+              :rules="[
+                requiredValidator,
+                valid,
+                betweenValidator(checkTruong[6], 0, 100),
+              ]"
               density="compact"
               label="Vehicles are allowed to use"
               hint="Vehicles are allowed to use"
@@ -156,7 +184,11 @@
           <VCol cols="3">
             <AppTextField
               v-model="checkTruong[7]"
-              type="number"
+              :rules="[
+                requiredValidator,
+                valid,
+                betweenValidator(checkTruong[7], 0, 100),
+              ]"
               density="compact"
               label="Admission date"
               hint="Admission date"
@@ -176,7 +208,11 @@
           <VCol cols="3">
             <AppTextField
               v-model="checkTruong[8]"
-              type="number"
+              :rules="[
+                requiredValidator,
+                valid,
+                betweenValidator(checkTruong[8], 0, 100),
+              ]"
               density="compact"
               label="Registration date"
               hint="Registration date"
@@ -198,6 +234,7 @@ const props = defineProps({
   setCheck: Function,
 });
 
+import { betweenValidator, requiredValidator } from "@validators";
 import { useStore } from "vuex";
 
 var checkTruong = ref([
