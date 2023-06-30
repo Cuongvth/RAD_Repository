@@ -46,7 +46,6 @@ namespace CMS_Infrastructure.Plugins
             {
                 if (Regex.Matches(item.Trim(), @"\d{5}").Count > 0)
                 {
-                    Console.WriteLine(i);
                     result.HoTen = dataMatTruoc[i + 1].Trim();
                     result.QuocTich = dataMatTruoc[i + 3].Trim();
                 }
