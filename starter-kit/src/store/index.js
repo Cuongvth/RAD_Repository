@@ -21,8 +21,9 @@ export default createStore({
       state.snakbar = value;
     },
     setSnackBarContent(state, value) {
-      state.snakbar = true;
+      state.snakbar = false;
       state.snakbarcontent = value;
+      state.snakbar = true;
       setTimeout(() => {
         state.snakbar = false;
       }, 3000);
