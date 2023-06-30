@@ -4,10 +4,10 @@ class AuthApis {
   getLogin(requestLogin) {
     return new Promise((resolve, reject) => {
       HTTP.post(`/login/getlogin`, requestLogin)
-        .then((response) => {
+        .then(response => {
           resolve(response.data);
         })
-        .catch((error) => {
+        .catch(error => {
           reject(error);
         });
     });
@@ -16,10 +16,10 @@ class AuthApis {
   refreshToken(tokenModel) {
     return new Promise((resolve, reject) => {
       HTTP.post(`/login/refresh`, tokenModel)
-        .then((response) => {
+        .then(response => {
           resolve(response.data);
         })
-        .catch((error) => {
+        .catch(error => {
           reject(error);
         });
     });
@@ -28,10 +28,10 @@ class AuthApis {
   signIn(newAccount) {
     return new Promise((resolve, reject) => {
       HTTP.post(`/login/signin`, newAccount)
-        .then((response) => {
+        .then(response => {
           resolve(response.data);
         })
-        .catch((error) => {
+        .catch(error => {
           reject(error);
         });
     });
@@ -40,10 +40,10 @@ class AuthApis {
   confirmAccount(code) {
     return new Promise((resolve, reject) => {
       HTTP.get(`/login/confirmemail?code=` + code)
-        .then((response) => {
+        .then(response => {
           resolve(response.data);
         })
-        .catch((error) => {
+        .catch(error => {
           reject(error);
         });
     });
@@ -52,10 +52,10 @@ class AuthApis {
   forgetPass(forgetRequest) {
     return new Promise((resolve, reject) => {
       HTTP.post(`/login/forgetpass`, forgetRequest)
-        .then((response) => {
+        .then(response => {
           resolve(response.data);
         })
-        .catch((error) => {
+        .catch(error => {
           reject(error);
         });
     });
@@ -64,10 +64,10 @@ class AuthApis {
   confirmCode(code) {
     return new Promise((resolve, reject) => {
       HTTP.get(`login/confirmcodeforgetpass?code=${code}`)
-        .then((response) => {
+        .then(response => {
           resolve(response.data);
         })
-        .catch((error) => {
+        .catch(error => {
           reject(error);
         });
     });
@@ -76,10 +76,10 @@ class AuthApis {
   confirmPass(request) {
     return new Promise((resolve, reject) => {
       HTTP.post(`login/confirmpass`, request)
-        .then((response) => {
+        .then(response => {
           resolve(response.data);
         })
-        .catch((error) => {
+        .catch(error => {
           reject(error);
         });
     });

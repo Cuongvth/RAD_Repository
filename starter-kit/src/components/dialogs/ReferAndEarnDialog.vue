@@ -4,13 +4,13 @@ const props = defineProps({
     type: Boolean,
     required: true,
   },
-})
+});
 
-const emit = defineEmits(['update:isDialogVisible'])
+const emit = defineEmits(['update:isDialogVisible']);
 
 const dialogVisibleUpdate = val => {
-  emit('update:isDialogVisible', val)
-}
+  emit('update:isDialogVisible', val);
+};
 
 const referAndEarnSteps = [
   {
@@ -28,7 +28,7 @@ const referAndEarnSteps = [
     title: 'Free Trial  🎉',
     subtitle: 'Your friend will get 30 days free trial',
   },
-]
+];
 </script>
 
 <template>

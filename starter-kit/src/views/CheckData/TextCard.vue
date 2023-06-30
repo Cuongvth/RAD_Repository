@@ -1,11 +1,15 @@
 <template>
   <VRow>
     <VCol cols="2">
-      <VTabs v-model="tab" direction="vertical" class="v-tabs-pill">
+      <VTabs
+        v-model="tab"
+        direction="vertical"
+        class="v-tabs-pill"
+      >
         <VTab>Mặt trước</VTab>
         <VTab>Mặt sau</VTab>
-      </VTabs></VCol
-    >
+      </VTabs>
+    </VCol>
     <VCol cols="10">
       <VCard>
         <VCardText>
@@ -18,13 +22,18 @@
                   readonly
                 />
                 <AppTextField
-                  style="margin-top: 20px"
                   v-model="checkToanVan[0]"
+                  style="margin-top: 20px"
                   type="number"
                   density="compact"
                   variant="outlined"
                 />
-                <VBtn style="margin-top: 20px" type="submit"> Save </VBtn>
+                <VBtn
+                  style="margin-top: 20px"
+                  type="submit"
+                >
+                  Save
+                </VBtn>
               </VForm>
             </VWindowItem>
             <VWindowItem>
@@ -35,19 +44,24 @@
                   :value="props.googleMatSau.join('\n')"
                 />
                 <AppTextField
-                  style="margin-top: 20px"
                   v-model="checkToanVan[1]"
+                  style="margin-top: 20px"
                   type="number"
                   density="compact"
                   variant="outlined"
-                /><VBtn style="margin-top: 20px" type="submit"> Save </VBtn>
+                /><VBtn
+                  style="margin-top: 20px"
+                  type="submit"
+                >
+                  Save
+                </VBtn>
               </VForm>
             </VWindowItem>
           </VWindow>
         </VCardText>
       </VCard>
-    </VCol></VRow
-  >
+    </VCol>
+  </VRow>
 </template>
 
 <script setup>

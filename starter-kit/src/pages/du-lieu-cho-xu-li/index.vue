@@ -39,43 +39,60 @@ onMounted(() => {
     <VTable style="margin-top: 20px">
       <thead>
         <tr>
-          <th class="text-left">Số thứ tự</th>
-          <th class="text-left">Mặt trước</th>
-          <th class="text-left">Mặt sau</th>
-          <th class="text-left">Ngày thêm</th>
-          <th class="text-left">Trạng thái</th>
+          <th class="text-left">
+            Số thứ tự
+          </th>
+          <th class="text-left">
+            Mặt trước
+          </th>
+          <th class="text-left">
+            Mặt sau
+          </th>
+          <th class="text-left">
+            Ngày thêm
+          </th>
+          <th class="text-left">
+            Trạng thái
+          </th>
           <th class="text-left" />
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(item, i) in data" :key="item.id">
+        <tr
+          v-for="(item, i) in data"
+          :key="item.id"
+        >
           <td>{{ i + 1 }}</td>
           <td>
             <img
+              v-if="item.matTruoc.length > 0"
               :src="`data:image/jpeg;base64, ` + item.matTruoc"
               style="height: 180px; width: 135px; transform: rotate(90deg)"
-              v-if="item.matTruoc.length > 0"
-            />
+            >
           </td>
           <td>
             <img
+              v-if="item.matSau.length > 0"
               :src="`data:image/jpeg;base64, ` + item.matSau"
               style="height: 180px; width: 135px; transform: rotate(90deg)"
-              v-if="item.matSau.length > 0"
-            />
+            >
           </td>
           <td>{{ item.thoiGianThem.substring(0, 10) }}</td>
           <td>{{ item.status == 1 ? "Chưa nhận diện" : "Đã nhận diện" }}</td>
           <td>
             <ShowDataCard
-              :dataId="item.id"
-              :matTruoc="item.matTruoc"
-              :matSau="item.matSau"
+              :data-id="item.id"
+              :mat-truoc="item.matTruoc"
+              :mat-sau="item.matSau"
             />
           </td>
         </tr>
       </tbody>
     </VTable>
-    <VPagination v-model="page" :length="lengthPage" :total-visible="10" />
+    <VPagination
+      v-model="page"
+      :length="lengthPage"
+      :total-visible="10"
+    />
   </div>
 </template>

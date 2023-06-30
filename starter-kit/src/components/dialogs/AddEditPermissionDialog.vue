@@ -9,28 +9,28 @@ const props = defineProps({
     required: false,
     default: '',
   },
-})
+});
 
 const emit = defineEmits([
   'update:isDialogVisible',
   'update:permissionName',
-])
+]);
 
-const permissionName = ref('')
+const permissionName = ref('');
 
 const onReset = () => {
-  emit('update:isDialogVisible', false)
-  permissionName.value = ''
-}
+  emit('update:isDialogVisible', false);
+  permissionName.value = '';
+};
 
 const onSubmit = () => {
-  emit('update:isDialogVisible', false)
-  emit('update:permissionName', permissionName.value)
-}
+  emit('update:isDialogVisible', false);
+  emit('update:permissionName', permissionName.value);
+};
 
 watch(props, () => {
-  permissionName.value = props.permissionName
-})
+  permissionName.value = props.permissionName;
+});
 </script>
 
 <template>

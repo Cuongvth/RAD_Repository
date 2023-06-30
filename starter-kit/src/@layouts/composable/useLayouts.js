@@ -1,91 +1,91 @@
-import { AppContentLayoutNav, NavbarType } from '../enums'
-import { config } from '@layouts/config'
-import { injectionKeyIsVerticalNavHovered } from '@layouts'
+import { AppContentLayoutNav, NavbarType } from '../enums';
+import { config } from '@layouts/config';
+import { injectionKeyIsVerticalNavHovered } from '@layouts';
 
 export const useLayouts = () => {
   const navbarType = computed({
     get() {
-      return config.navbar.type.value
+      return config.navbar.type.value;
     },
     set(value) {
-      config.navbar.type.value = value
+      config.navbar.type.value = value;
     },
-  })
+  });
 
   const isNavbarBlurEnabled = computed({
     get() {
-      return config.navbar.navbarBlur.value
+      return config.navbar.navbarBlur.value;
     },
     set(value) {
-      config.navbar.navbarBlur.value = value
-      localStorage.setItem(`${config.app.title}-navbarBlur`, value.toString())
+      config.navbar.navbarBlur.value = value;
+      localStorage.setItem(`${config.app.title}-navbarBlur`, value.toString());
     },
-  })
+  });
 
   const _setAppDir = dir => {
-    document.documentElement.setAttribute('dir', dir)
-  }
+    document.documentElement.setAttribute('dir', dir);
+  };
 
   const footerType = computed({
     get() {
-      return config.footer.type.value
+      return config.footer.type.value;
     },
     set(value) {
-      config.footer.type.value = value
+      config.footer.type.value = value;
     },
-  })
+  });
 
   const isVerticalNavCollapsed = computed({
     get() {
-      return config.verticalNav.isVerticalNavCollapsed.value
+      return config.verticalNav.isVerticalNavCollapsed.value;
     },
     set(val) {
-      config.verticalNav.isVerticalNavCollapsed.value = val
-      localStorage.setItem(`${config.app.title}-isVerticalNavCollapsed`, val.toString())
+      config.verticalNav.isVerticalNavCollapsed.value = val;
+      localStorage.setItem(`${config.app.title}-isVerticalNavCollapsed`, val.toString());
     },
-  })
+  });
 
   const appContentWidth = computed({
     get() {
-      return config.app.contentWidth.value
+      return config.app.contentWidth.value;
     },
     set(val) {
-      config.app.contentWidth.value = val
-      localStorage.setItem(`${config.app.title}-contentWidth`, val.toString())
+      config.app.contentWidth.value = val;
+      localStorage.setItem(`${config.app.title}-contentWidth`, val.toString());
     },
-  })
+  });
 
   const appContentLayoutNav = computed({
     get() {
-      return config.app.contentLayoutNav.value
+      return config.app.contentLayoutNav.value;
     },
     set(val) {
-      config.app.contentLayoutNav.value = val
+      config.app.contentLayoutNav.value = val;
 
       // If Navbar type is hidden while switching to horizontal nav => Reset it to sticky
       if (val === AppContentLayoutNav.Horizontal) {
         if (navbarType.value === NavbarType.Hidden)
-          navbarType.value = NavbarType.Sticky
-        isVerticalNavCollapsed.value = false
+          navbarType.value = NavbarType.Sticky;
+        isVerticalNavCollapsed.value = false;
       }
     },
-  })
+  });
 
   const horizontalNavType = computed({
     get() {
-      return config.horizontalNav.type.value
+      return config.horizontalNav.type.value;
     },
     set(value) {
-      config.horizontalNav.type.value = value
+      config.horizontalNav.type.value = value;
     },
-  })
+  });
 
   const isLessThanOverlayNavBreakpoint = computed(() => {
-    return windowWidth => unref(windowWidth) < config.app.overlayNavFromBreakpoint
-  })
+    return windowWidth => unref(windowWidth) < config.app.overlayNavFromBreakpoint;
+  });
 
   const _layoutClasses = computed(() => (windowWidth, windowScrollY) => {
-    const route = useRoute()
+    const route = useRoute();
     
     return [
       `layout-nav-type-${appContentLayoutNav.value}`,
@@ -101,8 +101,8 @@ export const useLayouts = () => {
       { 'layout-overlay-nav': isLessThanOverlayNavBreakpoint.value(windowWidth) },
       { 'window-scrolled': unref(windowScrollY) },
       route.meta.layoutWrapperClasses ? route.meta.layoutWrapperClasses : null,
-    ]
-  })
+    ];
+  });
 
   const switchToVerticalNavOnLtOverlayNavBreakpoint = windowWidth => {
     /*
@@ -119,7 +119,7 @@ export const useLayouts = () => {
               It will always show vertical nav and if user increase the window width it will fallback to `appContentLayoutNav` value
               But `appContentLayoutNav` will be value set in theme config file
         */
-    const lgAndUpNav = ref(appContentLayoutNav.value)
+    const lgAndUpNav = ref(appContentLayoutNav.value);
 
 
     /*
@@ -129,8 +129,8 @@ export const useLayouts = () => {
         */
     watch(appContentLayoutNav, value => {
       if (!isLessThanOverlayNavBreakpoint.value(windowWidth))
-        lgAndUpNav.value = value
-    })
+        lgAndUpNav.value = value;
+    });
 
     /*
           This is layout switching part
@@ -139,11 +139,11 @@ export const useLayouts = () => {
         */
     watch(() => isLessThanOverlayNavBreakpoint.value(windowWidth), val => {
       if (!val)
-        appContentLayoutNav.value = lgAndUpNav.value
+        appContentLayoutNav.value = lgAndUpNav.value;
       else
-        appContentLayoutNav.value = AppContentLayoutNav.Vertical
-    }, { immediate: true })
-  }
+        appContentLayoutNav.value = AppContentLayoutNav.Vertical;
+    }, { immediate: true });
+  };
 
 
   /*
@@ -157,10 +157,10 @@ export const useLayouts = () => {
           same component is providing & injecting we are getting undefined error
     */
   const isVerticalNavMini = (windowWidth, isVerticalNavHovered = null) => {
-    const isVerticalNavHoveredLocal = isVerticalNavHovered || inject(injectionKeyIsVerticalNavHovered) || ref(false)
+    const isVerticalNavHoveredLocal = isVerticalNavHovered || inject(injectionKeyIsVerticalNavHovered) || ref(false);
     
-    return computed(() => isVerticalNavCollapsed.value && !isVerticalNavHoveredLocal.value && !isLessThanOverlayNavBreakpoint.value(unref(windowWidth)))
-  }
+    return computed(() => isVerticalNavCollapsed.value && !isVerticalNavHoveredLocal.value && !isLessThanOverlayNavBreakpoint.value(unref(windowWidth)));
+  };
 
   const dynamicI18nProps = computed(() => (key, tag = 'span') => {
     if (config.app.enableI18n) {
@@ -168,22 +168,22 @@ export const useLayouts = () => {
         keypath: key,
         tag,
         scope: 'global',
-      }
+      };
     }
     
-    return {}
-  })
+    return {};
+  });
 
   const isAppRtl = computed({
     get() {
-      return config.app.isRtl.value
+      return config.app.isRtl.value;
     },
     set(value) {
-      config.app.isRtl.value = value
-      localStorage.setItem(`${config.app.title}-isRtl`, value.toString())
-      _setAppDir(value ? 'rtl' : 'ltr')
+      config.app.isRtl.value = value;
+      localStorage.setItem(`${config.app.title}-isRtl`, value.toString());
+      _setAppDir(value ? 'rtl' : 'ltr');
     },
-  })
+  });
 
   return {
     navbarType,
@@ -200,5 +200,5 @@ export const useLayouts = () => {
     dynamicI18nProps,
     isAppRtl,
     _setAppDir,
-  }
-}
+  };
+};

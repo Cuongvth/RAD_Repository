@@ -1,8 +1,8 @@
 <script setup>
-import NavBarI18n from '@core/components/I18n.vue'
-import { useThemeConfig } from '@core/composable/useThemeConfig'
+import NavBarI18n from '@core/components/I18n.vue';
+import { useThemeConfig } from '@core/composable/useThemeConfig';
 
-const { isAppRtl } = useThemeConfig()
+const { isAppRtl } = useThemeConfig();
 
 const i18nCompLanguages = [
   {
@@ -17,11 +17,11 @@ const i18nCompLanguages = [
     label: 'Arabic',
     i18nLang: 'ar',
   },
-]
+];
 
 const handleLangChange = lang => {
-  isAppRtl.value = lang === 'ar'
-}
+  isAppRtl.value = lang === 'ar';
+};
 </script>
 
 <template>

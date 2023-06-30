@@ -1,3 +1,3 @@
-import { Ability } from '@casl/ability'
+import { Ability } from '@casl/ability';
 
-export const AppAbility = Ability
+export const AppAbility = Ability;

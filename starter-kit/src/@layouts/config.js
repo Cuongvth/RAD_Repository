@@ -1,5 +1,5 @@
-import { breakpointsVuetify } from '@vueuse/core'
-import { AppContentLayoutNav, ContentWidth, FooterType, NavbarType } from '@layouts/enums'
+import { breakpointsVuetify } from '@vueuse/core';
+import { AppContentLayoutNav, ContentWidth, FooterType, NavbarType } from '@layouts/enums';
 
 export const config = {
   app: {
@@ -33,4 +33,4 @@ export const config = {
     verticalNavUnPinned: { icon: 'tabler-circle' },
     sectionTitlePlaceholder: { icon: 'tabler-minus' },
   },
-}
+};

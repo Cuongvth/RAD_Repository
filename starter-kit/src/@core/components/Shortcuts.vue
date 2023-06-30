@@ -1,5 +1,5 @@
 <script setup>
-import { PerfectScrollbar } from 'vue3-perfect-scrollbar'
+import { PerfectScrollbar } from 'vue3-perfect-scrollbar';
 
 const props = defineProps({
   togglerIcon: {
@@ -11,9 +11,9 @@ const props = defineProps({
     type: Array,
     required: true,
   },
-})
+});
 
-const router = useRouter()
+const router = useRouter();
 </script>
 
 <template>

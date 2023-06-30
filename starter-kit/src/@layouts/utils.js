@@ -1,4 +1,4 @@
-export const openGroups = ref([])
+export const openGroups = ref([]);
 
 /**
  * Return nav link props to use
@@ -8,18 +8,18 @@ export const getComputedNavLinkToProp = computed(() => link => {
   const props = {
     target: link.target,
     rel: link.rel,
-  }
+  };
 
 
   // If route is string => it assumes string is route name => Create route object from route name
   // If route is not string => It assumes it's route object => returns passed route object
   if (link.to)
-    props.to = typeof link.to === 'string' ? { name: link.to } : link.to
+    props.to = typeof link.to === 'string' ? { name: link.to } : link.to;
   else
-    props.href = link.href
+    props.href = link.href;
   
-  return props
-})
+  return props;
+});
 
 /**
  * Return route name for navigation link
@@ -29,12 +29,12 @@ export const getComputedNavLinkToProp = computed(() => link => {
  */
 export const resolveNavLinkRouteName = (link, router) => {
   if (!link.to)
-    return null
+    return null;
   if (typeof link.to === 'string')
-    return link.to
+    return link.to;
   
-  return router.resolve(link.to).name
-}
+  return router.resolve(link.to).name;
+};
 
 /**
  * Check if nav-link is active
@@ -42,17 +42,17 @@ export const resolveNavLinkRouteName = (link, router) => {
  */
 export const isNavLinkActive = (link, router) => {
   // Matched routes array of current route
-  const matchedRoutes = router.currentRoute.value.matched
+  const matchedRoutes = router.currentRoute.value.matched;
 
   // Check if provided route matches route's matched route
-  const resolveRoutedName = resolveNavLinkRouteName(link, router)
+  const resolveRoutedName = resolveNavLinkRouteName(link, router);
   if (!resolveRoutedName)
-    return false
+    return false;
   
   return matchedRoutes.some(route => {
-    return route.name === resolveRoutedName || route.meta.navActiveLink === resolveRoutedName
-  })
-}
+    return route.name === resolveRoutedName || route.meta.navActiveLink === resolveRoutedName;
+  });
+};
 
 /**
  * Check if nav group is active
@@ -61,11 +61,11 @@ export const isNavLinkActive = (link, router) => {
 export const isNavGroupActive = (children, router) => children.some(child => {
   // If child have children => It's group => Go deeper(recursive)
   if ('children' in child)
-    return isNavGroupActive(child.children, router)
+    return isNavGroupActive(child.children, router);
 
   // else it's link => Check for matched Route
-  return isNavLinkActive(child, router)
-})
+  return isNavLinkActive(child, router);
+});
 
 /**
  * Convert Hex color to rgb
@@ -73,16 +73,16 @@ export const isNavGroupActive = (children, router) => children.some(child => {
  */
 export const hexToRgb = hex => {
   // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
-  const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i
+  const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
 
   hex = hex.replace(shorthandRegex, (m, r, g, b) => {
-    return r + r + g + g + b + b
-  })
+    return r + r + g + g + b + b;
+  });
 
-  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
   
-  return result ? `${parseInt(result[1], 16)},${parseInt(result[2], 16)},${parseInt(result[3], 16)}` : null
-}
+  return result ? `${parseInt(result[1], 16)},${parseInt(result[2], 16)},${parseInt(result[3], 16)}` : null;
+};
 
 /**
  ** RGBA color to Hex color with / without opacity
@@ -96,5 +96,5 @@ export const rgbaToHex = (rgba, forceRemoveAlpha = false) => {
     .map((number, index) => (index === 3 ? Math.round(number * 255) : number)) // Converts alpha to 255 number
     .map(number => number.toString(16)) // Converts numbers to hex
     .map(string => (string.length === 1 ? `0${string}` : string)) // Adds 0 when length of one number is 1
-    .join('')}`)
-}
+    .join('')}`);
+};

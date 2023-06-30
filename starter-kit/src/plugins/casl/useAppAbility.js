@@ -1,3 +1,3 @@
-import { useAbility } from '@casl/vue'
+import { useAbility } from '@casl/vue';
 
-export const useAppAbility = () => useAbility()
+export const useAppAbility = () => useAbility();

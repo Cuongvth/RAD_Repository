@@ -1,19 +1,19 @@
 <script setup>
-import laptopGirl from '@images/illustrations/laptop-girl.png'
+import laptopGirl from '@images/illustrations/laptop-girl.png';
 
 const props = defineProps({
   isDialogVisible: {
     type: Boolean,
     required: true,
   },
-})
+});
 
 const emit = defineEmits([
   'update:isDialogVisible',
   'updatedData',
-])
+]);
 
-const currentStep = ref(0)
+const currentStep = ref(0);
 
 const createApp = [
   {
@@ -41,7 +41,7 @@ const createApp = [
     title: 'Submit',
     subtitle: 'submit',
   },
-]
+];
 
 const categories = [
   {
@@ -65,7 +65,7 @@ const categories = [
     subtitle: 'Start learning today',
     slug: 'online-learning-application',
   },
-]
+];
 
 const frameworks = [
   {
@@ -96,7 +96,7 @@ const frameworks = [
     subtitle: 'js web frameworks',
     slug: 'js-framework',
   },
-]
+];
 
 const databases = [
   {
@@ -120,7 +120,7 @@ const databases = [
     subtitle: 'Basic MySQL database',
     slug: 'mysql-database',
   },
-]
+];
 
 const createAppData = ref({
   category: 'crm-application',
@@ -131,24 +131,24 @@ const createAppData = ref({
   cardExpiry: '',
   cardCvv: '',
   isSave: false,
-})
+});
 
 const dialogVisibleUpdate = val => {
-  emit('update:isDialogVisible', val)
-  currentStep.value = 0
-}
+  emit('update:isDialogVisible', val);
+  currentStep.value = 0;
+};
 
 watch(props, () => {
   if (!props.isDialogVisible)
-    currentStep.value = 0
-})
+    currentStep.value = 0;
+});
 
 const onSubmit = () => {
 
   // eslint-disable-next-line no-alert
-  alert('submitted...!!')
-  emit('updatedData', createAppData.value)
-}
+  alert('submitted...!!');
+  emit('updatedData', createAppData.value);
+};
 </script>
 
 <template>

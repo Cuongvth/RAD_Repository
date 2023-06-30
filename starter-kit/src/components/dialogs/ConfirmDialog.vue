@@ -24,31 +24,31 @@ const props = defineProps({
     type: String,
     required: true,
   },
-})
+});
 
 const emit = defineEmits([
   'update:isDialogVisible',
   'confirm',
-])
+]);
 
-const unsubscribed = ref(false)
-const cancelled = ref(false)
+const unsubscribed = ref(false);
+const cancelled = ref(false);
 
 const updateModelValue = val => {
-  emit('update:isDialogVisible', val)
-}
+  emit('update:isDialogVisible', val);
+};
 
 const onConfirmation = () => {
-  emit('confirm', true)
-  updateModelValue(false)
-  unsubscribed.value = true
-}
+  emit('confirm', true);
+  updateModelValue(false);
+  unsubscribed.value = true;
+};
 
 const onCancel = () => {
-  emit('confirm', false)
-  emit('update:isDialogVisible', false)
-  cancelled.value = true
-}
+  emit('confirm', false);
+  emit('update:isDialogVisible', false);
+  cancelled.value = true;
+};
 </script>
 
 <template>

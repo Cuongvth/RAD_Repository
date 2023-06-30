@@ -1,5 +1,5 @@
 <script setup>
-import AppSearchHeaderBg from '@images/pages/app-search-header-bg.png'
+import AppSearchHeaderBg from '@images/pages/app-search-header-bg.png';
 
 const props = defineProps({
   title: {
@@ -14,9 +14,9 @@ const props = defineProps({
     type: String,
     required: false,
   },
-})
+});
 
-defineOptions({ inheritAttrs: false })
+defineOptions({ inheritAttrs: false });
 </script>
 
 <template>

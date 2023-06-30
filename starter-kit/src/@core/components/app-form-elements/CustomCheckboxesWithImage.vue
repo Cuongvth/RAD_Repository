@@ -12,15 +12,15 @@ const props = defineProps({
     type: null,
     required: false,
   },
-})
+});
 
-const emit = defineEmits(['update:selectedCheckbox'])
+const emit = defineEmits(['update:selectedCheckbox']);
 
-const selectedOption = ref(structuredClone(toRaw(props.selectedCheckbox)))
+const selectedOption = ref(structuredClone(toRaw(props.selectedCheckbox)));
 
 watch(selectedOption, () => {
-  emit('update:selectedCheckbox', selectedOption.value)
-})
+  emit('update:selectedCheckbox', selectedOption.value);
+});
 </script>
 
 <template>

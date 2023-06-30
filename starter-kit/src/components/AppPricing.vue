@@ -1,7 +1,7 @@
 <script setup>
-import safeBoxWithGoldenCoin from '@images/misc/3d-safe-box-with-golden-dollar-coins.png'
-import spaceRocket from '@images/misc/3d-space-rocket-with-smoke.png'
-import dollarCoinPiggyBank from '@images/misc/dollar-coins-flying-pink-piggy-bank.png'
+import safeBoxWithGoldenCoin from '@images/misc/3d-safe-box-with-golden-dollar-coins.png';
+import spaceRocket from '@images/misc/3d-space-rocket-with-smoke.png';
+import dollarCoinPiggyBank from '@images/misc/dollar-coins-flying-pink-piggy-bank.png';
 
 const props = defineProps({
   title: {
@@ -43,9 +43,9 @@ const props = defineProps({
     ],
     required: false,
   },
-})
+});
 
-const annualMonthlyPlanPriceToggler = ref(true)
+const annualMonthlyPlanPriceToggler = ref(true);
 
 const pricingPlans = [
   {
@@ -96,7 +96,7 @@ const pricingPlans = [
       'Stripe integration',
     ],
   },
-]
+];
 </script>
 
 <template>

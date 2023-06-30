@@ -1,7 +1,7 @@
 <script setup>
-import 'prismjs'
-import 'prismjs/themes/prism-tomorrow.css'
-import Prism from 'vue-prism-component'
+import 'prismjs';
+import 'prismjs/themes/prism-tomorrow.css';
+import Prism from 'vue-prism-component';
 
 const props = defineProps({
   title: {
@@ -22,11 +22,11 @@ const props = defineProps({
     required: false,
     default: false,
   },
-})
+});
 
-const preferredCodeLanguage = useStorage('preferredCodeLanguage', 'ts')
-const isCodeShown = ref(false)
-const { copy, copied } = useClipboard({ source: computed(() => props.code[preferredCodeLanguage.value]) })
+const preferredCodeLanguage = useStorage('preferredCodeLanguage', 'ts');
+const isCodeShown = ref(false);
+const { copy, copied } = useClipboard({ source: computed(() => props.code[preferredCodeLanguage.value]) });
 </script>
 
 <template>

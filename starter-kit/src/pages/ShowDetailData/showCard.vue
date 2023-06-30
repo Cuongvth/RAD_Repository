@@ -1,24 +1,40 @@
 <template>
-  <VDialog v-model="dialog" maxWidth="1000" maxHeight="700" persistent>
+  <VDialog
+    v-model="dialog"
+    max-width="1000"
+    max-height="700"
+    persistent
+  >
     <template #activator="{ props }">
-      <VBtn v-bind="props"><VIcon icon="tabler-scan" size="20" />Chi tiết</VBtn>
+      <VBtn v-bind="props">
+        <VIcon
+          icon="tabler-scan"
+          size="20"
+        />Chi tiết
+      </VBtn>
     </template>
     <DialogCloseBtn @click="dialog = !dialog" />
     <VCard style="padding: 20px">
       <CheckCard
-        :setCheck="setCheck"
+        :set-check="setCheck"
         :type="props.type"
-        :cardData="cardData"
-        :googleMatTruoc="googleMatTruoc"
-        :googleMatSau="googleMatSau"
-        :matTruoc="matTruoc"
-        :matSau="matSau"
+        :card-data="cardData"
+        :google-mat-truoc="googleMatTruoc"
+        :google-mat-sau="googleMatSau"
+        :mat-truoc="matTruoc"
+        :mat-sau="matSau"
       />
       <VCardText class="d-flex justify-end flex-wrap gap-3">
-        <VBtn variant="tonal" color="secondary" @click="dialog = false">
+        <VBtn
+          variant="tonal"
+          color="secondary"
+          @click="dialog = false"
+        >
           Disagree
         </VBtn>
-        <VBtn @click="danhGia"> Agree </VBtn>
+        <VBtn @click="danhGia">
+          Agree
+        </VBtn>
       </VCardText>
     </VCard>
   </VDialog>
@@ -37,8 +53,7 @@ import {
   danhGiaDuLieu,
 } from "../../api/DemoRD/DemoAPI";
 import { useStore } from "vuex";
-import { onMounted } from "vue";
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 
 const store = useStore();
 var cardData = ref("");
@@ -100,7 +115,7 @@ async function danhGia() {
       googleMatTruocC.value,
       googleMatSauC.value,
       checkTruong.value,
-      loaiThe.value
+      loaiThe.value,
     );
     store.commit("setOverlayVisible", false);
   } catch (error) {

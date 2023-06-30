@@ -1,8 +1,12 @@
 <template>
-  <VAlert variant="outlined" color="secondary">Căn cước công dân </VAlert
-  ><VSwitch
-    style="margin-top: 20px"
+  <VAlert
+    variant="outlined"
+    color="secondary"
+  >
+    Căn cước công dân
+  </VAlert><VSwitch
     v-model="toggleSwitch"
+    style="margin-top: 20px"
     :label="capitalizedLabel(toggleSwitch)"
   />
 </template>
@@ -12,7 +16,7 @@ const props = defineProps({
   setCheck: Function,
 });
 
-const capitalizedLabel = (label) => {
+const capitalizedLabel = label => {
   const convertLabelText = label.toString();
 
   return convertLabelText.charAt(0).toUpperCase() + convertLabelText.slice(1);

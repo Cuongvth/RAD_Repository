@@ -220,7 +220,9 @@
             />
           </VCol>
           <VCol cols="12">
-            <VBtn type="submit"> Save </VBtn>
+            <VBtn type="submit">
+              Save
+            </VBtn>
           </VCol>
         </VRow>
       </VForm>
@@ -259,7 +261,7 @@ function valid(value) {
 function onSubmit() {
   var ok = true;
 
-  checkTruong.value.forEach((element) => {
+  checkTruong.value.forEach(element => {
     if (!valid(element)) {
       ok = false;
     }

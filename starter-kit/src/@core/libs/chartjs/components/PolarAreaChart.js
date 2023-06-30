@@ -1,8 +1,8 @@
-import { ArcElement, Chart as ChartJS, Legend, RadialLinearScale, Title, Tooltip } from 'chart.js'
-import { defineComponent } from 'vue'
-import { PolarArea } from 'vue-chartjs'
+import { ArcElement, Chart as ChartJS, Legend, RadialLinearScale, Title, Tooltip } from 'chart.js';
+import { defineComponent } from 'vue';
+import { PolarArea } from 'vue-chartjs';
 
-ChartJS.register(Title, Tooltip, Legend, ArcElement, RadialLinearScale)
+ChartJS.register(Title, Tooltip, Legend, ArcElement, RadialLinearScale);
 export default defineComponent({
   name: 'PolarAreaChart',
   props: {
@@ -49,6 +49,6 @@ export default defineComponent({
       cssClasses: props.cssClasses,
       styles: props.styles,
       plugins: props.plugins,
-    })
+    });
   },
-})
+});

@@ -3,10 +3,10 @@ import {
   computePosition,
   flip,
   shift,
-} from '@floating-ui/dom'
-import { useLayouts } from '@layouts/composable/useLayouts'
-import { config } from '@layouts/config'
-import { themeConfig } from '@themeConfig'
+} from '@floating-ui/dom';
+import { useLayouts } from '@layouts/composable/useLayouts';
+import { config } from '@layouts/config';
+import { themeConfig } from '@themeConfig';
 
 const props = defineProps({
   popperInlineEnd: {
@@ -28,17 +28,17 @@ const props = defineProps({
     type: Boolean,
     required: false,
   },
-})
+});
 
-const refPopperContainer = ref()
-const refPopper = ref()
+const refPopperContainer = ref();
+const refPopper = ref();
 
 const popperContentStyles = ref({
   left: '0px',
   top: '0px',
 
   // strategy: 'fixed',
-})
+});
 
 const updatePopper = async () => {
   const { x, y } = await computePosition(refPopperContainer.value, refPopper.value, {
@@ -49,42 +49,42 @@ const updatePopper = async () => {
     ],
 
     // strategy: 'fixed',
-  })
+  });
 
-  popperContentStyles.value.left = `${ x }px`
-  popperContentStyles.value.top = `${ y }px`
-}
+  popperContentStyles.value.left = `${ x }px`;
+  popperContentStyles.value.top = `${ y }px`;
+};
 
 until(config.horizontalNav.type).toMatch(type => type === 'static').then(() => {
-  useEventListener('scroll', updatePopper)
+  useEventListener('scroll', updatePopper);
 
   // strategy: 'fixed',
-})
+});
 
-const isContentShown = ref(false)
+const isContentShown = ref(false);
 
 const showContent = () => {
-  isContentShown.value = true
-  updatePopper()
-}
+  isContentShown.value = true;
+  updatePopper();
+};
 
 const hideContent = () => {
-  isContentShown.value = false
-}
+  isContentShown.value = false;
+};
 
-onMounted(updatePopper)
+onMounted(updatePopper);
 
-const { isAppRtl, appContentWidth } = useLayouts()
+const { isAppRtl, appContentWidth } = useLayouts();
 
 watch([
   isAppRtl,
   appContentWidth,
-], updatePopper)
+], updatePopper);
 
 // Watch for route changes and close popper content if route is changed
-const route = useRoute()
+const route = useRoute();
 
-watch(() => route.fullPath, hideContent)
+watch(() => route.fullPath, hideContent);
 </script>
 
 <template>

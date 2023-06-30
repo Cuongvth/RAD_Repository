@@ -9,17 +9,17 @@ const props = defineProps({
     required: false,
     default: 'bottom end',
   },
-})
+});
 
-const emit = defineEmits(['change'])
+const emit = defineEmits(['change']);
 
-const { locale } = useI18n({ useScope: 'global' })
+const { locale } = useI18n({ useScope: 'global' });
 
 watch(locale, val => {
-  document.documentElement.setAttribute('lang', val)
-})
+  document.documentElement.setAttribute('lang', val);
+});
 
-const currentLang = ref(['en'])
+const currentLang = ref(['en']);
 </script>
 
 <template>

@@ -3,13 +3,15 @@
     <VCard title="Nhận dạng trực tiếp 🙌">
       <VCardText>Nhận dạng trực tiếp hình ảnh</VCardText>
     </VCard>
-    <div style="margin-top: 20px"><GetImage :getData="getData" /></div>
+    <div style="margin-top: 20px">
+      <GetImage :get-data="getData" />
+    </div>
     <div style="margin-top: 20px">
       <ShowCard
         :type="type"
-        :cardData="cardData"
-        :googleMatTruoc="googleMatTruoc"
-        :googleMatSau="googleMatSau"
+        :card-data="cardData"
+        :google-mat-truoc="googleMatTruoc"
+        :google-mat-sau="googleMatSau"
       />
     </div>
   </div>

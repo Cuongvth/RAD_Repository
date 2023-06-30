@@ -10,40 +10,40 @@ const props = defineProps({
     required: false,
     default: '',
   },
-})
+});
 
-const emit = defineEmits(['updateOtp'])
+const emit = defineEmits(['updateOtp']);
 
-const digits = ref([])
-const refOtpComp = ref(null)
+const digits = ref([]);
+const refOtpComp = ref(null);
 
-digits.value = props.default.split('')
+digits.value = props.default.split('');
 
-const defaultStyle = { style: 'max-width: 54px; text-align: center;' }
+const defaultStyle = { style: 'max-width: 54px; text-align: center;' };
 
 // eslint-disable-next-line sonarjs/cognitive-complexity
 const handleKeyDown = (event, index) => {
   if (event.code !== 'Tab' && event.code !== 'ArrowRight' && event.code !== 'ArrowLeft')
-    event.preventDefault()
+    event.preventDefault();
   if (event.code === 'Backspace') {
-    digits.value[index - 1] = ''
+    digits.value[index - 1] = '';
     if (refOtpComp.value !== null && index > 1) {
-      const inputEl = refOtpComp.value.children[index - 2].querySelector('input')
+      const inputEl = refOtpComp.value.children[index - 2].querySelector('input');
       if (inputEl)
-        inputEl.focus()
+        inputEl.focus();
     }
   }
-  const numberRegExp = /^([0-9])$/
+  const numberRegExp = /^([0-9])$/;
   if (numberRegExp.test(event.key)) {
-    digits.value[index - 1] = event.key
+    digits.value[index - 1] = event.key;
     if (refOtpComp.value !== null && index !== 0 && index < refOtpComp.value.children.length) {
-      const inputEl = refOtpComp.value.children[index].querySelector('input')
+      const inputEl = refOtpComp.value.children[index].querySelector('input');
       if (inputEl)
-        inputEl.focus()
+        inputEl.focus();
     }
   }
-  emit('updateOtp', digits.value.join(''))
-}
+  emit('updateOtp', digits.value.join(''));
+};
 </script>
 
 <template>

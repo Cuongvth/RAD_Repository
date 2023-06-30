@@ -1,8 +1,8 @@
-import { Chart as ChartJS, Legend, LinearScale, PointElement, Title, Tooltip } from 'chart.js'
-import { defineComponent } from 'vue'
-import { Bubble } from 'vue-chartjs'
+import { Chart as ChartJS, Legend, LinearScale, PointElement, Title, Tooltip } from 'chart.js';
+import { defineComponent } from 'vue';
+import { Bubble } from 'vue-chartjs';
 
-ChartJS.register(Title, Tooltip, Legend, PointElement, LinearScale)
+ChartJS.register(Title, Tooltip, Legend, PointElement, LinearScale);
 export default defineComponent({
   name: 'BubbleChart',
   props: {
@@ -49,6 +49,6 @@ export default defineComponent({
       cssClasses: props.cssClasses,
       styles: props.styles,
       plugins: props.plugins,
-    })
+    });
   },
-})
+});

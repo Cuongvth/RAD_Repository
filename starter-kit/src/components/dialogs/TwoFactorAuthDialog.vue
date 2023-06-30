@@ -15,9 +15,9 @@ const props = defineProps({
     required: false,
     default: '',
   },
-})
+});
 
-const emit = defineEmits(['update:isDialogVisible'])
+const emit = defineEmits(['update:isDialogVisible']);
 
 const authMethods = [
   {
@@ -32,24 +32,24 @@ const authMethods = [
     subtitle: 'We will send a code via SMS if you need to use your backup login method.',
     method: 'sms',
   },
-]
+];
 
-const selectedMethod = ref(['authApp'])
-const isAuthAppDialogVisible = ref(false)
-const isSmsDialogVisible = ref(false)
+const selectedMethod = ref(['authApp']);
+const isAuthAppDialogVisible = ref(false);
+const isSmsDialogVisible = ref(false);
 
 const openSelectedMethodDialog = () => {
   if (selectedMethod.value[0] === 'authApp') {
-    isAuthAppDialogVisible.value = true
-    isSmsDialogVisible.value = false
-    emit('update:isDialogVisible', false)
+    isAuthAppDialogVisible.value = true;
+    isSmsDialogVisible.value = false;
+    emit('update:isDialogVisible', false);
   }
   if (selectedMethod.value[0] === 'sms') {
-    isAuthAppDialogVisible.value = false
-    isSmsDialogVisible.value = true
-    emit('update:isDialogVisible', false)
+    isAuthAppDialogVisible.value = false;
+    isSmsDialogVisible.value = true;
+    emit('update:isDialogVisible', false);
   }
-}
+};
 </script>
 
 <template>

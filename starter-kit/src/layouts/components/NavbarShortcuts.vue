@@ -39,7 +39,7 @@ const shortcuts = [
     subtitle: 'FAQs & Articles',
     to: { name: 'pages-help-center' },
   },
-]
+];
 </script>
 
 <template>

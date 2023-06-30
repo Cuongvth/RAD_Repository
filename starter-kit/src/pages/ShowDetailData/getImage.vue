@@ -1,7 +1,10 @@
 <template>
   <div>
     <VRow>
-      <VCol cols="12" md="4">
+      <VCol
+        cols="12"
+        md="4"
+      >
         <VImg
           v-if="props.matTruoc.length > 0"
           :src="`data:image/jpeg;base64, ` + props.matTruoc"
@@ -9,7 +12,10 @@
           @click="rotater(1)"
         />
       </VCol>
-      <VCol cols="12" md="4">
+      <VCol
+        cols="12"
+        md="4"
+      >
         <VImg
           v-if="props.matSau.length > 0"
           :src="`data:image/jpeg;base64, ` + props.matSau"

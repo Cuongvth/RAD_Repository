@@ -1,12 +1,12 @@
 <script setup>
-const { y } = useWindowScroll()
+const { y } = useWindowScroll();
 
 const scrollToTop = () => {
   window.scrollTo({
     top: 0,
     behavior: 'smooth',
-  })
-}
+  });
+};
 </script>
 
 <template>

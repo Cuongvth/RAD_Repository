@@ -1,4 +1,4 @@
-import { Icon } from '@iconify/vue'
+import { Icon } from '@iconify/vue';
 
 const aliases = {
   collapse: 'tabler-chevron-up',
@@ -37,15 +37,15 @@ const aliases = {
   minus: 'tabler-minus',
   sortAsc: 'tabler-arrow-up',
   sortDesc: 'tabler-arrow-down',
-}
+};
 
 export const iconify = {
   component: props => h(Icon, props),
-}
+};
 export const icons = {
   defaultSet: 'iconify',
   aliases,
   sets: {
     iconify,
   },
-}
+};

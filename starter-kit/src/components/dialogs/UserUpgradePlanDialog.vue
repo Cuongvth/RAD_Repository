@@ -4,11 +4,11 @@ const props = defineProps({
     type: Boolean,
     required: true,
   },
-})
+});
 
-const emit = defineEmits(['update:isDialogVisible'])
+const emit = defineEmits(['update:isDialogVisible']);
 
-const selectedPlan = ref('standard')
+const selectedPlan = ref('standard');
 
 const plansList = [
   {
@@ -31,13 +31,13 @@ const plansList = [
     title: 'Company',
     value: 'company',
   },
-]
+];
 
-const isConfirmDialogVisible = ref(false)
+const isConfirmDialogVisible = ref(false);
 
 const dialogModelValueUpdate = val => {
-  emit('update:isDialogVisible', val)
-}
+  emit('update:isDialogVisible', val);
+};
 </script>
 
 <template>

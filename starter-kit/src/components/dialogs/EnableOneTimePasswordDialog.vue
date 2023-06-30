@@ -8,30 +8,30 @@ const props = defineProps({
     type: Boolean,
     required: true,
   },
-})
+});
 
 const emit = defineEmits([
   'update:isDialogVisible',
   'submit',
-])
+]);
 
-const phoneNumber = ref(structuredClone(toRaw(props.mobileNumber)))
+const phoneNumber = ref(structuredClone(toRaw(props.mobileNumber)));
 
 const formSubmit = () => {
   if (phoneNumber.value) {
-    emit('submit', phoneNumber.value)
-    emit('update:isDialogVisible', false)
+    emit('submit', phoneNumber.value);
+    emit('update:isDialogVisible', false);
   }
-}
+};
 
 const resetPhoneNumber = () => {
-  phoneNumber.value = structuredClone(toRaw(props.mobileNumber))
-  emit('update:isDialogVisible', false)
-}
+  phoneNumber.value = structuredClone(toRaw(props.mobileNumber));
+  emit('update:isDialogVisible', false);
+};
 
 const dialogModelValueUpdate = val => {
-  emit('update:isDialogVisible', val)
-}
+  emit('update:isDialogVisible', val);
+};
 </script>
 
 <template>
