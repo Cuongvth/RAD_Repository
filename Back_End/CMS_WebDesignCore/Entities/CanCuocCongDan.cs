@@ -13,18 +13,18 @@
         public string? DacDiemNhanDang { get; set; }
         public string? NgayDangKy { get; set; }
         public string? VNM { get; set; }
-        public int? IsSoCCCD { get; set; }
-        public int? IsHoTen { get; set; }
-        public int? IsNgayThangNamSinh { get; set; }
-        public int? IsGioiTinh { get; set; }
-        public int? IsQuocTich { get; set; }
-        public int? IsQueQuan { get; set; }
-        public int? IsNoiThuongTru { get; set; }
-        public int? IsCoGiaTriDen { get; set; }
-        public int? IsDacDiemNhanDang { get; set; }
-        public int? IsNgayDangKy { get; set; }
-        public int? IsVNM { get; set; }
-        public bool? DungTatCa { get; set; }
+        public int? IsSoCCCD { get; set; } = 100;
+        public int? IsHoTen { get; set; } = 100;
+        public int? IsNgayThangNamSinh { get; set; } = 100;
+        public int? IsGioiTinh { get; set; } = 100;
+        public int? IsQuocTich { get; set; } = 100;
+        public int? IsQueQuan { get; set; } = 100;
+        public int? IsNoiThuongTru { get; set; } = 100;
+        public int? IsCoGiaTriDen { get; set; } = 100;
+        public int? IsDacDiemNhanDang { get; set; } = 100;
+        public int? IsNgayDangKy { get; set; } = 100;
+        public int? IsVNM { get; set; } = 100;
+        public bool? DungTatCa { get; set; } = true;
         public override string? ToString()
         {
             return $"{SoCCCD}-{HoTen}-{NgayThangNamSinh}-{GioiTinh}-{QuocTich}-{QueQuan}-{NoiThuongTru}-{CoGiaTriDen}-{DacDiemNhanDang}-{NgayDangKy}-{VNM}";

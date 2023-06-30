@@ -8,6 +8,7 @@
     </div>
     <div style="margin-top: 20px">
       <ShowCard
+        :setCheck="props.setCheck"
         :type="props.type"
         :cardData="props.cardData"
         :googleMatTruoc="props.googleMatTruoc"
@@ -25,6 +26,7 @@ const props = defineProps({
   googleMatSau: Array,
   matTruoc: String,
   matSau: String,
+  setCheck: Function,
 });
 
 import ShowCard from "@/views/CheckData/ShowCard.vue";

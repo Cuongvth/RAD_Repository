@@ -12,16 +12,16 @@
         public string? MoTaXeDuocSuDung { get; set; }
         public string? NgayTrungTuyen { get; set; }
 
-        public int? IsSo { get; set; }
-        public int? IsHoTen { get; set; }
-        public int? IsNgaySinh { get; set; }
-        public int? IsQuocTich { get; set; }
-        public int? IsNoiCuTru { get; set; }
-        public int? IsNgayDangKy { get; set; }
-        public int? IsHang { get; set; }
-        public int? IsMoTaXeDuocSuDung { get; set; }
-        public int? IsNgayTrungTuyen { get; set; }
-        public bool? DungTatCa { get; set; }
+        public int? IsSo { get; set; } = 100;
+        public int? IsHoTen { get; set; } = 100;
+        public int? IsNgaySinh { get; set; } = 100;
+        public int? IsQuocTich { get; set; } = 100;
+        public int? IsNoiCuTru { get; set; } = 100;
+        public int? IsNgayDangKy { get; set; } = 100;
+        public int? IsHang { get; set; } = 100;
+        public int? IsMoTaXeDuocSuDung { get; set; } = 100;
+        public int? IsNgayTrungTuyen { get; set; } = 100;
+        public bool? DungTatCa { get; set; } = true;
         public override string? ToString()
         {
             return So + "-" + HoTen + "-" + NgaySinh + "-" + QuocTich + "-" + NoiCuTru + "-" + NgayDangKy + "-" + Hang + "-" + MoTaXeDuocSuDung + "-" + NgayTrungTuyen;

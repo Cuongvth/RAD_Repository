@@ -1,7 +1,7 @@
 <template>
   <VCard title="User Profile">
     <VCardText>
-      <VForm ref="form" @submit.prevent="onSubmit">
+      <VForm @submit.prevent="onSubmit">
         <VRow>
           <VCol cols="9">
             <AppTextField
@@ -16,10 +16,7 @@
           <VCol cols="3">
             <AppTextField
               v-model="checkTruong[0]"
-              :rules="[
-                requiredValidator,
-                betweenValidator(checkTruong[0], 0, 100),
-              ]"
+              type="number"
               density="compact"
               label="No."
               hint="No."
@@ -39,10 +36,7 @@
           <VCol cols="3">
             <AppTextField
               v-model="checkTruong[1]"
-              :rules="[
-                requiredValidator,
-                betweenValidator(checkTruong[1], 0, 100),
-              ]"
+              type="number"
               density="compact"
               label="Full name"
               hint="Full name"
@@ -62,10 +56,7 @@
           <VCol cols="3">
             <AppTextField
               v-model="checkTruong[2]"
-              :rules="[
-                requiredValidator,
-                betweenValidator(checkTruong[2], 0, 100),
-              ]"
+              type="number"
               density="compact"
               label="Date of birth"
               hint="Date of birth"
@@ -85,10 +76,7 @@
           <VCol cols="3">
             <AppTextField
               v-model="checkTruong[3]"
-              :rules="[
-                requiredValidator,
-                betweenValidator(checkTruong[3], 0, 100),
-              ]"
+              type="number"
               density="compact"
               label="Sex"
               hint="Sex"
@@ -108,10 +96,7 @@
           <VCol cols="3">
             <AppTextField
               v-model="checkTruong[4]"
-              :rules="[
-                requiredValidator,
-                betweenValidator(checkTruong[4], 0, 100),
-              ]"
+              type="number"
               density="compact"
               label="Nationality"
               hint="Nationality"
@@ -131,10 +116,7 @@
           <VCol cols="3">
             <AppTextField
               v-model="checkTruong[5]"
-              :rules="[
-                requiredValidator,
-                betweenValidator(checkTruong[5], 0, 100),
-              ]"
+              type="number"
               density="compact"
               label="Date of expiry"
               hint="Date of expiry"
@@ -154,10 +136,7 @@
           <VCol cols="3">
             <AppTextField
               v-model="checkTruong[6]"
-              :rules="[
-                requiredValidator,
-                betweenValidator(checkTruong[6], 0, 100),
-              ]"
+              type="number"
               density="compact"
               label="Place of residence"
               hint="Place of residence"
@@ -177,10 +156,7 @@
           <VCol cols="3">
             <AppTextField
               v-model="checkTruong[7]"
-              :rules="[
-                requiredValidator,
-                betweenValidator(checkTruong[7], 0, 100),
-              ]"
+              type="number"
               density="compact"
               label="Place of onigin"
               hint="Place of onigin"
@@ -200,10 +176,7 @@
           <VCol cols="3">
             <AppTextField
               v-model="checkTruong[8]"
-              :rules="[
-                requiredValidator,
-                betweenValidator(checkTruong[8], 0, 100),
-              ]"
+              type="number"
               density="compact"
               label="Personal identitication"
               hint="Personal identitication"
@@ -223,10 +196,7 @@
           <VCol cols="3">
             <AppTextField
               v-model="checkTruong[9]"
-              :rules="[
-                requiredValidator,
-                betweenValidator(checkTruong[9], 0, 100),
-              ]"
+              type="number"
               density="compact"
               label="Date supply"
               hint="Date supply"
@@ -248,10 +218,7 @@
           <VCol cols="3">
             <AppTextField
               v-model="checkTruong[10]"
-              :rules="[
-                requiredValidator,
-                betweenValidator(checkTruong[10], 0, 100),
-              ]"
+              type="number"
               density="compact"
               label="VNM"
               hint="VNM"
@@ -273,18 +240,44 @@ const props = defineProps({
   setCheck: Function,
 });
 
-import { betweenValidator, requiredValidator } from "@validators";
 import { useStore } from "vuex";
 
-var checkTruong = ref([100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100]);
-const form = ref(null);
+var checkTruong = ref([
+  props.cardData.isSoCCCD,
+  props.cardData.isHoTen,
+  props.cardData.isNgayThangNamSinh,
+  props.cardData.isGioiTinh,
+  props.cardData.isQuocTich,
+  props.cardData.isCoGiaTriDen,
+  props.cardData.isNoiThuongTru,
+  props.cardData.isQueQuan,
+  props.cardData.isDacDiemNhanDang,
+  props.cardData.isNgayDangKy,
+  props.cardData.isVNM,
+]);
 const store = useStore();
 
+function valid(value) {
+  const regex = /^([0-9]|[1-9][0-9]|100)$/;
+
+  return regex.test(value);
+}
+
 function onSubmit() {
-  if (!form.value.checkValidity()) {
+  var ok = true;
+
+  checkTruong.value.forEach((element) => {
+    if (!valid(element)) {
+      ok = false;
+    }
+  });
+
+  if (!ok) {
+    store.commit("setSnackBarContent", "Thất bại");
+
     return;
   }
-  props.setCheck(3, checkTruong);
+  props.setCheck(3, Array.from(checkTruong.value));
   store.commit("setSnackBarContent", "Lưu thành công");
 }
 </script>

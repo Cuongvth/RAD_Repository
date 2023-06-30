@@ -20,11 +20,7 @@
                 <AppTextField
                   style="margin-top: 20px"
                   v-model="checkToanVan[0]"
-                  :rules="[
-                    requiredValidator,
-                    betweenValidator(checkToanVan[0], 0, 100),
-                    valid,
-                  ]"
+                  type="number"
                   density="compact"
                   variant="outlined"
                 />
@@ -41,11 +37,7 @@
                 <AppTextField
                   style="margin-top: 20px"
                   v-model="checkToanVan[1]"
-                  :rules="[
-                    requiredValidator,
-                    betweenValidator(checkToanVan[1], 0, 100),
-                    valid,
-                  ]"
+                  type="number"
                   density="compact"
                   variant="outlined"
                 /><VBtn style="margin-top: 20px" type="submit"> Save </VBtn>
@@ -67,39 +59,46 @@ const props = defineProps({
 
 var tab = ref(null);
 
-import { betweenValidator, requiredValidator } from "@validators";
 import { useStore } from "vuex";
 
 var checkToanVan = ref([100, 100]);
 const store = useStore();
 
-var ok = true;
-
 function valid(value) {
-  if (value < 0 || value > 100 || !isNaN(value) || value.length == 0) {
-    ok = false;
-  }
+  const regex = /^([0-9]|[1-9][0-9]|100)$/;
 
-  return true;
+  return regex.test(value);
 }
 
 function onSubmit1() {
+  var ok = true;
+
+  if (!valid(checkToanVan.value[0])) {
+    ok = false;
+  }
+
   if (!ok) {
     store.commit("setSnackBarContent", "Thất bại");
 
     return;
   }
-  props.setCheck(1, checkToanVan[0]);
+  props.setCheck(1, checkToanVan.value[0]);
   store.commit("setSnackBarContent", "Lưu thành công");
 }
 
 function onSubmit2() {
+  var ok = true;
+
+  if (!valid(checkToanVan.value[1])) {
+    ok = false;
+  }
+
   if (!ok) {
     store.commit("setSnackBarContent", "Thất bại");
 
     return;
   }
-  props.setCheck(2, checkToanVan[1]);
+  props.setCheck(2, checkToanVan.value[1]);
   store.commit("setSnackBarContent", "Lưu thành công");
 }
 </script>

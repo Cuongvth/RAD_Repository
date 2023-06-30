@@ -26,7 +26,8 @@ namespace CMS_WebDesignCore.IBusiness
         Task<GoogleIdenDTO<CanCuocCongDan>> NhanDangCCCD(int duLieuId);
         Task<GoogleIdenDTO<GiayPhepLaiXe>> NhanDangBLX(int duLieuId);
         Task<CheckResult> NhanDang(int duLieuId);
-        Task<ActionStatus> ThongTinCoChinhXacCCCD(int CCCDID, PropCCCDEnum prop, int isTrue);
+        Task<ActionStatus> ThongTinCoChinhXacCCCD(int CCCDID, int isSo, int isHoTen, int isCoGiaTriDen, int isNgayThang, int isGioiTinh, int isQuocTich, int isQueQuan, int isvnm, int isNoiThuongTru, int isDacDien, int isNgayDangKi, int isMatTruoc, int isMatSau, bool isLoaiThe);
+        Task<ActionStatus> ThongTinCoChinhXacBLX(int BLXID, int isSo, int isHoTen, int isNoiCuTru, int isNgayThang, int isQuocTich, int isHang, int isMoTaXeDuocSuDung, int isNgayTrungTuyen, int isNgayDangKi, int isMatTruoc, int isMatSau, bool isLoaiThe);
         Task<GoogleIdenDTO<CanCuocCongDan>> NhanDangCCCDTrucTiep(IFormFile matTruoc, IFormFile matSau);
         Task<GoogleIdenDTO<GiayPhepLaiXe>> NhanDangBLXTrucTiep(IFormFile matTruoc, IFormFile matSau);
         Task<CheckResult> NhanDangTrucTiep(IFormFile matTruoc);

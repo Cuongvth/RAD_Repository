@@ -79,9 +79,14 @@ namespace CMS_Web.Controllers
             }
         }
         [HttpGet("danhgiadulieucccd")]
-        public async Task<IActionResult> ThongTinCoChinhXacCCCD(int CCCDID, PropCCCDEnum prop, int isTrue)
+        public async Task<IActionResult> ThongTinCoChinhXacCCCD(int CCCDID, int isSo, int isHoTen, int isCoGiaTriDen, int isNgayThang, int isGioiTinh, int isQuocTich, int isQueQuan, int isvnm, int isNoiThuongTru, int isDacDien, int isNgayDangKi, int isMatTruoc, int isMatSau, bool isLoaiThe)
         {
-            return Ok(await _admin.ThongTinCoChinhXacCCCD(CCCDID, prop, isTrue));
+            return Ok(await _admin.ThongTinCoChinhXacCCCD(CCCDID, isSo, isHoTen, isCoGiaTriDen, isNgayThang, isGioiTinh, isQuocTich, isQueQuan, isvnm, isNoiThuongTru, isDacDien, isNgayDangKi, isMatTruoc, isMatSau, isLoaiThe));
+        }
+        [HttpGet("danhgiadulieublx")]
+        public async Task<IActionResult> ThongTinCoChinhXacBLX(int BLXID, int isSo, int isHoTen, int isNoiCuTru, int isNgayThang, int isQuocTich, int isHang, int isMoTaXeDuocSuDung, int isNgayTrungTuyen, int isNgayDangKi, int isMatTruoc, int isMatSau, bool isLoaiThe)
+        {
+            return Ok(await _admin.ThongTinCoChinhXacBLX(BLXID, isSo, isHoTen, isNoiCuTru, isNgayThang, isQuocTich, isHang, isMoTaXeDuocSuDung, isNgayTrungTuyen, isNgayDangKi, isMatTruoc, isMatSau, isLoaiThe));
         }
         [HttpPost("nhandangtructiep")]
         public async Task<IActionResult> NhanDangTrucTiep(IFormFile matTruoc, IFormFile matSau)

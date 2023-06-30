@@ -42,6 +42,7 @@ const props = defineProps({
   cardData: Object,
   googleMatTruoc: Array,
   googleMatSau: Array,
+  setCheck: Function,
 });
 
 import CanCuocCard from "./CanCuocCard.vue";
@@ -71,5 +72,16 @@ function setCheck(key, value) {
   } else if (key == 4) {
     check.value.loaiThe = value;
   }
+  if (check.value.type == 1 && check.value.checkTruong.length == 11) {
+    check.value.thoaman = true;
+  } else if (check.value.type == 4 && check.value.checkTruong.length == 9) {
+    check.value.thoaman = true;
+  } else {
+    check.value.thoaman = false;
+  }
 }
+
+watch(check.value, (newVal, oldVal) => {
+  props.setCheck(newVal);
+});
 </script>
