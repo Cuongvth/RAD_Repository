@@ -1,12 +1,6 @@
 ﻿using CMS_WebDesignCore.DTO;
 using CMS_WebDesignCore.Entities;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace CMS_Infrastructure.Plugins
 {

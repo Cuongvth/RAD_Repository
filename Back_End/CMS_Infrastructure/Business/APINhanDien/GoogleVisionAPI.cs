@@ -1,18 +1,11 @@
 ﻿using CMS_WebDesignCore.Enums;
-using Google.Apis.Vision.v1;
+using CMS_WebDesignCore.Wrap;
 using Google.Apis.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Image = Google.Apis.Vision.v1.Data.Image;
-using ImageSource = Google.Apis.Vision.v1.Data.ImageSource;
-using Feature = Google.Apis.Vision.v1.Data.Feature;
+using Google.Apis.Vision.v1;
 using AnnotateImageRequest = Google.Apis.Vision.v1.Data.AnnotateImageRequest;
 using BatchAnnotateImagesRequest = Google.Apis.Vision.v1.Data.BatchAnnotateImagesRequest;
-using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
-using CMS_WebDesignCore.Wrap;
+using Feature = Google.Apis.Vision.v1.Data.Feature;
+using Image = Google.Apis.Vision.v1.Data.Image;
 
 namespace CMS_Infrastructure.Business.APINhanDien
 {

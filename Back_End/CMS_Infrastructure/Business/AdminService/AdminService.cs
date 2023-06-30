@@ -7,12 +7,6 @@ using CMS_WebDesignCore.IBusiness;
 using CMS_WebDesignCore.Wrap;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CMS_Infrastructure.Business.AdminService
 {
@@ -20,7 +14,7 @@ namespace CMS_Infrastructure.Business.AdminService
     {
         public async Task<IQueryable<CanCuocCongDan>> GetCanCuocPage(int page, int pageSize)
         {
-            var query = _context.CanCuocCongDans.Skip((page - 1) * pageSize).Take(pageSize);
+            var query = _context.CanCuocCongDans.OrderBy(c => c.Id).Skip((page - 1) * pageSize).Take(pageSize);
             return query;
         }
 
@@ -41,7 +35,7 @@ namespace CMS_Infrastructure.Business.AdminService
 
         public async Task<IQueryable<DuLieu>> GetDuLieuPage(int page, int pageSize)
         {
-            var query = _context.DuLieus.Where(c => c.Status == StatusData.CHUANHANDANG).Skip((page - 1) * pageSize).Take(pageSize);
+            var query = _context.DuLieus.Where(c => c.Status == StatusData.CHUANHANDANG).OrderBy(c => c.Id).Skip((page - 1) * pageSize).Take(pageSize);
             return query;
         }
 
@@ -52,7 +46,7 @@ namespace CMS_Infrastructure.Business.AdminService
 
         public async Task<IQueryable<GiayPhepLaiXe>> GetBLXPage(int page, int pageSize)
         {
-            var query = _context.GiayPhepLaiXes.Skip((page - 1) * pageSize).Take(pageSize);
+            var query = _context.GiayPhepLaiXes.OrderBy(c => c.Id).Skip((page - 1) * pageSize).Take(pageSize);
             return query;
         }
 
