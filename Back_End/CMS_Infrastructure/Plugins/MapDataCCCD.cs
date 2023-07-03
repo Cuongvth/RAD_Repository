@@ -133,7 +133,7 @@ namespace CMS_Infrastructure.Plugins
             i = 0;
             foreach (var item in dataMatSau)
             {
-                if (item.Contains("identification:"))
+                if (item.Contains("identification"))
                 {
                     result.DacDiemNhanDang = dataMatSau[i + 1];
                     if (!dataMatSau[i + 2].Contains("year") || !dataMatSau[i + 2].Contains("month") || !dataMatSau[i + 2].Contains("Date"))
