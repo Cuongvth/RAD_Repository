@@ -291,6 +291,7 @@ namespace CMS_Infrastructure.Business.AdminService
             }
             dl.GoogleMatTruoc = dataTruoc;
             dl.GoogleMatSau = dataSau;
+            dl.Status = StatusData.DANHANDANG;
             FullInfo<CanCuocCongDan> canCuocCongDan = MapDataCCCD.CCCDGanChip(ggmatTruoc, ggmatSau);
             await _context.AddAsync(dl);
             await _context.SaveChangesAsync();
@@ -325,6 +326,7 @@ namespace CMS_Infrastructure.Business.AdminService
             }
             dl.GoogleMatTruoc = dataTruoc;
             dl.GoogleMatSau = dataSau;
+            dl.Status = StatusData.DANHANDANG;
             FullInfo<GiayPhepLaiXe> blx = MapDataBLX.BLXAddData(ggmatTruoc, ggmatSau);
             await _context.AddAsync(dl);
             await _context.SaveChangesAsync();
