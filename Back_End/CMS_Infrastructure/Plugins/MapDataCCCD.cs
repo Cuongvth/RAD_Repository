@@ -88,6 +88,10 @@ namespace CMS_Infrastructure.Plugins
                     {
                         result.QuocTich = matches[0].Value.Replace("Nationality", "").Replace(":", "").Replace(".", "").Trim();
                     }
+                    else
+                    {
+                        result.QuocTich = "Việt Nam";
+                    }
                 }
                 if (item.Contains("Place of origin"))
                 {
