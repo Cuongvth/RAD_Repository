@@ -4,9 +4,9 @@ export default [
     to: { name: "index" },
     icon: { icon: "tabler-smart-home" },
   },
-  { heading: "Google Vision" },
+  { heading: "LTS Tech R&D" },
   {
-    title: "Google Vision",
+    title: "T6 - Nhận Dạng Thẻ",
     icon: { icon: "tabler-smart-home" },
     children: [
       {
