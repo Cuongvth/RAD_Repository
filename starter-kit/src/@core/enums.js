@@ -1,6 +1,6 @@
 export const Skins = {
   Default: 'default',
-  Bordered: 'bordered',
+  Bordered: 'default',
 };
 export const RouteTransitions = {
   Fade: 'app-transition-fade',
