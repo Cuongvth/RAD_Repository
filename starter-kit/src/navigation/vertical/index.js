@@ -28,4 +28,15 @@ export default [
     ],
     badgeClass: "bg-primary",
   },
+  {
+    title: "T7 - ChatBot DMT du lịch Việt",
+    icon: { icon: "tabler-smart-home" },
+    children: [
+      {
+        title: "Chat Bot",
+        to: { name: "travel_assistant_chatbot" },
+      },
+    ],
+    badgeClass: "bg-primary",
+  },
 ];
