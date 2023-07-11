@@ -1,10 +1,10 @@
 <script setup>
-import { useChat } from '@/views/apps/chat/useChat'
-import { useChatStore } from '@/views/apps/chat/useChatStore'
+import { useChat } from '@/views/apps/chat/useChat';
+import { useChatStore } from '@/views/apps/chat/useChatStore';
 import {
   avatarText,
   formatDateToMonthShort,
-} from '@core/utils/formatters'
+} from '@core/utils/formatters';
 
 const props = defineProps({
   isChatContact: {
@@ -16,18 +16,18 @@ const props = defineProps({
     type: null,
     required: true,
   },
-})
+});
 
-const store = useChatStore()
-const { resolveAvatarBadgeVariant } = useChat()
+const store = useChatStore();
+const { resolveAvatarBadgeVariant } = useChat();
 
 const isChatContactActive = computed(() => {
-  const isActive = store.activeChat?.contact.id === props.user.id
+  const isActive = store.activeChat?.contact.id === props.user.id;
   if (!props.isChatContact)
-    return !store.activeChat?.chat && isActive
+    return !store.activeChat?.chat && isActive;
   
-  return isActive
-})
+  return isActive;
+});
 </script>
 
 <template>
@@ -71,13 +71,15 @@ const isChatContactActive = computed(() => {
       class="d-flex flex-column align-self-start"
     >
       <span class="d-block text-sm text-disabled whitespace-no-wrap">{{ formatDateToMonthShort(props.user.chat.lastMessage.time) }}</span>
-      <VBadge
+      <!--
+        <VBadge
         v-if="props.user.chat.unseenMsgs"
         color="error"
         inline
         :content="props.user.chat.unseenMsgs"
         class="ms-auto"
-      />
+        /> 
+      -->
     </div>
   </li>
 </template>

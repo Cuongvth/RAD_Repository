@@ -1,4 +1,4 @@
-import mock from '@/@fake-db/mock'
+import mock from '@/@fake-db/mock';
 
 const database = [
   {
@@ -106,21 +106,21 @@ const database = [
       },
     ],
   },
-]
+];
 
 mock.onGet('/pages/faqs').reply(config => {
-  const { q = '' } = config.params ?? {}
-  const queryLowered = q.toLowerCase()
-  const filteredData = []
+  const { q = '' } = config.params ?? {};
+  const queryLowered = q.toLowerCase();
+  const filteredData = [];
 
   Object.entries(database).forEach(([_, faqObj]) => {
     const filteredQAndA = faqObj.faqs.filter(obj => {
-      return obj.question.toLowerCase().includes(queryLowered)
-    })
+      return obj.question.toLowerCase().includes(queryLowered);
+    });
 
     if (filteredQAndA.length)
-      filteredData.push({ ...faqObj, faqs: filteredQAndA })
-  })
+      filteredData.push({ ...faqObj, faqs: filteredQAndA });
+  });
   
-  return [200, filteredData]
-})
+  return [200, filteredData];
+});

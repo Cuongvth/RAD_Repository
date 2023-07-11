@@ -1,16 +1,16 @@
-import mock from '@/@fake-db/mock'
-import avatar1 from '@images/avatars/avatar-1.png'
-import avatar2 from '@images/avatars/avatar-2.png'
-import avatar3 from '@images/avatars/avatar-3.png'
-import avatar4 from '@images/avatars/avatar-4.png'
-import avatar5 from '@images/avatars/avatar-5.png'
-import figmaLabel from '@images/icons/brands/figma-label.png'
-import htmlLabel from '@images/icons/brands/html-label.png'
-import reactLabel from '@images/icons/brands/react-label.png'
-import sketchLabel from '@images/icons/brands/sketch-label.png'
-import socialLabel from '@images/icons/brands/social-label.png'
-import vueLabel from '@images/icons/brands/vue-label.png'
-import xdLabel from '@images/icons/brands/xd-label.png'
+import mock from '@/@fake-db/mock';
+import avatar1 from '@images/avatars/avatar-1.png';
+import avatar2 from '@images/avatars/avatar-2.png';
+import avatar3 from '@images/avatars/avatar-3.png';
+import avatar4 from '@images/avatars/avatar-4.png';
+import avatar5 from '@images/avatars/avatar-5.png';
+import figmaLabel from '@images/icons/brands/figma-label.png';
+import htmlLabel from '@images/icons/brands/html-label.png';
+import reactLabel from '@images/icons/brands/react-label.png';
+import sketchLabel from '@images/icons/brands/sketch-label.png';
+import socialLabel from '@images/icons/brands/social-label.png';
+import vueLabel from '@images/icons/brands/vue-label.png';
+import xdLabel from '@images/icons/brands/xd-label.png';
 
 const database = [
   {
@@ -93,6 +93,6 @@ const database = [
     team: [avatar1, avatar2, avatar3, avatar5],
     status: 100,
   },
-]
+];
 
-mock.onGet('/dashboard/analytics/projects').reply(() => [200, database])
+mock.onGet('/dashboard/analytics/projects').reply(() => [200, database]);

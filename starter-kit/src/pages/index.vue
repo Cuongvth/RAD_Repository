@@ -1,14 +1,20 @@
 <template>
   <div>
-    <VList v-model:opened="open1" class="mb-6">
+    <VList
+      v-model:opened="open1"
+      class="mb-6"
+    >
       <VListGroup value="T6">
         <template #activator="{ props }">
-          <VListItem v-bind="props" title="T6 - Nhận dạng thẻ 🚀" />
+          <VListItem
+            v-bind="props"
+            title="T6 - Nhận dạng thẻ 🚀"
+          />
         </template>
-        <VCardText
-          >Giới thiệu sản phẩm: Hệ thống Nhận dạng Giấy tờ Cá nhân và Bóc tách
-          Thông tin.</VCardText
-        >
+        <VCardText>
+          Giới thiệu sản phẩm: Hệ thống Nhận dạng Giấy tờ Cá nhân và Bóc tách
+          Thông tin.
+        </VCardText>
         <VCardText>
           Xin chào! Chúng tôi xin giới thiệu đến bạn một sản phẩm trong lĩnh vực
           công nghệ thông tin - Hệ thống Nhận dạng Giấy tờ Cá nhân và Bóc tách
@@ -47,16 +53,22 @@
         </VCardText>
       </VListGroup>
     </VList>
-    <VList v-model:opened="open2" class="mb-6">
+    <VList
+      v-model:opened="open2"
+      class="mb-6"
+    >
       <VListGroup value="T7.1">
         <template #activator="{ props }">
-          <VListItem v-bind="props" title="T7 - ChatBot DMT du lịch Việt 🔒" />
+          <VListItem
+            v-bind="props"
+            title="T7 - ChatBot DMT du lịch Việt 🔒"
+          />
         </template>
-        <VCardText
-          >Giới thiệu sản phẩm: Chatbot Hướng dẫn Du lịch thông minh.</VCardText
-        >
-        <VCardText
-          >Xin chào! Chúng tôi xin giới thiệu đến bạn một công nghệ trong lĩnh
+        <VCardText>
+          Giới thiệu sản phẩm: Chatbot Hướng dẫn Du lịch thông minh.
+        </VCardText>
+        <VCardText>
+          Xin chào! Chúng tôi xin giới thiệu đến bạn một công nghệ trong lĩnh
           vực du lịch - Chatbot Hướng dẫn Du lịch thông minh. Đây là một sản
           phẩm sáng tạo được phát triển để cung cấp thông tin và hướng dẫn du
           lịch tận hưởng và khám phá các địa điểm du lịch trên toàn thế giới một
@@ -84,11 +96,14 @@
           Cảm ơn bạn đã dành thời gian để tìm hiểu về sản phẩm của chúng tôi.
           Chúng tôi hy vọng rằng Chatbot Hướng dẫn Du lịch thông minh sẽ mang
           lại cho bạn trải nghiệm du lịch tuyệt vời và giúp bạn khám phá những
-          điểm đến mới một cách dễ dàng và thú vị.</VCardText
-        >
+          điểm đến mới một cách dễ dàng và thú vị.
+        </VCardText>
       </VListGroup>
     </VList>
-    <VList v-model:opened="open3" class="mb-6">
+    <VList
+      v-model:opened="open3"
+      class="mb-6"
+    >
       <VListGroup value="T7.2">
         <template #activator="{ props }">
           <VListItem
@@ -96,12 +111,12 @@
             title="T7 - AI dịch tài liệu đa dinh dạng (EN-KR-JP) 🔒"
           />
         </template>
-        <VCardText
-          >Giới thiệu sản phẩm: Dịch tài liệu PDF, Excel, Word, PowerPoint và
-          xuất ra hình ảnh đã dịch từng trang.</VCardText
-        >
-        <VCardText
-          >Xin chào! Chúng tôi xin giới thiệu đến bạn một công nghệ đột phá
+        <VCardText>
+          Giới thiệu sản phẩm: Dịch tài liệu PDF, Excel, Word, PowerPoint và
+          xuất ra hình ảnh đã dịch từng trang.
+        </VCardText>
+        <VCardText>
+          Xin chào! Chúng tôi xin giới thiệu đến bạn một công nghệ đột phá
           trong lĩnh vực dịch tài liệu - Sản phẩm Dịch tài liệu PDF, Excel,
           Word, PowerPoint và xuất ra hình ảnh đã dịch từng trang. Đây là một
           giải pháp tiên tiến và thuận tiện để dịch các tài liệu văn bản chính
@@ -130,8 +145,8 @@
           Chúng tôi hy vọng rằng Sản phẩm Dịch tài liệu PDF, Excel, Word,
           PowerPoint và xuất ra hình ảnh đã dịch từng trang sẽ là một công cụ
           hữu ích và giá trị trong quá trình làm việc và trao đổi thông
-          tin.</VCardText
-        >
+          tin.
+        </VCardText>
       </VListGroup>
     </VList>
   </div>

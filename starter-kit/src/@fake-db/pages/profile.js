@@ -1,24 +1,24 @@
 // ** Mock Adapter
-import mock from '@/@fake-db/mock'
-import avatar1 from '@images/avatars/avatar-1.png'
-import avatar15 from '@images/avatars/avatar-15.png'
-import avatar2 from '@images/avatars/avatar-2.png'
-import avatar3 from '@images/avatars/avatar-3.png'
-import avatar4 from '@images/avatars/avatar-4.png'
-import avatar5 from '@images/avatars/avatar-5.png'
-import avatar6 from '@images/avatars/avatar-6.png'
-import avatar7 from '@images/avatars/avatar-7.png'
-import avatar8 from '@images/avatars/avatar-8.png'
-import eventLabel from '@images/icons/project-icons/event.png'
-import figmaLabel from '@images/icons/project-icons/figma.png'
-import htmlLabel from '@images/icons/project-icons/html5.png'
-import reactLabel from '@images/icons/project-icons/react.png'
-import socialLabel from '@images/icons/project-icons/social.png'
-import supportLabel from '@images/icons/project-icons/support.png'
-import twitterLabel from '@images/icons/project-icons/twitter.png'
-import vueLabel from '@images/icons/project-icons/vue.png'
-import xdLabel from '@images/icons/project-icons/xd.png'
-import UserProfileHeaderBg from '@images/pages/user-profile-header-bg.png'
+import mock from '@/@fake-db/mock';
+import avatar1 from '@images/avatars/avatar-1.png';
+import avatar15 from '@images/avatars/avatar-15.png';
+import avatar2 from '@images/avatars/avatar-2.png';
+import avatar3 from '@images/avatars/avatar-3.png';
+import avatar4 from '@images/avatars/avatar-4.png';
+import avatar5 from '@images/avatars/avatar-5.png';
+import avatar6 from '@images/avatars/avatar-6.png';
+import avatar7 from '@images/avatars/avatar-7.png';
+import avatar8 from '@images/avatars/avatar-8.png';
+import eventLabel from '@images/icons/project-icons/event.png';
+import figmaLabel from '@images/icons/project-icons/figma.png';
+import htmlLabel from '@images/icons/project-icons/html5.png';
+import reactLabel from '@images/icons/project-icons/react.png';
+import socialLabel from '@images/icons/project-icons/social.png';
+import supportLabel from '@images/icons/project-icons/support.png';
+import twitterLabel from '@images/icons/project-icons/twitter.png';
+import vueLabel from '@images/icons/project-icons/vue.png';
+import xdLabel from '@images/icons/project-icons/xd.png';
+import UserProfileHeaderBg from '@images/pages/user-profile-header-bg.png';
 
 const data = {
   profileHeader: {
@@ -555,7 +555,7 @@ const data = {
       ],
     },
   ],
-}
+};
 
 const projectTable = [
   {
@@ -648,25 +648,25 @@ const projectTable = [
     avatar: vueLabel,
     avatarGroup: [avatar2, avatar3, avatar4, avatar5],
   },
-]
+];
 
 mock.onGet('/pages/profile').reply(config => {
-  const { tab = '' } = config.params ?? ''
+  const { tab = '' } = config.params ?? '';
   
-  return [200, data[tab]]
-})
+  return [200, data[tab]];
+});
 mock.onGet('/pages/profile-header').reply(() => {
-  return [200, data.profileHeader]
-})
+  return [200, data.profileHeader];
+});
 mock.onGet('/pages/profile-table').reply(config => {
-  const { q = '' } = config.params ?? ''
-  const queryLowered = q.toLowerCase()
+  const { q = '' } = config.params ?? '';
+  const queryLowered = q.toLowerCase();
 
   const filteredData = projectTable.filter(row => {
     return (row.name.toLowerCase().includes(queryLowered)
             || row.date.toLowerCase().includes(queryLowered)
-            || row.leader.toLowerCase().includes(queryLowered))
-  })
+            || row.leader.toLowerCase().includes(queryLowered));
+  });
 
-  return [200, filteredData]
-})
+  return [200, filteredData];
+});

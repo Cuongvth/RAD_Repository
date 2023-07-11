@@ -1,33 +1,33 @@
-import mock from '@/@fake-db/mock'
-import avatar1 from '@images/avatars/avatar-1.png'
-import avatar2 from '@images/avatars/avatar-2.png'
-import avatar3 from '@images/avatars/avatar-3.png'
-import avatar4 from '@images/avatars/avatar-4.png'
-import avatar5 from '@images/avatars/avatar-5.png'
-import avatar6 from '@images/avatars/avatar-6.png'
-import avatar7 from '@images/avatars/avatar-7.png'
-import avatar8 from '@images/avatars/avatar-8.png'
-import product10 from '@images/eCommerce/10.png'
-import product11 from '@images/eCommerce/11.png'
-import product13 from '@images/eCommerce/13.png'
-import product14 from '@images/eCommerce/14.png'
-import product15 from '@images/eCommerce/15.png'
-import product16 from '@images/eCommerce/16.png'
-import product17 from '@images/eCommerce/17.png'
-import product18 from '@images/eCommerce/18.png'
-import product19 from '@images/eCommerce/19.png'
-import product20 from '@images/eCommerce/20.png'
-import product23 from '@images/eCommerce/23.png'
-import product24 from '@images/eCommerce/24.png'
-import product25 from '@images/eCommerce/25.png'
-import product26 from '@images/eCommerce/26.png'
-import product3 from '@images/eCommerce/3.png'
-import product4 from '@images/eCommerce/4.png'
-import product5 from '@images/eCommerce/5.png'
-import product6 from '@images/eCommerce/6.png'
-import product7 from '@images/eCommerce/7.png'
-import product8 from '@images/eCommerce/8.png'
-import product9 from '@images/eCommerce/9.png'
+import mock from '@/@fake-db/mock';
+import avatar1 from '@images/avatars/avatar-1.png';
+import avatar2 from '@images/avatars/avatar-2.png';
+import avatar3 from '@images/avatars/avatar-3.png';
+import avatar4 from '@images/avatars/avatar-4.png';
+import avatar5 from '@images/avatars/avatar-5.png';
+import avatar6 from '@images/avatars/avatar-6.png';
+import avatar7 from '@images/avatars/avatar-7.png';
+import avatar8 from '@images/avatars/avatar-8.png';
+import product10 from '@images/eCommerce/10.png';
+import product11 from '@images/eCommerce/11.png';
+import product13 from '@images/eCommerce/13.png';
+import product14 from '@images/eCommerce/14.png';
+import product15 from '@images/eCommerce/15.png';
+import product16 from '@images/eCommerce/16.png';
+import product17 from '@images/eCommerce/17.png';
+import product18 from '@images/eCommerce/18.png';
+import product19 from '@images/eCommerce/19.png';
+import product20 from '@images/eCommerce/20.png';
+import product23 from '@images/eCommerce/23.png';
+import product24 from '@images/eCommerce/24.png';
+import product25 from '@images/eCommerce/25.png';
+import product26 from '@images/eCommerce/26.png';
+import product3 from '@images/eCommerce/3.png';
+import product4 from '@images/eCommerce/4.png';
+import product5 from '@images/eCommerce/5.png';
+import product6 from '@images/eCommerce/6.png';
+import product7 from '@images/eCommerce/7.png';
+import product8 from '@images/eCommerce/8.png';
+import product9 from '@images/eCommerce/9.png';
 
 const data = [
   {
@@ -1305,6 +1305,6 @@ const data = [
       status: 'Cancelled',
     },
   },
-]
+];
 
-mock.onGet('/pages/datatables').reply(() => [200, data])
+mock.onGet('/pages/datatables').reply(() => [200, data]);

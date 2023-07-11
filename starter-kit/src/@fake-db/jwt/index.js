@@ -1,7 +1,7 @@
-import mock from '@/@fake-db/mock'
-import { genId } from '@/@fake-db/utils'
-import avatar1 from '@images/avatars/avatar-1.png'
-import avatar2 from '@images/avatars/avatar-2.png'
+import mock from '@/@fake-db/mock';
+import { genId } from '@/@fake-db/utils';
+import avatar1 from '@images/avatars/avatar-1.png';
+import avatar2 from '@images/avatars/avatar-2.png';
 
 
 // TODO: Use jsonwebtoken pkg
@@ -18,7 +18,7 @@ const userTokens = [
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OH0.shrp-oMHkVAkiMkv_aIvSx3k6Jk-X7TrH5UeufChz_g',
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OX0.9JD1MR3ZkwHzhl4mOHH6lGG8hOVNZqDNH6UkFzjCqSE',
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTB9.txWLuN4QT5PqTtgHmlOiNerIu5Do51PpYOiZutkyXYg',
-]
+];
 
 
 // ❗ These two secrets shall be in .env file and not in any other file
@@ -58,74 +58,74 @@ const database = [
       },
     ],
   },
-]
+];
 
 mock.onPost('/auth/login').reply(request => {
-  const { email, password } = JSON.parse(request.data)
+  const { email, password } = JSON.parse(request.data);
   let errors = {
     email: ['Something went wrong'],
-  }
-  const user = database.find(u => u.email === email && u.password === password)
+  };
+  const user = database.find(u => u.email === email && u.password === password);
   if (user) {
     try {
-      const accessToken = userTokens[user.id]
+      const accessToken = userTokens[user.id];
 
       // We are duplicating user here
-      const userData = { ...user }
+      const userData = { ...user };
 
       const userOutData = Object.fromEntries(Object.entries(userData)
-        .filter(([key, _]) => !(key === 'password' || key === 'abilities')))
+        .filter(([key, _]) => !(key === 'password' || key === 'abilities')));
 
       const response = {
         userAbilities: userData.abilities,
         accessToken,
         userData: userOutData,
-      }
+      };
 
 
       //   const accessToken = jwt.sign({ id: user.id }, jwtSecret)
-      return [200, response]
+      return [200, response];
     }
     catch (e) {
-      errors = { email: [e] }
+      errors = { email: [e] };
     }
   }
   else {
     errors = {
       email: ['Email or Password is Invalid'],
-    }
+    };
   }
   
-  return [400, { errors }]
-})
+  return [400, { errors }];
+});
 mock.onPost('/auth/register').reply(request => {
-  const { username, email, password } = JSON.parse(request.data)
+  const { username, email, password } = JSON.parse(request.data);
 
   // If not any of data is missing return 400
   if (!(username && email && password))
-    return [400]
-  const isEmailAlreadyInUse = database.find(user => user.email === email)
-  const isUsernameAlreadyInUse = database.find(user => user.username === username)
+    return [400];
+  const isEmailAlreadyInUse = database.find(user => user.email === email);
+  const isUsernameAlreadyInUse = database.find(user => user.username === username);
 
   const errors = {
     password: !password ? ['Please enter password'] : null,
     email: (() => {
       if (!email)
-        return ['Please enter your email.']
+        return ['Please enter your email.'];
       if (isEmailAlreadyInUse)
-        return ['This email is already in use.']
+        return ['This email is already in use.'];
       
-      return null
+      return null;
     })(),
     username: (() => {
       if (!username)
-        return ['Please enter your username.']
+        return ['Please enter your username.'];
       if (isUsernameAlreadyInUse)
-        return ['This username is already in use.']
+        return ['This username is already in use.'];
       
-      return null
+      return null;
     })(),
-  }
+  };
 
   if (!errors.username && !errors.email) {
     // Calculate user id
@@ -142,21 +142,21 @@ mock.onPost('/auth/register').reply(request => {
           subject: 'all',
         },
       ],
-    }
+    };
 
-    database.push(userData)
+    database.push(userData);
 
-    const accessToken = userTokens[userData.id]
-    const { password: _, abilities, ...user } = userData
+    const accessToken = userTokens[userData.id];
+    const { password: _, abilities, ...user } = userData;
 
     const response = {
       userData: user,
       accessToken,
       userAbilities: abilities,
-    }
+    };
 
-    return [200, response]
+    return [200, response];
   }
   
-  return [400, { error: errors }]
-})
+  return [400, { error: errors }];
+});

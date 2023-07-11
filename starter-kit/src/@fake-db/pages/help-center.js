@@ -1,13 +1,13 @@
-import mock from '@/@fake-db/mock'
-import { themeConfig } from '@themeConfig'
+import mock from '@/@fake-db/mock';
+import { themeConfig } from '@themeConfig';
 
 // Images
-import discord from '@images/svg/discord.svg'
-import gift from '@images/svg/gift.svg'
-import keyboard from '@images/svg/keyboard.svg'
-import laptop from '@images/svg/laptop.svg'
-import lightbulb from '@images/svg/lightbulb.svg'
-import rocket from '@images/svg/rocket.svg'
+import discord from '@images/svg/discord.svg';
+import gift from '@images/svg/gift.svg';
+import keyboard from '@images/svg/keyboard.svg';
+import laptop from '@images/svg/laptop.svg';
+import lightbulb from '@images/svg/lightbulb.svg';
+import rocket from '@images/svg/rocket.svg';
 
 const data = {
   popularArticles: [
@@ -541,21 +541,21 @@ const data = {
       subtitle: 'A group of people living in the same place or having a particular.',
     },
   ],
-}
+};
 
 mock.onGet('/pages/help-center/landing').reply(() => {
-  const allArticles = []
+  const allArticles = [];
 
-  data.categories.map(category => category.subCategories.map(subCategory => subCategory.articles.map(article => allArticles.push(article))))
+  data.categories.map(category => category.subCategories.map(subCategory => subCategory.articles.map(article => allArticles.push(article))));
   
   return [
     200,
     { allArticles, categories: data.categories, popularArticles: data.popularArticles, keepLearning: data.keepLearning },
-  ]
-})
+  ];
+});
 mock.onGet('/pages/help-center/subcategory').reply(config => {
-  const { category, subcategory } = config.params
-  const filteredData = data.categories.filter(item => item.slug === category)
+  const { category, subcategory } = config.params;
+  const filteredData = data.categories.filter(item => item.slug === category);
   
   return [
     200,
@@ -564,13 +564,13 @@ mock.onGet('/pages/help-center/subcategory').reply(config => {
       categories: data.categories,
       activeTab: subcategory || filteredData[0].subCategories[0].slug,
     },
-  ]
-})
+  ];
+});
 mock.onGet('/pages/help-center/article').reply(config => {
-  const { article, category, subcategory } = config.params
-  const activeCategory = data.categories.filter(item => item.slug === category)[0]
-  const activeSubcategory = activeCategory.subCategories.filter(item => item.slug === subcategory)[0] || activeCategory.subCategories[0]
-  const activeArticle = activeSubcategory.articles.filter(item => item.slug === article)[0]
+  const { article, category, subcategory } = config.params;
+  const activeCategory = data.categories.filter(item => item.slug === category)[0];
+  const activeSubcategory = activeCategory.subCategories.filter(item => item.slug === subcategory)[0] || activeCategory.subCategories[0];
+  const activeArticle = activeSubcategory.articles.filter(item => item.slug === article)[0];
   
-  return [200, { activeArticle, activeSubcategory, categories: data.categories, articles: activeSubcategory.articles }]
-})
+  return [200, { activeArticle, activeSubcategory, categories: data.categories, articles: activeSubcategory.articles }];
+});

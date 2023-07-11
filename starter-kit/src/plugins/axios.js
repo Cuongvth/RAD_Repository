@@ -1,5 +1,5 @@
 import router from '@/router';
-import axios from '@axios';
+import axios from '../../node_modules/axios';
 
 const axiosIns = axios.create({
 // You can add your headers here

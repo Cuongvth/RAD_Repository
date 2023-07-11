@@ -1,5 +1,5 @@
 /* eslint-disable import/order */
-import '@/@fake-db/db'
+import '@/@fake-db/db';
 import "@/@iconify/icons-bundle";
 import App from "@/App.vue";
 import layoutsPlugin from "@/plugins/layouts";

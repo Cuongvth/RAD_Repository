@@ -13,9 +13,11 @@ import { avatarText } from "@core/utils/formatters";
 
 const vuetifyDisplays = useDisplay();
 const store = useChatStore();
+
 const { isLeftSidebarOpen } = useResponsiveLeftSidebar(
-  vuetifyDisplays.smAndDown
+  vuetifyDisplays.smAndDown,
 );
+
 const { resolveAvatarBadgeVariant } = useChat();
 
 // Perfect scrollbar
@@ -30,7 +32,7 @@ const scrollToBottomInChatLog = () => {
 // Search query
 const q = ref("");
 
-watch(q, (val) => store.fetchChatsAndContacts(val), { immediate: true });
+watch(q, val => store.fetchChatsAndContacts(val), { immediate: true });
 
 // Open Sidebar in smAndDown when "start conversation" is clicked
 const startConversation = () => {
@@ -43,10 +45,12 @@ const msg = ref("");
 
 const sendMessage = async () => {
   if (!msg.value) return;
-  await store.sendMsg(msg.value);
 
-  // Reset message input
+  const message = msg.value;
+
   msg.value = "";
+  await store.sendMsg(message);
+  await store.botSendMsg(message);
 
   // Scroll to bottom
   nextTick(() => {
@@ -54,14 +58,14 @@ const sendMessage = async () => {
   });
 };
 
-const openChatOfContact = async (userId) => {
+const openChatOfContact = async userId => {
   await store.getChat(userId);
 
   // Reset message input
   msg.value = "";
 
   // Set unseenMsgs to 0
-  const contact = store.chatsContacts.find((c) => c.id === userId);
+  const contact = store.chatsContacts.find(c => c.id === userId);
   if (contact) contact.chat.unseenMsgs = 0;
 
   // if smAndDown =>  Close Chat & Contacts left sidebar
@@ -119,6 +123,7 @@ const chatContentContainerBg = computed(() => {
 <template>
   <VLayout class="chat-app-layout">
     <!-- 👉 user profile sidebar -->
+    
     <VNavigationDrawer
       v-model="isUserProfileSidebarOpen"
       temporary
@@ -128,12 +133,12 @@ const chatContentContainerBg = computed(() => {
       location="start"
       width="370"
     >
-      <ChatUserProfileSidebarContent
-        @close="isUserProfileSidebarOpen = false"
-      />
-    </VNavigationDrawer>
+      <ChatUserProfileSidebarContent @close="isUserProfileSidebarOpen = false" />
+    </VNavigationDrawer> 
+   
 
     <!-- 👉 Active Chat sidebar -->
+    
     <VNavigationDrawer
       v-model="isActiveChatUserProfileSidebarOpen"
       width="374"
@@ -143,12 +148,12 @@ const chatContentContainerBg = computed(() => {
       touchless
       class="active-chat-user-profile-sidebar"
     >
-      <ChatActiveChatUserProfileSidebarContent
-        @close="isActiveChatUserProfileSidebarOpen = false"
-      />
-    </VNavigationDrawer>
+      <ChatActiveChatUserProfileSidebarContent @close="isActiveChatUserProfileSidebarOpen = false" />
+    </VNavigationDrawer> 
+   
 
     <!-- 👉 Left sidebar   -->
+    
     <VNavigationDrawer
       v-model="isLeftSidebarOpen"
       absolute
@@ -166,18 +171,23 @@ const chatContentContainerBg = computed(() => {
         @show-user-profile="isUserProfileSidebarOpen = true"
         @close="isLeftSidebarOpen = false"
       />
-    </VNavigationDrawer>
+    </VNavigationDrawer> 
+   
 
     <!-- 👉 Chat content -->
     <VMain class="chat-content-container">
       <!-- 👉 Right content: Active Chat -->
-      <div v-if="store.activeChat" class="d-flex flex-column h-100">
+      <div
+        v-if="store.activeChat"
+        class="d-flex flex-column h-100"
+      >
         <!-- 👉 Active chat header -->
-        <div
-          class="active-chat-header d-flex align-center text-medium-emphasis bg-surface"
-        >
+        <div class="active-chat-header d-flex align-center text-medium-emphasis bg-surface">
           <!-- Sidebar toggler -->
-          <IconBtn class="d-md-none me-3" @click="isLeftSidebarOpen = true">
+          <IconBtn
+            class="d-md-none me-3"
+            @click="isLeftSidebarOpen = true"
+          >
             <VIcon icon="tabler-menu-2" />
           </IconBtn>
 
@@ -282,11 +292,16 @@ const chatContentContainerBg = computed(() => {
                 <VIcon icon="tabler-microphone" />
               </IconBtn>
 
-              <IconBtn class="me-2" @click="refInputEl?.click()">
+              <IconBtn
+                class="me-2"
+                @click="refInputEl?.click()"
+              >
                 <VIcon icon="tabler-photo" />
               </IconBtn>
 
-              <VBtn @click="sendMessage"> Send </VBtn>
+              <VBtn @click="sendMessage">
+                Send
+              </VBtn>
             </template>
           </VTextField>
 
@@ -296,13 +311,19 @@ const chatContentContainerBg = computed(() => {
             name="file"
             accept=".jpeg,.png,.jpg,GIF"
             hidden
-          />
+          >
         </VForm>
       </div>
 
       <!-- 👉 Start conversation -->
-      <div v-else class="d-flex h-100 align-center justify-center flex-column">
-        <VAvatar size="109" class="elevation-3 mb-6 bg-surface">
+      <div
+        v-else
+        class="d-flex h-100 align-center justify-center flex-column"
+      >
+        <VAvatar
+          size="109"
+          class="elevation-3 mb-6 bg-surface"
+        >
           <VIcon
             size="50"
             class="rounded-0 text-high-emphasis"

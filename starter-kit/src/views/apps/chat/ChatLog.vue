@@ -1,52 +1,52 @@
 <script setup>
-import { useChatStore } from '@/views/apps/chat/useChatStore'
-import { formatDate } from '@core/utils/formatters'
+import { useChatStore } from '@/views/apps/chat/useChatStore';
+import { formatDate } from '@core/utils/formatters';
 
-const store = useChatStore()
+const store = useChatStore();
 
 const contact = computed(() => ({
   id: store.activeChat?.contact.id,
   avatar: store.activeChat?.contact.avatar,
-}))
+}));
 
 const resolveFeedbackIcon = feedback => {
   if (feedback.isSeen)
     return {
       icon: 'tabler-checks',
       color: 'success',
-    }
+    };
   else if (feedback.isDelivered)
     return {
       icon: 'tabler-checks',
       color: undefined,
-    }
+    };
   else
     return {
       icon: 'tabler-check',
       color: undefined,
-    }
-}
+    };
+};
 
 const msgGroups = computed(() => {
-  let messages = []
-  const _msgGroups = []
+  let messages = [];
+  const _msgGroups = [];
   if (store.activeChat.chat) {
-    messages = store.activeChat.chat.messages
-    let msgSenderId = messages[0].senderId
+    messages = store.activeChat.chat.messages;
+    let msgSenderId = messages[0].senderId;
     let msgGroup = {
       senderId: msgSenderId,
       messages: [],
-    }
+    };
     messages.forEach((msg, index) => {
       if (msgSenderId === msg.senderId) {
         msgGroup.messages.push({
           message: msg.message,
           time: msg.time,
           feedback: msg.feedback,
-        })
+        });
       } else {
-        msgSenderId = msg.senderId
-        _msgGroups.push(msgGroup)
+        msgSenderId = msg.senderId;
+        _msgGroups.push(msgGroup);
         msgGroup = {
           senderId: msg.senderId,
           messages: [{
@@ -54,15 +54,15 @@ const msgGroups = computed(() => {
             time: msg.time,
             feedback: msg.feedback,
           }],
-        }
+        };
       }
       if (index === messages.length - 1)
-        _msgGroups.push(msgGroup)
-    })
+        _msgGroups.push(msgGroup);
+    });
   }
   
-  return _msgGroups
-})
+  return _msgGroups;
+});
 </script>
 
 <template>

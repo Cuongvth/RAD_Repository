@@ -24,114 +24,23 @@ const database = {
   contacts: [
     {
       id: 1,
-      fullName: "Gavin Griffith",
-      role: "Frontend Developer",
+      fullName: "LTS Travel AI Assistant",
+      role: "AI Assistant",
       about:
         "Cake pie jelly jelly beans. Marzipan lemon drops halvah cake. Pudding cookie lemon drops icing",
       avatar: avatar5,
-      status: "offline",
+      status: "online",
     },
   ],
   chats: [
     {
       id: 1,
       userId: 1,
-      unseenMsgs: 1,
+      unseenMsgs: 0,
       messages: [
         {
           message: "How can we help? We're here for you!",
-          time: "Mon Dec 10 2018 07:45:00 GMT+0000 (GMT)",
-          senderId: 11,
-          feedback: {
-            isSent: true,
-            isDelivered: true,
-            isSeen: true,
-          },
-        },
-        {
-          message:
-            "Hey John, I am looking for the best admin template. Could you please help me to find it out?",
-          time: "Mon Dec 10 2018 07:45:23 GMT+0000 (GMT)",
-          senderId: 1,
-          feedback: {
-            isSent: true,
-            isDelivered: true,
-            isSeen: true,
-          },
-        },
-        {
-          message: "It should use nice Framework.",
-          time: "Mon Dec 10 2018 07:45:55 GMT+0000 (GMT)",
-          senderId: 1,
-          feedback: {
-            isSent: true,
-            isDelivered: true,
-            isSeen: true,
-          },
-        },
-        {
-          message: "Absolutely!",
-          time: "Mon Dec 10 2018 07:46:00 GMT+0000 (GMT)",
-          senderId: 11,
-          feedback: {
-            isSent: true,
-            isDelivered: true,
-            isSeen: true,
-          },
-        },
-        {
-          message: "Our admin is the responsive admin template.!",
-          time: "Mon Dec 10 2018 07:46:05 GMT+0000 (GMT)",
-          senderId: 11,
-          feedback: {
-            isSent: true,
-            isDelivered: true,
-            isSeen: true,
-          },
-        },
-        {
-          message: "Looks clean and fresh UI. 😍",
-          time: "Mon Dec 10 2018 07:46:23 GMT+0000 (GMT)",
-          senderId: 1,
-          feedback: {
-            isSent: true,
-            isDelivered: true,
-            isSeen: true,
-          },
-        },
-        {
-          message: "It's perfect for my next project.",
-          time: "Mon Dec 10 2018 07:46:33 GMT+0000 (GMT)",
-          senderId: 1,
-          feedback: {
-            isSent: true,
-            isDelivered: true,
-            isSeen: true,
-          },
-        },
-        {
-          message: "How can I purchase it?",
-          time: "Mon Dec 10 2018 07:46:43 GMT+0000 (GMT)",
-          senderId: 1,
-          feedback: {
-            isSent: true,
-            isDelivered: true,
-            isSeen: true,
-          },
-        },
-        {
-          message: "Thanks, From our official site  😇",
-          time: "Mon Dec 10 2018 07:46:53 GMT+0000 (GMT)",
-          senderId: 11,
-          feedback: {
-            isSent: true,
-            isDelivered: true,
-            isSeen: true,
-          },
-        },
-        {
-          message: "I will purchase it for sure. 👍",
-          time: String(previousDay),
+          time: String(new Date()),
           senderId: 1,
           feedback: {
             isSent: true,
@@ -147,14 +56,14 @@ const database = {
 // ------------------------------------------------
 // GET: Return Chats Contacts and Contacts
 // ------------------------------------------------
-mock.onGet("/apps/chat/chats-and-contacts").reply((config) => {
+mock.onGet("/apps/chat/chats-and-contacts").reply(config => {
   const { q = "" } = config.params;
   const qLowered = q.toLowerCase();
 
   const chatsContacts = database.chats
-    .map((chat) => {
+    .map(chat => {
       const contact = JSON.parse(
-        JSON.stringify(database.contacts.find((c) => c.id === chat.userId))
+        JSON.stringify(database.contacts.find(c => c.id === chat.userId)),
       );
 
       contact.chat = {
@@ -170,11 +79,11 @@ mock.onGet("/apps/chat/chats-and-contacts").reply((config) => {
   const profileUserData = database.profileUser;
 
   const response = {
-    chatsContacts: chatsContacts.filter((c) =>
-      c.fullName.toLowerCase().includes(qLowered)
+    chatsContacts: chatsContacts.filter(c =>
+      c.fullName.toLowerCase().includes(qLowered),
     ),
-    contacts: database.contacts.filter((c) =>
-      c.fullName.toLowerCase().includes(qLowered)
+    contacts: database.contacts.filter(c =>
+      c.fullName.toLowerCase().includes(qLowered),
     ),
     profileUser: profileUserData,
   };
@@ -192,17 +101,17 @@ mock
 // ------------------------------------------------
 // GET: Return Single Chat
 // ------------------------------------------------
-mock.onGet(/\/apps\/chat\/chats\/\d+/).reply((config) => {
+mock.onGet(/\/apps\/chat\/chats\/\d+/).reply(config => {
   // Get user id from URL
   const userId = Number(config.url?.substring(config.url.lastIndexOf("/") + 1));
-  const chat = database.chats.find((c) => c.userId === userId);
+  const chat = database.chats.find(c => c.userId === userId);
   if (chat) chat.unseenMsgs = 0;
 
   return [
     200,
     {
       chat,
-      contact: database.contacts.find((c) => c.id === userId),
+      contact: database.contacts.find(c => c.id === userId),
     },
   ];
 });
@@ -210,15 +119,15 @@ mock.onGet(/\/apps\/chat\/chats\/\d+/).reply((config) => {
 // ------------------------------------------------
 // POST: Add new chat message
 // ------------------------------------------------
-mock.onPost(/\/apps\/chat\/chats\/\d+/).reply((config) => {
+mock.onPost(/\/apps\/chat\/chats\/\d+/).reply(config => {
   // Get user id from URL
   const contactId = Number(
-    config.url?.substring(config.url.lastIndexOf("/") + 1)
+    config.url?.substring(config.url.lastIndexOf("/") + 1),
   );
 
   // Get message from post data
   const { message, senderId } = JSON.parse(config.data);
-  let activeChat = database.chats.find((chat) => chat.userId === contactId);
+  let activeChat = database.chats.find(chat => chat.userId === contactId);
 
   const newMessageData = {
     message,
@@ -226,8 +135,8 @@ mock.onPost(/\/apps\/chat\/chats\/\d+/).reply((config) => {
     senderId,
     feedback: {
       isSent: true,
-      isDelivered: false,
-      isSeen: false,
+      isDelivered: true,
+      isSeen: true,
     },
   };
 
