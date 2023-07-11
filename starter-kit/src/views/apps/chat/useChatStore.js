@@ -9,6 +9,11 @@ export const useChatStore = defineStore("chat", {
     activeChat: null,
   }),
   actions: {
+    async isTravel(sentence) {
+      const { data } = await axios.get(`/apps/chat/chats/${userId}`);
+
+      this.activeChat = data;
+    },
     async fetchChatsAndContacts(q) {
       q = "";
 
@@ -29,10 +34,12 @@ export const useChatStore = defineStore("chat", {
     },
     async sendMsg(message) {
       const senderId = this.profileUser?.id;
+
       const { data } = await axios.post(
         `/apps/chat/chats/${this.activeChat?.contact.id}`,
-        { message, senderId }
+        { message, senderId },
       );
+
       const { msg, chat } = data;
 
       // ? If it's not undefined => New chat is created (Contact is not in list of chats)
@@ -61,7 +68,7 @@ export const useChatStore = defineStore("chat", {
       }
 
       // Set Last Message for active contact
-      const contact = this.chatsContacts.find((c) => {
+      const contact = this.chatsContacts.find(c => {
         if (this.activeChat) return c.id === this.activeChat.contact.id;
 
         return false;

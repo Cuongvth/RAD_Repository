@@ -122,24 +122,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Acer\\.nuget\\packages\\": {},
-    "S:\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\pc\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "W:\\Git\\Computer_Vision\\Back_End\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj",
+      "projectUniqueName": "C:\\Users\\pc\\Source\\Repos\\Computer_Vision\\Back_End\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj",
       "projectName": "CMS_WebDesignCore",
-      "projectPath": "W:\\Git\\Computer_Vision\\Back_End\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj",
-      "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-      "outputPath": "W:\\Git\\Computer_Vision\\Back_End\\CMS_WebDesignCore\\obj\\",
+      "projectPath": "C:\\Users\\pc\\Source\\Repos\\Computer_Vision\\Back_End\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj",
+      "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\pc\\Source\\Repos\\Computer_Vision\\Back_End\\CMS_WebDesignCore\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "S:\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -186,7 +181,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
       }
     }
   }
