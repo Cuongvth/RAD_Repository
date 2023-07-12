@@ -83,7 +83,7 @@ const store = useChatStore();
     :options="{ wheelPropagation: false }"
   >
     <li>
-      <span class="chat-contact-header d-block text-primary text-xl font-weight-medium">Chats</span>
+      <span class="chat-contact-header d-block text-primary text-xl font-weight-medium">AI ChatBot</span>
     </li>
 
     <ChatContact
@@ -94,26 +94,28 @@ const store = useChatStore();
       @click="$emit('openChatOfContact', contact.id)"
     />
 
-    <span
+    <!--
+      <span
       v-show="!store.chatsContacts.length"
       class="no-chat-items-text text-disabled"
-    >No chats found</span>
+      >No chats found</span>
 
-    <li>
+      <li>
       <span class="chat-contact-header d-block text-primary text-xl font-weight-medium">Contacts</span>
-    </li>
+      </li>
 
-    <ChatContact
+      <ChatContact
       v-for="contact in store.contacts"
       :key="`chat-${contact.id}`"
       :user="contact"
       @click="$emit('openChatOfContact', contact.id)"
-    />
+      />
 
-    <span
+      <span
       v-show="!store.contacts.length"
       class="no-chat-items-text text-disabled"
-    >No contacts found</span>
+      >No contacts found</span> 
+    -->
   </PerfectScrollbar>
 </template>
 

@@ -1,5 +1,6 @@
 import axios from "@axios";
 import { Configuration, OpenAIApi } from "openai";
+import { temp } from "./temp";
 
 const openaiGPT = new OpenAIApi(new Configuration({
   apiKey: "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",
@@ -83,7 +84,7 @@ export const useChatStore = defineStore("chat", {
     async botSendMsg(message) {
       const result = await  openaiGPT.createChatCompletion({
         model: "gpt-3.5-turbo",
-        messages: [{ role: "user", content: message }],
+        messages: [{ role: "user", content: temp }, { role: "user", content: message }],
       });   
 
       const { data } = await axios.post(
