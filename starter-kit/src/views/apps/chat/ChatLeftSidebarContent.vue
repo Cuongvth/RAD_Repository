@@ -83,7 +83,7 @@ const store = useChatStore();
     :options="{ wheelPropagation: false }"
   >
     <li>
-      <span class="chat-contact-header d-block text-primary text-xl font-weight-medium">AI ChatBot</span>
+      <span class="chat-contact-header d-block text-primary text-xl font-weight-medium">LTS Travel AI Assistant</span>
     </li>
 
     <ChatContact

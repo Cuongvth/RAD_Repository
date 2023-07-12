@@ -97,9 +97,9 @@ const msgGroups = computed(() => {
             msgGrp.senderId === contact.id ? 'chat-left' : 'bg-primary text-white chat-right',
             msgGrp.messages.length - 1 !== msgIndex ? 'mb-3' : 'mb-1',
           ]"
-        >
-          {{ msgData.message }}
-        </p>
+
+          v-html="msgData.message"
+        />
         <div :class="{ 'text-right': msgGrp.senderId !== contact.id }">
           <VIcon
             v-if="msgGrp.senderId !== contact.id"

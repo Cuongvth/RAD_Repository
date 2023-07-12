@@ -1,6 +1,7 @@
 import axios from "@axios";
 import { Configuration, OpenAIApi } from "openai";
-import { temp } from "./temp";
+import { context1, context2, context3, context4 } from "./temp";
+import { reFormat } from "./library";
 
 const openaiGPT = new OpenAIApi(new Configuration({
   apiKey: "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",
@@ -83,13 +84,13 @@ export const useChatStore = defineStore("chat", {
     },
     async botSendMsg(message) {
       const result = await  openaiGPT.createChatCompletion({
-        model: "gpt-3.5-turbo",
-        messages: [{ role: "user", content: temp }, { role: "user", content: message }],
-      });   
+        model: "gpt-3.5-turbo-16k",
+        messages: [context1, context2, context3, context4, { role: "user", content: message }],
+      });
 
       const { data } = await axios.post(
         `/apps/chat/chats/${this.activeChat?.contact.id}`,
-        { message: result.data.choices[0].message.content, senderId: 1 },
+        { message: await reFormat(result.data.choices[0].message.content), senderId: 1 },
       );
 
       const { msg, chat } = data;

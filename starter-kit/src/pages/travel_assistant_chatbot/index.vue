@@ -10,7 +10,6 @@ import { useChat } from "@/views/apps/chat/useChat";
 import { useChatStore } from "@/views/apps/chat/useChatStore";
 import { useResponsiveLeftSidebar } from "@core/composable/useResponsiveSidebar";
 import { avatarText } from "@core/utils/formatters";
-import { searchGoogle } from "./useSearchStore";
 
 const vuetifyDisplays = useDisplay();
 const store = useChatStore();
@@ -44,8 +43,6 @@ const startConversation = () => {
 // Chat message
 const msg = ref("");
 const isTyping = ref(false);
-
-// console.log(await searchGoogle("ha noi", 1));
 
 const sendMessage = async () => {
   if (!msg.value) 
