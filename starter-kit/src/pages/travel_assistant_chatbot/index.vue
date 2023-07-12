@@ -10,6 +10,7 @@ import { useChat } from "@/views/apps/chat/useChat";
 import { useChatStore } from "@/views/apps/chat/useChatStore";
 import { useResponsiveLeftSidebar } from "@core/composable/useResponsiveSidebar";
 import { avatarText } from "@core/utils/formatters";
+import { searchGoogle } from "./useSearchStore";
 
 const vuetifyDisplays = useDisplay();
 const store = useChatStore();
@@ -42,9 +43,15 @@ const startConversation = () => {
 
 // Chat message
 const msg = ref("");
+const isTyping = ref(false);
+
+// console.log(await searchGoogle("ha noi", 1));
 
 const sendMessage = async () => {
-  if (!msg.value) return;
+  if (!msg.value) 
+    return;
+ 
+  isTyping.value = true;
 
   const message = msg.value;
 
@@ -56,6 +63,7 @@ const sendMessage = async () => {
   nextTick(() => {
     scrollToBottomInChatLog();
   });
+  isTyping.value = false;
 };
 
 const openChatOfContact = async userId => {
@@ -272,12 +280,21 @@ const chatContentContainerBg = computed(() => {
         >
           <ChatLog />
         </PerfectScrollbar>
-
+     
         <!-- Message form -->
         <VForm
           class="chat-log-message-form mb-5 mx-5"
           @submit.prevent="sendMessage"
         >
+          <span v-if="isTyping">
+            <span style="font-size:12px;margin-left:12px">
+              LTS Travel AI Assistant is typing 
+            </span><img
+              src="../../assets/images/New folder/typing.gif"
+              alt="loading"
+              style="height:18px;width:40px;margin-left:4px"
+            >
+          </span>
           <VTextField
             :key="store.activeChat?.contact.id"
             v-model="msg"
