@@ -61,6 +61,19 @@ const sendMessage = async () => {
   nextTick(() => {
     scrollToBottomInChatLog();
   });
+
+  const lstSpan = document.querySelectorAll(".mixFunction");
+
+  for(var item of lstSpan) {
+    const str = item.innerHTML;
+
+    item.onclick =async ()=>{
+      
+      isTyping.value = true;
+      await store.botSendMsgCustom(str);
+      isTyping.value = false;
+    };
+  }
   isTyping.value = false;
 };
 
