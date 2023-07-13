@@ -10,6 +10,7 @@ import { useChat } from "@/views/apps/chat/useChat";
 import { useChatStore } from "@/views/apps/chat/useChatStore";
 import { useResponsiveLeftSidebar } from "@core/composable/useResponsiveSidebar";
 import { avatarText } from "@core/utils/formatters";
+import typing from "@images/New folder/typing.gif";
 
 const vuetifyDisplays = useDisplay();
 const store = useChatStore();
@@ -287,7 +288,7 @@ const chatContentContainerBg = computed(() => {
             <span style="font-size:12px;margin-left:12px">
               LTS Travel AI Assistant is typing 
             </span><img
-              src="../../assets/images/New folder/typing.gif"
+              :src="typing"
               alt="loading"
               style="height:18px;width:40px;margin-left:4px"
             >
