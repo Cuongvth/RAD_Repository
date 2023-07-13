@@ -1,23 +1,23 @@
-import { useDisplay } from 'vuetify'
+import { useDisplay } from 'vuetify';
 
 export const useResponsiveLeftSidebar = (mobileBreakpoint = undefined) => {
-  const { mdAndDown, name: currentBreakpoint } = useDisplay()
-  const _mobileBreakpoint = mobileBreakpoint || mdAndDown
-  const isLeftSidebarOpen = ref(true)
+  const { mdAndDown, name: currentBreakpoint } = useDisplay();
+  const _mobileBreakpoint = mobileBreakpoint || mdAndDown;
+  const isLeftSidebarOpen = ref(true);
 
   const setInitialValue = () => {
-    isLeftSidebarOpen.value = !_mobileBreakpoint.value
-  }
+    isLeftSidebarOpen.value = !_mobileBreakpoint.value;
+  };
 
 
   // Set the initial value of sidebar
-  setInitialValue()
+  setInitialValue();
   watch(currentBreakpoint, () => {
     // Reset left sidebar
-    isLeftSidebarOpen.value = !_mobileBreakpoint.value
-  })
+    isLeftSidebarOpen.value = !_mobileBreakpoint.value;
+  });
   
   return {
     isLeftSidebarOpen,
-  }
-}
+  };
+};

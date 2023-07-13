@@ -1,14 +1,14 @@
 <script setup>
-import Shepherd from 'shepherd.js'
-import axios from '@axios'
-import { useThemeConfig } from '@core/composable/useThemeConfig'
+import Shepherd from 'shepherd.js';
+import axios from '@axios';
+import { useThemeConfig } from '@core/composable/useThemeConfig';
 
-const { appContentLayoutNav } = useThemeConfig()
+const { appContentLayoutNav } = useThemeConfig();
 
-defineOptions({ inheritAttrs: false })
+defineOptions({ inheritAttrs: false });
 
 // 👉 Is App Search Bar Visible
-const isAppSearchBarVisible = ref(false)
+const isAppSearchBarVisible = ref(false);
 
 // 👉 Default suggestions
 const suggestionGroups = [
@@ -115,7 +115,7 @@ const suggestionGroups = [
       },
     ],
   },
-]
+];
 
 // 👉 No Data suggestion
 const noDataSuggestions = [
@@ -137,26 +137,26 @@ const noDataSuggestions = [
     icon: 'tabler-cash',
     url: { name: 'pages-pricing' },
   },
-]
+];
 
-const searchQuery = ref('')
-const searchResult = ref([])
-const router = useRouter()
+const searchQuery = ref('');
+const searchResult = ref([]);
+const router = useRouter();
 
 // 👉 fetch search result API
 watchEffect(() => {
   axios.get('/app-bar/search', { params: { q: searchQuery.value } }).then(response => {
-    searchResult.value = response.data
-  })
-})
+    searchResult.value = response.data;
+  });
+});
 
 const redirectToSuggestedOrSearchedPage = selected => {
-  router.push(selected.url)
-  isAppSearchBarVisible.value = false
-  searchQuery.value = ''
-}
+  router.push(selected.url);
+  isAppSearchBarVisible.value = false;
+  searchQuery.value = '';
+};
 
-const LazyAppBarSearch = defineAsyncComponent(() => import('@core/components/AppBarSearch.vue'))
+const LazyAppBarSearch = defineAsyncComponent(() => import('@core/components/AppBarSearch.vue'));
 </script>
 
 <template>

@@ -4,9 +4,9 @@ const props = defineProps({
     type: String,
     required: true,
   },
-})
+});
 
-const emit = defineEmits(['cancel'])
+const emit = defineEmits(['cancel']);
 </script>
 
 <template>

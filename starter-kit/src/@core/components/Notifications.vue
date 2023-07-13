@@ -1,6 +1,6 @@
 <script setup>
-import { PerfectScrollbar } from 'vue3-perfect-scrollbar'
-import { avatarText } from '@core/utils/formatters'
+import { PerfectScrollbar } from 'vue3-perfect-scrollbar';
+import { avatarText } from '@core/utils/formatters';
 
 const props = defineProps({
   notifications: {
@@ -17,28 +17,28 @@ const props = defineProps({
     required: false,
     default: 'bottom end',
   },
-})
+});
 
 const emit = defineEmits([
   'read',
   'unread',
   'remove',
   'click:notification',
-])
+]);
 
-const isAllMarkRead = computed(() => props.notifications.some(item => item.isSeen === false))
+const isAllMarkRead = computed(() => props.notifications.some(item => item.isSeen === false));
 
 const markAllReadOrUnread = () => {
-  const allNotificationsIds = props.notifications.map(item => item.id)
+  const allNotificationsIds = props.notifications.map(item => item.id);
   if (!isAllMarkRead.value)
-    emit('unread', allNotificationsIds)
+    emit('unread', allNotificationsIds);
   else
-    emit('read', allNotificationsIds)
-}
+    emit('read', allNotificationsIds);
+};
 
 const totalUnseenNotifications = computed(() => {
-  return props.notifications.filter(item => item.isSeen === false).length
-})
+  return props.notifications.filter(item => item.isSeen === false).length;
+});
 </script>
 
 <template>

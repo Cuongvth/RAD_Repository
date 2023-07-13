@@ -1,28 +1,28 @@
 <script setup>
-import { useLayouts } from '@layouts'
-import { config } from '@layouts/config'
-import { can } from '@layouts/plugins/casl'
+import { useLayouts } from '@layouts';
+import { config } from '@layouts/config';
+import { can } from '@layouts/plugins/casl';
 import {
   getComputedNavLinkToProp,
   isNavLinkActive,
-} from '@layouts/utils'
+} from '@layouts/utils';
 
 const props = defineProps({
   item: {
     type: null,
     required: true,
   },
-})
+});
 
-const { width: windowWidth } = useWindowSize()
-const { isVerticalNavMini, dynamicI18nProps } = useLayouts()
-const hideTitleAndBadge = isVerticalNavMini(windowWidth)
+const { width: windowWidth } = useWindowSize();
+const { isVerticalNavMini, dynamicI18nProps } = useLayouts();
+const hideTitleAndBadge = isVerticalNavMini(windowWidth);
 </script>
 
 <template>
   <li
     v-if="can(item.action, item.subject)"
-    class="nav-link"
+    class="ml-5 nav-link"
     :class="{ disabled: item.disable }"
   >
     <Component

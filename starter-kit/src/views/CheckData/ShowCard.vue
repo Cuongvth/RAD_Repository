@@ -1,5 +1,8 @@
 <template>
-  <VTabs v-model="tab" class="v-tabs-pill">
+  <VTabs
+    v-model="tab"
+    class="v-tabs-pill"
+  >
     <VTab>Trường dữ liệu</VTab>
     <VTab>Loại thẻ</VTab>
     <VTab>Nội dung toàn văn</VTab>
@@ -11,24 +14,30 @@
         <VWindowItem>
           <CanCuoc
             v-if="props.type == 1"
-            :cardData="props.cardData"
-            :setCheck="setCheck"
+            :card-data="props.cardData"
+            :set-check="setCheck"
           />
           <BLX
             v-if="props.type == 4"
-            :cardData="props.cardData"
-            :setCheck="setCheck"
+            :card-data="props.cardData"
+            :set-check="setCheck"
           />
         </VWindowItem>
         <VWindowItem>
-          <CanCuocCard v-if="props.type == 1" :setCheck="setCheck" />
-          <BLXCard v-if="props.type == 4" :setCheck="setCheck" />
+          <CanCuocCard
+            v-if="props.type == 1"
+            :set-check="setCheck"
+          />
+          <BLXCard
+            v-if="props.type == 4"
+            :set-check="setCheck"
+          />
         </VWindowItem>
         <VWindowItem>
           <TextCard
-            :googleMatTruoc="props.googleMatTruoc"
-            :googleMatSau="props.googleMatSau"
-            :setCheck="setCheck"
+            :google-mat-truoc="props.googleMatTruoc"
+            :google-mat-sau="props.googleMatSau"
+            :set-check="setCheck"
           />
         </VWindowItem>
       </VWindow>
@@ -42,6 +51,7 @@ const props = defineProps({
   cardData: Object,
   googleMatTruoc: Array,
   googleMatSau: Array,
+  setCheck: Function,
 });
 
 import CanCuocCard from "./CanCuocCard.vue";
@@ -71,5 +81,16 @@ function setCheck(key, value) {
   } else if (key == 4) {
     check.value.loaiThe = value;
   }
+  if (check.value.type == 1 && check.value.checkTruong.length == 11) {
+    check.value.thoaman = true;
+  } else if (check.value.type == 4 && check.value.checkTruong.length == 9) {
+    check.value.thoaman = true;
+  } else {
+    check.value.thoaman = false;
+  }
 }
+
+watch(check.value, (newVal, oldVal) => {
+  props.setCheck(newVal);
+});
 </script>

@@ -19,26 +19,26 @@ const props = defineProps({
     type: Boolean,
     required: true,
   },
-})
+});
 
 const emit = defineEmits([
   'update:isDialogVisible',
   'submit',
-])
+]);
 
-const billingAddress = ref(structuredClone(toRaw(props.billingAddress)))
+const billingAddress = ref(structuredClone(toRaw(props.billingAddress)));
 
 const resetForm = () => {
-  emit('update:isDialogVisible', false)
-  billingAddress.value = structuredClone(toRaw(props.billingAddress))
-}
+  emit('update:isDialogVisible', false);
+  billingAddress.value = structuredClone(toRaw(props.billingAddress));
+};
 
 const onFormSubmit = () => {
-  emit('update:isDialogVisible', false)
-  emit('submit', billingAddress.value)
-}
+  emit('update:isDialogVisible', false);
+  emit('submit', billingAddress.value);
+};
 
-const selectedAddress = ref('Home')
+const selectedAddress = ref('Home');
 
 const addressTypes = [
   {
@@ -59,7 +59,7 @@ const addressTypes = [
     desc: 'Delivery Time (10am - 6pm)',
     value: 'Office',
   },
-]
+];
 </script>
 
 <template>

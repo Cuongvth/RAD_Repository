@@ -1,23 +1,40 @@
 <template>
-  <VDialog v-model="dialog" maxWidth="1000" maxHeight="700" persistent>
+  <VDialog
+    v-model="dialog"
+    max-width="1000"
+    max-height="700"
+    persistent
+  >
     <template #activator="{ props }">
-      <VBtn v-bind="props"><VIcon icon="tabler-scan" size="20" />Chi tiết</VBtn>
+      <VBtn v-bind="props">
+        <VIcon
+          icon="tabler-scan"
+          size="20"
+        />Chi tiết
+      </VBtn>
     </template>
     <DialogCloseBtn @click="dialog = !dialog" />
     <VCard style="padding: 20px">
       <CheckCard
+        :set-check="setCheck"
         :type="props.type"
-        :cardData="cardData"
-        :googleMatTruoc="googleMatTruoc"
-        :googleMatSau="googleMatSau"
-        :matTruoc="matTruoc"
-        :matSau="matSau"
+        :card-data="cardData"
+        :google-mat-truoc="googleMatTruoc"
+        :google-mat-sau="googleMatSau"
+        :mat-truoc="matTruoc"
+        :mat-sau="matSau"
       />
       <VCardText class="d-flex justify-end flex-wrap gap-3">
-        <VBtn variant="tonal" color="secondary" @click="dialog = false">
+        <VBtn
+          variant="tonal"
+          color="secondary"
+          @click="dialog = false"
+        >
           Disagree
         </VBtn>
-        <VBtn @click="dialog = false"> Agree </VBtn>
+        <VBtn @click="danhGia">
+          Agree
+        </VBtn>
       </VCardText>
     </VCard>
   </VDialog>
@@ -30,9 +47,13 @@ const props = defineProps({
 });
 
 import CheckCard from "./index.vue";
-import { getOneCanCuoc, getOneBLX } from "../../api/DemoRD/DemoAPI";
+import {
+  getOneCanCuoc,
+  getOneBLX,
+  danhGiaDuLieu,
+} from "../../api/DemoRD/DemoAPI";
 import { useStore } from "vuex";
-import { onMounted } from "vue";
+import { onMounted, ref } from "vue";
 
 const store = useStore();
 var cardData = ref("");
@@ -64,6 +85,46 @@ async function getData() {
   googleMatTruoc.value = [result[0].duLieu.googleMatTruoc];
   googleMatSau.value = [result[0].duLieu.googleMatSau];
   cardData.value = result[0];
+}
+
+var googleMatTruocC = ref(100);
+var googleMatSauC = ref(100);
+var checkTruong = ref([]);
+var loaiThe = ref(true);
+var thoaman = ref(false);
+
+function setCheck(value) {
+  googleMatTruocC.value = value.googleMatTruoc;
+  googleMatSauC.value = value.googleMatSau;
+  checkTruong.value = Array.from(value.checkTruong);
+  loaiThe.value = value.loaiThe;
+  thoaman.value = value.thoaman;
+}
+
+async function danhGia() {
+  if (!thoaman.value) {
+    store.commit("setSnackBarContent", "Chưa đủ điều kiện");
+
+    return;
+  }
+  try {
+    store.commit("setOverlayVisible", true);
+    await danhGiaDuLieu(
+      props.id,
+      props.type,
+      googleMatTruocC.value,
+      googleMatSauC.value,
+      checkTruong.value,
+      loaiThe.value,
+    );
+    store.commit("setOverlayVisible", false);
+  } catch (error) {
+    store.commit("setOverlayVisible", false);
+    store.commit("setSnackBarContent", "Lỗi");
+
+    return;
+  }
+  store.commit("setSnackBarContent", "Xác nhận thành công");
 }
 
 onMounted(() => {

@@ -1,5 +1,5 @@
 <script setup>
-import VueApexCharts from 'vue3-apexcharts'
+import VueApexCharts from 'vue3-apexcharts';
 
 const props = defineProps({
   title: {
@@ -31,7 +31,7 @@ const props = defineProps({
     type: null,
     required: true,
   },
-})
+});
 </script>
 
 <template>

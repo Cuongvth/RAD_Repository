@@ -12,15 +12,15 @@ const props = defineProps({
     type: null,
     required: false,
   },
-})
+});
 
-const emit = defineEmits(['update:selectedRadio'])
+const emit = defineEmits(['update:selectedRadio']);
 
-const selectedOption = ref(structuredClone(toRaw(props.selectedRadio)))
+const selectedOption = ref(structuredClone(toRaw(props.selectedRadio)));
 
 watch(selectedOption, () => {
-  emit('update:selectedRadio', selectedOption.value)
-})
+  emit('update:selectedRadio', selectedOption.value);
+});
 </script>
 
 <template>

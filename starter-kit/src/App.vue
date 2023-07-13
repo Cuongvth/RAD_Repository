@@ -37,7 +37,11 @@ handleSkinChanges();
         persistent
         class="align-center justify-center"
       >
-        <VProgressCircular :size="40" color="primary" indeterminate />
+        <VProgressCircular
+          :size="40"
+          color="primary"
+          indeterminate
+        />
       </VOverlay>
       <VSnackbar
         v-model="store.getters.getSnakBar"

@@ -5,17 +5,17 @@
     </VCard>
     <div style="margin-top: 20px">
       <GetImage
-        :getData="getData"
-        :matTruoc="props.matTruoc"
-        :matSau="props.matSau"
+        :get-data="getData"
+        :mat-truoc="props.matTruoc"
+        :mat-sau="props.matSau"
       />
     </div>
     <div style="margin-top: 20px">
       <ShowCard
         :type="type"
-        :cardData="cardData"
-        :googleMatTruoc="googleMatTruoc"
-        :googleMatSau="googleMatSau"
+        :card-data="cardData"
+        :google-mat-truoc="googleMatTruoc"
+        :google-mat-sau="googleMatSau"
       />
     </div>
   </div>

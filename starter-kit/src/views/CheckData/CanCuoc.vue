@@ -1,7 +1,7 @@
 <template>
   <VCard title="User Profile">
     <VCardText>
-      <VForm ref="form" @submit.prevent="onSubmit">
+      <VForm @submit.prevent="onSubmit">
         <VRow>
           <VCol cols="9">
             <AppTextField
@@ -259,7 +259,9 @@
             />
           </VCol>
           <VCol cols="12">
-            <VBtn type="submit"> Save </VBtn>
+            <VBtn type="submit">
+              Save
+            </VBtn>
           </VCol>
         </VRow>
       </VForm>
@@ -276,15 +278,42 @@ const props = defineProps({
 import { betweenValidator, requiredValidator } from "@validators";
 import { useStore } from "vuex";
 
-var checkTruong = ref([100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100]);
-const form = ref(null);
+var checkTruong = ref([
+  props.cardData.isSoCCCD,
+  props.cardData.isHoTen,
+  props.cardData.isNgayThangNamSinh,
+  props.cardData.isGioiTinh,
+  props.cardData.isQuocTich,
+  props.cardData.isCoGiaTriDen,
+  props.cardData.isNoiThuongTru,
+  props.cardData.isQueQuan,
+  props.cardData.isDacDiemNhanDang,
+  props.cardData.isNgayDangKy,
+  props.cardData.isVNM,
+]);
 const store = useStore();
 
+function valid(value) {
+  const regex = /^([0-9]|[1-9][0-9]|100)$/;
+
+  return regex.test(value);
+}
+
 function onSubmit() {
-  if (!form.value.checkValidity()) {
+  var ok = true;
+
+  checkTruong.value.forEach(element => {
+    if (!valid(element)) {
+      ok = false;
+    }
+  });
+
+  if (!ok) {
+    store.commit("setSnackBarContent", "Thất bại");
+
     return;
   }
-  props.setCheck(3, checkTruong);
+  props.setCheck(3, Array.from(checkTruong.value));
   store.commit("setSnackBarContent", "Lưu thành công");
 }
 </script>

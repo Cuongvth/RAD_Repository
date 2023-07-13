@@ -1,7 +1,7 @@
 <script setup>
-import { useTheme } from 'vuetify'
+import { useTheme } from 'vuetify';
 
-const { global } = useTheme()
+const { global } = useTheme();
 
 const authProviders = [
   {
@@ -16,7 +16,7 @@ const authProviders = [
     icon: 'fa-twitter',
     color: '#1da1f2',
   },
-]
+];
 </script>
 
 <template>

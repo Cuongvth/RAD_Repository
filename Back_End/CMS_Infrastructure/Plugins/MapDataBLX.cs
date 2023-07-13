@@ -1,12 +1,6 @@
 ﻿using CMS_WebDesignCore.DTO;
 using CMS_WebDesignCore.Entities;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace CMS_Infrastructure.Plugins
 {
@@ -52,9 +46,8 @@ namespace CMS_Infrastructure.Plugins
             {
                 if (Regex.Matches(item.Trim(), @"\d{5}").Count > 0)
                 {
-                    Console.WriteLine(i);
                     result.HoTen = dataMatTruoc[i + 1].Trim();
-                    result.QuocTich = dataMatTruoc[i + 3].Trim();
+                    result.QuocTich = "Việt Nam";
                 }
                 if (item.Contains("Address"))
                 {

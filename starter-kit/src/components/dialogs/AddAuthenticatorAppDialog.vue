@@ -1,5 +1,5 @@
 <script setup>
-import themeselectionQr from '@images/pages/themeselection-qr.png'
+import themeselectionQr from '@images/pages/themeselection-qr.png';
 
 const props = defineProps({
   authCode: {
@@ -10,26 +10,26 @@ const props = defineProps({
     type: Boolean,
     required: true,
   },
-})
+});
 
 const emit = defineEmits([
   'update:isDialogVisible',
   'submit',
-])
+]);
 
-const authCode = ref(structuredClone(toRaw(props.authCode)))
+const authCode = ref(structuredClone(toRaw(props.authCode)));
 
 const formSubmit = () => {
   if (authCode.value) {
-    emit('submit', authCode.value)
-    emit('update:isDialogVisible', false)
+    emit('submit', authCode.value);
+    emit('update:isDialogVisible', false);
   }
-}
+};
 
 const resetAuthCode = () => {
-  authCode.value = structuredClone(toRaw(props.authCode))
-  emit('update:isDialogVisible', false)
-}
+  authCode.value = structuredClone(toRaw(props.authCode));
+  emit('update:isDialogVisible', false);
+};
 </script>
 
 <template>

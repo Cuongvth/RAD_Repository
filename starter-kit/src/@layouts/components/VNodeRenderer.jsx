@@ -7,6 +7,6 @@ export const VNodeRenderer = defineComponent({
     },
   },
   setup(props) {
-    return () => props.nodes
+    return () => props.nodes;
   },
-})
+});

@@ -1,11 +1,15 @@
 <template>
   <VRow>
     <VCol cols="2">
-      <VTabs v-model="tab" direction="vertical" class="v-tabs-pill">
+      <VTabs
+        v-model="tab"
+        direction="vertical"
+        class="v-tabs-pill"
+      >
         <VTab>Mặt trước</VTab>
         <VTab>Mặt sau</VTab>
-      </VTabs></VCol
-    >
+      </VTabs>
+    </VCol>
     <VCol cols="10">
       <VCard>
         <VCardText>
@@ -26,8 +30,9 @@
             </VWindowItem>
           </VWindow>
         </VCardText>
-      </VCard> </VCol
-  ></VRow>
+      </VCard>
+    </VCol>
+  </VRow>
 </template>
 
 <script setup>

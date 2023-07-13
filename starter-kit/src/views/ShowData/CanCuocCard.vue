@@ -1,3 +1,8 @@
 <template>
-  <VAlert variant="outlined" color="secondary">Căn cước công dân </VAlert>
+  <VAlert
+    variant="outlined"
+    color="secondary"
+  >
+    Căn cước công dân
+  </VAlert>
 </template>

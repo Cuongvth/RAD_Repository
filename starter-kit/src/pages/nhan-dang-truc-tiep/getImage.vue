@@ -1,7 +1,10 @@
 <template>
   <div>
     <VRow>
-      <VCol cols="12" md="4">
+      <VCol
+        cols="12"
+        md="4"
+      >
         <VImg
           v-if="dataImage[0].length > 0"
           :src="`data:image/jpeg;base64, ` + dataImage[0]"
@@ -9,7 +12,10 @@
           @click="rotater(1)"
         />
       </VCol>
-      <VCol cols="12" md="4">
+      <VCol
+        cols="12"
+        md="4"
+      >
         <VImg
           v-if="dataImage[1].length > 0"
           :src="`data:image/jpeg;base64, ` + dataImage[1]"
@@ -19,8 +25,13 @@
       </VCol>
     </VRow>
     <VRow>
-      <VCol cols="12" md="4">
-        <VBtn @click="$refs.fileInput0.click()"> Mặt trước</VBtn>
+      <VCol
+        cols="12"
+        md="4"
+      >
+        <VBtn @click="$refs.fileInput0.click()">
+          Mặt trước
+        </VBtn>
         <VFileInput
           ref="fileInput0"
           v-model="selectFile[0]"
@@ -32,8 +43,13 @@
           @change="onFileSelect(0)"
         />
       </VCol>
-      <VCol cols="12" md="4">
-        <VBtn @click="$refs.fileInput1.click()"> Mặt sau</VBtn>
+      <VCol
+        cols="12"
+        md="4"
+      >
+        <VBtn @click="$refs.fileInput1.click()">
+          Mặt sau
+        </VBtn>
         <VFileInput
           ref="fileInput1"
           v-model="selectFile[1]"
@@ -46,10 +62,13 @@
         />
       </VCol>
     </VRow>
-    <br />
+    <br>
     <VBtn @click="submit">
-      <VIcon icon="tabler-scan" size="20" />Nhận dạng</VBtn
-    >
+      <VIcon
+        icon="tabler-scan"
+        size="20"
+      />Nhận dạng
+    </VBtn>
   </div>
 </template>
 
@@ -102,7 +121,7 @@ async function onFileSelect(index) {
   } else {
     store.commit(
       "setSnackBarContent",
-      "Vui lòng chọn đúng file định dạng ảnh! Các định dạng được hỗ trợ: JPG, JPEG, PNG"
+      "Vui lòng chọn đúng file định dạng ảnh! Các định dạng được hỗ trợ: JPG, JPEG, PNG",
     );
   }
 }

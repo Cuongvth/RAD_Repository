@@ -30,42 +30,42 @@ const props = defineProps({
     required: false,
     default: undefined,
   },
-})
+});
 
 const emit = defineEmits([
   'collapsed',
   'refresh',
   'trash',
-])
+]);
 
-defineOptions({ inheritAttrs: false })
+defineOptions({ inheritAttrs: false });
 
-const isContentCollapsed = ref(props.collapsed)
-const isCardRemoved = ref(false)
-const isOverlayVisible = ref(false)
+const isContentCollapsed = ref(props.collapsed);
+const isCardRemoved = ref(false);
+const isOverlayVisible = ref(false);
 
 // hiding overlay
 const hideOverlay = () => {
-  isOverlayVisible.value = false
-}
+  isOverlayVisible.value = false;
+};
 
 // trigger collapse
 const triggerCollapse = () => {
-  isContentCollapsed.value = !isContentCollapsed.value
-  emit('collapsed', isContentCollapsed.value)
-}
+  isContentCollapsed.value = !isContentCollapsed.value;
+  emit('collapsed', isContentCollapsed.value);
+};
 
 // trigger refresh
 const triggerRefresh = () => {
-  isOverlayVisible.value = true
-  emit('refresh', hideOverlay)
-}
+  isOverlayVisible.value = true;
+  emit('refresh', hideOverlay);
+};
 
 // trigger removal
 const triggeredRemove = () => {
-  isCardRemoved.value = true
-  emit('trash')
-}
+  isCardRemoved.value = true;
+  emit('trash');
+};
 </script>
 
 <template>

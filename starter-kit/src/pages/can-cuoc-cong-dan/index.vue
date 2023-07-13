@@ -39,19 +39,38 @@ onMounted(() => {
     <VTable style="margin-top: 20px">
       <thead>
         <tr>
-          <th class="text-left">Số thứ tự</th>
-          <th class="text-left">No.</th>
-          <th class="text-left">Full name</th>
-          <th class="text-left">Date of birth</th>
-          <th class="text-left">Sex</th>
-          <th class="text-left">Nationality</th>
-          <th class="text-left">Date of expiry</th>
-          <th class="text-left">Date supply</th>
+          <th class="text-left">
+            Số thứ tự
+          </th>
+          <th class="text-left">
+            No.
+          </th>
+          <th class="text-left">
+            Full name
+          </th>
+          <th class="text-left">
+            Date of birth
+          </th>
+          <th class="text-left">
+            Sex
+          </th>
+          <th class="text-left">
+            Nationality
+          </th>
+          <th class="text-left">
+            Date of expiry
+          </th>
+          <th class="text-left">
+            Date supply
+          </th>
           <th class="text-left" />
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(item, i) in data" :key="item.id">
+        <tr
+          v-for="(item, i) in data"
+          :key="item.id"
+        >
           <td>{{ i + 1 }}</td>
           <td>{{ item.soCCCD }}</td>
           <td>{{ item.hoTen }}</td>
@@ -61,11 +80,18 @@ onMounted(() => {
           <td>{{ item.coGiaTriDen }}</td>
           <td>{{ item.ngayDangKy }}</td>
           <td>
-            <ShowDetail :id="item.id" :type="1" />
+            <ShowDetail
+              :id="item.id"
+              :type="1"
+            />
           </td>
         </tr>
       </tbody>
     </VTable>
-    <VPagination v-model="page" :length="lengthPage" :total-visible="10" />
+    <VPagination
+      v-model="page"
+      :length="lengthPage"
+      :total-visible="10"
+    />
   </div>
 </template>

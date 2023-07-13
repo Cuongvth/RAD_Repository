@@ -27,24 +27,24 @@ const props = defineProps({
     required: false,
     default: undefined,
   },
-})
+});
 
-const emit = defineEmits(['update:currentStep'])
+const emit = defineEmits(['update:currentStep']);
 
-const currentStep = ref(props.currentStep || 0)
-const activeOrCompletedStepsClasses = computed(() => index => index < currentStep.value ? 'stepper-steps-completed' : index === currentStep.value ? 'stepper-steps-active' : '')
-const isHorizontalAndNotLastStep = computed(() => index => props.direction === 'horizontal' && props.items.length - 1 !== index)
+const currentStep = ref(props.currentStep || 0);
+const activeOrCompletedStepsClasses = computed(() => index => index < currentStep.value ? 'stepper-steps-completed' : index === currentStep.value ? 'stepper-steps-active' : '');
+const isHorizontalAndNotLastStep = computed(() => index => props.direction === 'horizontal' && props.items.length - 1 !== index);
 
 // check if validation is enabled
 const isValidationEnabled = computed(() => {
-  return props.isActiveStepValid !== undefined
-})
+  return props.isActiveStepValid !== undefined;
+});
 
 watchEffect(() => {
   if (props.currentStep !== undefined && props.currentStep < props.items.length && props.currentStep >= 0)
-    currentStep.value = props.currentStep
-  emit('update:currentStep', currentStep.value)
-})
+    currentStep.value = props.currentStep;
+  emit('update:currentStep', currentStep.value);
+});
 </script>
 
 <template>

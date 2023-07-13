@@ -2,21 +2,21 @@
 import {
   HorizontalNavGroup,
   HorizontalNavLink,
-} from '@layouts/components'
+} from '@layouts/components';
 
 const props = defineProps({
   navItems: {
     type: null,
     required: true,
   },
-})
+});
 
 const resolveNavItemComponent = item => {
   if ('children' in item)
-    return HorizontalNavGroup
+    return HorizontalNavGroup;
   
-  return HorizontalNavLink
-}
+  return HorizontalNavLink;
+};
 </script>
 
 <template>

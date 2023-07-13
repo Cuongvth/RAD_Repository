@@ -2,17 +2,17 @@
 defineOptions({
   name: 'AppAutocomplete',
   inheritAttrs: false,
-})
+});
 
 // const { class: _class, label, variant: _, ...restAttrs } = useAttrs()
 const elementId = computed(() => {
-  const attrs = useAttrs()
-  const _elementIdToken = attrs.id || attrs.label
+  const attrs = useAttrs();
+  const _elementIdToken = attrs.id || attrs.label;
   
-  return _elementIdToken ? `app-autocomplete-${ _elementIdToken }-${ Math.random().toString(36).slice(2, 7) }` : undefined
-})
+  return _elementIdToken ? `app-autocomplete-${ _elementIdToken }-${ Math.random().toString(36).slice(2, 7) }` : undefined;
+});
 
-const label = computed(() => useAttrs().label)
+const label = computed(() => useAttrs().label);
 </script>
 
 <template>

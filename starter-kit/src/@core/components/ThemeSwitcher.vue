@@ -1,29 +1,29 @@
 <script setup>
-import { useThemeConfig } from '@core/composable/useThemeConfig'
+import { useThemeConfig } from '@core/composable/useThemeConfig';
 
 const props = defineProps({
   themes: {
     type: Array,
     required: true,
   },
-})
+});
 
-const { theme } = useThemeConfig()
+const { theme } = useThemeConfig();
 
 const {
   state: currentThemeName,
   next: getNextThemeName,
   index: currentThemeIndex,
-} = useCycleList(props.themes.map(t => t.name), { initialValue: theme.value })
+} = useCycleList(props.themes.map(t => t.name), { initialValue: theme.value });
 
 const changeTheme = () => {
-  theme.value = getNextThemeName()
-}
+  theme.value = getNextThemeName();
+};
 
 // Update icon if theme is changed from other sources
 watch(theme, val => {
-  currentThemeName.value = val
-})
+  currentThemeName.value = val;
+});
 </script>
 
 <template>

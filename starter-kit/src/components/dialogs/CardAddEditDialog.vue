@@ -16,26 +16,26 @@ const props = defineProps({
     type: Boolean,
     required: true,
   },
-})
+});
 
 const emit = defineEmits([
   'submit',
   'update:isDialogVisible',
-])
+]);
 
-const cardDetails = ref(structuredClone(toRaw(props.cardDetails)))
+const cardDetails = ref(structuredClone(toRaw(props.cardDetails)));
 
 watch(props, () => {
-  cardDetails.value = structuredClone(toRaw(props.cardDetails))
-})
+  cardDetails.value = structuredClone(toRaw(props.cardDetails));
+});
 
 const formSubmit = () => {
-  emit('submit', cardDetails.value)
-}
+  emit('submit', cardDetails.value);
+};
 
 const dialogModelValueUpdate = val => {
-  emit('update:isDialogVisible', val)
-}
+  emit('update:isDialogVisible', val);
+};
 </script>
 
 <template>

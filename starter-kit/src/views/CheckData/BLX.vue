@@ -220,7 +220,9 @@
             />
           </VCol>
           <VCol cols="12">
-            <VBtn type="submit"> Save </VBtn>
+            <VBtn type="submit">
+              Save
+            </VBtn>
           </VCol>
         </VRow>
       </VForm>
@@ -237,26 +239,40 @@ const props = defineProps({
 import { betweenValidator, requiredValidator } from "@validators";
 import { useStore } from "vuex";
 
-var checkTruong = ref([100, 100, 100, 100, 100, 100, 100, 100, 100]);
+var checkTruong = ref([
+  props.cardData.isSo,
+  props.cardData.isHoTen,
+  props.cardData.isNgaySinh,
+  props.cardData.isNoiCuTru,
+  props.cardData.isQuocTich,
+  props.cardData.isHang,
+  props.cardData.isMoTaXeDuocSuDung,
+  props.cardData.isNgayTrungTuyen,
+  props.cardData.isNgayDangKy,
+]);
 const store = useStore();
 
-var ok = true;
-
 function valid(value) {
-  if (value < 0 || value > 100 || !isNaN(value) || value.length == 0) {
-    ok = false;
-  }
+  const regex = /^([0-9]|[1-9][0-9]|100)$/;
 
-  return true;
+  return regex.test(value);
 }
 
 function onSubmit() {
+  var ok = true;
+
+  checkTruong.value.forEach(element => {
+    if (!valid(element)) {
+      ok = false;
+    }
+  });
+
   if (!ok) {
     store.commit("setSnackBarContent", "Thất bại");
 
     return;
   }
-  props.setCheck(2, checkToanVan[1]);
+  props.setCheck(3, Array.from(checkTruong.value));
   store.commit("setSnackBarContent", "Lưu thành công");
 }
 </script>

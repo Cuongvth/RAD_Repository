@@ -12,7 +12,7 @@ const themes = [
     name: 'dark',
     icon: 'tabler-moon',
   },
-]
+];
 </script>
 
 <template>

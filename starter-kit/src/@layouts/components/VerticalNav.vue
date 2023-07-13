@@ -1,16 +1,16 @@
 <script setup>
-import { PerfectScrollbar } from 'vue3-perfect-scrollbar'
-import { VNodeRenderer } from './VNodeRenderer'
+import { PerfectScrollbar } from 'vue3-perfect-scrollbar';
+import { VNodeRenderer } from './VNodeRenderer';
 import {
   injectionKeyIsVerticalNavHovered,
   useLayouts,
-} from '@layouts'
+} from '@layouts';
 import {
   VerticalNavGroup,
   VerticalNavLink,
   VerticalNavSectionTitle,
-} from '@layouts/components'
-import { config } from '@layouts/config'
+} from '@layouts/components';
+import { config } from '@layouts/config';
 
 const props = defineProps({
   tag: {
@@ -33,44 +33,44 @@ const props = defineProps({
     type: Function,
     required: true,
   },
-})
+});
 
-const refNav = ref()
-const { width: windowWidth } = useWindowSize()
-const isHovered = useElementHover(refNav)
+const refNav = ref();
+const { width: windowWidth } = useWindowSize();
+const isHovered = useElementHover(refNav);
 
-provide(injectionKeyIsVerticalNavHovered, isHovered)
+provide(injectionKeyIsVerticalNavHovered, isHovered);
 
 const {
   isVerticalNavCollapsed: isCollapsed,
   isLessThanOverlayNavBreakpoint,
   isVerticalNavMini,
   isAppRtl,
-} = useLayouts()
+} = useLayouts();
 
-const hideTitleAndIcon = isVerticalNavMini(windowWidth, isHovered)
+const hideTitleAndIcon = isVerticalNavMini(windowWidth, isHovered);
 
 const resolveNavItemComponent = item => {
   if ('heading' in item)
-    return VerticalNavSectionTitle
+    return VerticalNavSectionTitle;
   if ('children' in item)
-    return VerticalNavGroup
+    return VerticalNavGroup;
   
-  return VerticalNavLink
-}
+  return VerticalNavLink;
+};
 
-const route = useRoute()
+const route = useRoute();
 
 watch(() => route.name, () => {
-  props.toggleIsOverlayNavActive(false)
-})
+  props.toggleIsOverlayNavActive(false);
+});
 
-const isVerticalNavScrolled = ref(false)
-const updateIsVerticalNavScrolled = val => isVerticalNavScrolled.value = val
+const isVerticalNavScrolled = ref(false);
+const updateIsVerticalNavScrolled = val => isVerticalNavScrolled.value = val;
 
 const handleNavScroll = evt => {
-  isVerticalNavScrolled.value = evt.target.scrollTop > 0
-}
+  isVerticalNavScrolled.value = evt.target.scrollTop > 0;
+};
 </script>
 
 <template>
@@ -95,15 +95,6 @@ const handleNavScroll = evt => {
           class="app-logo d-flex align-center gap-x-3 app-title-wrapper"
         >
           <VNodeRenderer :nodes="config.app.logo" />
-
-          <Transition name="vertical-nav-app-title">
-            <h1
-              v-show="!hideTitleAndIcon"
-              class="app-title font-weight-bold text-capitalize leading-normal text-xl"
-            >
-              {{ config.app.title }}
-            </h1>
-          </Transition>
         </RouterLink>
         <!-- 👉 Vertical nav actions -->
         <!-- Show toggle collapsible in >md and close button in <md -->

@@ -1,12 +1,6 @@
-﻿using CMS_Infrastructure.Migrations;
-using CMS_WebDesignCore.DTO;
+﻿using CMS_WebDesignCore.DTO;
 using CMS_WebDesignCore.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace CMS_Infrastructure.Plugins
 {
@@ -94,6 +88,10 @@ namespace CMS_Infrastructure.Plugins
                     {
                         result.QuocTich = matches[0].Value.Replace("Nationality", "").Replace(":", "").Replace(".", "").Trim();
                     }
+                    else
+                    {
+                        result.QuocTich = "Việt Nam";
+                    }
                 }
                 if (item.Contains("Place of origin"))
                 {
@@ -135,7 +133,7 @@ namespace CMS_Infrastructure.Plugins
             i = 0;
             foreach (var item in dataMatSau)
             {
-                if (item.Contains("identification:"))
+                if (item.Contains("identification"))
                 {
                     result.DacDiemNhanDang = dataMatSau[i + 1];
                     if (!dataMatSau[i + 2].Contains("year") || !dataMatSau[i + 2].Contains("month") || !dataMatSau[i + 2].Contains("Date"))

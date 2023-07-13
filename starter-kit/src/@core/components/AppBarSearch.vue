@@ -1,10 +1,10 @@
 <script setup>
-import { PerfectScrollbar } from 'vue3-perfect-scrollbar'
+import { PerfectScrollbar } from 'vue3-perfect-scrollbar';
 import {
   VList,
   VListItem,
   VListSubheader,
-} from 'vuetify/components/VList'
+} from 'vuetify/components/VList';
 
 const props = defineProps({
   isDialogVisible: {
@@ -27,82 +27,82 @@ const props = defineProps({
     type: Array,
     required: false,
   },
-})
+});
 
 const emit = defineEmits([
   'update:isDialogVisible',
   'update:searchQuery',
   'itemSelected',
-])
+]);
 
 const { ctrl_k, meta_k } = useMagicKeys({
   passive: false,
   onEventFired(e) {
     if (e.ctrlKey && e.key === 'k' && e.type === 'keydown')
-      e.preventDefault()
+      e.preventDefault();
   },
-})
+});
 
-const refSearchList = ref()
-const searchQuery = ref(structuredClone(toRaw(props.searchQuery)))
-const refSearchInput = ref()
-const isLocalDialogVisible = ref(structuredClone(toRaw(props.isDialogVisible)))
-const searchResults = ref(structuredClone(toRaw(props.searchResults)))
+const refSearchList = ref();
+const searchQuery = ref(structuredClone(toRaw(props.searchQuery)));
+const refSearchInput = ref();
+const isLocalDialogVisible = ref(structuredClone(toRaw(props.isDialogVisible)));
+const searchResults = ref(structuredClone(toRaw(props.searchResults)));
 
 // 👉 Watching props change
 watch(props, () => {
-  isLocalDialogVisible.value = structuredClone(toRaw(props.isDialogVisible))
-  searchResults.value = structuredClone(toRaw(props.searchResults))
-  searchQuery.value = structuredClone(toRaw(props.searchQuery))
-})
+  isLocalDialogVisible.value = structuredClone(toRaw(props.isDialogVisible));
+  searchResults.value = structuredClone(toRaw(props.searchResults));
+  searchQuery.value = structuredClone(toRaw(props.searchQuery));
+});
 watch([
   ctrl_k,
   meta_k,
 ], () => {
-  isLocalDialogVisible.value = true
-  emit('update:isDialogVisible', true)
-})
+  isLocalDialogVisible.value = true;
+  emit('update:isDialogVisible', true);
+});
 
 // 👉 clear search result and close the dialog
 const clearSearchAndCloseDialog = () => {
-  emit('update:isDialogVisible', false)
-  emit('update:searchQuery', '')
-}
+  emit('update:isDialogVisible', false);
+  emit('update:searchQuery', '');
+};
 
 watchEffect(() => {
   if (!searchQuery.value.length)
-    searchResults.value = []
-})
+    searchResults.value = [];
+});
 
 const getFocusOnSearchList = e => {
   if (e.key === 'ArrowDown') {
-    e.preventDefault()
-    refSearchList.value?.focus('next')
+    e.preventDefault();
+    refSearchList.value?.focus('next');
   } else if (e.key === 'ArrowUp') {
-    e.preventDefault()
-    refSearchList.value?.focus('prev')
+    e.preventDefault();
+    refSearchList.value?.focus('prev');
   }
-}
+};
 
 const dialogModelValueUpdate = val => {
-  emit('update:isDialogVisible', val)
-  emit('update:searchQuery', '')
-}
+  emit('update:isDialogVisible', val);
+  emit('update:searchQuery', '');
+};
 
 const resolveCategories = val => {
   if (val === 'dashboards')
-    return 'Dashboards'
+    return 'Dashboards';
   if (val === 'appsPages')
-    return 'Apps & Pages'
+    return 'Apps & Pages';
   if (val === 'userInterface')
-    return 'User Interface'
+    return 'User Interface';
   if (val === 'formsTables')
-    return 'Forms Tables'
+    return 'Forms Tables';
   if (val === 'chartsMisc')
-    return 'Charts Misc'
+    return 'Charts Misc';
   
-  return 'Misc'
-}
+  return 'Misc';
+};
 </script>
 
 <template>

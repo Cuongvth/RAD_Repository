@@ -1,18 +1,18 @@
 <script setup>
-import FlatPickr from 'vue-flatpickr-component'
-import { useTheme } from 'vuetify'
+import FlatPickr from 'vue-flatpickr-component';
+import { useTheme } from 'vuetify';
 import {
   VField,
   filterFieldProps,
   makeVFieldProps,
-} from 'vuetify/lib/components/VField/VField'
+} from 'vuetify/lib/components/VField/VField';
 import {
   VInput,
   makeVInputProps,
-} from 'vuetify/lib/components/VInput/VInput'
+} from 'vuetify/lib/components/VInput/VInput';
 
-import { filterInputAttrs } from 'vuetify/lib/util/helpers'
-import { useThemeConfig } from '@core/composable/useThemeConfig'
+import { filterInputAttrs } from 'vuetify/lib/util/helpers';
+import { useThemeConfig } from '@core/composable/useThemeConfig';
 
 const props = defineProps({
   autofocus: Boolean,
@@ -40,7 +40,7 @@ const props = defineProps({
     variant: 'outlined',
     color: 'primary',
   }),
-})
+});
 
 const emit = defineEmits([
   'click:control',
@@ -48,68 +48,68 @@ const emit = defineEmits([
   'update:focused',
   'update:modelValue',
   'click:clear',
-])
+]);
 
-defineOptions({ inheritAttrs: false })
+defineOptions({ inheritAttrs: false });
 
-const attrs = useAttrs()
-const [rootAttrs, compAttrs] = filterInputAttrs(attrs)
+const attrs = useAttrs();
+const [rootAttrs, compAttrs] = filterInputAttrs(attrs);
 
 const [{
   modelValue: _,
   ...inputProps
-}] = VInput.filterProps(props)
+}] = VInput.filterProps(props);
 
-const [fieldProps] = filterFieldProps(props)
-const refFlatPicker = ref()
-const { focused } = useFocus(refFlatPicker)
-const isCalendarOpen = ref(false)
-const isInlinePicker = ref(false)
+const [fieldProps] = filterFieldProps(props);
+const refFlatPicker = ref();
+const { focused } = useFocus(refFlatPicker);
+const isCalendarOpen = ref(false);
+const isInlinePicker = ref(false);
 
 // flat picker prop manipulation
 if (compAttrs.config && compAttrs.config.inline) {
-  isInlinePicker.value = compAttrs.config.inline
-  Object.assign(compAttrs, { altInputClass: 'inlinePicker' })
+  isInlinePicker.value = compAttrs.config.inline;
+  Object.assign(compAttrs, { altInputClass: 'inlinePicker' });
 }
 
 const onClear = el => {
-  el.stopPropagation()
+  el.stopPropagation();
   nextTick(() => {
-    emit('update:modelValue', '')
-    emit('click:clear', el)
-  })
-}
+    emit('update:modelValue', '');
+    emit('click:clear', el);
+  });
+};
 
-const { theme } = useThemeConfig()
-const vuetifyTheme = useTheme()
-const vuetifyThemesName = Object.keys(vuetifyTheme.themes.value)
+const { theme } = useThemeConfig();
+const vuetifyTheme = useTheme();
+const vuetifyThemesName = Object.keys(vuetifyTheme.themes.value);
 
 // Themes class added to flat-picker component for light and dark support
 const updateThemeClassInCalendar = () => {
 
   // ℹ️ Flatpickr don't render it's instance in mobile and device simulator
   if (!refFlatPicker.value.fp.calendarContainer)
-    return
+    return;
   vuetifyThemesName.forEach(t => {
-    refFlatPicker.value.fp.calendarContainer.classList.remove(`v-theme--${ t }`)
-  })
-  refFlatPicker.value.fp.calendarContainer.classList.add(`v-theme--${ vuetifyTheme.global.name.value }`)
-}
+    refFlatPicker.value.fp.calendarContainer.classList.remove(`v-theme--${ t }`);
+  });
+  refFlatPicker.value.fp.calendarContainer.classList.add(`v-theme--${ vuetifyTheme.global.name.value }`);
+};
 
-watch(theme, updateThemeClassInCalendar)
+watch(theme, updateThemeClassInCalendar);
 onMounted(() => {
-  updateThemeClassInCalendar()
-})
+  updateThemeClassInCalendar();
+});
 
 const emitModelValue = val => {
-  emit('update:modelValue', val)
-}
+  emit('update:modelValue', val);
+};
 
 const elementId = computed(() => {
-  const _elementIdToken = fieldProps.id || fieldProps.label
+  const _elementIdToken = fieldProps.id || fieldProps.label;
   
-  return _elementIdToken ? `app-picker-field-${ _elementIdToken }-${ Math.random().toString(36).slice(2, 7) }` : undefined
-})
+  return _elementIdToken ? `app-picker-field-${ _elementIdToken }-${ Math.random().toString(36).slice(2, 7) }` : undefined;
+});
 </script>
 
 <template>

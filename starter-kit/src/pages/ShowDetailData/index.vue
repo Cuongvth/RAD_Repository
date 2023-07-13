@@ -4,14 +4,18 @@
       <VCardText>Nhận dạng</VCardText>
     </VCard>
     <div style="margin-top: 20px">
-      <GetImage :matTruoc="props.matTruoc" :matSau="props.matSau" />
+      <GetImage
+        :mat-truoc="props.matTruoc"
+        :mat-sau="props.matSau"
+      />
     </div>
     <div style="margin-top: 20px">
       <ShowCard
+        :set-check="props.setCheck"
         :type="props.type"
-        :cardData="props.cardData"
-        :googleMatTruoc="props.googleMatTruoc"
-        :googleMatSau="props.googleMatSau"
+        :card-data="props.cardData"
+        :google-mat-truoc="props.googleMatTruoc"
+        :google-mat-sau="props.googleMatSau"
       />
     </div>
   </div>
@@ -25,6 +29,7 @@ const props = defineProps({
   googleMatSau: Array,
   matTruoc: String,
   matSau: String,
+  setCheck: Function,
 });
 
 import ShowCard from "@/views/CheckData/ShowCard.vue";
