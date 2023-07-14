@@ -63,7 +63,7 @@ const isChatContactActive = computed(() => {
         {{ props.user.fullName }}
       </p>
       <p class="mb-0 text-truncate text-disabled">
-        {{ props.isChatContact && 'chat' in props.user ? props.user.chat.lastMessage.message : props.user.about }}
+        {{ props.user.about }}
       </p>
     </div>
     <div

@@ -27,7 +27,7 @@ const database = {
       fullName: "LTS Travel AI Assistant",
       role: "AI Assistant",
       about:
-        "Cake pie jelly jelly beans. Marzipan lemon drops halvah cake. Pudding cookie lemon drops icing",
+        "Do you need any help?",
       avatar: avatar5,
       status: "online",
     },

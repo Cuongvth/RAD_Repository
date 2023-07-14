@@ -87,35 +87,6 @@ const sendMessage = async () => {
       for (var item of lstImg) {
         item.onclick = () => {
           
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          
         };
       }
 
