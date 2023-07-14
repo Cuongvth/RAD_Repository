@@ -21,6 +21,11 @@ const { isLeftSidebarOpen } = useResponsiveLeftSidebar(
 
 const { resolveAvatarBadgeVariant } = useChat();
 
+// dialog
+const dialog = ref(false);
+const src = ref("");
+
+
 // Perfect scrollbar
 const chatLogPS = ref();
 
@@ -83,10 +88,10 @@ const sendMessage = async () => {
       }
 
       const lstImg = document.querySelectorAll(".mixImageFunction");
-
       for (var item of lstImg) {
-        item.onclick = () => {
-          
+        item.onclick = ()=>{
+          src.value = item.src;
+          dialog.value = true;
         };
       }
 
@@ -95,6 +100,7 @@ const sendMessage = async () => {
   }
   isTyping.value = false;
 };
+
 
 const openChatOfContact = async userId => {
   await store.getChat(userId);
@@ -160,6 +166,31 @@ const chatContentContainerBg = computed(() => {
 
 <template>
   <VLayout class="chat-app-layout">
+    <div class="text-center">
+      <VDialog
+        v-model="dialog"
+        width="70vw"
+      >
+        <VCard>
+          <VCardText class="text-center">
+            <img
+              :src="src"
+              alt="Hình ảnh"
+              style="width:100%"
+            >
+          </VCardText>
+          <VCardActions>
+            <VBtn
+              color="primary"
+              block
+              @click="dialog = false"
+            >
+              Đóng
+            </VBtn>
+          </VCardActions>
+        </VCard>
+      </VDialog>
+    </div>
     <!-- 👉 user profile sidebar -->
 
     <VNavigationDrawer

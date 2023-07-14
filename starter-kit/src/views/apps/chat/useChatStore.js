@@ -2,7 +2,7 @@ import axios from "@axios";
 import { Configuration, OpenAIApi } from "openai";
 import { templateMess } from "./chatRespon";
 import { ggSearch, reFormat } from "./library";
-import { context1, context2, context3 } from "./temp";
+import { context1, context2, context3, context4 } from "./temp";
 
 const openaiGPT = new OpenAIApi(
   new Configuration({
@@ -91,6 +91,7 @@ export const useChatStore = defineStore("chat", {
           context1,
           context2,
           context3,
+          context4,
           { role: "user", content: message },
         ],
       });
