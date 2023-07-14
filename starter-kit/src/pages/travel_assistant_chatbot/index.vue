@@ -46,16 +46,21 @@ const msg = ref("");
 const isTyping = ref(false);
 
 const sendMessage = async () => {
-  if (!msg.value) 
-    return;
- 
+  if (!msg.value) return;
+
   isTyping.value = true;
 
   const message = msg.value;
 
   msg.value = "";
   await store.sendMsg(message);
-  await store.botSendMsg(message);
+  try {
+    await store.botSendMsg(message);
+  } catch (error) {
+    isTyping.value = false;
+
+    return;
+  }
 
   // Scroll to bottom
   nextTick(() => {
@@ -64,13 +69,56 @@ const sendMessage = async () => {
 
   const lstSpan = document.querySelectorAll(".mixFunction");
 
-  for(var item of lstSpan) {
+  for (var item of lstSpan) {
     const str = item.innerHTML;
 
-    item.onclick =async ()=>{
-      
+    item.onclick = async () => {
       isTyping.value = true;
-      await store.botSendMsgCustom(str);
+      try {
+        await store.botSendMsgCustom(str);
+      } catch (error) {
+        isTyping.value = false;
+
+        return;
+      }
+
+      const lstImg = document.querySelectorAll(".mixImageFunction");
+
+      for (var item of lstImg) {
+        item.onclick = () => {
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        };
+      }
+
       isTyping.value = false;
     };
   }
@@ -142,7 +190,7 @@ const chatContentContainerBg = computed(() => {
 <template>
   <VLayout class="chat-app-layout">
     <!-- 👉 user profile sidebar -->
-    
+
     <VNavigationDrawer
       v-model="isUserProfileSidebarOpen"
       temporary
@@ -153,11 +201,10 @@ const chatContentContainerBg = computed(() => {
       width="370"
     >
       <ChatUserProfileSidebarContent @close="isUserProfileSidebarOpen = false" />
-    </VNavigationDrawer> 
-   
+    </VNavigationDrawer>
 
     <!-- 👉 Active Chat sidebar -->
-    
+
     <VNavigationDrawer
       v-model="isActiveChatUserProfileSidebarOpen"
       width="374"
@@ -168,11 +215,10 @@ const chatContentContainerBg = computed(() => {
       class="active-chat-user-profile-sidebar"
     >
       <ChatActiveChatUserProfileSidebarContent @close="isActiveChatUserProfileSidebarOpen = false" />
-    </VNavigationDrawer> 
-   
+    </VNavigationDrawer>
 
     <!-- 👉 Left sidebar   -->
-    
+
     <VNavigationDrawer
       v-model="isLeftSidebarOpen"
       absolute
@@ -190,8 +236,7 @@ const chatContentContainerBg = computed(() => {
         @show-user-profile="isUserProfileSidebarOpen = true"
         @close="isLeftSidebarOpen = false"
       />
-    </VNavigationDrawer> 
-   
+    </VNavigationDrawer>
 
     <!-- 👉 Chat content -->
     <VMain class="chat-content-container">
@@ -291,19 +336,18 @@ const chatContentContainerBg = computed(() => {
         >
           <ChatLog />
         </PerfectScrollbar>
-     
+
         <!-- Message form -->
         <VForm
           class="chat-log-message-form mb-5 mx-5"
           @submit.prevent="sendMessage"
         >
           <span v-if="isTyping">
-            <span style="font-size:12px;margin-left:12px">
-              LTS Travel AI Assistant is typing 
-            </span><img
+            <span style="font-size: 12px; margin-left: 12px">
+              LTS Travel AI Assistant is typing </span><img
               :src="typing"
               alt="loading"
-              style="height:18px;width:40px;margin-left:4px"
+              style="height: 18px; width: 40px; margin-left: 4px"
             >
           </span>
           <VTextField

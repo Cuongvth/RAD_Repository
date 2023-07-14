@@ -4,12 +4,13 @@ import { templateMess } from "./chatRespon";
 import { ggSearch, reFormat } from "./library";
 import { context1, context2, context3, context4 } from "./temp";
 
-const openaiGPT = new OpenAIApi(new Configuration({
-  apiKey: "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",
-}));
+const openaiGPT = new OpenAIApi(
+  new Configuration({
+    apiKey: "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",
+  }),
+);
 
 export const useChatStore = defineStore("chat", {
-  
   // ℹ️ arrow function recommended for full type inference
   state: () => ({
     contacts: [],
@@ -84,14 +85,23 @@ export const useChatStore = defineStore("chat", {
       contact.chat.lastMessage = msg;
     },
     async botSendMsg(message) {
-      const result = await  openaiGPT.createChatCompletion({
+      const result = await openaiGPT.createChatCompletion({
         model: "gpt-3.5-turbo-16k",
-        messages: [context1, context2, context3, context4, { role: "user", content: message }],
+        messages: [
+          context1,
+          context2,
+          context3,
+          context4,
+          { role: "user", content: message },
+        ],
       });
 
       const { data } = await axios.post(
         `/apps/chat/chats/${this.activeChat?.contact.id}`,
-        { message: await reFormat(result.data.choices[0].message.content), senderId: 1 },
+        {
+          message: await reFormat(result.data.choices[0].message.content),
+          senderId: 1,
+        },
       );
 
       const { msg, chat } = data;
@@ -131,15 +141,10 @@ export const useChatStore = defineStore("chat", {
       contact.chat.lastMessage = msg;
     },
     async botSendMsgCustom(message) {
-      console.log(message);
-      
-      const items =await   ggSearch(message);
+      const items = await ggSearch(message);
 
-      console.log(items);
-      var respon =`<span style="font-size:24px;font-weight:550">This is ${message} i found</span>`;
-      for(var i =0;i<items.items.length;i++) {
-        respon = respon+templateMess(items.items[i])+"<br>";
-      }
+      var respon = `<span style="font-size:24px;font-weight:550">${message}</span><br>`;
+      respon = respon + templateMess(items.items) + "<br>";
 
       const { data } = await axios.post(
         `/apps/chat/chats/${this.activeChat?.contact.id}`,
