@@ -1,13 +1,5 @@
 export const templateMess = info => {
   var str = "";
-
-  // const link = info.pagemap.metatags[0]["og:image"];
-  // if (link != undefined) {
-  //   if (link.includes("http")) {
-  //     str = str + `<br><img style="width:30%" src="${link}" /><br>`;
-  //   } else {
-  //   }
-  // }
   for (let index = 0; index < info.length; index++) {
     const element = info[index];
 
@@ -22,7 +14,7 @@ export const templateMess = info => {
 
     str =
       str +
-      `<a style="margin:2px; height:24px; display: inline-block; border-radius:5px; background-color: aquamarine; color:black" href="${element.link}" target="_blank">
+      `<a style="margin: 5px; height:24px; display: inline-block; border-radius:5px; background-color: aquamarine; color:black" href="${element.link}" target="_blank">
       <span>${element.displayLink}</span>
     </a>`;
   }

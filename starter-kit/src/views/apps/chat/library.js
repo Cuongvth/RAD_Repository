@@ -40,7 +40,7 @@ export async function reFormat(cauTraLoi) {
 }
 async function replaceElement(arr, cauTraLoi){
   for(var item of arr){
-    cauTraLoi = cauTraLoi.replace(`${item}`, `<span style="color:blue" class="mixFunction" onmouseover="this.style.cursor='pointer';">${item}</span>`);
+    cauTraLoi = cauTraLoi.replace(`${item}`, `<span style="color:aquamarine" class="mixFunction" onmouseover="this.style.cursor='pointer';">${item}</span>`);
   }
   
   return cauTraLoi;
