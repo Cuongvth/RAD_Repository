@@ -81,6 +81,7 @@ const sendMessage = async () => {
       isTyping.value = true;
       try {
         await store.botSendMsgCustom(str);
+        await store.botSendMsgCustomEnd(str);
       } catch (error) {
         isTyping.value = false;
 
@@ -89,8 +90,10 @@ const sendMessage = async () => {
 
       const lstImg = document.querySelectorAll(".mixImageFunction");
       for (var item of lstImg) {
+        const srcLink = item.src;
+
         item.onclick = ()=>{
-          src.value = item.src;
+          src.value = srcLink;
           dialog.value = true;
         };
       }

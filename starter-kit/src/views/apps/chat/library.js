@@ -22,17 +22,17 @@ export async function reFormat(cauTraLoi) {
     var lstDanhTu = [];
 
     for (let index = 0; index < temp.length; index++) {
-      if(isNaN(temp[index].split(".")[0]))
+      if(isNaN(temp[index].split(".")[0]) && !temp[index].includes("-"))
       {
         continue;
       }
       if(temp[index].includes(":"))
       {
-        lstDanhTu.push(temp[index].split(":")[0].replace(/^\d+\.\s*/, ''));
+        lstDanhTu.push(temp[index].split(":")[0].replace(/^\d+\.\s*/, '').replace('-', ''));
       }  
       else
       {
-        lstDanhTu.push(temp[index].replace(/^\d+\.\s*/, ''));
+        lstDanhTu.push(temp[index].replace(/^\d+\.\s*/, '').replace('-', ''));
       }   
     }
     resolve( await replaceElement(lstDanhTu, cauTraLoi));
@@ -40,7 +40,7 @@ export async function reFormat(cauTraLoi) {
 }
 async function replaceElement(arr, cauTraLoi){
   for(var item of arr){
-    cauTraLoi = cauTraLoi.replace(`${item}`, `<span style="color:blue" class="mixFunction" onmouseover="this.style.cursor='pointer';">${item}</span>`);
+    cauTraLoi = cauTraLoi.replace(`${item}`, `<span style="color:aquamarine" class="mixFunction" onmouseover="this.style.cursor='pointer';">${item}</span>`);
   }
   
   return cauTraLoi;
