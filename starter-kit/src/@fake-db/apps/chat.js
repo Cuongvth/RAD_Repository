@@ -24,7 +24,7 @@ const database = {
   contacts: [
     {
       id: 1,
-      fullName: "LTS Travel AI Assistant",
+      fullName: "LTS Travel AI",
       role: "AI Assistant",
       about:
         "Do you need any help?",

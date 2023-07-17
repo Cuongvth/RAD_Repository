@@ -203,7 +203,7 @@ const chatContentContainerBg = computed(() => {
       absolute
       class="user-profile-sidebar"
       location="start"
-      width="370"
+      width="250"
     >
       <ChatUserProfileSidebarContent @close="isUserProfileSidebarOpen = false" />
     </VNavigationDrawer>
@@ -212,7 +212,7 @@ const chatContentContainerBg = computed(() => {
 
     <VNavigationDrawer
       v-model="isActiveChatUserProfileSidebarOpen"
-      width="374"
+      width="254"
       absolute
       temporary
       location="end"
@@ -229,7 +229,7 @@ const chatContentContainerBg = computed(() => {
       absolute
       touchless
       location="start"
-      width="370"
+      width="250"
       :temporary="$vuetify.display.smAndDown"
       class="chat-list-sidebar"
       :permanent="$vuetify.display.mdAndUp"
