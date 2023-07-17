@@ -17,6 +17,7 @@ export const useChatStore = defineStore("chat", {
     chatsContacts: [],
     profileUser: undefined,
     activeChat: null,
+    ngucanh: null,
   }),
   actions: {
     async isTravel(sentence) {
@@ -43,6 +44,8 @@ export const useChatStore = defineStore("chat", {
     async sendMsg(message) {
       const senderId = this.profileUser?.id;
 
+      this.ngucanh = message;
+
       const { data } = await axios.post(
         `/apps/chat/chats/${this.activeChat?.contact.id}`,
         { message, senderId },
@@ -68,7 +71,7 @@ export const useChatStore = defineStore("chat", {
       this.postMsg(data);
     },
     async botSendMsgCustom(message) {
-      const items = await ggSearch(message);
+      const items = await ggSearch(message + " " + this.ngucanh);
 
       var respon = `<span style="font-size:24px;font-weight:550">${message}</span><br>`;
       respon = respon + templateMess(items.items) + "<br>";
@@ -81,7 +84,7 @@ export const useChatStore = defineStore("chat", {
       this.postMsg(data);
     },
     async botSendMsgCustomEnd(message) {
-      const result = await  this.callChatGPT({ role: "user", content: `Hãy cho tôi thông tin về\nThời điểm phù hợp\nSố lượng người phù hợp\nChi phí ước tính\nCác thông tin bên lề\nVề việc đi du lịch với ${message}` });
+      const result = await  this.callChatGPT({ role: "user", content: `Hãy cho tôi thông tin về\nThời điểm phù hợp\nSố lượng người phù hợp\nChi phí ước tính\nCác thông tin bên lề\nVề việc đi du lịch với ${message + " " + this.ngucanh}` });
 
       const { data } = await axios.post(
         `/apps/chat/chats/${this.activeChat?.contact.id}`,
