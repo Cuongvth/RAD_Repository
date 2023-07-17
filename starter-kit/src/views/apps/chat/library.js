@@ -1,6 +1,6 @@
 import { GGSearch } from "../../../plugins/searchApi";
 
-const key = "AIzaSyCzBu43s0DJxkg9g0Gx_KxklW5w36UKG_4";
+const key = "AIzaSyDT-poUu1uiWFEWU4mP7IeajTItbjdNU2o";
 const cx = "370680eb1781b459c";
 function searchGoogle(q, num) {
   return new Promise((resolve, reject) => {
@@ -14,37 +14,37 @@ function searchGoogle(q, num) {
   });
 }
 
-export function reFormat(cauTraLoi) {
+export async function reFormat(cauTraLoi) {
   return new Promise(async (resolve, reject) => {
     cauTraLoi =  cauTraLoi.replace(/\n/g, '<br>');
 
-    const temp = cauTraLoi.split("#");
+    const temp = cauTraLoi.split("<br>");
     var lstDanhTu = [];
 
     for (let index = 0; index < temp.length; index++) {
-      if(index%2 != 0)
+      if(isNaN(temp[index].split(".")[0]))
       {
-        lstDanhTu.push(temp[index]);
-      }     
+        continue;
+      }
+      if(temp[index].includes(":"))
+      {
+        lstDanhTu.push(temp[index].split(":")[0].replace(/^\d+\.\s*/, ''));
+      }  
+      else
+      {
+        lstDanhTu.push(temp[index].replace(/^\d+\.\s*/, ''));
+      }   
     }
-
-    // lstDanhTu.forEach(async element => {
-    //   const link = await searchGoogle(element, 1);
-
-    //   cauTraLoi =  cauTraLoi.replace(`#${element}#`, `<a href="${link.items[0].link}" target="_blank">${element}</a>`);
-    // });
-
-    // resolve(cauTraLoi);
-
-    await lstDanhTu.forEach(async element => {
-      const link = await searchGoogle(element, 1);
-
-      cauTraLoi = cauTraLoi.replace(
-        `#${element}#`,
-        `<a href="${link.items[0].link}" target="_blank">${element}</a>`,
-      );
-    }),
-
-    resolve(cauTraLoi);
+    resolve( await replaceElement(lstDanhTu, cauTraLoi));
   });
+}
+async function replaceElement(arr, cauTraLoi){
+  for(var item of arr){
+    cauTraLoi = cauTraLoi.replace(`${item}`, `<span style="color:aquamarine" class="mixFunction" onmouseover="this.style.cursor='pointer';">${item}</span>`);
+  }
+  
+  return cauTraLoi;
+}
+export async function ggSearch(q){
+  return await searchGoogle(q, 5);
 }

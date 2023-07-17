@@ -21,6 +21,11 @@ const { isLeftSidebarOpen } = useResponsiveLeftSidebar(
 
 const { resolveAvatarBadgeVariant } = useChat();
 
+// dialog
+const dialog = ref(false);
+const src = ref("");
+
+
 // Perfect scrollbar
 const chatLogPS = ref();
 
@@ -46,23 +51,59 @@ const msg = ref("");
 const isTyping = ref(false);
 
 const sendMessage = async () => {
-  if (!msg.value) 
-    return;
- 
+  if (!msg.value) return;
+
   isTyping.value = true;
 
   const message = msg.value;
 
   msg.value = "";
   await store.sendMsg(message);
-  await store.botSendMsg(message);
+  try {
+    await store.botSendMsg(message);
+  } catch (error) {
+    isTyping.value = false;
+
+    return;
+  }
 
   // Scroll to bottom
   nextTick(() => {
     scrollToBottomInChatLog();
   });
+
+  const lstSpan = document.querySelectorAll(".mixFunction");
+
+  for (var item of lstSpan) {
+    const str = item.innerHTML;
+
+    item.onclick = async () => {
+      isTyping.value = true;
+      try {
+        await store.botSendMsgCustom(str);
+        await store.botSendMsgCustomEnd(str);
+      } catch (error) {
+        isTyping.value = false;
+
+        return;
+      }
+
+      const lstImg = document.querySelectorAll(".mixImageFunction");
+      for (var item of lstImg) {
+        const srcLink = item.src;
+
+        item.onclick = ()=>{
+          src.value = srcLink;
+          dialog.value = true;
+        };
+      }
+
+      isTyping.value = false;
+    };
+  }
   isTyping.value = false;
 };
+
 
 const openChatOfContact = async userId => {
   await store.getChat(userId);
@@ -128,8 +169,33 @@ const chatContentContainerBg = computed(() => {
 
 <template>
   <VLayout class="chat-app-layout">
+    <div class="text-center">
+      <VDialog
+        v-model="dialog"
+        width="70vw"
+      >
+        <VCard>
+          <VCardText class="text-center">
+            <img
+              :src="src"
+              alt="Hình ảnh"
+              style="width:100%"
+            >
+          </VCardText>
+          <VCardActions>
+            <VBtn
+              color="primary"
+              block
+              @click="dialog = false"
+            >
+              Đóng
+            </VBtn>
+          </VCardActions>
+        </VCard>
+      </VDialog>
+    </div>
     <!-- 👉 user profile sidebar -->
-    
+
     <VNavigationDrawer
       v-model="isUserProfileSidebarOpen"
       temporary
@@ -140,11 +206,10 @@ const chatContentContainerBg = computed(() => {
       width="370"
     >
       <ChatUserProfileSidebarContent @close="isUserProfileSidebarOpen = false" />
-    </VNavigationDrawer> 
-   
+    </VNavigationDrawer>
 
     <!-- 👉 Active Chat sidebar -->
-    
+
     <VNavigationDrawer
       v-model="isActiveChatUserProfileSidebarOpen"
       width="374"
@@ -155,11 +220,10 @@ const chatContentContainerBg = computed(() => {
       class="active-chat-user-profile-sidebar"
     >
       <ChatActiveChatUserProfileSidebarContent @close="isActiveChatUserProfileSidebarOpen = false" />
-    </VNavigationDrawer> 
-   
+    </VNavigationDrawer>
 
     <!-- 👉 Left sidebar   -->
-    
+
     <VNavigationDrawer
       v-model="isLeftSidebarOpen"
       absolute
@@ -177,8 +241,7 @@ const chatContentContainerBg = computed(() => {
         @show-user-profile="isUserProfileSidebarOpen = true"
         @close="isLeftSidebarOpen = false"
       />
-    </VNavigationDrawer> 
-   
+    </VNavigationDrawer>
 
     <!-- 👉 Chat content -->
     <VMain class="chat-content-container">
@@ -278,19 +341,18 @@ const chatContentContainerBg = computed(() => {
         >
           <ChatLog />
         </PerfectScrollbar>
-     
+
         <!-- Message form -->
         <VForm
           class="chat-log-message-form mb-5 mx-5"
           @submit.prevent="sendMessage"
         >
           <span v-if="isTyping">
-            <span style="font-size:12px;margin-left:12px">
-              LTS Travel AI Assistant is typing 
-            </span><img
+            <span style="font-size: 12px; margin-left: 12px">
+              LTS Travel AI Assistant is typing </span><img
               :src="typing"
               alt="loading"
-              style="height:18px;width:40px;margin-left:4px"
+              style="height: 18px; width: 40px; margin-left: 4px"
             >
           </span>
           <VTextField
