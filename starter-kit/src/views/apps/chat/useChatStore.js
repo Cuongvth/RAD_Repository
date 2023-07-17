@@ -2,11 +2,11 @@ import axios from "@axios";
 import { Configuration, OpenAIApi } from "openai";
 import { templateMess } from "./chatRespon";
 import { ggSearch, reFormat } from "./library";
-import { context1, context2, context3, context4 } from "./temp";
+import { isTravel } from "./temp";
 
 const openaiGPT = new OpenAIApi(
   new Configuration({
-    apiKey: "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",
+    apiKey: "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",
   }),
 );
 
@@ -85,21 +85,16 @@ export const useChatStore = defineStore("chat", {
       contact.chat.lastMessage = msg;
     },
     async botSendMsg(message) {
-      const result = await openaiGPT.createChatCompletion({
-        model: "gpt-3.5-turbo-16k",
-        messages: [
-          context1,
-          context2,
-          context3,
-          context4,
-          { role: "user", content: message },
-        ],
-      });
+      var  result = { content: "Không liên quan đến du lịch" };
+      if(this.isTravelContext(message))
+      {
+        result = await  this.callChatGPT({ role: "user", content: `Trả lời câu hỏi "${message}" dưới dạng danh sách` });
+      }
 
       const { data } = await axios.post(
         `/apps/chat/chats/${this.activeChat?.contact.id}`,
         {
-          message: await reFormat(result.data.choices[0].message.content),
+          message: await reFormat(result.content),
           senderId: 1,
         },
       );
@@ -187,5 +182,35 @@ export const useChatStore = defineStore("chat", {
 
       contact.chat.lastMessage = msg;
     },
+    async callChatGPT(context) {
+      const result = await openaiGPT.createChatCompletion({
+        model: "gpt-3.5-turbo-16k",
+        messages: [
+          context,
+        ],
+      });
+    
+      return { role: "assistant", content: result.data.choices[0].message.content };
+    },
+    async isTravelContext(message) {
+      const result = await openaiGPT.createChatCompletion({
+        model: "gpt-3.5-turbo-16k",
+        messages: [
+          isTravel(message),
+        ],
+      });
+
+      const content = result.data.choices[0].message.content;
+
+      message = content.replace(message, "");
+      var numbers =content.match(/\d+/g);
+      try {
+        numbers= numbers.map(Number);
+      } catch (error) {
+        return false;
+      }
+      
+      return !numbers[0]<80;
+    }, 
   },
 });
