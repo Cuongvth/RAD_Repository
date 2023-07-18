@@ -6,7 +6,7 @@ import { isTravel } from "./temp";
 
 const openaiGPT = new OpenAIApi(
   new Configuration({
-    apiKey: "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",
+    apiKey: "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",
   }),
 );
 
@@ -17,7 +17,6 @@ export const useChatStore = defineStore("chat", {
     chatsContacts: [],
     profileUser: undefined,
     activeChat: null,
-    ngucanh: null,
   }),
   actions: {
     async isTravel(sentence) {
@@ -55,10 +54,12 @@ export const useChatStore = defineStore("chat", {
     },
     async botSendMsg(message) {
       var  result = { content: "Tôi là một mô hình AI được huấn luyện bởi LTS Edu. Hiện tại tôi chỉ có thể trả lời các câu hỏi về du lịch" };
-      if(await this.isTravelContext(message))
-      {
-        result = await  this.callChatGPT({ role: "user", content: `Trả lời câu hỏi "${message}" dưới dạng danh sách` });
-      }
+
+      // if(await this.isTravelContext(message))
+      // {
+      result = await  this.callChatGPT({ role: "user", content: `Trả lời câu hỏi "${message}" dưới dạng danh sách với gạch đầu dòng (-) và viết một câu mô tả khoảng 20 từ sau dấu hai chấm (:)` });
+
+      // }
 
       const { data } = await axios.post(
         `/apps/chat/chats/${this.activeChat?.contact.id}`,
@@ -70,10 +71,8 @@ export const useChatStore = defineStore("chat", {
 
       this.postMsg(data);
     },
-    async botSendMsgCustom(message) {
-      const items = await ggSearch(message + " " + this.ngucanh);
-
-      var respon = `<span style="font-size:24px;font-weight:550">${message}</span><br>`;
+    async botSendMsgCustom(items) {
+      var respon = "";
       respon = respon + templateMess(items.items) + "<br>";
 
       const { data } = await axios.post(
@@ -84,7 +83,7 @@ export const useChatStore = defineStore("chat", {
       this.postMsg(data);
     },
     async botSendMsgCustomEnd(message) {
-      const result = await  this.callChatGPT({ role: "user", content: `Hãy cho tôi thông tin về\nThời điểm phù hợp\nSố lượng người phù hợp\nChi phí ước tính\nCác thông tin bên lề\nVề việc đi du lịch với ${message + " " + this.ngucanh}` });
+      const result = await  this.callChatGPT({ role: "user", content: `Hãy cho tôi thông tin về\nThời điểm phù hợp\nSố lượng người phù hợp\nChi phí ước tính\nCác thông tin bên lề\nVề việc đi du lịch với ${message}` });
 
       const { data } = await axios.post(
         `/apps/chat/chats/${this.activeChat?.contact.id}`,
