@@ -1,6 +1,6 @@
 import { GGSearch } from "../../../plugins/searchApi";
 
-const key = "AIzaSyDT-poUu1uiWFEWU4mP7IeajTItbjdNU2o";
+const key = "AIzaSyDjWHbXj6BScpuFs5VzuME7q4UqnjRIl00";
 const cx = "370680eb1781b459c";
 function searchGoogle(q, num) {
   return new Promise((resolve, reject) => {
@@ -22,17 +22,17 @@ export async function reFormat(cauTraLoi) {
     var lstDanhTu = [];
 
     for (let index = 0; index < temp.length; index++) {
-      if(isNaN(temp[index].split(".")[0]) && !temp[index].includes("-"))
+      if(!temp[index].includes("-"))
       {
         continue;
       }
       if(temp[index].includes(":"))
       {
-        lstDanhTu.push(temp[index].split(":")[0].replace(/^\d+\.\s*/, '').replace('-', ''));
+        lstDanhTu.push(temp[index].split(":")[0].replace('-', ''));
       }  
       else
       {
-        lstDanhTu.push(temp[index].replace(/^\d+\.\s*/, '').replace('-', ''));
+        lstDanhTu.push(temp[index].replace('-', ''));
       }   
     }
     resolve( await replaceElement(lstDanhTu, cauTraLoi));
@@ -40,7 +40,7 @@ export async function reFormat(cauTraLoi) {
 }
 async function replaceElement(arr, cauTraLoi){
   for(var item of arr){
-    cauTraLoi = cauTraLoi.replace(`${item}`, `<span style="color:aquamarine" class="mixFunction" onmouseover="this.style.cursor='pointer';">${item}</span>`);
+    cauTraLoi = cauTraLoi.replace(`${item}`, `<span style="color: aquamarine; position: relative" class="mixFunction"><div style="max-width: 500px; min-width: 350px; max-height: 400px; min-height: 250px; background-color: black; position: absolute; left: 50%; display: none; z-index: 9999;"><img width="100%" src="image"/><strong style="margin: 0 2px">Title</strong><p style="margin: 0 2px">Description</p></div>${item}</span>`);
   }
   
   return cauTraLoi;
