@@ -82,7 +82,7 @@ const sendMessage = async () => {
       item.addEventListener("mouseover", function (event) {
         var mouseY = event.clientY;
         var screenHeight = window.innerHeight;
-        if (mouseY < screenHeight / 2) {
+        if (mouseY < (screenHeight / 2) - 150) {
           this.childNodes[0].style.top = "20px";
         } else {
           this.childNodes[0].style.bottom = "20px";

@@ -6,7 +6,7 @@ import { isTravel } from "./temp";
 
 const openaiGPT = new OpenAIApi(
   new Configuration({
-    apiKey: "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",
+    apiKey: "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",
   }),
 );
 

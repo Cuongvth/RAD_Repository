@@ -89,7 +89,7 @@ const msgGroups = computed(() => {
         class="chat-body d-inline-flex flex-column"
         :class="msgGrp.senderId !== contact.id ? 'align-end' : 'align-start'"
       >
-        <p
+        <div
           v-for="(msgData, msgIndex) in msgGrp.messages"
           :key="msgData.time"
           class="chat-content py-2 px-4 elevation-1"
