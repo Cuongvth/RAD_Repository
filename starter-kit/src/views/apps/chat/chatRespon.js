@@ -67,7 +67,7 @@ export const templateMess = info => {
       "
     >
       <div style="width: 65%;">
-      <a href="${element.link}" style="text-decoration: 0"
+      <a href="${element.link}" style="text-decoration: 0" target="_blank"
       ><h5
         style="
           display: -webkit-box;
@@ -92,6 +92,7 @@ export const templateMess = info => {
             color: black;
             text-decoration: 0;
           "
+          target="_blank"
           href="${element.link}"
           >${element.displayLink}</a
         >

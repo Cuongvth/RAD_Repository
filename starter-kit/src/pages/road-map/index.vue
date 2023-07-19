@@ -49,8 +49,10 @@ avatar: avatar1, icon: `tabler-basket
       <TimelineCard :data="data" />
     </VCol>
 
-    <VCol cols="12">
+    <!--
+      <VCol cols="12">
       <TimelineWithIcons :data="data" />
-    </VCol>
+      </VCol> 
+    -->
   </VRow>
 </template>

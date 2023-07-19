@@ -6,7 +6,7 @@ import { isTravel } from "./temp";
 
 const openaiGPT = new OpenAIApi(
   new Configuration({
-    apiKey: "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",
+    apiKey: "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",
   }),
 );
 
@@ -55,11 +55,11 @@ export const useChatStore = defineStore("chat", {
     async botSendMsg(message) {
       var  result = { content: "Tôi là một mô hình AI được huấn luyện bởi LTS Edu. Hiện tại tôi chỉ có thể trả lời các câu hỏi về du lịch" };
 
-      // if(await this.isTravelContext(message))
-      // {
-      result = await  this.callChatGPT({ role: "user", content: `Trả lời câu hỏi "${message}" dưới dạng danh sách với gạch đầu dòng (-) và viết một câu mô tả khoảng 20 từ sau dấu hai chấm (:)` });
+      if(await this.isTravelContext(message))
+      {
+        result = await  this.callChatGPT({ role: "user", content: `Trả lời câu hỏi "${message}" dưới dạng danh sách với gạch đầu dòng (-) và viết một câu mô tả khoảng 20 từ sau dấu hai chấm (:)` });
 
-      // }
+      }
 
       const { data } = await axios.post(
         `/apps/chat/chats/${this.activeChat?.contact.id}`,

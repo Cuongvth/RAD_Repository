@@ -1,6 +1,6 @@
 import { GGSearch } from "../../../plugins/searchApi";
 
-const key = "AIzaSyDnOZ0P6F2kKIS0Ti_8Fe5vj9A9OqJ_i_k";
+const key = "AIzaSyAkBpLb4AkaOTdFJn5nBCKG8wt85ZUel3c";
 const cx = "370680eb1781b459c";
 function searchGoogle(q, num) {
   return new Promise((resolve, reject) => {
