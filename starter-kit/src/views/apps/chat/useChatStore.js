@@ -1,7 +1,7 @@
 import axios from "@axios";
 import { Configuration, OpenAIApi } from "openai";
 import { templateMess } from "./chatRespon";
-import { ggSearch, reFormat } from "./library";
+import { reFormat } from "./library";
 import { isTravel } from "./temp";
 
 const openaiGPT = new OpenAIApi(

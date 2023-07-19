@@ -36,6 +36,10 @@ export default [
         title: "Chat Bot",
         to: { name: "travel_assistant_chatbot" },
       },
+      {
+        title: "Road Map",
+        to: { name: "road-map" },
+      },
     ],
     badgeClass: "bg-primary",
   },
