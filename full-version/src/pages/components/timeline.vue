@@ -2,7 +2,7 @@
   <VRow>
     <VCol
       cols="12"
-      md="6"
+      md="12"
     >
       <TimelineBasic />
     </VCol>

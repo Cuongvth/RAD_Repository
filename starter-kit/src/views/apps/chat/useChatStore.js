@@ -1,12 +1,12 @@
 import axios from "@axios";
 import { Configuration, OpenAIApi } from "openai";
 import { templateMess } from "./chatRespon";
-import { ggSearch, reFormat } from "./library";
+import { reFormat } from "./library";
 import { isTravel } from "./temp";
 
 const openaiGPT = new OpenAIApi(
   new Configuration({
-    apiKey: "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",
+    apiKey: "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",
   }),
 );
 

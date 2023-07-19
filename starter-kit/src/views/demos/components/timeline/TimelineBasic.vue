@@ -1,8 +1,8 @@
 <script setup>
-import avatar1 from '@images/avatars/avatar-1.png'
-import avatar2 from '@images/avatars/avatar-2.png'
-import pdf from '@images/icons/project-icons/pdf.png'
-import pumaShoes from '@images/pages/puma-shoes.jpeg'
+import avatar1 from '@images/avatars/avatar-1.png';
+import avatar2 from '@images/avatars/avatar-2.png';
+import pdf from '@images/icons/project-icons/pdf.png';
+import pumaShoes from '@images/pages/puma-shoes.jpeg';
 </script>
 
 <template>
