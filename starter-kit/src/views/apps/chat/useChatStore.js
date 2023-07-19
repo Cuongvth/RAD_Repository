@@ -1,14 +1,16 @@
 import axios from "@axios";
 import { Configuration, OpenAIApi } from "openai";
-import { context1, context2, context3, context4 } from "./temp";
-import { reFormat } from "./library";
+import { templateMess } from "./chatRespon";
+import { ggSearch, reFormat } from "./library";
+import { isTravel } from "./temp";
 
-const openaiGPT = new OpenAIApi(new Configuration({
-  apiKey: "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",
-}));
+const openaiGPT = new OpenAIApi(
+  new Configuration({
+    apiKey: "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",
+  }),
+);
 
 export const useChatStore = defineStore("chat", {
-  
   // ℹ️ arrow function recommended for full type inference
   state: () => ({
     contacts: [],
@@ -41,58 +43,59 @@ export const useChatStore = defineStore("chat", {
     async sendMsg(message) {
       const senderId = this.profileUser?.id;
 
+      this.ngucanh = message;
+
       const { data } = await axios.post(
         `/apps/chat/chats/${this.activeChat?.contact.id}`,
         { message, senderId },
       );
 
-      const { msg, chat } = data;
-
-      // ? If it's not undefined => New chat is created (Contact is not in list of chats)
-      if (chat !== undefined) {
-        const activeChat = this.activeChat;
-
-        this.chatsContacts.push({
-          ...activeChat.contact,
-          chat: {
-            id: chat.id,
-            lastMessage: [],
-            unseenMsgs: 0,
-            messages: [msg],
-          },
-        });
-        if (this.activeChat) {
-          this.activeChat.chat = {
-            id: chat.id,
-            messages: [msg],
-            unseenMsgs: 0,
-            userId: this.activeChat?.contact.id,
-          };
-        }
-      } else {
-        this.activeChat?.chat?.messages.push(msg);
-      }
-
-      // Set Last Message for active contact
-      const contact = this.chatsContacts.find(c => {
-        if (this.activeChat) return c.id === this.activeChat.contact.id;
-
-        return false;
-      });
-
-      contact.chat.lastMessage = msg;
+      this.postMsg(data);
     },
     async botSendMsg(message) {
-      const result = await  openaiGPT.createChatCompletion({
-        model: "gpt-3.5-turbo-16k",
-        messages: [context1, context2, context3, context4, { role: "user", content: message }],
-      });
+      var  result = { content: "Tôi là một mô hình AI được huấn luyện bởi LTS Edu. Hiện tại tôi chỉ có thể trả lời các câu hỏi về du lịch" };
+
+      // if(await this.isTravelContext(message))
+      // {
+      result = await  this.callChatGPT({ role: "user", content: `Trả lời câu hỏi "${message}" dưới dạng danh sách với gạch đầu dòng (-) và viết một câu mô tả khoảng 20 từ sau dấu hai chấm (:)` });
+
+      // }
 
       const { data } = await axios.post(
         `/apps/chat/chats/${this.activeChat?.contact.id}`,
-        { message: await reFormat(result.data.choices[0].message.content), senderId: 1 },
+        {
+          message: await reFormat(result.content),
+          senderId: 1,
+        },
       );
 
+      this.postMsg(data);
+    },
+    async botSendMsgCustom(items) {
+      var respon = "";
+      respon = respon + templateMess(items.items) + "<br>";
+
+      const { data } = await axios.post(
+        `/apps/chat/chats/${this.activeChat?.contact.id}`,
+        { message: respon, senderId: 1 },
+      );
+
+      this.postMsg(data);
+    },
+    async botSendMsgCustomEnd(message) {
+      const result = await  this.callChatGPT({ role: "user", content: `Hãy cho tôi thông tin về\nThời điểm phù hợp\nSố lượng người phù hợp\nChi phí ước tính\nCác thông tin bên lề\nVề việc đi du lịch với ${message}` });
+
+      const { data } = await axios.post(
+        `/apps/chat/chats/${this.activeChat?.contact.id}`,
+        {
+          message: result.content.replace(/\n/g, '<br>'),
+          senderId: 1,
+        },
+      );
+
+      this.postMsg(data);
+    },
+    async postMsg(data) {
       const { msg, chat } = data;
 
       // ? If it's not undefined => New chat is created (Contact is not in list of chats)
@@ -129,5 +132,30 @@ export const useChatStore = defineStore("chat", {
 
       contact.chat.lastMessage = msg;
     },
+    async callChatGPT(context) {
+      const result = await openaiGPT.createChatCompletion({
+        model: "gpt-3.5-turbo-16k",
+        messages: [
+          context,
+        ],
+      });
+    
+      return { role: "assistant", content: result.data.choices[0].message.content };
+    },
+    async isTravelContext(message) {
+      const result = await this.callChatGPT(isTravel(message));
+
+      const content = result.content;
+
+      message = content.replace(message, "");
+      var numbers =content.match(/\d+/g);
+      try {
+        numbers= numbers.map(Number);
+      } catch (error) {
+        return false;
+      }
+      
+      return !(numbers[0]<60);
+    }, 
   },
 });

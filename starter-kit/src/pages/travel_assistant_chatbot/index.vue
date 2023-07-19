@@ -11,6 +11,7 @@ import { useChatStore } from "@/views/apps/chat/useChatStore";
 import { useResponsiveLeftSidebar } from "@core/composable/useResponsiveSidebar";
 import { avatarText } from "@core/utils/formatters";
 import typing from "@images/New folder/typing.gif";
+import { ggSearch } from "../../views/apps/chat/library";
 
 const vuetifyDisplays = useDisplay();
 const store = useChatStore();
@@ -20,6 +21,10 @@ const { isLeftSidebarOpen } = useResponsiveLeftSidebar(
 );
 
 const { resolveAvatarBadgeVariant } = useChat();
+
+// dialog
+const dialog = ref(false);
+const src = ref("");
 
 // Perfect scrollbar
 const chatLogPS = ref();
@@ -46,21 +51,90 @@ const msg = ref("");
 const isTyping = ref(false);
 
 const sendMessage = async () => {
-  if (!msg.value) 
-    return;
- 
+  if (!msg.value) return;
+
   isTyping.value = true;
 
   const message = msg.value;
 
   msg.value = "";
   await store.sendMsg(message);
-  await store.botSendMsg(message);
+  try {
+    await store.botSendMsg(message);
+  } catch (error) {
+    isTyping.value = false;
+
+    return;
+  }
 
   // Scroll to bottom
   nextTick(() => {
     scrollToBottomInChatLog();
   });
+
+  const lstSpan = document.querySelectorAll(".mixFunction");
+  try {
+    for (var item of lstSpan) {
+      const str = item.childNodes[1].nodeValue;
+
+      const result = await ggSearch(str + " " + message);
+
+      item.addEventListener("mouseover", function (event) {
+        var mouseY = event.clientY;
+        var screenHeight = window.innerHeight;
+        if (mouseY < screenHeight / 2) {
+          this.childNodes[0].style.top = "20px";
+        } else {
+          this.childNodes[0].style.bottom = "20px";
+        }
+        this.style.cursor = "pointer";
+        this.childNodes[0].style.display = "block";
+        for (let index of result.items) {
+          var link = index.pagemap.metatags[0]["og:image"];
+          if (link != undefined) {
+            if (link.includes("http")) {
+              this.childNodes[0].childNodes[0].src = link;
+            } else {
+            }
+          }
+        }
+        this.childNodes[0].childNodes[1].innerHTML = result.items[0].title;
+        this.childNodes[0].childNodes[2].innerHTML = result.items[0].snippet;
+      });
+
+      item.addEventListener("mouseout", function () {
+        this.childNodes[0].style.display = "none";
+      });
+
+      item.onclick = async () => {
+        isTyping.value = true;
+        try {
+          await store.botSendMsgCustom(result);
+          await store.botSendMsgCustomEnd(str + " " + message);
+        } catch (error) {
+          isTyping.value = false;
+
+          return;
+        }
+
+        const lstImg = document.querySelectorAll(".mixImageFunction");
+        for (var i of lstImg) {
+          const srcLink = i.src;
+
+          i.onclick = () => {
+            src.value = srcLink;
+            dialog.value = true;
+          };
+        }
+
+        isTyping.value = false;
+      };
+
+      setTimeout(() => {}, 200);
+    }
+  } catch (error) {
+    isTyping.value = false;
+  }
   isTyping.value = false;
 };
 
@@ -128,8 +202,33 @@ const chatContentContainerBg = computed(() => {
 
 <template>
   <VLayout class="chat-app-layout">
+    <div class="text-center">
+      <VDialog
+        v-model="dialog"
+        width="70vw"
+      >
+        <VCard>
+          <VCardText class="text-center">
+            <img
+              :src="src"
+              alt="Hình ảnh"
+              style="width: 100%"
+            >
+          </VCardText>
+          <VCardActions>
+            <VBtn
+              color="primary"
+              block
+              @click="dialog = false"
+            >
+              Đóng
+            </VBtn>
+          </VCardActions>
+        </VCard>
+      </VDialog>
+    </div>
     <!-- 👉 user profile sidebar -->
-    
+
     <VNavigationDrawer
       v-model="isUserProfileSidebarOpen"
       temporary
@@ -137,17 +236,16 @@ const chatContentContainerBg = computed(() => {
       absolute
       class="user-profile-sidebar"
       location="start"
-      width="370"
+      width="250"
     >
       <ChatUserProfileSidebarContent @close="isUserProfileSidebarOpen = false" />
-    </VNavigationDrawer> 
-   
+    </VNavigationDrawer>
 
     <!-- 👉 Active Chat sidebar -->
-    
+
     <VNavigationDrawer
       v-model="isActiveChatUserProfileSidebarOpen"
-      width="374"
+      width="254"
       absolute
       temporary
       location="end"
@@ -155,17 +253,16 @@ const chatContentContainerBg = computed(() => {
       class="active-chat-user-profile-sidebar"
     >
       <ChatActiveChatUserProfileSidebarContent @close="isActiveChatUserProfileSidebarOpen = false" />
-    </VNavigationDrawer> 
-   
+    </VNavigationDrawer>
 
     <!-- 👉 Left sidebar   -->
-    
+
     <VNavigationDrawer
       v-model="isLeftSidebarOpen"
       absolute
       touchless
       location="start"
-      width="370"
+      width="250"
       :temporary="$vuetify.display.smAndDown"
       class="chat-list-sidebar"
       :permanent="$vuetify.display.mdAndUp"
@@ -177,8 +274,7 @@ const chatContentContainerBg = computed(() => {
         @show-user-profile="isUserProfileSidebarOpen = true"
         @close="isLeftSidebarOpen = false"
       />
-    </VNavigationDrawer> 
-   
+    </VNavigationDrawer>
 
     <!-- 👉 Chat content -->
     <VMain class="chat-content-container">
@@ -278,19 +374,18 @@ const chatContentContainerBg = computed(() => {
         >
           <ChatLog />
         </PerfectScrollbar>
-     
+
         <!-- Message form -->
         <VForm
           class="chat-log-message-form mb-5 mx-5"
           @submit.prevent="sendMessage"
         >
           <span v-if="isTyping">
-            <span style="font-size:12px;margin-left:12px">
-              LTS Travel AI Assistant is typing 
-            </span><img
+            <span style="font-size: 12px; margin-left: 12px">
+              LTS Travel AI Assistant is typing </span><img
               :src="typing"
               alt="loading"
-              style="height:18px;width:40px;margin-left:4px"
+              style="height: 18px; width: 40px; margin-left: 4px"
             >
           </span>
           <VTextField

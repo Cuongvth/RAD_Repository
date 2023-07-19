@@ -65,6 +65,7 @@ const msgGroups = computed(() => {
 });
 </script>
 
+
 <template>
   <div class="chat-log pa-5">
     <div
@@ -97,7 +98,6 @@ const msgGroups = computed(() => {
             msgGrp.senderId === contact.id ? 'chat-left' : 'bg-primary text-white chat-right',
             msgGrp.messages.length - 1 !== msgIndex ? 'mb-3' : 'mb-1',
           ]"
-
           v-html="msgData.message"
         />
         <div :class="{ 'text-right': msgGrp.senderId !== contact.id }">

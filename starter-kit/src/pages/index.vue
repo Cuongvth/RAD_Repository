@@ -4,7 +4,10 @@
       v-model:opened="open1"
       class="mb-6"
     >
-      <VListGroup value="T6">
+      <VListGroup
+        value="T6"
+        style="margin: 20px;"
+      >
         <template #activator="{ props }">
           <VListItem
             v-bind="props"
@@ -57,7 +60,10 @@
       v-model:opened="open2"
       class="mb-6"
     >
-      <VListGroup value="T7.1">
+      <VListGroup
+        value="T7.1"
+        style="margin: 20px;"
+      >
         <template #activator="{ props }">
           <VListItem
             v-bind="props"
@@ -104,7 +110,10 @@
       v-model:opened="open3"
       class="mb-6"
     >
-      <VListGroup value="T7.2">
+      <VListGroup
+        value="T7.2"
+        style="margin: 20px;"
+      >
         <template #activator="{ props }">
           <VListItem
             v-bind="props"
