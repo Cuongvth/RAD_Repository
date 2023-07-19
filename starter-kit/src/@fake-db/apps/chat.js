@@ -24,7 +24,7 @@ const database = {
   contacts: [
     {
       id: 1,
-      fullName: "LTS Travel AI Assistant",
+      fullName: "LTS Travel AI",
       role: "AI Assistant",
       about:
         "Do you need any help?",
@@ -39,7 +39,7 @@ const database = {
       unseenMsgs: 0,
       messages: [
         {
-          message: "How can we help? We're here for you!",
+          message: "Xin chào! Tôi là mô hình AI được phát triển bởi LTS Edu chuyên trả lời các vấn đề về du lịch, một trợ lý ảo sẵn sàng hỗ trợ bạn trong mọi thắc mắc về du lịch, đưa ra gợi ý hấp dẫn về điểm đến, cung cấp thông tin về địa điểm, hoạt động và hướng dẫn lịch trình. Hãy đặt câu hỏi cho tôi và tận hưởng một hành trình khám phá thú vị!",
           time: String(new Date()),
           senderId: 1,
           feedback: {

@@ -11,6 +11,7 @@ import { useChatStore } from "@/views/apps/chat/useChatStore";
 import { useResponsiveLeftSidebar } from "@core/composable/useResponsiveSidebar";
 import { avatarText } from "@core/utils/formatters";
 import typing from "@images/New folder/typing.gif";
+import { ggSearch } from "../../views/apps/chat/library";
 
 const vuetifyDisplays = useDisplay();
 const store = useChatStore();
@@ -24,7 +25,6 @@ const { resolveAvatarBadgeVariant } = useChat();
 // dialog
 const dialog = ref(false);
 const src = ref("");
-
 
 // Perfect scrollbar
 const chatLogPS = ref();
@@ -73,37 +73,70 @@ const sendMessage = async () => {
   });
 
   const lstSpan = document.querySelectorAll(".mixFunction");
+  try {
+    for (var item of lstSpan) {
+      const str = item.childNodes[1].nodeValue;
 
-  for (var item of lstSpan) {
-    const str = item.innerHTML;
+      const result = await ggSearch(str + " " + message);
 
-    item.onclick = async () => {
-      isTyping.value = true;
-      try {
-        await store.botSendMsgCustom(str);
-        await store.botSendMsgCustomEnd(str);
-      } catch (error) {
+      item.addEventListener("mouseover", function (event) {
+        var mouseY = event.clientY;
+        var screenHeight = window.innerHeight;
+        if (mouseY < screenHeight / 2) {
+          this.childNodes[0].style.top = "20px";
+        } else {
+          this.childNodes[0].style.bottom = "20px";
+        }
+        this.style.cursor = "pointer";
+        this.childNodes[0].style.display = "block";
+        for (let index of result.items) {
+          var link = index.pagemap.metatags[0]["og:image"];
+          if (link != undefined) {
+            if (link.includes("http")) {
+              this.childNodes[0].childNodes[0].src = link;
+            } else {
+            }
+          }
+        }
+        this.childNodes[0].childNodes[1].innerHTML = result.items[0].title;
+        this.childNodes[0].childNodes[2].innerHTML = result.items[0].snippet;
+      });
+
+      item.addEventListener("mouseout", function () {
+        this.childNodes[0].style.display = "none";
+      });
+
+      item.onclick = async () => {
+        isTyping.value = true;
+        try {
+          await store.botSendMsgCustom(result);
+          await store.botSendMsgCustomEnd(str + " " + message);
+        } catch (error) {
+          isTyping.value = false;
+
+          return;
+        }
+
+        const lstImg = document.querySelectorAll(".mixImageFunction");
+        for (var i of lstImg) {
+          const srcLink = i.src;
+
+          i.onclick = () => {
+            src.value = srcLink;
+            dialog.value = true;
+          };
+        }
+
         isTyping.value = false;
+      };
 
-        return;
-      }
-
-      const lstImg = document.querySelectorAll(".mixImageFunction");
-      for (var item of lstImg) {
-        const srcLink = item.src;
-
-        item.onclick = ()=>{
-          src.value = srcLink;
-          dialog.value = true;
-        };
-      }
-
-      isTyping.value = false;
-    };
+      setTimeout(() => {}, 200);
+    }
+  } catch (error) {
+    isTyping.value = false;
   }
   isTyping.value = false;
 };
-
 
 const openChatOfContact = async userId => {
   await store.getChat(userId);
@@ -179,7 +212,7 @@ const chatContentContainerBg = computed(() => {
             <img
               :src="src"
               alt="Hình ảnh"
-              style="width:100%"
+              style="width: 100%"
             >
           </VCardText>
           <VCardActions>
@@ -203,7 +236,7 @@ const chatContentContainerBg = computed(() => {
       absolute
       class="user-profile-sidebar"
       location="start"
-      width="370"
+      width="250"
     >
       <ChatUserProfileSidebarContent @close="isUserProfileSidebarOpen = false" />
     </VNavigationDrawer>
@@ -212,7 +245,7 @@ const chatContentContainerBg = computed(() => {
 
     <VNavigationDrawer
       v-model="isActiveChatUserProfileSidebarOpen"
-      width="374"
+      width="254"
       absolute
       temporary
       location="end"
@@ -229,7 +262,7 @@ const chatContentContainerBg = computed(() => {
       absolute
       touchless
       location="start"
-      width="370"
+      width="250"
       :temporary="$vuetify.display.smAndDown"
       class="chat-list-sidebar"
       :permanent="$vuetify.display.mdAndUp"

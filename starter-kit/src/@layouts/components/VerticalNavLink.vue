@@ -22,7 +22,7 @@ const hideTitleAndBadge = isVerticalNavMini(windowWidth);
 <template>
   <li
     v-if="can(item.action, item.subject)"
-    class="ml-5 nav-link"
+    class="nav-link"
     :class="{ disabled: item.disable }"
   >
     <Component

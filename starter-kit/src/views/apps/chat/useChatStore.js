@@ -6,7 +6,7 @@ import { isTravel } from "./temp";
 
 const openaiGPT = new OpenAIApi(
   new Configuration({
-    apiKey: "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",
+    apiKey: "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",
   }),
 );
 
@@ -43,6 +43,8 @@ export const useChatStore = defineStore("chat", {
     async sendMsg(message) {
       const senderId = this.profileUser?.id;
 
+      this.ngucanh = message;
+
       const { data } = await axios.post(
         `/apps/chat/chats/${this.activeChat?.contact.id}`,
         { message, senderId },
@@ -52,10 +54,12 @@ export const useChatStore = defineStore("chat", {
     },
     async botSendMsg(message) {
       var  result = { content: "Tôi là một mô hình AI được huấn luyện bởi LTS Edu. Hiện tại tôi chỉ có thể trả lời các câu hỏi về du lịch" };
-      if(await this.isTravelContext(message))
-      {
-        result = await  this.callChatGPT({ role: "user", content: `Trả lời câu hỏi "${message}" dưới dạng danh sách` });
-      }
+
+      // if(await this.isTravelContext(message))
+      // {
+      result = await  this.callChatGPT({ role: "user", content: `Trả lời câu hỏi "${message}" dưới dạng danh sách với gạch đầu dòng (-) và viết một câu mô tả khoảng 20 từ sau dấu hai chấm (:)` });
+
+      // }
 
       const { data } = await axios.post(
         `/apps/chat/chats/${this.activeChat?.contact.id}`,
@@ -67,10 +71,8 @@ export const useChatStore = defineStore("chat", {
 
       this.postMsg(data);
     },
-    async botSendMsgCustom(message) {
-      const items = await ggSearch(message);
-
-      var respon = `<span style="font-size:24px;font-weight:550">${message}</span><br>`;
+    async botSendMsgCustom(items) {
+      var respon = "";
       respon = respon + templateMess(items.items) + "<br>";
 
       const { data } = await axios.post(
