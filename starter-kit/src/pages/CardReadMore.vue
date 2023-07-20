@@ -7,7 +7,7 @@ const props = defineProps({
   linkdoc: String,
 });
 
-const articles= [{ img: rocket, subtitle: "Whether you\'re new or you\'re a power user, this article will", title: "Getting Started" }, { img: lightbulb, subtitle: "Are you a new customer wondering how to get started?", title: "First Steps" }, { img: discord, subtitle: "Documentation of the development process", title: "Documentation" }];
+const articles= [{ img: rocket, subtitle: "Whether you\'re new or you\'re a power user.", title: "Getting Started" }, { img: lightbulb, subtitle: "Are you a new customer wondering how to get started?", title: "First Steps" }, { img: discord, subtitle: "Documentation of the development process", title: "Documentation" }];
 </script>
 
 <template>

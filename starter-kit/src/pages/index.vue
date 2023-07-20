@@ -5,10 +5,11 @@
       :key="item.key"
       v-model:opened="open[item.key]"
       class="mb-6"
+      style="overflow: hidden"
     >
       <VListGroup
         :value="item.key"
-        style="margin: 0 20px;"
+        style="margin: 0 24px 4px 24px;"
       >
         <template #activator="{ props }">
           <VListItem
@@ -45,35 +46,39 @@
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowfullscreen
             />
-            <CardReadMore :linkdoc="item.linkdoc" />
           </VCol>
         </VRow>
-        <VList
-          v-model:opened="open['roadmap']"
-          class="mb-6"
-        >
-          <VListGroup
-            value="roadmap"
-            style="border: 1px solid rgb(222, 221, 224); border-radius: 10px; overflow: hidden;"
-            density="compact"
+        <VRow>
+          <CardReadMore :linkdoc="item.linkdoc" />
+        </VRow>
+        <VRow>
+          <VList
+            v-model:opened="open['roadmap']"
+            width="100vw"
           >
-            <template #activator="{ props }">
-              <VListItem
-                v-bind="props"
-                title="Road map"
-                color=""
-              />
-            </template>
-            <VRow>
-              <VCol
-                cols="12"
-                md="12"
-              >
-                <TimelineCard :data="item.roadmap" />
-              </VCol>
-            </VRow>
-          </VListGroup>
-        </VList>
+            <VListGroup
+              value="roadmap"
+              style="border: 1px solid rgb(222, 221, 224); border-radius: 10px; overflow: hidden;"
+              density="compact"
+            >
+              <template #activator="{ props }">
+                <VListItem
+                  v-bind="props"
+                  title="Road map"
+                  color=""
+                />
+              </template>
+              <VRow>
+                <VCol
+                  cols="12"
+                  md="12"
+                >
+                  <TimelineCard :data="item.roadmap" />
+                </VCol>
+              </VRow>
+            </VListGroup>
+          </VList>
+        </VRow>
       </VListGroup>
     </VList>
   </div>
