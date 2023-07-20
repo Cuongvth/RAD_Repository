@@ -4,8 +4,6 @@ import axios from "axios";
 export class HTTPSingleton {
   static config = {
     baseURL: " https://www.googleapis.com/customsearch/v1",
-
-    // baseURL: "https://localhost:7228",
  
     timeout: 20000,
   };

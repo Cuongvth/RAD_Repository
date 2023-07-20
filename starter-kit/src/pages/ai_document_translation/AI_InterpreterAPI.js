@@ -3,7 +3,10 @@ import { HTTP } from "@/api/http_AI_InterpreterAPI";
 export function uploadDocument(formData) {
   return new Promise((resolve, reject) => {
     HTTP.post(`upload`, formData, {
-      headers: { "Content-Type": "multipart/form-data" },
+      headers: {
+        "Content-Type": "multipart/form-data",
+        "Access-Control-Allow-Origin": "*",
+      },
     })
       .then(response => {
         resolve({ data: response.data });
@@ -21,6 +24,7 @@ export function convertDocument(targetLanguage, imagePaths) {
         resolve({ data: response.data });
       })
       .catch(error => {
+        console.log(error);
         reject(error);
       });
   });
