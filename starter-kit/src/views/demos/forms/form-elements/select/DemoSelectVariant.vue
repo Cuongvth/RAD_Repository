@@ -4,7 +4,7 @@ const items = [
   'Bar',
   'Fizz',
   'Buzz',
-]
+];
 </script>
 
 <template>

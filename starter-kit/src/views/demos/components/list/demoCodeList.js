@@ -106,7 +106,7 @@ export const actionAndItemGroup = { ts: `<template>
     </VListItem>
   </VList>
 </template>
-` }
+` };
 
 export const basic = { ts: `<script setup lang="ts">
 const items = ['Cras justo odio', 'Dapibus ac facilisis in', 'Morbi leo risus', 'Porta ac consectetur ac']
@@ -127,7 +127,7 @@ const items = [
 <template>
   <VList :items="items" />
 </template>
-` }
+` };
 
 export const density = { ts: `<script lang="ts" setup>
 const items = [
@@ -191,7 +191,7 @@ const items = [
     :items="items"
   />
 </template>
-` }
+` };
 
 export const nav = { ts: `<script lang="ts" setup>
 const items = [
@@ -291,7 +291,7 @@ const items = [
     </VListItem>
   </VList>
 </template>
-` }
+` };
 
 export const progressList = { ts: `<script setup lang="ts">
 interface Language {
@@ -472,7 +472,7 @@ const resolveStatusColor = {
     </template>
   </VList>
 </template>
-` }
+` };
 
 export const rounded = { ts: `<script lang="ts" setup>
 const items = [
@@ -554,7 +554,7 @@ const items = [
 <template>
   <VList :items="items" />
 </template>
-` }
+` };
 
 export const shaped = { ts: `<script lang="ts" setup>
 const items = [
@@ -613,7 +613,7 @@ const items = [
     </VListItem>
   </VList>
 </template>
-` }
+` };
 
 export const subGroup = { ts: `<script lang="ts" setup>
 const open = ref(['Users', 'Admin'])
@@ -774,7 +774,7 @@ const cruds = [
     </VListGroup>
   </VList>
 </template>
-` }
+` };
 
 export const threeLine = { ts: `<script lang="ts" setup>
 import avatar1 from '@images/avatars/avatar-1.png'
@@ -880,7 +880,7 @@ const items = [
     </template>
   </VList>
 </template>
-` }
+` };
 
 export const twoLinesAndSubheader = { ts: `<script lang="ts" setup>
 const files = [
@@ -1084,7 +1084,7 @@ const folders = [
     </VListItem>
   </VList>
 </template>
-` }
+` };
 
 export const userList = { ts: `<script setup lang="ts">
 import avatar1 from '@images/avatars/avatar-1.png'
@@ -1262,5 +1262,5 @@ const resolveStatusColor = {
     </template>
   </VList>
 </template>
-` }
+` };
 

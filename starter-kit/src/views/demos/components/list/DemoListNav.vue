@@ -35,7 +35,7 @@ const items = [
     value: 7,
     prependIcon: 'tabler-cloud-upload',
   },
-]
+];
 </script>
 
 <template>

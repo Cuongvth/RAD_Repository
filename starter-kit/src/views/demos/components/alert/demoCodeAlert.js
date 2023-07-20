@@ -8,7 +8,7 @@ export const basic = { ts: `<template>
     Good Morning! Start your day with some alerts.
   </VAlert>
 </template>
-` }
+` };
 
 export const border = { ts: `<template>
   <div class="demo-space-y">
@@ -80,7 +80,7 @@ export const border = { ts: `<template>
     </VAlert>
   </div>
 </template>
-` }
+` };
 
 export const closable = { ts: `<script lang="ts" setup>
 const isAlertVisible = ref(true)
@@ -130,7 +130,7 @@ const isAlertVisible = ref(true)
     </VBtn>
   </div>
 </template>
-` }
+` };
 
 export const coloredBorder = { ts: `<template>
   <div class="demo-space-y">
@@ -216,7 +216,7 @@ export const coloredBorder = { ts: `<template>
     </VAlert>
   </div>
 </template>
-` }
+` };
 
 export const colors = { ts: `<template>
   <div class="demo-space-y">
@@ -272,7 +272,7 @@ export const colors = { ts: `<template>
     </VAlert>
   </div>
 </template>
-` }
+` };
 
 export const density = { ts: `<template>
   <div class="demo-space-y">
@@ -328,7 +328,7 @@ export const density = { ts: `<template>
     </VAlert>
   </div>
 </template>
-` }
+` };
 
 export const elevation = { ts: `<script lang="ts" setup>
 const alertShadow = ref(5)
@@ -372,7 +372,7 @@ const alertShadow = ref(5)
     I'm an alert with box shadow.
   </VAlert>
 </template>
-` }
+` };
 
 export const icons = { ts: `<template>
   <div class="demo-space-y">
@@ -422,7 +422,7 @@ export const icons = { ts: `<template>
     </VAlert>
   </div>
 </template>
-` }
+` };
 
 export const outlined = { ts: `<template>
   <div class="demo-space-y">
@@ -514,7 +514,7 @@ export const outlined = { ts: `<template>
     </VAlert>
   </div>
 </template>
-` }
+` };
 
 export const prominent = { ts: `<template>
   <div class="demo-space-y">
@@ -572,7 +572,7 @@ export const prominent = { ts: `<template>
     </VAlert>
   </div>
 </template>
-` }
+` };
 
 export const tonal = { ts: `<template>
   <div class="demo-space-y">
@@ -664,7 +664,7 @@ export const tonal = { ts: `<template>
     </VAlert>
   </div>
 </template>
-` }
+` };
 
 export const type = { ts: `<template>
   <div class="demo-space-y">
@@ -704,7 +704,7 @@ export const type = { ts: `<template>
     </VAlert>
   </div>
 </template>
-` }
+` };
 
 export const vModelSupport = { ts: `<script lang="ts" setup>
 const isAlertVisible = ref(true)
@@ -760,5 +760,5 @@ const isAlertVisible = ref(true)
   min-block-size: 80px;
 }
 </style>
-` }
+` };
 

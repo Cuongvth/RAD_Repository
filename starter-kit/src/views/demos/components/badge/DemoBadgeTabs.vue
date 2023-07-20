@@ -12,7 +12,7 @@ const tabs = [
     badge: '2',
     content: 'Item Three',
   },
-]
+];
 </script>
 
 <template>

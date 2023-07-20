@@ -1,6 +1,6 @@
 <script setup>
-const value = ref(30)
-const rules = [v => v <= 40 || 'Only 40 in stock']
+const value = ref(30);
+const rules = [v => v <= 40 || 'Only 40 in stock'];
 </script>
 
 <template>

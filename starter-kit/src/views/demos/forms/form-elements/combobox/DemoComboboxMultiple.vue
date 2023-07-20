@@ -2,14 +2,14 @@
 const selectedItem = ref([
   'Vuetify',
   'Programming',
-])
+]);
 
 const items = [
   'Programming',
   'Design',
   'Vue',
   'Vuetify',
-]
+];
 </script>
 
 <template>

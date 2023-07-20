@@ -1,5 +1,5 @@
 <script setup>
-const multipleDate = ref('')
+const multipleDate = ref('');
 </script>
 
 <template>

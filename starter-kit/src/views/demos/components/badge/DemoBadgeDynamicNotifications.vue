@@ -1,5 +1,5 @@
 <script setup>
-const notifications = ref()
+const notifications = ref();
 </script>
 
 <template>

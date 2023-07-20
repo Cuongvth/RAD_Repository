@@ -1,10 +1,10 @@
 <script setup>
-const totalTabs = ref(3)
-const currentTab = ref(0)
+const totalTabs = ref(3);
+const currentTab = ref(0);
 
 watch(totalTabs, newValue => {
-  currentTab.value = newValue - 1
-})
+  currentTab.value = newValue - 1;
+});
 </script>
 
 <template>

@@ -20,7 +20,7 @@ const textareaValue = ref('The Woodman set to work at once, and so sharp was his
     auto-grow
   />
 </template>
-` }
+` };
 
 export const basic = { ts: `<template>
   <AppTextarea label="Default" />
@@ -28,7 +28,7 @@ export const basic = { ts: `<template>
 `, js: `<template>
   <AppTextarea label="Default" />
 </template>
-` }
+` };
 
 export const browserAutocomplete = { ts: `<template>
   <AppTextarea
@@ -42,7 +42,7 @@ export const browserAutocomplete = { ts: `<template>
     label="Email"
   />
 </template>
-` }
+` };
 
 export const clearable = { ts: `<script setup lang="ts">
 const textareaValue = ref('This is clearable text.')
@@ -68,7 +68,7 @@ const textareaValue = ref('This is clearable text.')
     label="Text"
   />
 </template>
-` }
+` };
 
 export const counter = { ts: `<script lang="ts" setup>
 const textareaValue = ref('Hello!')
@@ -92,7 +92,7 @@ const textareaValue = ref('Hello!')
     label="Text"
   />
 </template>
-` }
+` };
 
 export const icons = { ts: `<template>
   <VRow>
@@ -164,7 +164,7 @@ export const icons = { ts: `<template>
     </VCol>
   </VRow>
 </template>
-` }
+` };
 
 export const noResize = { ts: `<script lang="ts" setup>
 const value = ref('Marshmallow tiramisu pie dessert gingerbread tart caramels marzipan oat cake. Muffin sesame snaps cupcake bonbon cookie tiramisu. Pudding biscuit gingerbread halvah lollipop jelly-o cookie.')
@@ -190,7 +190,7 @@ const value = ref('Marshmallow tiramisu pie dessert gingerbread tart caramels ma
     rows="2"
   />
 </template>
-` }
+` };
 
 export const rows = { ts: `<template>
   <VRow>
@@ -294,7 +294,7 @@ export const rows = { ts: `<template>
     </VCol>
   </VRow>
 </template>
-` }
+` };
 
 export const states = { ts: `<template>
   <VRow>
@@ -338,7 +338,7 @@ export const states = { ts: `<template>
     </VCol>
   </VRow>
 </template>
-` }
+` };
 
 export const validation = { ts: `<script lang="ts" setup>
 const textareaValue = ref('Hello!')
@@ -366,7 +366,7 @@ const rules = [v => v.length <= 25 || 'Max 25 characters']
     rows="2"
   />
 </template>
-` }
+` };
 
 export const variant = { ts: `<template>
   <VRow>
@@ -504,5 +504,5 @@ export const variant = { ts: `<template>
     </VCol>
   </VRow>
 </template>
-` }
+` };
 

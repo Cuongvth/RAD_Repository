@@ -1,12 +1,12 @@
 <script setup>
-const toggleSwitch = ref(true)
-const toggleFalseSwitch = ref(false)
+const toggleSwitch = ref(true);
+const toggleFalseSwitch = ref(false);
 
 const capitalizedLabel = label => {
-  const convertLabelText = label.toString()
+  const convertLabelText = label.toString();
   
-  return convertLabelText.charAt(0).toUpperCase() + convertLabelText.slice(1)
-}
+  return convertLabelText.charAt(0).toUpperCase() + convertLabelText.slice(1);
+};
 </script>
 
 <template>

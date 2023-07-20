@@ -1,5 +1,5 @@
 <script setup>
-const rating = ref(4)
+const rating = ref(4);
 
 const ratingColors = [
   'primary',
@@ -8,7 +8,7 @@ const ratingColors = [
   'info',
   'warning',
   'error',
-]
+];
 </script>
 
 <template>

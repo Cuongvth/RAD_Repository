@@ -1,5 +1,5 @@
 <script setup>
-import { mergeProps } from 'vue'
+import { mergeProps } from 'vue';
 
 const items = [
   {
@@ -14,7 +14,7 @@ const items = [
     title: 'Option 3',
     value: 'Option 3',
   },
-]
+];
 </script>
 
 <template>

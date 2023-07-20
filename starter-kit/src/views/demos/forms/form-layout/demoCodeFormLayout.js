@@ -650,7 +650,7 @@ const paymentMethods = [
   }
 }
 </style>
-` }
+` };
 
 export const formHint = { ts: `<script lang="ts" setup>
 const username = ref('')
@@ -823,7 +823,7 @@ const values = ref([])
     </VRow>
   </VForm>
 </template>
-` }
+` };
 
 export const formValidation = { ts: `<script lang="ts" setup>
 // eslint-disable-next-line @typescript-eslint/consistent-type-imports
@@ -1003,7 +1003,7 @@ const form = ref()
     </VRow>
   </VForm>
 </template>
-` }
+` };
 
 export const formWithTabs = { ts: `<script lang="ts" setup>
 const tab = ref('personal-info')
@@ -1511,7 +1511,7 @@ const isCPasswordVisible = ref(false)
     </VCardText>
   </VCard>
 </template>
-` }
+` };
 
 export const horizontalForm = { ts: `<script lang="ts" setup>
 const firstName = ref('')
@@ -1829,7 +1829,7 @@ const checkbox = ref(false)
     </VRow>
   </VForm>
 </template>
-` }
+` };
 
 export const horizontalFormWithIcons = { ts: `<script lang="ts" setup>
 const firstName = ref('')
@@ -2155,7 +2155,7 @@ const checkbox = ref(false)
     </VRow>
   </VForm>
 </template>
-` }
+` };
 
 export const multipleColumn = { ts: `<script lang="ts" setup>
 const firstName = ref('')
@@ -2381,7 +2381,7 @@ const checkbox = ref(false)
     </VRow>
   </VForm>
 </template>
-` }
+` };
 
 export const verticalForm = { ts: `<script lang="ts" setup>
 const firstName = ref('')
@@ -2527,7 +2527,7 @@ const checkbox = ref(false)
     </VRow>
   </VForm>
 </template>
-` }
+` };
 
 export const verticalFormWithIcons = { ts: `<script lang="ts" setup>
 const firstName = ref('')
@@ -2681,5 +2681,5 @@ const checkbox = ref(false)
     </VRow>
   </VForm>
 </template>
-` }
+` };
 

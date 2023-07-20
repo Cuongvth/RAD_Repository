@@ -1,5 +1,5 @@
 <script setup>
-const alertShadow = ref(5)
+const alertShadow = ref(5);
 </script>
 
 <template>

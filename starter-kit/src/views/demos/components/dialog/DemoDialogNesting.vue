@@ -1,6 +1,6 @@
 <script setup>
-const isDialogVisible = ref(false)
-const isDialogTwoShow = ref(false)
+const isDialogVisible = ref(false);
+const isDialogTwoShow = ref(false);
 </script>
 
 <template>

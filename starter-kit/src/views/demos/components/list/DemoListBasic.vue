@@ -4,7 +4,7 @@ const items = [
   'Dapibus ac facilisis in',
   'Morbi leo risus',
   'Porta ac consectetur ac',
-]
+];
 </script>
 
 <template>

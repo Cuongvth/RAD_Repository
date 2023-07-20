@@ -1,7 +1,7 @@
 <script setup>
-const mediaSlider = ref(0)
-const alarmSlider = ref(0)
-const zoomInOut = ref(10)
+const mediaSlider = ref(0);
+const alarmSlider = ref(0);
+const zoomInOut = ref(10);
 </script>
 
 <template>

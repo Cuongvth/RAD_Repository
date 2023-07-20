@@ -27,9 +27,9 @@ const checkboxContent = [
       size: '28',
     },
   },
-]
+];
 
-const selectedCheckbox = ref(['basic'])
+const selectedCheckbox = ref(['basic']);
 </script>
 
 <template>

@@ -1,16 +1,16 @@
 <script setup>
-import { VDataTable } from 'vuetify/labs/VDataTable'
-import { avatarText } from '@/@core/utils/formatters'
-import data from '@/views/demos/forms/tables/data-table/datatable'
+import { VDataTable } from 'vuetify/labs/VDataTable';
+import { avatarText } from '@/@core/utils/formatters';
+import data from '@/views/demos/forms/tables/data-table/datatable';
 
-const userList = ref([])
+const userList = ref([]);
 
 const options = ref({
   page: 1,
   itemsPerPage: 5,
   sortBy: [''],
   sortDesc: [false],
-})
+});
 
 // headers
 const headers = [
@@ -38,39 +38,39 @@ const headers = [
     title: 'STATUS',
     key: 'status',
   },
-]
+];
 
 const resolveStatusVariant = status => {
   if (status === 1)
     return {
       color: 'primary',
       text: 'Current',
-    }
+    };
   else if (status === 2)
     return {
       color: 'success',
       text: 'Professional',
-    }
+    };
   else if (status === 3)
     return {
       color: 'error',
       text: 'Rejected',
-    }
+    };
   else if (status === 4)
     return {
       color: 'warning',
       text: 'Resigned',
-    }
+    };
   else
     return {
       color: 'info',
       text: 'Applied',
-    }
-}
+    };
+};
 
 onMounted(() => {
-  userList.value = JSON.parse(JSON.stringify(data))
-})
+  userList.value = JSON.parse(JSON.stringify(data));
+});
 </script>
 
 <template>

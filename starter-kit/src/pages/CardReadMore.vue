@@ -1,10 +1,13 @@
 <script setup>
+import lightbulb from '@images/svg/lightbulb.svg';
+import discord from '@images/svg/discord.svg';
+import rocket from '@images/svg/rocket.svg';
+
 const props = defineProps({
-  articles: {
-    type: Array,
-    required: true,
-  },
+  linkdoc: String,
 });
+
+const articles= [{ img: rocket, subtitle: "Whether you\'re new or you\'re a power user, this article will", title: "Getting Started" }, { img: lightbulb, subtitle: "Are you a new customer wondering how to get started?", title: "First Steps" }, { img: discord, subtitle: "Documentation of the development process", title: "Documentation" }];
 </script>
 
 <template>
@@ -12,7 +15,7 @@ const props = defineProps({
     <VCol class="mx-auto">
       <VRow>
         <VCol
-          v-for="article in props.articles"
+          v-for="article in articles"
           :key="article.title"
           cols="12"
           md="4"
@@ -36,12 +39,13 @@ const props = defineProps({
                 {{ article.subtitle }}
               </p>
 
-              <VBtn
-                size="small"
-                variant="tonal"
-              >
-                Read More
-              </VBtn>
+              <a :href="article.title == 'Documentation'? props.linkdoc: '#'">
+                <VBtn
+                  size="small"
+                  variant="tonal"
+                >
+                  Read More
+                </VBtn></a>
             </VCardText>
           </VCard>
         </VCol>

@@ -2,7 +2,7 @@
 const open = ref([
   'Users',
   'Admin',
-])
+]);
 
 const admins = [
   [
@@ -13,7 +13,7 @@ const admins = [
     'Settings',
     'tabler-settings',
   ],
-]
+];
 
 const cruds = [
   [
@@ -32,7 +32,7 @@ const cruds = [
     'Delete',
     'tabler-trash',
   ],
-]
+];
 </script>
 
 <template>

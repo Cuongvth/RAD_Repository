@@ -1,5 +1,5 @@
 <script setup>
-const rating = ref(4)
+const rating = ref(4);
 </script>
 
 <template>

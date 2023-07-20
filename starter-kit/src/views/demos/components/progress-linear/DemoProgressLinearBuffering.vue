@@ -1,27 +1,27 @@
 <script setup>
-const modelValue = ref(10)
-const bufferValue = ref(20)
-const interval = ref()
+const modelValue = ref(10);
+const bufferValue = ref(20);
+const interval = ref();
 
 const startBuffer = () => {
-  clearInterval(interval.value)
+  clearInterval(interval.value);
   interval.value = setInterval(() => {
-    modelValue.value += Math.random() * (15 - 5) + 5
-    bufferValue.value += Math.random() * (15 - 5) + 6
-  }, 2000)
-}
+    modelValue.value += Math.random() * (15 - 5) + 5;
+    bufferValue.value += Math.random() * (15 - 5) + 6;
+  }, 2000);
+};
 
-onMounted(startBuffer)
+onMounted(startBuffer);
 onBeforeUnmount(() => {
-  clearInterval(interval.value)
-})
+  clearInterval(interval.value);
+});
 watch(modelValue, () => {
   if (modelValue.value < 100)
-    return false
-  modelValue.value = 0
-  bufferValue.value = 10
-  startBuffer()
-})
+    return false;
+  modelValue.value = 0;
+  bufferValue.value = 10;
+  startBuffer();
+});
 </script>
 
 <template>

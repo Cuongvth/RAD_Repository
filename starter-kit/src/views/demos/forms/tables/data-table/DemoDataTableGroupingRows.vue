@@ -1,11 +1,11 @@
 <script setup>
-import { VDataTable } from 'vuetify/labs/VDataTable'
-import { avatarText } from '@core/utils/formatters'
-import avatar1 from '@images/avatars/avatar-1.png'
-import avatar2 from '@images/avatars/avatar-2.png'
-import avatar4 from '@images/avatars/avatar-4.png'
-import avatar7 from '@images/avatars/avatar-7.png'
-import avatar8 from '@images/avatars/avatar-8.png'
+import { VDataTable } from 'vuetify/labs/VDataTable';
+import { avatarText } from '@core/utils/formatters';
+import avatar1 from '@images/avatars/avatar-1.png';
+import avatar2 from '@images/avatars/avatar-2.png';
+import avatar4 from '@images/avatars/avatar-4.png';
+import avatar7 from '@images/avatars/avatar-7.png';
+import avatar8 from '@images/avatars/avatar-8.png';
 
 const userList = [
   {
@@ -288,7 +288,7 @@ const userList = [
     experience: '7 Years',
     status: 'Applied',
   },
-]
+];
 
 const headers = [
   {
@@ -319,22 +319,22 @@ const headers = [
     title: 'STATUS',
     key: 'status',
   },
-]
+];
 
-const groupBy = [{ key: 'status' }]
+const groupBy = [{ key: 'status' }];
 
 const resolveStatusVariant = status => {
   if (status === 'Current')
-    return { color: 'primary' }
+    return { color: 'primary' };
   else if (status === 'Professional')
-    return { color: 'success' }
+    return { color: 'success' };
   else if (status === 'Rejected')
-    return { color: 'error' }
+    return { color: 'error' };
   else if (status === 'Resigned')
-    return { color: 'warning' }
+    return { color: 'warning' };
   else
-    return { color: 'info' }
-}
+    return { color: 'info' };
+};
 </script>
 
 <template>

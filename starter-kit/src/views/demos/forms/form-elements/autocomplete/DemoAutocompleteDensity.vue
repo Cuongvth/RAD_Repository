@@ -1,5 +1,5 @@
 <script setup>
-const select = ref(['Florida'])
+const select = ref(['Florida']);
 
 const items = [
   'California',
@@ -8,7 +8,7 @@ const items = [
   'Georgia',
   'Texas',
   'Wyoming',
-]
+];
 </script>
 
 <template>

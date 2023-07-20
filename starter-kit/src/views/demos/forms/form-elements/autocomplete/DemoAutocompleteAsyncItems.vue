@@ -1,7 +1,7 @@
 <script setup>
-const loading = ref(false)
-const search = ref()
-const select = ref(null)
+const loading = ref(false);
+const search = ref();
+const select = ref(null);
 
 const states = [
   'Alabama',
@@ -63,23 +63,23 @@ const states = [
   'West Virginia',
   'Wisconsin',
   'Wyoming',
-]
+];
 
-const items = ref(states)
+const items = ref(states);
 
 const querySelections = query => {
-  loading.value = true
+  loading.value = true;
 
   // Simulated ajax query
   setTimeout(() => {
-    items.value = states.filter(state => (state || '').toLowerCase().includes((query || '').toLowerCase()))
-    loading.value = false
-  }, 500)
-}
+    items.value = states.filter(state => (state || '').toLowerCase().includes((query || '').toLowerCase()));
+    loading.value = false;
+  }, 500);
+};
 
 watch(search, query => {
-  query && query !== select.value && querySelections(query)
-})
+  query && query !== select.value && querySelections(query);
+});
 </script>
 
 <template>

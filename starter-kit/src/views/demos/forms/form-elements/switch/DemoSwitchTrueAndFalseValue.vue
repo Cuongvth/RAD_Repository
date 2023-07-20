@@ -1,6 +1,6 @@
 <script setup>
-const switch1 = ref(1)
-const switch2 = ref('Show')
+const switch1 = ref(1);
+const switch2 = ref('Show');
 </script>
 
 <template>

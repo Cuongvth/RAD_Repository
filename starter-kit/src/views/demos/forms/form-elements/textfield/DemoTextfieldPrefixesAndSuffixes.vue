@@ -1,8 +1,8 @@
 <script setup>
-const amount = ref(10.05)
-const weight = ref(28.02)
-const email = ref('example')
-const time = ref('04:56')
+const amount = ref(10.05);
+const weight = ref(28.02);
+const email = ref('example');
+const time = ref('04:56');
 </script>
 
 <template>

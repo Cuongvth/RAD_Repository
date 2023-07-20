@@ -1,5 +1,5 @@
 <script setup>
-const radios = ref('Duckduckgo')
+const radios = ref('Duckduckgo');
 </script>
 
 <template>

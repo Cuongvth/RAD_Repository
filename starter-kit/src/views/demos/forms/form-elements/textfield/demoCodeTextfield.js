@@ -4,7 +4,7 @@ export const basic = { ts: `<template>
 `, js: `<template>
   <AppTextField label="Regular" />
 </template>
-` }
+` };
 
 export const clearable = { ts: `<template>
   <AppTextField
@@ -18,7 +18,7 @@ export const clearable = { ts: `<template>
     clearable
   />
 </template>
-` }
+` };
 
 export const counter = { ts: `<script lang="ts" setup>
 const title = ref('Preliminary report')
@@ -80,7 +80,7 @@ const rules = [v => v.length <= 25 || 'Max 25 characters']
     </VCol>
   </VRow>
 </template>
-` }
+` };
 
 export const customColors = { ts: `<template>
   <AppTextField
@@ -94,7 +94,7 @@ export const customColors = { ts: `<template>
     label="First name"
   />
 </template>
-` }
+` };
 
 export const density = { ts: `<template>
   <AppTextField
@@ -108,7 +108,7 @@ export const density = { ts: `<template>
     density="compact"
   />
 </template>
-` }
+` };
 
 export const iconEvents = { ts: `<script lang="ts" setup>
 const message = ref('Hey!')
@@ -186,7 +186,7 @@ const sendMessage = () => {
     @click:clear="clearMessage"
   />
 </template>
-` }
+` };
 
 export const iconSlots = { ts: `<script lang="ts" setup>
 import { VNodeRenderer } from '@layouts/components/VNodeRenderer'
@@ -381,7 +381,7 @@ const clickMe = () => {
   }
 }
 </style>
-` }
+` };
 
 export const icons = { ts: `<template>
   <VRow>
@@ -445,7 +445,7 @@ export const icons = { ts: `<template>
     </VCol>
   </VRow>
 </template>
-` }
+` };
 
 export const labelSlot = { ts: `<template>
   <AppTextField>
@@ -463,7 +463,7 @@ export const labelSlot = { ts: `<template>
     </template>
   </AppTextField>
 </template>
-` }
+` };
 
 export const passwordInput = { ts: `<script lang="ts" setup>
 const show1 = ref(false)
@@ -561,7 +561,7 @@ const rules = {
     </VCol>
   </VRow>
 </template>
-` }
+` };
 
 export const prefixesAndSuffixes = { ts: `<script setup lang="ts">
 const amount = ref(10.05)
@@ -653,7 +653,7 @@ const time = ref('04:56')
     </VCol>
   </VRow>
 </template>
-` }
+` };
 
 export const singleLine = { ts: `<template>
   <AppTextField
@@ -667,7 +667,7 @@ export const singleLine = { ts: `<template>
     single-line
   />
 </template>
-` }
+` };
 
 export const state = { ts: `<template>
   <VRow>
@@ -703,7 +703,7 @@ export const state = { ts: `<template>
     </VCol>
   </VRow>
 </template>
-` }
+` };
 
 export const validation = { ts: `<script lang="ts" setup>
 import { emailValidator, requiredValidator } from '@validators'
@@ -738,7 +738,7 @@ const email = ref('')
     />
   </VForm>
 </template>
-` }
+` };
 
 export const variant = { ts: `<template>
   <VRow>
@@ -840,5 +840,5 @@ export const variant = { ts: `<template>
     </VCol>
   </VRow>
 </template>
-` }
+` };
 

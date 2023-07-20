@@ -35,7 +35,7 @@ const desserts = [
     carbs: 24,
     protein: 4,
   },
-]
+];
 </script>
 
 <template>

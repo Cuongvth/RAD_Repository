@@ -1,5 +1,5 @@
 <script setup>
-const isDialogVisible = ref(false)
+const isDialogVisible = ref(false);
 </script>
 
 <template>

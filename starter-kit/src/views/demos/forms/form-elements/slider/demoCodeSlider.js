@@ -234,7 +234,7 @@ const increment = () => {
     animation-name: metronome-example;
   }
 </style>
-` }
+` };
 
 export const appendTextField = { ts: `<script lang="ts" setup>
 const redColorValue = ref(161)
@@ -388,7 +388,7 @@ const blueColorValue = ref(255)
     </VCol>
   </VRow>
 </template>
-` }
+` };
 
 export const basic = { ts: `<script setup lang="ts">
 const sliderValue = ref(30)
@@ -420,7 +420,7 @@ const sliderValue = ref(30)
     </VCol>
   </VRow>
 </template>
-` }
+` };
 
 export const colors = { ts: `<script lang="ts" setup>
 const sliderColorValue = ref(25)
@@ -502,7 +502,7 @@ const sliderThumbColorValue = ref(50)
     </VCol>
   </VRow>
 </template>
-` }
+` };
 
 export const disabledAndReadonly = { ts: `<template>
   <VRow>
@@ -554,7 +554,7 @@ export const disabledAndReadonly = { ts: `<template>
     </VCol>
   </VRow>
 </template>
-` }
+` };
 
 export const icons = { ts: `<script lang="ts" setup>
 const mediaSlider = ref(0)
@@ -618,7 +618,7 @@ const zoomInOut = ref(10)
     </VCol>
   </VRow>
 </template>
-` }
+` };
 
 export const minAndMax = { ts: `<script lang="ts" setup>
 const min = ref(-50)
@@ -664,7 +664,7 @@ const slider = ref(40)
     </template>
   </VSlider>
 </template>
-` }
+` };
 
 export const size = { ts: `<template>
   <VSlider
@@ -684,7 +684,7 @@ export const size = { ts: `<template>
     :track-size="2"
   />
 </template>
-` }
+` };
 
 export const step = { ts: `<script lang="ts" setup>
 const value = ref(0)
@@ -712,7 +712,7 @@ const value = ref(0)
     thumb-label
   />
 </template>
-` }
+` };
 
 export const thumb = { ts: `<script lang="ts" setup>
 const satisfactionEmojis = ['😭', '😢', '☹️', '🙁', '😐', '🙂', '😊', '😁', '😄', '😍']
@@ -832,7 +832,7 @@ const slider = ref(45)
     </VCol>
   </VRow>
 </template>
-` }
+` };
 
 export const ticks = { ts: `<script lang="ts" setup>
 const value = ref(0)
@@ -954,7 +954,7 @@ const ticksLabels = {
     </VCol>
   </VRow>
 </template>
-` }
+` };
 
 export const validation = { ts: `<script lang="ts" setup>
 const value = ref(30)
@@ -986,7 +986,7 @@ const rules = [v => v <= 40 || 'Only 40 in stock']
     show-ticks
   />
 </template>
-` }
+` };
 
 export const vertical = { ts: `<script lang="ts" setup>
 const value = ref(10)
@@ -1008,5 +1008,5 @@ const value = ref(10)
     direction="vertical"
   />
 </template>
-` }
+` };
 

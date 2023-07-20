@@ -1,6 +1,6 @@
 <script setup>
-const radioGroup = ref(1)
-const rules = [value => value !== 3 ? true : 'Do not select the third one!']
+const radioGroup = ref(1);
+const rules = [value => value !== 3 ? true : 'Do not select the third one!'];
 </script>
 
 <template>

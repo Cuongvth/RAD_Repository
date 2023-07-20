@@ -1,12 +1,12 @@
 <script setup>
-const selectedItem = ref('Programming')
+const selectedItem = ref('Programming');
 
 const items = [
   'Programming',
   'Design',
   'Vue',
   'Vuetify',
-]
+];
 </script>
 
 <template>

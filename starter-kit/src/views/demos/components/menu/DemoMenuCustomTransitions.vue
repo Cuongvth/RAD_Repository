@@ -12,7 +12,7 @@ const items = [
     title: 'Option 3',
     value: 'Option 3',
   },
-]
+];
 </script>
 
 <template>

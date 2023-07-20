@@ -1,13 +1,13 @@
 <script setup>
-const isSnackbarTopStartVisible = ref(false)
-const isSnackbarTopVisible = ref(false)
-const isSnackbarTopEndVisible = ref(false)
-const isSnackbarBottomEndVisible = ref(false)
-const isSnackbarBottomVisible = ref(false)
-const isSnackbarBottomStartVisible = ref(false)
-const isSnackbarEndVisible = ref(false)
-const isSnackbarStartVisible = ref(false)
-const isSnackbarCenteredVisible = ref(false)
+const isSnackbarTopStartVisible = ref(false);
+const isSnackbarTopVisible = ref(false);
+const isSnackbarTopEndVisible = ref(false);
+const isSnackbarBottomEndVisible = ref(false);
+const isSnackbarBottomVisible = ref(false);
+const isSnackbarBottomStartVisible = ref(false);
+const isSnackbarEndVisible = ref(false);
+const isSnackbarStartVisible = ref(false);
+const isSnackbarCenteredVisible = ref(false);
 </script>
 
 <template>

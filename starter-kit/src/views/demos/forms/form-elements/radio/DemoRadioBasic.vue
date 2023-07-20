@@ -1,5 +1,5 @@
 <script setup>
-const radioGroup = ref(1)
+const radioGroup = ref(1);
 </script>
 
 <template>

@@ -1,10 +1,10 @@
 <script setup>
-import { VDataTable } from 'vuetify/labs/VDataTable'
-import { avatarText } from '@/@core/utils/formatters'
-import data from '@/views/demos/forms/tables/data-table/datatable'
+import { VDataTable } from 'vuetify/labs/VDataTable';
+import { avatarText } from '@/@core/utils/formatters';
+import data from '@/views/demos/forms/tables/data-table/datatable';
 
-const editDialog = ref(false)
-const deleteDialog = ref(false)
+const editDialog = ref(false);
+const deleteDialog = ref(false);
 
 const defaultItem = ref({
   responsive_id: '',
@@ -19,11 +19,11 @@ const defaultItem = ref({
   age: '',
   experience: '',
   status: -1,
-})
+});
 
-const editedItem = ref(defaultItem.value)
-const editedIndex = ref(-1)
-const userList = ref([])
+const editedItem = ref(defaultItem.value);
+const editedIndex = ref(-1);
+const userList = ref([]);
 
 // status options
 const selectedOptions = [
@@ -47,7 +47,7 @@ const selectedOptions = [
     text: 'Applied',
     value: 5,
   },
-]
+];
 
 // headers
 const headers = [
@@ -79,76 +79,76 @@ const headers = [
     title: 'ACTIONS',
     key: 'actions',
   },
-]
+];
 
 const resolveStatusVariant = status => {
   if (status === 1)
     return {
       color: 'primary',
       text: 'Current',
-    }
+    };
   else if (status === 2)
     return {
       color: 'success',
       text: 'Professional',
-    }
+    };
   else if (status === 3)
     return {
       color: 'error',
       text: 'Rejected',
-    }
+    };
   else if (status === 4)
     return {
       color: 'warning',
       text: 'Resigned',
-    }
+    };
   else
     return {
       color: 'info',
       text: 'Applied',
-    }
-}
+    };
+};
 
 const editItem = item => {
-  editedIndex.value = userList.value.indexOf(item)
-  editedItem.value = { ...item }
-  editDialog.value = true
-}
+  editedIndex.value = userList.value.indexOf(item);
+  editedItem.value = { ...item };
+  editDialog.value = true;
+};
 
 const deleteItem = item => {
-  editedIndex.value = userList.value.indexOf(item)
-  editedItem.value = { ...item }
-  deleteDialog.value = true
-}
+  editedIndex.value = userList.value.indexOf(item);
+  editedItem.value = { ...item };
+  deleteDialog.value = true;
+};
 
 const close = () => {
-  editDialog.value = false
-  editedIndex.value = -1
-  editedItem.value = { ...defaultItem.value }
-}
+  editDialog.value = false;
+  editedIndex.value = -1;
+  editedItem.value = { ...defaultItem.value };
+};
 
 const closeDelete = () => {
-  deleteDialog.value = false
-  editedIndex.value = -1
-  editedItem.value = { ...defaultItem.value }
-}
+  deleteDialog.value = false;
+  editedIndex.value = -1;
+  editedItem.value = { ...defaultItem.value };
+};
 
 const save = () => {
   if (editedIndex.value > -1)
-    Object.assign(userList.value[editedIndex.value], editedItem.value)
+    Object.assign(userList.value[editedIndex.value], editedItem.value);
   else
-    userList.value.push(editedItem.value)
-  close()
-}
+    userList.value.push(editedItem.value);
+  close();
+};
 
 const deleteItemConfirm = () => {
-  userList.value.splice(editedIndex.value, 1)
-  closeDelete()
-}
+  userList.value.splice(editedIndex.value, 1);
+  closeDelete();
+};
 
 onMounted(() => {
-  userList.value = JSON.parse(JSON.stringify(data))
-})
+  userList.value = JSON.parse(JSON.stringify(data));
+});
 </script>
 
 <template>

@@ -10,9 +10,9 @@ const satisfactionEmojis = [
   '😁',
   '😄',
   '😍',
-]
+];
 
-const slider = ref(45)
+const slider = ref(45);
 </script>
 
 <template>

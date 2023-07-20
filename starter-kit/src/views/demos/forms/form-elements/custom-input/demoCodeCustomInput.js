@@ -52,7 +52,7 @@ const selectedCheckbox = ref(['basic'])
     :grid-column="{ sm: '6', cols: '12' }"
   />
 </template>
-` }
+` };
 
 export const customCheckboxesWithIcon = { ts: `<script setup lang="ts">
 import type { CustomInputContent } from '@core/types'
@@ -129,7 +129,7 @@ const selectedCheckbox = ref(['basic'])
     :grid-column="{ sm: '4', cols: '12' }"
   />
 </template>
-` }
+` };
 
 export const customCheckboxesWithImage = { ts: `<script setup lang="ts">
 import bg1 from '@images/pages/custom-checkbox-img-1.png'
@@ -191,7 +191,7 @@ const selectedCheckbox = ref(['basic'])
     :grid-column="{ sm: '4', cols: '12' }"
   />
 </template>
-` }
+` };
 
 export const customRadios = { ts: `<script setup lang="ts">
 import type { CustomInputContent } from '@core/types'
@@ -247,7 +247,7 @@ const selectedRadio = ref('basic')
     :grid-column="{ sm: '6', cols: '12' }"
   />
 </template>
-` }
+` };
 
 export const customRadiosWithIcon = { ts: `<script setup lang="ts">
 import type { CustomInputContent } from '@core/types'
@@ -324,7 +324,7 @@ const selectedRadio = ref('basic')
     :grid-column="{ sm: '4', cols: '12' }"
   />
 </template>
-` }
+` };
 
 export const customRadiosWithImage = { ts: `<script setup lang="ts">
 import bg1 from '@images/pages/custom-radio-img-1.png'
@@ -386,5 +386,5 @@ const selectedRadio = ref('basic')
     :grid-column="{ sm: '4', cols: '12' }"
   />
 </template>
-` }
+` };
 

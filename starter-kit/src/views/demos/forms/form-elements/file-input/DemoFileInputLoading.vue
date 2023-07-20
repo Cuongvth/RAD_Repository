@@ -1,10 +1,10 @@
 <script setup>
-const file = ref()
-const loading = ref(true)
+const file = ref();
+const loading = ref(true);
 
 watch(file, () => {
-  loading.value = !file.value[0]
-})
+  loading.value = !file.value[0];
+});
 </script>
 
 <template>

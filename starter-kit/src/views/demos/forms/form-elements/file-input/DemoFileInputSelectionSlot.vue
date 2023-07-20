@@ -1,5 +1,5 @@
 <script setup>
-const files = ref([])
+const files = ref([]);
 </script>
 
 <template>

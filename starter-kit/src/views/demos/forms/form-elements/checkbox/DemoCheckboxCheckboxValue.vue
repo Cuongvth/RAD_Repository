@@ -1,6 +1,6 @@
 <script setup>
-const checkbox = ref(1)
-const checkboxString = ref('Show')
+const checkbox = ref(1);
+const checkboxString = ref('Show');
 </script>
 
 <template>

@@ -1,5 +1,5 @@
 <script setup>
-const textareaValue = ref('Hello!')
+const textareaValue = ref('Hello!');
 </script>
 
 <template>

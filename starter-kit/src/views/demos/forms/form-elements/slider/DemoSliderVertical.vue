@@ -1,5 +1,5 @@
 <script setup>
-const value = ref(10)
+const value = ref(10);
 </script>
 
 <template>

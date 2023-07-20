@@ -1,7 +1,7 @@
 <script setup>
-const skill = ref(20)
-const knowledge = ref(33)
-const power = ref(78)
+const skill = ref(20);
+const knowledge = ref(33);
+const power = ref(78);
 </script>
 
 <template>

@@ -30,7 +30,7 @@ const languageProgress = [
     language: 'javascript',
     amount: 70,
   },
-]
+];
 
 const resolveStatusColor = {
   react: 'info',
@@ -38,7 +38,7 @@ const resolveStatusColor = {
   vue: 'success',
   angular: 'error',
   javascript: 'warning',
-}
+};
 </script>
 
 <template>

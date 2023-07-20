@@ -1,5 +1,5 @@
 <script setup>
-const date = ref('')
+const date = ref('');
 </script>
 
 <template>

@@ -23,7 +23,7 @@ const items = [
     label="Standard"
   />
 </template>
-` }
+` };
 
 export const chips = { ts: `<script lang="ts" setup>
 const items = ['foo', 'bar', 'fizz', 'buzz']
@@ -64,7 +64,7 @@ const selected = ref([
     multiple
   />
 </template>
-` }
+` };
 
 export const customTextAndValue = { ts: `<script lang="ts" setup>
 const selectedOption = ref({ state: 'Florida', abbr: 'FL' })
@@ -134,7 +134,7 @@ const items = [
     single-line
   />
 </template>
-` }
+` };
 
 export const density = { ts: `<script lang="ts" setup>
 const items = ['Foo', 'Bar', 'Fizz', 'Buzz']
@@ -163,7 +163,7 @@ const items = [
     density="compact"
   />
 </template>
-` }
+` };
 
 export const icons = { ts: `<script lang="ts" setup>
 const selectedOption1 = ref('Florida')
@@ -259,7 +259,7 @@ const states = [
     </VCol>
   </VRow>
 </template>
-` }
+` };
 
 export const menuProps = { ts: `<script lang="ts" setup>
 const items = ['Foo', 'Bar', 'Fizz', 'Buzz']
@@ -288,7 +288,7 @@ const items = [
     label="Label"
   />
 </template>
-` }
+` };
 
 export const multiple = { ts: `<script lang="ts" setup>
 const selectedOptions = ref(['Alabama'])
@@ -352,7 +352,7 @@ const states = [
     persistent-hint
   />
 </template>
-` }
+` };
 
 export const selectionSlot = { ts: `<script lang="ts" setup>
 import avatar1 from '@images/avatars/avatar-1.png'
@@ -449,7 +449,7 @@ const value = ref(['Sandra Adams'])
     </template>
   </AppSelect>
 </template>
-` }
+` };
 
 export const variant = { ts: `<script lang="ts" setup>
 const items = ['Foo', 'Bar', 'Fizz', 'Buzz']
@@ -578,5 +578,5 @@ const items = [
     </VCol>
   </VRow>
 </template>
-` }
+` };
 

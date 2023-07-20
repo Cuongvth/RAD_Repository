@@ -12,9 +12,9 @@ const radioContent = [
     value: 'premium',
     desc: 'Get 5 projects with 5 team members.',
   },
-]
+];
 
-const selectedRadio = ref('basic')
+const selectedRadio = ref('basic');
 </script>
 
 <template>

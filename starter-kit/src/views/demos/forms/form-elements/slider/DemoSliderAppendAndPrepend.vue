@@ -1,35 +1,35 @@
 <script setup>
-const bpm = ref(40)
-const min = 40
-const max = 218
-const isPlaying = ref(false)
+const bpm = ref(40);
+const min = 40;
+const max = 218;
+const isPlaying = ref(false);
 
 const color = computed(() => {
   if (bpm.value < 100)
-    return 'primary'
+    return 'primary';
   if (bpm.value < 125)
-    return 'success'
+    return 'success';
   if (bpm.value < 140)
-    return 'info'
+    return 'info';
   if (bpm.value < 175)
-    return 'warning'
+    return 'warning';
   
-  return 'error'
-})
+  return 'error';
+});
 
 const animationDuration = computed(() => {
-  return `${ 60 / bpm.value }s`
-})
+  return `${ 60 / bpm.value }s`;
+});
 
 const decrement = () => {
   if (bpm.value > min)
-    bpm.value -= 1
-}
+    bpm.value -= 1;
+};
 
 const increment = () => {
   if (bpm.value < max)
-    bpm.value += 1
-}
+    bpm.value += 1;
+};
 </script>
 
 <template>

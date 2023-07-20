@@ -2,11 +2,11 @@
 import {
   emailValidator,
   requiredValidator,
-} from '@validators'
+} from '@validators';
 
-const firstName = ref('')
-const email = ref('')
-const refForm = ref()
+const firstName = ref('');
+const email = ref('');
+const refForm = ref();
 </script>
 
 <template>

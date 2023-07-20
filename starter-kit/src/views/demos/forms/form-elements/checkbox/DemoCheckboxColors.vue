@@ -6,9 +6,9 @@ const colorCheckbox = ref([
   'Info',
   'Warning',
   'Error',
-])
+]);
 
-const selectedCheckbox = ref([])
+const selectedCheckbox = ref([]);
 </script>
 
 <template>

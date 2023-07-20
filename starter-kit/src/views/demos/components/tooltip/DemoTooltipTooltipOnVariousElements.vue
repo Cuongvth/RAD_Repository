@@ -1,5 +1,5 @@
 <script setup>
-import avatar4 from '@images/avatars/avatar-4.png'
+import avatar4 from '@images/avatars/avatar-4.png';
 </script>
 
 <template>

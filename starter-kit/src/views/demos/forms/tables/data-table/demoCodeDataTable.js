@@ -59,7 +59,7 @@ const headers = [
     :items-per-page="5"
   />
 </template>
-` }
+` };
 
 export const cellSlot = { ts: `<script setup lang="ts">
 import { VDataTable } from 'vuetify/labs/VDataTable'
@@ -230,7 +230,7 @@ const resolveStatusVariant = status => {
     </template>
   </VDataTable>
 </template>
-` }
+` };
 
 export const dense = { ts: `<script setup lang="ts">
 import { VDataTable } from 'vuetify/labs/VDataTable'
@@ -295,7 +295,7 @@ const headers = [
     :items-per-page="5"
   />
 </template>
-` }
+` };
 
 export const expandableRows = { ts: `<script setup lang="ts">
 import { VDataTable } from 'vuetify/labs/VDataTable'
@@ -502,7 +502,7 @@ const resolveStatusVariant = status => {
     </template>
   </VDataTable>
 </template>
-` }
+` };
 
 export const externalPagination = { ts: `<script setup lang="ts">
 import { VDataTable } from 'vuetify/labs/VDataTable'
@@ -764,7 +764,7 @@ onMounted(() => {
     </template>
   </VDataTable>
 </template>
-` }
+` };
 
 export const fixedHeader = { ts: `<script setup lang="ts">
 import { VDataTable } from 'vuetify/labs/VDataTable'
@@ -941,7 +941,7 @@ const resolveStatusVariant = status => {
     </template>
   </VDataTable>
 </template>
-` }
+` };
 
 export const groupingRows = { ts: `<script setup lang="ts">
 import { VDataTable } from 'vuetify/labs/VDataTable'
@@ -1721,7 +1721,7 @@ const resolveStatusVariant = status => {
     </template>
   </VDataTable>
 </template>
-` }
+` };
 
 export const kitchenSink = { ts: `<script setup lang="ts">
 import { VDataTable } from 'vuetify/labs/VDataTable'
@@ -2226,7 +2226,7 @@ onMounted(() => {
     </VDataTable>
   </div>
 </template>
-` }
+` };
 
 export const rowEditingViaDialog = { ts: `<script setup lang="ts">
 import { VDataTable } from 'vuetify/labs/VDataTable'
@@ -2901,7 +2901,7 @@ onMounted(() => {
     </VCard>
   </VDialog>
 </template>
-` }
+` };
 
 export const rowSelection = { ts: `<script setup lang="ts">
 import { VDataTable } from 'vuetify/labs/VDataTable'
@@ -3076,5 +3076,5 @@ const resolveStatusVariant = status => {
     </template>
   </VDataTable>
 </template>
-` }
+` };
 

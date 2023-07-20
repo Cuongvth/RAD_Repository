@@ -1,6 +1,6 @@
 <script setup>
-const selectedOption1 = ref('Florida')
-const selectedOption2 = ref('Texas')
+const selectedOption1 = ref('Florida');
+const selectedOption2 = ref('Texas');
 
 const states = [
   'Alabama',
@@ -17,7 +17,7 @@ const states = [
   'Florida',
   'Georgia',
   'Guam',
-]
+];
 </script>
 
 <template>
