@@ -8,18 +8,20 @@ namespace CMS_Infrastructure.Plugins
     {
         public static FullInfo<GiayPhepLaiXe> BLXAddData(string[] dataMatTruoc, string[] dataMatSau)
         {
-            FullInfo<GiayPhepLaiXe> data = new FullInfo<GiayPhepLaiXe>();
-            data.Type = CMS_WebDesignCore.Enums.TypeCard.BLX;
-            GiayPhepLaiXe result = new GiayPhepLaiXe();
-            string truoc = "";
-            foreach (var item in dataMatTruoc)
+            FullInfo<GiayPhepLaiXe> data = new()
             {
-                truoc += ("\n" + item);
+                Type = CMS_WebDesignCore.Enums.TypeCard.BLX
+            };
+            GiayPhepLaiXe result = new();
+            string truoc = "";
+            foreach (string item in dataMatTruoc)
+            {
+                truoc += "\n" + item;
             }
             string sau = "";
-            foreach (var item in dataMatSau)
+            foreach (string item in dataMatSau)
             {
-                sau += ("\n" + item);
+                sau += "\n" + item;
             }
             if (Regex.Matches(truoc.Trim(), @"\d{12}").Count > 0)
             {
@@ -42,7 +44,7 @@ namespace CMS_Infrastructure.Plugins
                 result.NgayTrungTuyen = matches[0].Value;
             }
             int i = 0;
-            foreach (var item in dataMatTruoc)
+            foreach (string item in dataMatTruoc)
             {
                 if (Regex.Matches(item.Trim(), @"\d{5}").Count > 0)
                 {

@@ -3,11 +3,6 @@ using CMS_WebDesignCore.Entities.Entities_OCR;
 using CMS_WebDesignCore.Enums;
 using CMS_WebDesignCore.Wrap;
 using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CMS_WebDesignCore.IBusiness.IBusiness_OCR
 {

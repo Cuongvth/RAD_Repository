@@ -1,10 +1,10 @@
-﻿using ImageGoogleVision = Google.Apis.Vision.v1.Data.Image;
-using System.Text.RegularExpressions;
+﻿using CMS_WebDesignCore.Entities.Entities_AI_Interpreter;
 using CMS_WebDesignCore.IBusiness.IDusiness_AI_Interpreter;
-using CMS_WebDesignCore.Entities.Entities_AI_Interpreter;
 using Google.Apis.Services;
 using Google.Apis.Vision.v1;
 using Google.Apis.Vision.v1.Data;
+using System.Text.RegularExpressions;
+using ImageGoogleVision = Google.Apis.Vision.v1.Data.Image;
 
 namespace CMS_Infrastructure.Business.Business_AI_Interpreter
 {
@@ -21,12 +21,12 @@ namespace CMS_Infrastructure.Business.Business_AI_Interpreter
 
         public async Task<List<List<ParagraphInfo>>> GetTranslatedTextBlocks(string imagePath, string targetLanguage)
         {
-            var credential = new BaseClientService.Initializer { ApiKey = visionApiKey };
-            var service = new VisionService(credential);
+            BaseClientService.Initializer credential = new() { ApiKey = visionApiKey };
+            VisionService service = new(credential);
 
-            var image = ReadImageFromFile(imagePath);
-            var fullTextAnnotation = PerformTextDetection(service, image);
-            var textBlocks = ExtractTextBlocks(fullTextAnnotation);
+            ImageGoogleVision image = ReadImageFromFile(imagePath);
+            TextAnnotation fullTextAnnotation = PerformTextDetection(service, image);
+            List<List<ParagraphInfo>> textBlocks = ExtractTextBlocks(fullTextAnnotation);
             await TranslateTextBlocks(textBlocks, targetLanguage);
 
             return textBlocks;
@@ -40,17 +40,17 @@ namespace CMS_Infrastructure.Business.Business_AI_Interpreter
 
         private TextAnnotation PerformTextDetection(VisionService service, ImageGoogleVision image)
         {
-            var feature = new Feature { Type = "TEXT_DETECTION" };
-            var request = new AnnotateImageRequest { Image = image, Features = new[] { feature } };
-            var batchRequest = new BatchAnnotateImagesRequest { Requests = new[] { request } };
+            Feature feature = new() { Type = "TEXT_DETECTION" };
+            AnnotateImageRequest request = new() { Image = image, Features = new[] { feature } };
+            BatchAnnotateImagesRequest batchRequest = new() { Requests = new[] { request } };
 
-            var response = service.Images.Annotate(batchRequest).Execute();
+            BatchAnnotateImagesResponse response = service.Images.Annotate(batchRequest).Execute();
             return response.Responses[0].FullTextAnnotation;
         }
 
         private List<List<ParagraphInfo>> ExtractTextBlocks(TextAnnotation fullTextAnnotation)
         {
-            var textsToRemove = new List<string>
+            List<string> textsToRemove = new()
             {
                 "Evaluation Only . Created with Aspose.Words . Copyright 2003-2023 Aspose Pty Ltd. ",
                 "Evaluation Only . Created with Aspose.Words . Copyright 2003-2023 Aspose Pty Ltd.",
@@ -65,10 +65,10 @@ namespace CMS_Infrastructure.Business.Business_AI_Interpreter
                 .Select(block => block.Paragraphs
                     .Select(paragraph =>
                     {
-                        var paragraphText = string.Join(" ", paragraph.Words.Select(word => string.Join("", word.Symbols.Select(symbol => symbol.Text)))).Trim();
-                        var boundingPolyVertices = paragraph.Words.SelectMany(word => word.Symbols).SelectMany(symbol => symbol.BoundingBox.Vertices);
+                        string paragraphText = string.Join(" ", paragraph.Words.Select(word => string.Join("", word.Symbols.Select(symbol => symbol.Text)))).Trim();
+                        IEnumerable<Vertex> boundingPolyVertices = paragraph.Words.SelectMany(word => word.Symbols).SelectMany(symbol => symbol.BoundingBox.Vertices);
 
-                        var boundingPoly = new BoundingPoly
+                        BoundingPoly boundingPoly = new()
                         {
                             Vertices = new List<Vertex>
                             {
@@ -102,8 +102,8 @@ namespace CMS_Infrastructure.Business.Business_AI_Interpreter
 
         private async Task TranslateTextBlocks(List<List<ParagraphInfo>> textBlocks, string targetLanguage)
         {
-            var paragraphs = textBlocks.SelectMany(block => block.Select(p => p.Text)).ToList();
-            var translatedTexts = await TranslateText(paragraphs, targetLanguage);
+            List<string?> paragraphs = textBlocks.SelectMany(block => block.Select(p => p.Text)).ToList();
+            List<string> translatedTexts = await TranslateText(paragraphs, targetLanguage);
 
             int index = 0;
             textBlocks.ForEach(block => block.ForEach(paragraph => paragraph.TranslatedText = translatedTexts[index++]));

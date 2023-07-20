@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CMS_WebDesignCore.Entities.Entities_OCR
+﻿namespace CMS_WebDesignCore.Entities.Entities_OCR
 {
     public class BaseEntity
     {

@@ -4,8 +4,8 @@ namespace CMS_WebDesignCore.Entities.Entities_OCR
 {
     public partial class DuLieu : BaseEntity
     {
-        public byte[] MatTruoc { get; set; }
-        public byte[] MatSau { get; set; }
+        public byte[]? MatTruoc { get; set; }
+        public byte[]? MatSau { get; set; }
         public string? GoogleMatTruoc { get; set; }
         public string? GoogleMatSau { get; set; }
         public int? IsMatTruoc { get; set; } = 100;

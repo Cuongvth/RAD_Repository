@@ -5,9 +5,9 @@ namespace CMS_Infrastructure.Context
 {
     public partial class ComputerVisionContext : DbContext
     {
-        public DbSet<CanCuocCongDan> CanCuocCongDans { get; set; }
-        public DbSet<DuLieu> DuLieus { get; set; }
-        public DbSet<GiayPhepLaiXe> GiayPhepLaiXes { get; set; }
+        public DbSet<CanCuocCongDan>? CanCuocCongDans { get; set; }
+        public DbSet<DuLieu>? DuLieus { get; set; }
+        public DbSet<GiayPhepLaiXe>? GiayPhepLaiXes { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

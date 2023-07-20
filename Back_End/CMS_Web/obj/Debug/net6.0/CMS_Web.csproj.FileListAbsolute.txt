@@ -242,3 +242,16 @@ D:\Computer_Vision\Back_End\CMS_Web\obj\Debug\net6.0\scopedcss\bundle\CMS_Web.st
 D:\Computer_Vision\Back_End\CMS_Web\obj\Debug\net6.0\CMS_Web.csproj.CopyComplete
 D:\Computer_Vision\Back_End\CMS_Web\obj\Debug\net6.0\CMS_Web.genruntimeconfig.cache
 D:\Computer_Vision\Back_End\CMS_Web\obj\Debug\net6.0\ref\CMS_Web.dll
+D:\Computer_Vision\Back_End\CMS_Web\bin\Debug\net6.0\Azure.Core.dll
+D:\Computer_Vision\Back_End\CMS_Web\bin\Debug\net6.0\Azure.Identity.dll
+D:\Computer_Vision\Back_End\CMS_Web\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Computer_Vision\Back_End\CMS_Web\bin\Debug\net6.0\Microsoft.Extensions.Caching.Abstractions.dll
+D:\Computer_Vision\Back_End\CMS_Web\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\Computer_Vision\Back_End\CMS_Web\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Computer_Vision\Back_End\CMS_Web\bin\Debug\net6.0\Microsoft.Extensions.Logging.dll
+D:\Computer_Vision\Back_End\CMS_Web\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
+D:\Computer_Vision\Back_End\CMS_Web\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
+D:\Computer_Vision\Back_End\CMS_Web\bin\Debug\net6.0\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\Computer_Vision\Back_End\CMS_Web\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+D:\Computer_Vision\Back_End\CMS_Web\bin\Debug\net6.0\Microsoft.SqlServer.Server.dll
+D:\Computer_Vision\Back_End\CMS_Web\bin\Debug\net6.0\System.Memory.Data.dll

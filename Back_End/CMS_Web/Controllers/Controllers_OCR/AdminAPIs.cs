@@ -3,7 +3,6 @@ using CMS_Infrastructure.Context;
 using CMS_WebDesignCore.Enums;
 using CMS_WebDesignCore.IBusiness.IBusiness_OCR;
 using CMS_WebDesignCore.Wrap;
-using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CMS_Web.Controllers.Controllers_OCR
@@ -67,17 +66,13 @@ namespace CMS_Web.Controllers.Controllers_OCR
         [HttpGet("nhandang")]
         public async Task<IActionResult> NhanDang(int duLieuId)
         {
-            switch (_admin.NhanDang(duLieuId).Result.Type)
+            return _admin.NhanDang(duLieuId).Result.Type switch
             {
-                case TypeCard.CCCD:
-                    return Ok(await _admin.NhanDangCCCD(duLieuId));
-                case TypeCard.BLX:
-                    return Ok(await _admin.NhanDangBLX(duLieuId));
-                case TypeCard.UNKNOW:
-                    return BadRequest("Không nhận dạng được!");
-                default:
-                    return BadRequest("Không nhận dạng được!");
-            }
+                TypeCard.CCCD => Ok(await _admin.NhanDangCCCD(duLieuId)),
+                TypeCard.BLX => Ok(await _admin.NhanDangBLX(duLieuId)),
+                TypeCard.UNKNOW => BadRequest("Không nhận dạng được!"),
+                _ => BadRequest("Không nhận dạng được!"),
+            };
         }
         [HttpGet("danhgiadulieucccd")]
         public async Task<IActionResult> ThongTinCoChinhXacCCCD(int CCCDID, int isSo, int isHoTen, int isCoGiaTriDen, int isNgayThang, int isGioiTinh, int isQuocTich, int isQueQuan, int isvnm, int isNoiThuongTru, int isDacDien, int isNgayDangKi, int isMatTruoc, int isMatSau, bool isLoaiThe)
@@ -93,16 +88,13 @@ namespace CMS_Web.Controllers.Controllers_OCR
         public async Task<IActionResult> NhanDangTrucTiep(IFormFile matTruoc, IFormFile matSau)
         {
             CheckResult cr = await _admin.NhanDangTrucTiep(matTruoc);
-            switch (cr.Type)
+            return cr.Type switch
             {
-                case TypeCard.UNKNOW:
-                    return BadRequest("Không nhận dạng được!");
-                case TypeCard.CCCD:
-                    return Ok(await _admin.NhanDangCCCDTrucTiep(matTruoc, matSau));
-                case TypeCard.BLX:
-                    return Ok(await _admin.NhanDangBLXTrucTiep(matTruoc, matSau));
-                default: return BadRequest("Lỗi");
-            }
+                TypeCard.UNKNOW => BadRequest("Không nhận dạng được!"),
+                TypeCard.CCCD => Ok(await _admin.NhanDangCCCDTrucTiep(matTruoc, matSau)),
+                TypeCard.BLX => Ok(await _admin.NhanDangBLXTrucTiep(matTruoc, matSau)),
+                _ => BadRequest("Lỗi"),
+            };
         }
     }
 }

@@ -14,44 +14,44 @@ namespace CMS_Infrastructure.Business.Business_OCR.APINhanDien
         public static string[] LayThongTinTrenThe(string data)
         {
             // Thay thế "your-api-key" bằng API key của bạn
-            var apiKey = "AIzaSyCR6UzC-4bo0gHXR419CPQoi2GQM0tldNY";
+            string apiKey = "AIzaSyCR6UzC-4bo0gHXR419CPQoi2GQM0tldNY";
 
-            var credential = new BaseClientService.Initializer
+            BaseClientService.Initializer credential = new()
             {
                 ApiKey = apiKey,
             };
 
-            var service = new VisionService(credential);
+            VisionService service = new(credential);
 
             // Sử dụng service để gọi các phương thức của API Vision
             // Trong phần Main của chương trình
-            var image = new Image
+            Image image = new()
             {
                 Content = data
             };
 
-            var feature = new Feature
+            Feature feature = new()
             {
                 Type = "TEXT_DETECTION" // Loại tính năng: phát hiện văn bản
             };
 
-            var request = new AnnotateImageRequest
+            AnnotateImageRequest request = new()
             {
                 Image = image,
                 Features = new[] { feature }
             };
-            var batchRequest = new BatchAnnotateImagesRequest
+            BatchAnnotateImagesRequest batchRequest = new()
             {
                 Requests = new[] { request }
             };
 
-            var response = service.Images.Annotate(batchRequest).Execute();
+            Google.Apis.Vision.v1.Data.BatchAnnotateImagesResponse response = service.Images.Annotate(batchRequest).Execute();
 
             // Xử lý response để trích xuất kết quả
-            var textAnnotations = response.Responses[0].TextAnnotations;
+            IList<Google.Apis.Vision.v1.Data.EntityAnnotation> textAnnotations = response.Responses[0].TextAnnotations;
             string[] result = new string[textAnnotations.Count];
             int i = 0;
-            foreach (var annotation in textAnnotations)
+            foreach (Google.Apis.Vision.v1.Data.EntityAnnotation? annotation in textAnnotations)
             {
                 result[i] = annotation.Description;
                 i++;

@@ -8,7 +8,7 @@ namespace CMS_Infrastructure.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
+            _ = migrationBuilder.CreateTable(
                 name: "DuLieus",
                 columns: table => new
                 {
@@ -22,10 +22,10 @@ namespace CMS_Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_DuLieus", x => x.Id);
+                    _ = table.PrimaryKey("PK_DuLieus", x => x.Id);
                 });
 
-            migrationBuilder.CreateTable(
+            _ = migrationBuilder.CreateTable(
                 name: "CanCuocCongDans",
                 columns: table => new
                 {
@@ -58,8 +58,8 @@ namespace CMS_Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CanCuocCongDans", x => x.Id);
-                    table.ForeignKey(
+                    _ = table.PrimaryKey("PK_CanCuocCongDans", x => x.Id);
+                    _ = table.ForeignKey(
                         name: "FK_CanCuocCongDans_DuLieus_DuLieuId",
                         column: x => x.DuLieuId,
                         principalTable: "DuLieus",
@@ -67,7 +67,7 @@ namespace CMS_Infrastructure.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
+            _ = migrationBuilder.CreateTable(
                 name: "GiayPhepLaiXes",
                 columns: table => new
                 {
@@ -96,8 +96,8 @@ namespace CMS_Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_GiayPhepLaiXes", x => x.Id);
-                    table.ForeignKey(
+                    _ = table.PrimaryKey("PK_GiayPhepLaiXes", x => x.Id);
+                    _ = table.ForeignKey(
                         name: "FK_GiayPhepLaiXes_DuLieus_DuLieuId",
                         column: x => x.DuLieuId,
                         principalTable: "DuLieus",
@@ -105,12 +105,12 @@ namespace CMS_Infrastructure.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateIndex(
+            _ = migrationBuilder.CreateIndex(
                 name: "IX_CanCuocCongDans_DuLieuId",
                 table: "CanCuocCongDans",
                 column: "DuLieuId");
 
-            migrationBuilder.CreateIndex(
+            _ = migrationBuilder.CreateIndex(
                 name: "IX_GiayPhepLaiXes_DuLieuId",
                 table: "GiayPhepLaiXes",
                 column: "DuLieuId");
@@ -118,13 +118,13 @@ namespace CMS_Infrastructure.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
+            _ = migrationBuilder.DropTable(
                 name: "CanCuocCongDans");
 
-            migrationBuilder.DropTable(
+            _ = migrationBuilder.DropTable(
                 name: "GiayPhepLaiXes");
 
-            migrationBuilder.DropTable(
+            _ = migrationBuilder.DropTable(
                 name: "DuLieus");
         }
     }

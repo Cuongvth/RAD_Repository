@@ -1,6 +1,5 @@
 ﻿using CMS_Infrastructure.Business.Business_AI_Interpreter;
 using CMS_WebDesignCore.Entities.Entities_AI_Interpreter;
-using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -49,7 +48,7 @@ namespace CMS_Web.Controllers.Controllers_AI_Interpreter
         [HttpPost("download")]
         public async Task<IActionResult> ConvertDocumentToPdf([FromBody] List<ImageBlock> requests, string filePath)
         {
-            var fileBytes = await _documentService.DownloadConvertedDocument(requests, filePath);
+            byte[] fileBytes = await _documentService.DownloadConvertedDocument(requests, filePath);
             return new FileContentResult(fileBytes, "application/octet-stream")
             {
                 FileDownloadName = $"{filePath}.rar"

@@ -31,6 +31,6 @@
         }
         public int DuLieuId { get; set; }
 
-        public DuLieu DuLieu { get; set; }
+        public DuLieu? DuLieu { get; set; }
     }
 }

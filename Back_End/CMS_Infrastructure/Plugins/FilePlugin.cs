@@ -6,11 +6,9 @@ namespace CMS_Infrastructure.Plugins
     {
         public static byte[] File2ByteArr(IFormFile file)
         {
-            using (var memoryStream = new MemoryStream())
-            {
-                file.CopyTo(memoryStream);
-                return memoryStream.ToArray();
-            }
+            using MemoryStream memoryStream = new();
+            file.CopyTo(memoryStream);
+            return memoryStream.ToArray();
         }
     }
 }

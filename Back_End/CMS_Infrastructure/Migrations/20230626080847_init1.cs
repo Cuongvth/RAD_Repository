@@ -8,7 +8,7 @@ namespace CMS_Infrastructure.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AlterColumn<string>(
+            _ = migrationBuilder.AlterColumn<string>(
                 name: "GoogleMatTruoc",
                 table: "DuLieus",
                 type: "nvarchar(max)",
@@ -16,7 +16,7 @@ namespace CMS_Infrastructure.Migrations
                 oldClrType: typeof(string),
                 oldType: "nvarchar(max)");
 
-            migrationBuilder.AlterColumn<string>(
+            _ = migrationBuilder.AlterColumn<string>(
                 name: "GoogleMatSau",
                 table: "DuLieus",
                 type: "nvarchar(max)",
@@ -27,7 +27,7 @@ namespace CMS_Infrastructure.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AlterColumn<string>(
+            _ = migrationBuilder.AlterColumn<string>(
                 name: "GoogleMatTruoc",
                 table: "DuLieus",
                 type: "nvarchar(max)",
@@ -37,7 +37,7 @@ namespace CMS_Infrastructure.Migrations
                 oldType: "nvarchar(max)",
                 oldNullable: true);
 
-            migrationBuilder.AlterColumn<string>(
+            _ = migrationBuilder.AlterColumn<string>(
                 name: "GoogleMatSau",
                 table: "DuLieus",
                 type: "nvarchar(max)",

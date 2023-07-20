@@ -12,45 +12,45 @@ namespace CMS_Infrastructure.Business.Business_OCR.AdminService
 {
     public class AdminService : BaseBusiness, IAdminService
     {
-        public async Task<IQueryable<CanCuocCongDan>> GetCanCuocPage(int page, int pageSize)
+        public IQueryable<CanCuocCongDan> GetCanCuocPage(int page, int pageSize)
         {
-            var query = _context.CanCuocCongDans.OrderBy(c => c.Id).Skip((page - 1) * pageSize).Take(pageSize);
+            IQueryable<CanCuocCongDan> query = _context.CanCuocCongDans.OrderBy(c => c.Id).Skip((page - 1) * pageSize).Take(pageSize);
             return query;
         }
 
-        public async Task<int> GetCanCuocCount()
+        public int GetCanCuocCount()
         {
             return _context.CanCuocCongDans.Count();
         }
 
-        public async Task<IQueryable<CanCuocCongDan>> GetCanCuoc(int id)
+        public IQueryable<CanCuocCongDan> GetCanCuoc(int id)
         {
             return _context.CanCuocCongDans.Where(c => c.Id == id).Include(c => c.DuLieu);
         }
 
-        public async Task<IQueryable<GiayPhepLaiXe>> GetBLX(int id)
+        public IQueryable<GiayPhepLaiXe> GetBLX(int id)
         {
             return _context.GiayPhepLaiXes.Where(c => c.Id == id).Include(c => c.DuLieu);
         }
 
-        public async Task<IQueryable<DuLieu>> GetDuLieuPage(int page, int pageSize)
+        public IQueryable<DuLieu> GetDuLieuPage(int page, int pageSize)
         {
-            var query = _context.DuLieus.Where(c => c.Status == StatusData.CHUANHANDANG).OrderBy(c => c.Id).Skip((page - 1) * pageSize).Take(pageSize);
+            IQueryable<DuLieu> query = _context.DuLieus.Where(c => c.Status == StatusData.CHUANHANDANG).OrderBy(c => c.Id).Skip((page - 1) * pageSize).Take(pageSize);
             return query;
         }
 
-        public async Task<int> GetDuLieuCount()
+        public int GetDuLieuCount()
         {
             return _context.DuLieus.Where(c => c.Status == StatusData.CHUANHANDANG).Count();
         }
 
-        public async Task<IQueryable<GiayPhepLaiXe>> GetBLXPage(int page, int pageSize)
+        public IQueryable<GiayPhepLaiXe> GetBLXPage(int page, int pageSize)
         {
-            var query = _context.GiayPhepLaiXes.OrderBy(c => c.Id).Skip((page - 1) * pageSize).Take(pageSize);
+            IQueryable<GiayPhepLaiXe> query = _context.GiayPhepLaiXes.OrderBy(c => c.Id).Skip((page - 1) * pageSize).Take(pageSize);
             return query;
         }
 
-        public async Task<int> GetBLXCount()
+        public int GetBLXCount()
         {
             return _context.GiayPhepLaiXes.Count();
         }
@@ -83,27 +83,29 @@ namespace CMS_Infrastructure.Business.Business_OCR.AdminService
             {
                 return ActionStatus.KHONGDUDUIEU;
             }
-            DuLieu dl = new DuLieu();
-            dl.Status = CMS_WebDesignCore.Enums.StatusData.CHUANHANDANG;
-            dl.ThoiGianThem = DateTime.Now;
-            dl.MatTruoc = FilePlugin.File2ByteArr(matTruoc);
-            dl.MatSau = FilePlugin.File2ByteArr(matSau);
-            var ggmatTruoc = GoogleVisionAPI.LayThongTinTrenThe(Convert.ToBase64String(dl.MatTruoc));
-            var ggmatSau = GoogleVisionAPI.LayThongTinTrenThe(Convert.ToBase64String(dl.MatSau));
-            var dataTruoc = ggmatTruoc[0];
+            DuLieu dl = new()
+            {
+                Status = CMS_WebDesignCore.Enums.StatusData.CHUANHANDANG,
+                ThoiGianThem = DateTime.Now,
+                MatTruoc = FilePlugin.File2ByteArr(matTruoc),
+                MatSau = FilePlugin.File2ByteArr(matSau)
+            };
+            string[] ggmatTruoc = GoogleVisionAPI.LayThongTinTrenThe(Convert.ToBase64String(dl.MatTruoc));
+            string[] ggmatSau = GoogleVisionAPI.LayThongTinTrenThe(Convert.ToBase64String(dl.MatSau));
+            string dataTruoc = ggmatTruoc[0];
             for (int i = 1; i < ggmatTruoc.Length; i++)
             {
-                dataTruoc += ("\r" + ggmatTruoc[i]);
+                dataTruoc += "\r" + ggmatTruoc[i];
             }
-            var dataSau = ggmatTruoc[0];
+            string dataSau = ggmatTruoc[0];
             for (int i = 1; i < ggmatSau.Length; i++)
             {
-                dataSau += ("\r" + ggmatSau[i]);
+                dataSau += "\r" + ggmatSau[i];
             }
             dl.GoogleMatTruoc = dataTruoc;
             dl.GoogleMatSau = dataSau;
-            await _context.AddAsync(dl);
-            await _context.SaveChangesAsync();
+            _ = await _context.AddAsync(dl);
+            _ = await _context.SaveChangesAsync();
             return ActionStatus.THANHCONG;
         }
 
@@ -119,12 +121,12 @@ namespace CMS_Infrastructure.Business.Business_OCR.AdminService
             }
             dl.ThoiGianXacNhan = DateTime.Now;
             dl.Status = CMS_WebDesignCore.Enums.StatusData.DANHANDANG;
-            await _context.SaveChangesAsync();
-            GoogleIdenDTO<CanCuocCongDan> result = new GoogleIdenDTO<CanCuocCongDan>();
+            _ = await _context.SaveChangesAsync();
+            GoogleIdenDTO<CanCuocCongDan> result = new();
             FullInfo<CanCuocCongDan> cccd = MapDataCCCD.CCCDGanChip(GoogleVisionAPI.LayThongTinTrenThe(Convert.ToBase64String(dl.MatTruoc)), GoogleVisionAPI.LayThongTinTrenThe(Convert.ToBase64String(dl.MatSau)));
             cccd.Data.DuLieuId = dl.Id;
-            await _context.AddAsync(cccd.Data);
-            await _context.SaveChangesAsync();
+            _ = await _context.AddAsync(cccd.Data);
+            _ = await _context.SaveChangesAsync();
             result.Result = cccd;
             result.Status = IdenEnum.NHANDANGTHANHCONG;
             return result;
@@ -142,12 +144,12 @@ namespace CMS_Infrastructure.Business.Business_OCR.AdminService
             }
             dl.ThoiGianXacNhan = DateTime.Now;
             dl.Status = CMS_WebDesignCore.Enums.StatusData.DANHANDANG;
-            await _context.SaveChangesAsync();
-            GoogleIdenDTO<GiayPhepLaiXe> result = new GoogleIdenDTO<GiayPhepLaiXe>();
+            _ = await _context.SaveChangesAsync();
+            GoogleIdenDTO<GiayPhepLaiXe> result = new();
             FullInfo<GiayPhepLaiXe> cccd = MapDataBLX.BLXAddData(GoogleVisionAPI.LayThongTinTrenThe(Convert.ToBase64String(dl.MatTruoc)), GoogleVisionAPI.LayThongTinTrenThe(Convert.ToBase64String(dl.MatSau)));
             cccd.Data.DuLieuId = dl.Id;
-            await _context.AddAsync(cccd.Data);
-            await _context.SaveChangesAsync();
+            _ = await _context.AddAsync(cccd.Data);
+            _ = await _context.SaveChangesAsync();
             result.Result = cccd;
             result.Status = IdenEnum.NHANDANGTHANHCONG;
             return result;
@@ -161,14 +163,12 @@ namespace CMS_Infrastructure.Business.Business_OCR.AdminService
         public async Task<CheckResult> NhanDang(int duLieuId)
         {
             DuLieu dl = await _context.DuLieus.FindAsync(duLieuId);
-            if (dl == null)
-            {
-                return new CheckResult()
+            return dl == null
+                ? new CheckResult()
                 {
                     Type = TypeCard.UNKNOW
-                };
-            }
-            return GoogleVisionAPI.NhanDangThe(Convert.ToBase64String(dl.MatTruoc));
+                }
+                : GoogleVisionAPI.NhanDangThe(Convert.ToBase64String(dl.MatTruoc));
         }
 
         public async Task<ActionStatus> ThongTinCoChinhXacCCCD(int CCCDID, int isSo, int isHoTen, int isCoGiaTriDen, int isNgayThang, int isGioiTinh, int isQuocTich, int isQueQuan, int isvnm, int isNoiThuongTru, int isDacDien, int isNgayDangKi, int isMatTruoc, int isMatSau, bool isLoaiThe)
@@ -189,17 +189,10 @@ namespace CMS_Infrastructure.Business.Business_OCR.AdminService
             cccd.IsNoiThuongTru = isNoiThuongTru;
             cccd.IsDacDiemNhanDang = isDacDien;
             cccd.IsNgayDangKy = isNgayDangKi;
-            if (isSo == 100 && isHoTen == 100 && isCoGiaTriDen == 100 && isNgayThang == 100 && isGioiTinh == 100 && isQuocTich == 100 && isQueQuan == 100 && isvnm == 100 && isNoiThuongTru == 100 && isDacDien == 100 && isNgayDangKi == 100)
-            {
-                cccd.DungTatCa = true;
-            }
-            else
-            {
-                cccd.DungTatCa = false;
-            }
+            cccd.DungTatCa = isSo == 100 && isHoTen == 100 && isCoGiaTriDen == 100 && isNgayThang == 100 && isGioiTinh == 100 && isQuocTich == 100 && isQueQuan == 100 && isvnm == 100 && isNoiThuongTru == 100 && isDacDien == 100 && isNgayDangKi == 100;
             try
             {
-                await _context.SaveChangesAsync();
+                _ = await _context.SaveChangesAsync();
             }
             catch (Exception)
             {
@@ -211,7 +204,7 @@ namespace CMS_Infrastructure.Business.Business_OCR.AdminService
             dulieu.IsLoaiThe = isLoaiThe;
             try
             {
-                await _context.SaveChangesAsync();
+                _ = await _context.SaveChangesAsync();
             }
             catch (Exception)
             {
@@ -236,17 +229,10 @@ namespace CMS_Infrastructure.Business.Business_OCR.AdminService
             cccd.IsMoTaXeDuocSuDung = isMoTaXeDuocSuDung;
             cccd.IsNgayTrungTuyen = isNgayTrungTuyen;
             cccd.IsNgayDangKy = isNgayDangKi;
-            if (isSo == 100 && isHoTen == 100 && isNoiCuTru == 100 && isNgayThang == 100 && isQuocTich == 100 && isHang == 100 && isMoTaXeDuocSuDung == 100 && isNgayTrungTuyen == 100 && isNgayDangKi == 100)
-            {
-                cccd.DungTatCa = true;
-            }
-            else
-            {
-                cccd.DungTatCa = false;
-            }
+            cccd.DungTatCa = isSo == 100 && isHoTen == 100 && isNoiCuTru == 100 && isNgayThang == 100 && isQuocTich == 100 && isHang == 100 && isMoTaXeDuocSuDung == 100 && isNgayTrungTuyen == 100 && isNgayDangKi == 100;
             try
             {
-                await _context.SaveChangesAsync();
+                _ = await _context.SaveChangesAsync();
             }
             catch (Exception)
             {
@@ -258,7 +244,7 @@ namespace CMS_Infrastructure.Business.Business_OCR.AdminService
             dulieu.IsLoaiThe = isLoaiThe;
             try
             {
-                await _context.SaveChangesAsync();
+                _ = await _context.SaveChangesAsync();
             }
             catch (Exception)
             {
@@ -270,34 +256,36 @@ namespace CMS_Infrastructure.Business.Business_OCR.AdminService
 
         public async Task<GoogleIdenDTO<CanCuocCongDan>> NhanDangCCCDTrucTiep(IFormFile matTruoc, IFormFile matSau)
         {
-            GoogleIdenDTO<CanCuocCongDan> result = new GoogleIdenDTO<CanCuocCongDan>();
-            DuLieu dl = new DuLieu();
-            dl.MatTruoc = FilePlugin.File2ByteArr(matTruoc);
-            dl.MatSau = FilePlugin.File2ByteArr(matSau);
-            var ggmatTruoc = GoogleVisionAPI.LayThongTinTrenThe(Convert.ToBase64String(dl.MatTruoc));
-            var ggmatSau = GoogleVisionAPI.LayThongTinTrenThe(Convert.ToBase64String(dl.MatSau));
+            GoogleIdenDTO<CanCuocCongDan> result = new();
+            DuLieu dl = new()
+            {
+                MatTruoc = FilePlugin.File2ByteArr(matTruoc),
+                MatSau = FilePlugin.File2ByteArr(matSau)
+            };
+            string[] ggmatTruoc = GoogleVisionAPI.LayThongTinTrenThe(Convert.ToBase64String(dl.MatTruoc));
+            string[] ggmatSau = GoogleVisionAPI.LayThongTinTrenThe(Convert.ToBase64String(dl.MatSau));
             dl.Status = CMS_WebDesignCore.Enums.StatusData.CHUANHANDANG;
             dl.ThoiGianThem = DateTime.Now;
             dl.ThoiGianXacNhan = DateTime.Now;
-            var dataTruoc = ggmatTruoc[0];
+            string dataTruoc = ggmatTruoc[0];
             for (int i = 1; i < ggmatTruoc.Length; i++)
             {
-                dataTruoc += ("\r" + ggmatTruoc[i]);
+                dataTruoc += "\r" + ggmatTruoc[i];
             }
-            var dataSau = ggmatTruoc[0];
+            string dataSau = ggmatTruoc[0];
             for (int i = 1; i < ggmatSau.Length; i++)
             {
-                dataSau += ("\r" + ggmatSau[i]);
+                dataSau += "\r" + ggmatSau[i];
             }
             dl.GoogleMatTruoc = dataTruoc;
             dl.GoogleMatSau = dataSau;
             dl.Status = StatusData.DANHANDANG;
             FullInfo<CanCuocCongDan> canCuocCongDan = MapDataCCCD.CCCDGanChip(ggmatTruoc, ggmatSau);
-            await _context.AddAsync(dl);
-            await _context.SaveChangesAsync();
+            _ = await _context.AddAsync(dl);
+            _ = await _context.SaveChangesAsync();
             canCuocCongDan.Data.DuLieuId = dl.Id;
-            await _context.AddAsync(canCuocCongDan.Data);
-            await _context.SaveChangesAsync();
+            _ = await _context.AddAsync(canCuocCongDan.Data);
+            _ = await _context.SaveChangesAsync();
             result.Result = canCuocCongDan;
             result.Status = IdenEnum.NHANDANGTHANHCONG;
             return result;
@@ -305,44 +293,91 @@ namespace CMS_Infrastructure.Business.Business_OCR.AdminService
 
         public async Task<GoogleIdenDTO<GiayPhepLaiXe>> NhanDangBLXTrucTiep(IFormFile matTruoc, IFormFile matSau)
         {
-            GoogleIdenDTO<GiayPhepLaiXe> result = new GoogleIdenDTO<GiayPhepLaiXe>();
-            DuLieu dl = new DuLieu();
-            dl.MatTruoc = FilePlugin.File2ByteArr(matTruoc);
-            dl.MatSau = FilePlugin.File2ByteArr(matSau);
-            var ggmatTruoc = GoogleVisionAPI.LayThongTinTrenThe(Convert.ToBase64String(dl.MatTruoc));
-            var ggmatSau = GoogleVisionAPI.LayThongTinTrenThe(Convert.ToBase64String(dl.MatSau));
+            GoogleIdenDTO<GiayPhepLaiXe> result = new();
+            DuLieu dl = new()
+            {
+                MatTruoc = FilePlugin.File2ByteArr(matTruoc),
+                MatSau = FilePlugin.File2ByteArr(matSau)
+            };
+            string[] ggmatTruoc = GoogleVisionAPI.LayThongTinTrenThe(Convert.ToBase64String(dl.MatTruoc));
+            string[] ggmatSau = GoogleVisionAPI.LayThongTinTrenThe(Convert.ToBase64String(dl.MatSau));
             dl.Status = CMS_WebDesignCore.Enums.StatusData.CHUANHANDANG;
             dl.ThoiGianThem = DateTime.Now;
             dl.ThoiGianXacNhan = DateTime.Now;
-            var dataTruoc = ggmatTruoc[0];
+            string dataTruoc = ggmatTruoc[0];
             for (int i = 1; i < ggmatTruoc.Length; i++)
             {
-                dataTruoc += ("\r" + ggmatTruoc[i]);
+                dataTruoc += "\r" + ggmatTruoc[i];
             }
-            var dataSau = ggmatTruoc[0];
+            string dataSau = ggmatTruoc[0];
             for (int i = 1; i < ggmatSau.Length; i++)
             {
-                dataSau += ("\r" + ggmatSau[i]);
+                dataSau += "\r" + ggmatSau[i];
             }
             dl.GoogleMatTruoc = dataTruoc;
             dl.GoogleMatSau = dataSau;
             dl.Status = StatusData.DANHANDANG;
             FullInfo<GiayPhepLaiXe> blx = MapDataBLX.BLXAddData(ggmatTruoc, ggmatSau);
-            await _context.AddAsync(dl);
-            await _context.SaveChangesAsync();
+            _ = await _context.AddAsync(dl);
+            _ = await _context.SaveChangesAsync();
             blx.Data.DuLieuId = dl.Id;
-            await _context.AddAsync(blx.Data);
-            await _context.SaveChangesAsync();
+            _ = await _context.AddAsync(blx.Data);
+            _ = await _context.SaveChangesAsync();
             result.Result = blx;
             result.Status = IdenEnum.NHANDANGTHANHCONG;
             return result;
         }
 
-        public async Task<CheckResult> NhanDangTrucTiep(IFormFile matTruoc)
+        public CheckResult NhanDangTrucTiep(IFormFile matTruoc)
         {
 
             CheckResult cr = GoogleVisionAPI.NhanDangThe(Convert.ToBase64String(FilePlugin.File2ByteArr(matTruoc)));
             return cr;
+        }
+
+        Task<IQueryable<CanCuocCongDan>> IAdminService.GetCanCuocPage(int page, int pageSize)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<int> IAdminService.GetCanCuocCount()
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<int> IAdminService.GetBLXCount()
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<int> IAdminService.GetDuLieuCount()
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<IQueryable<GiayPhepLaiXe>> IAdminService.GetBLX(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<IQueryable<CanCuocCongDan>> IAdminService.GetCanCuoc(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<IQueryable<DuLieu>> IAdminService.GetDuLieuPage(int page, int pageSize)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<IQueryable<GiayPhepLaiXe>> IAdminService.GetBLXPage(int page, int pageSize)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<CheckResult> IAdminService.NhanDangTrucTiep(IFormFile matTruoc)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -1,6 +1,3 @@
-using CMS_Infrastructure.Context;
-using Microsoft.EntityFrameworkCore;
-
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.

@@ -16,15 +16,15 @@ namespace CMS_Infrastructure.Business.Business_AI_Interpreter
         public DocumentService(IFileConversionService fileConversionService, string visionApiKey, string translationApiKey)
         {
             this.fileConversionService = fileConversionService;
-            this.textRecognitionService = new TextRecognitionService(visionApiKey, translationApiKey);
+            textRecognitionService = new TextRecognitionService(visionApiKey, translationApiKey);
         }
 
         public async Task<byte[]> DownloadConvertedDocument(List<ImageBlock> requests, string filePath)
         {
-            var imagePaths = BoundingPolyOnTopOfImages(requests, filePath);
-            var archivePath = CreateArchive(filePath, imagePaths);
+            List<string> imagePaths = BoundingPolyOnTopOfImages(requests, filePath);
+            string archivePath = CreateArchive(filePath, imagePaths);
 
-            var fileBytes = await ReadAllBytesAsync(archivePath);
+            byte[] fileBytes = await ReadAllBytesAsync(archivePath);
 
             DeleteFileAndDirectory(archivePath);
 
@@ -34,7 +34,7 @@ namespace CMS_Infrastructure.Business.Business_AI_Interpreter
 
         public async Task<List<ImageBlock>> ConvertDocument(List<string> convertedImagePaths, string targetLanguage)
         {
-            List<ImageBlock> result = new List<ImageBlock>();
+            List<ImageBlock> result = new();
             foreach (string imagePath in convertedImagePaths)
             {
                 string imageName = Path.GetFileName(imagePath);
@@ -45,7 +45,7 @@ namespace CMS_Infrastructure.Business.Business_AI_Interpreter
                 }
 
                 List<List<ParagraphInfo>> paragraphInfos = await GetTranslatedTextBlocks(imagePath, targetLanguage);
-                ImageBlock block = new ImageBlock
+                ImageBlock block = new()
                 {
                     ImagePath = imagePath,
                     TextAnnotations = paragraphInfos
@@ -77,7 +77,7 @@ namespace CMS_Infrastructure.Business.Business_AI_Interpreter
             List<string> convertedImagePaths = ConvertDocumentToImages(documentFilePath);
             File.Delete(documentFilePath);
 
-            List<string> imagePaths = new List<string>();
+            List<string> imagePaths = new();
 
             foreach (string imagePath in convertedImagePaths)
             {
@@ -98,9 +98,9 @@ namespace CMS_Infrastructure.Business.Business_AI_Interpreter
             string fileName = file.FileName;
             string filePath = Path.Combine(folderPath, fileName);
 
-            Directory.CreateDirectory(folderPath);
+            _ = Directory.CreateDirectory(folderPath);
 
-            using (FileStream stream = new FileStream(filePath, FileMode.Create))
+            using (FileStream stream = new(filePath, FileMode.Create))
             {
                 await file.CopyToAsync(stream);
             }
@@ -120,54 +120,54 @@ namespace CMS_Infrastructure.Business.Business_AI_Interpreter
 
         private List<string> BoundingPolyOnTopOfImages(List<ImageBlock> requests, string filePath)
         {
-            var imagePaths = requests.Select(request =>
+            List<string> imagePaths = requests.Select(request =>
             {
-                using (var image = new Bitmap(request.ImagePath))
-                using (var graphics = Graphics.FromImage(image))
+                using Bitmap image = new(request.ImagePath);
+                using Graphics graphics = Graphics.FromImage(image);
+                foreach (List<ParagraphInfo> textBlock in request.TextAnnotations)
                 {
-                    foreach (var textBlock in request.TextAnnotations)
+                    foreach (ParagraphInfo textObject in textBlock)
                     {
-                        foreach (var textObject in textBlock)
+                        Google.Apis.Vision.v1.Data.BoundingPoly? boundingPoly = textObject.BoundingPoly;
+
+                        if (boundingPoly.Vertices.Count < 2 || string.IsNullOrEmpty(textObject.TranslatedText))
                         {
-                            var boundingPoly = textObject.BoundingPoly;
+                            continue;
+                        }
 
-                            if (boundingPoly.Vertices.Count < 2 || string.IsNullOrEmpty(textObject.TranslatedText))
-                                continue;
-
-                            var vertices = new PointF[]
-                            {
+                        PointF[] vertices = new PointF[]
+                        {
                             new PointF((int)boundingPoly.Vertices[0].X,(int) boundingPoly.Vertices[0].Y),
                             new PointF((int)boundingPoly.Vertices[1].X, (int)boundingPoly.Vertices[0].Y),
                             new PointF((int)boundingPoly.Vertices[1].X, (int)boundingPoly.Vertices[1].Y),
                             new PointF((int)boundingPoly.Vertices[0].X, (int)boundingPoly.Vertices[1].Y)
-                            };
+                        };
 
-                            var path = new GraphicsPath();
-                            path.AddPolygon(vertices);
+                        GraphicsPath path = new();
+                        path.AddPolygon(vertices);
 
-                            var pen = new Pen(System.Drawing.Color.Red, 1);
-                            graphics.DrawPath(pen, path);
+                        Pen pen = new(System.Drawing.Color.Red, 1);
+                        graphics.DrawPath(pen, path);
 
-                            var backgroundColor = System.Drawing.Color.Aqua;
-                            var brush = new SolidBrush(backgroundColor);
-                            graphics.FillPath(brush, path);
+                        Color backgroundColor = System.Drawing.Color.Aqua;
+                        SolidBrush brush = new(backgroundColor);
+                        graphics.FillPath(brush, path);
 
-                            var font = new System.Drawing.Font("Arial", 8, FontStyle.Bold);
-                            var textRect = RectangleF.FromLTRB(
-                                vertices[0].X,
-                                vertices[0].Y,
-                                vertices[1].X,
-                                vertices[1].Y
-                            );
-                            graphics.DrawString(textObject.TranslatedText, font, Brushes.Black, textRect);
-                        }
+                        Font font = new("Arial", 8, FontStyle.Bold);
+                        RectangleF textRect = RectangleF.FromLTRB(
+                            vertices[0].X,
+                            vertices[0].Y,
+                            vertices[1].X,
+                            vertices[1].Y
+                        );
+                        graphics.DrawString(textObject.TranslatedText, font, Brushes.Black, textRect);
                     }
-
-                    var imageOutputPath = Path.Combine(Path.GetDirectoryName(filePath), Path.GetFileName(request.ImagePath));
-                    image.Save(imageOutputPath, ImageFormat.Jpeg);
-
-                    return imageOutputPath;
                 }
+
+                string imageOutputPath = Path.Combine(Path.GetDirectoryName(filePath), Path.GetFileName(request.ImagePath));
+                image.Save(imageOutputPath, ImageFormat.Jpeg);
+
+                return imageOutputPath;
             }).ToList();
 
             return imagePaths;
@@ -175,10 +175,10 @@ namespace CMS_Infrastructure.Business.Business_AI_Interpreter
 
         private IEnumerable<string> SplitIntoLines(IEnumerable<string> words, float maxWidth, Graphics graphics, Font font)
         {
-            var lines = new List<string>();
+            List<string> lines = new();
 
-            var line = "";
-            foreach (var word in words)
+            string line = "";
+            foreach (string word in words)
             {
                 if (graphics.MeasureString(line + word, font).Width > maxWidth)
                 {
@@ -198,20 +198,20 @@ namespace CMS_Infrastructure.Business.Business_AI_Interpreter
 
         private string CreateArchive(string filePath, List<string> imagePaths)
         {
-            var tempFolderPath = Path.Combine(Path.GetTempPath(), "temp_folder");
-            Directory.CreateDirectory(tempFolderPath);
+            string tempFolderPath = Path.Combine(Path.GetTempPath(), "temp_folder");
+            _ = Directory.CreateDirectory(tempFolderPath);
 
-            var archivePath = Path.Combine(tempFolderPath, $"archive_{DateTime.Now:yyyyMMddHHmmss}.rar");
+            string archivePath = Path.Combine(tempFolderPath, $"archive_{DateTime.Now:yyyyMMddHHmmss}.rar");
 
-            using (var archive = ZipFile.Open(archivePath, ZipArchiveMode.Create))
+            using (ZipArchive archive = ZipFile.Open(archivePath, ZipArchiveMode.Create))
             {
-                var folderName = filePath;
-                var folderEntry = archive.CreateEntry(folderName + "/");
+                string folderName = filePath;
+                ZipArchiveEntry folderEntry = archive.CreateEntry(folderName + "/");
 
                 imagePaths.ForEach(imagePath =>
                 {
-                    var entryName = folderName + "/" + Path.GetFileName(imagePath);
-                    archive.CreateEntryFromFile(imagePath, entryName);
+                    string entryName = folderName + "/" + Path.GetFileName(imagePath);
+                    _ = archive.CreateEntryFromFile(imagePath, entryName);
                 });
             }
 
@@ -226,7 +226,7 @@ namespace CMS_Infrastructure.Business.Business_AI_Interpreter
         private void DeleteFileAndDirectory(string filePath)
         {
             File.Delete(filePath);
-            var tempFolderPath = Path.GetDirectoryName(filePath);
+            string? tempFolderPath = Path.GetDirectoryName(filePath);
             Directory.Delete(tempFolderPath, true);
         }
     }
