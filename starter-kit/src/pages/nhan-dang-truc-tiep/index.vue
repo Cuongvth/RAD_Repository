@@ -20,7 +20,7 @@
 <script setup>
 import ShowCard from "@/views/ShowData/ShowCard.vue";
 import GetImage from "./getImage.vue";
-import { checkDataLocal } from "../../api/DemoRD/DemoAPI";
+import { checkDataLocal } from "./useAPI";
 import { useStore } from "vuex";
 
 const store = useStore();

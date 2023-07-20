@@ -1,19 +1,3 @@
-import { GGSearch } from "../../../plugins/searchApi";
-
-const key = "AIzaSyAkBpLb4AkaOTdFJn5nBCKG8wt85ZUel3c";
-const cx = "370680eb1781b459c";
-function searchGoogle(q, num) {
-  return new Promise((resolve, reject) => {
-    GGSearch.get(`?q=${q}&key=${key}&cx=${cx}&num=${num}`)
-      .then(response => {
-        resolve(response.data);
-      })
-      .catch(error => {
-        reject(error);
-      });
-  });
-}
-
 export async function reFormat(cauTraLoi) {
   return new Promise(async (resolve, reject) => {
     cauTraLoi =  cauTraLoi.replace(/\n/g, '<br>');
@@ -44,7 +28,4 @@ async function replaceElement(arr, cauTraLoi){
   }
   
   return cauTraLoi;
-}
-export async function ggSearch(q){
-  return await searchGoogle(q, 5);
 }

@@ -51,7 +51,7 @@ import {
   getOneCanCuoc,
   getOneBLX,
   danhGiaDuLieu,
-} from "../../api/DemoRD/DemoAPI";
+} from "./useAPI";
 import { useStore } from "vuex";
 import { onMounted, ref } from "vue";
 

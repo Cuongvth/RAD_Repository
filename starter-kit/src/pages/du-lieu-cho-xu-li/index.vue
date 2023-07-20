@@ -1,5 +1,5 @@
 <script setup>
-import { getDuLieu, getDuLieuCount } from "../../api/DemoRD/DemoAPI";
+import { getDuLieu, getDuLieuCount } from "./useAPI";
 import { useStore } from "vuex";
 import ShowDataCard from "../ShowCardData/showCard.vue";
 

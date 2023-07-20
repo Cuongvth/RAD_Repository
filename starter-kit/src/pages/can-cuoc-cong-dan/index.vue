@@ -1,5 +1,5 @@
 <script setup>
-import { getCanCuoc, getCanCuocCount } from "../../api/DemoRD/DemoAPI";
+import { getCanCuoc, getCanCuocCount } from "./useAPI";
 import { useStore } from "vuex";
 import ShowDetail from "../ShowDetailData/showCard.vue";
 

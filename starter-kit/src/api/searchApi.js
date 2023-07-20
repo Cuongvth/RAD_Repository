@@ -27,4 +27,4 @@ export class HTTPSingleton {
   }
 }
 
-export const GGSearch = HTTPSingleton.getInstance().getHTTP();
+export const HTTP = HTTPSingleton.getInstance().getHTTP();

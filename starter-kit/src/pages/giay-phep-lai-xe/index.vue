@@ -1,5 +1,5 @@
 <script setup>
-import { getBLX, getBLXCount } from "../../api/DemoRD/DemoAPI";
+import { getBLX, getBLXCount } from "./useAPI";
 import { useStore } from "vuex";
 import ShowDetail from "../ShowDetailData/showCard.vue";
 
