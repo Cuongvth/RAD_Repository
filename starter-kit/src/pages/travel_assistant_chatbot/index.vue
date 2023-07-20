@@ -77,8 +77,6 @@ const sendMessage = async () => {
     for (var item of lstSpan) {
       const str = item.childNodes[1].nodeValue;
 
-      console.log(searchGoogle);
-
       const result = await searchGoogle(str + " " + message, 5);
 
       item.addEventListener("mouseover", function (event) {
@@ -204,31 +202,6 @@ const chatContentContainerBg = computed(() => {
 
 <template>
   <VLayout class="chat-app-layout">
-    <div class="text-center">
-      <VDialog
-        v-model="dialog"
-        width="70vw"
-      >
-        <VCard>
-          <VCardText class="text-center">
-            <img
-              :src="src"
-              alt="Hình ảnh"
-              style="width: 100%"
-            >
-          </VCardText>
-          <VCardActions>
-            <VBtn
-              color="primary"
-              block
-              @click="dialog = false"
-            >
-              Đóng
-            </VBtn>
-          </VCardActions>
-        </VCard>
-      </VDialog>
-    </div>
     <!-- 👉 user profile sidebar -->
 
     <VNavigationDrawer

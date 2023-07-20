@@ -1,7 +1,7 @@
 import { HTTP } from "@/api/searchApi";
 import { Configuration, OpenAIApi } from "openai";
 
-const key = "AIzaSyBCMPOLxksMJ5gqfDrkVbz9cJv-W5haNl4";
+const key = "AIzaSyD8eqNna59nQ637Y-9PhgBSAoH4lCJHqwU";
 const cx = "370680eb1781b459c";
 
 const openaiGPT = new OpenAIApi(
