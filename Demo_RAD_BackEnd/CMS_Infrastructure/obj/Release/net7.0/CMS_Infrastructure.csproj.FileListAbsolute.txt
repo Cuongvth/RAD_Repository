@@ -1,0 +1,17 @@
+W:\LTSGroup\Computer_Vision\Demo_RAD_BackEnd\CMS_Infrastructure\bin\Release\net7.0\CMS_Infrastructure.deps.json
+W:\LTSGroup\Computer_Vision\Demo_RAD_BackEnd\CMS_Infrastructure\bin\Release\net7.0\CMS_Infrastructure.runtimeconfig.json
+W:\LTSGroup\Computer_Vision\Demo_RAD_BackEnd\CMS_Infrastructure\bin\Release\net7.0\CMS_Infrastructure.dll
+W:\LTSGroup\Computer_Vision\Demo_RAD_BackEnd\CMS_Infrastructure\bin\Release\net7.0\CMS_Infrastructure.pdb
+W:\LTSGroup\Computer_Vision\Demo_RAD_BackEnd\CMS_Infrastructure\bin\Release\net7.0\CMS_WebDesignCore.dll
+W:\LTSGroup\Computer_Vision\Demo_RAD_BackEnd\CMS_Infrastructure\bin\Release\net7.0\CMS_WebDesignCore.pdb
+W:\LTSGroup\Computer_Vision\Demo_RAD_BackEnd\CMS_Infrastructure\obj\Release\net7.0\CMS_Infrastructure.csproj.AssemblyReference.cache
+W:\LTSGroup\Computer_Vision\Demo_RAD_BackEnd\CMS_Infrastructure\obj\Release\net7.0\CMS_Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+W:\LTSGroup\Computer_Vision\Demo_RAD_BackEnd\CMS_Infrastructure\obj\Release\net7.0\CMS_Infrastructure.AssemblyInfoInputs.cache
+W:\LTSGroup\Computer_Vision\Demo_RAD_BackEnd\CMS_Infrastructure\obj\Release\net7.0\CMS_Infrastructure.AssemblyInfo.cs
+W:\LTSGroup\Computer_Vision\Demo_RAD_BackEnd\CMS_Infrastructure\obj\Release\net7.0\CMS_Infrastructure.csproj.CoreCompileInputs.cache
+W:\LTSGroup\Computer_Vision\Demo_RAD_BackEnd\CMS_Infrastructure\obj\Release\net7.0\CMS_Infrastructure.csproj.CopyComplete
+W:\LTSGroup\Computer_Vision\Demo_RAD_BackEnd\CMS_Infrastructure\obj\Release\net7.0\CMS_Infrastructure.dll
+W:\LTSGroup\Computer_Vision\Demo_RAD_BackEnd\CMS_Infrastructure\obj\Release\net7.0\refint\CMS_Infrastructure.dll
+W:\LTSGroup\Computer_Vision\Demo_RAD_BackEnd\CMS_Infrastructure\obj\Release\net7.0\CMS_Infrastructure.pdb
+W:\LTSGroup\Computer_Vision\Demo_RAD_BackEnd\CMS_Infrastructure\obj\Release\net7.0\CMS_Infrastructure.genruntimeconfig.cache
+W:\LTSGroup\Computer_Vision\Demo_RAD_BackEnd\CMS_Infrastructure\obj\Release\net7.0\ref\CMS_Infrastructure.dll

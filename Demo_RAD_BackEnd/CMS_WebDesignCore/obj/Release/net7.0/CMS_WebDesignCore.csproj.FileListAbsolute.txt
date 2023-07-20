@@ -1,0 +1,12 @@
+W:\LTSGroup\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\bin\Release\net7.0\CMS_WebDesignCore.deps.json
+W:\LTSGroup\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\bin\Release\net7.0\CMS_WebDesignCore.dll
+W:\LTSGroup\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\bin\Release\net7.0\CMS_WebDesignCore.pdb
+W:\LTSGroup\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Release\net7.0\CMS_WebDesignCore.csproj.AssemblyReference.cache
+W:\LTSGroup\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Release\net7.0\CMS_WebDesignCore.GeneratedMSBuildEditorConfig.editorconfig
+W:\LTSGroup\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Release\net7.0\CMS_WebDesignCore.AssemblyInfoInputs.cache
+W:\LTSGroup\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Release\net7.0\CMS_WebDesignCore.AssemblyInfo.cs
+W:\LTSGroup\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Release\net7.0\CMS_WebDesignCore.csproj.CoreCompileInputs.cache
+W:\LTSGroup\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Release\net7.0\CMS_WebDesignCore.dll
+W:\LTSGroup\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Release\net7.0\refint\CMS_WebDesignCore.dll
+W:\LTSGroup\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Release\net7.0\CMS_WebDesignCore.pdb
+W:\LTSGroup\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Release\net7.0\ref\CMS_WebDesignCore.dll
