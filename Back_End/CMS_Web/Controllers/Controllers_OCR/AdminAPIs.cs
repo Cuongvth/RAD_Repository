@@ -3,6 +3,7 @@ using CMS_Infrastructure.Context;
 using CMS_WebDesignCore.Enums;
 using CMS_WebDesignCore.IBusiness.IBusiness_OCR;
 using CMS_WebDesignCore.Wrap;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CMS_Web.Controllers.Controllers_OCR

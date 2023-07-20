@@ -1,5 +1,6 @@
 ﻿using CMS_Infrastructure.Business.Business_AI_Interpreter;
 using CMS_WebDesignCore.Entities.Entities_AI_Interpreter;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 

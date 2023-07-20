@@ -1,8 +1,8 @@
 import { HTTP } from "@/api/http_AI_InterpreterAPI";
 
-export function uploadDocument(formData) {
+export function uploadDocument(form) {
   return new Promise((resolve, reject) => {
-    HTTP.post(`upload`, formData, {
+    HTTP.post(`upload`, form, {
       headers: {
         "Content-Type": "multipart/form-data",
         "Access-Control-Allow-Origin": "*",
