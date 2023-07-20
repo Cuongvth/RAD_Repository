@@ -22,3 +22,15 @@ C:\Users\LTS\Documents\GitHub\Computer_Vision\Back_End\DJ_UploadFile\obj\Debug\n
 C:\Users\LTS\Documents\GitHub\Computer_Vision\Back_End\DJ_UploadFile\obj\Debug\net6.0\refint\DJ_UploadFile.dll
 C:\Users\LTS\Documents\GitHub\Computer_Vision\Back_End\DJ_UploadFile\obj\Debug\net6.0\DJ_UploadFile.pdb
 C:\Users\LTS\Documents\GitHub\Computer_Vision\Back_End\DJ_UploadFile\obj\Debug\net6.0\ref\DJ_UploadFile.dll
+D:\Computer_Vision\Back_End\DJ_UploadFile\bin\Debug\net6.0\DJ_UploadFile.deps.json
+D:\Computer_Vision\Back_End\DJ_UploadFile\bin\Debug\net6.0\DJ_UploadFile.dll
+D:\Computer_Vision\Back_End\DJ_UploadFile\bin\Debug\net6.0\DJ_UploadFile.pdb
+D:\Computer_Vision\Back_End\DJ_UploadFile\obj\Debug\net6.0\DJ_UploadFile.csproj.AssemblyReference.cache
+D:\Computer_Vision\Back_End\DJ_UploadFile\obj\Debug\net6.0\DJ_UploadFile.GeneratedMSBuildEditorConfig.editorconfig
+D:\Computer_Vision\Back_End\DJ_UploadFile\obj\Debug\net6.0\DJ_UploadFile.AssemblyInfoInputs.cache
+D:\Computer_Vision\Back_End\DJ_UploadFile\obj\Debug\net6.0\DJ_UploadFile.AssemblyInfo.cs
+D:\Computer_Vision\Back_End\DJ_UploadFile\obj\Debug\net6.0\DJ_UploadFile.csproj.CoreCompileInputs.cache
+D:\Computer_Vision\Back_End\DJ_UploadFile\obj\Debug\net6.0\DJ_UploadFile.dll
+D:\Computer_Vision\Back_End\DJ_UploadFile\obj\Debug\net6.0\refint\DJ_UploadFile.dll
+D:\Computer_Vision\Back_End\DJ_UploadFile\obj\Debug\net6.0\DJ_UploadFile.pdb
+D:\Computer_Vision\Back_End\DJ_UploadFile\obj\Debug\net6.0\ref\DJ_UploadFile.dll

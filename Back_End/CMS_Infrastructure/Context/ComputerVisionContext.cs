@@ -1,4 +1,4 @@
-﻿using CMS_WebDesignCore.Entities;
+﻿using CMS_WebDesignCore.Entities.Entities_OCR;
 using Microsoft.EntityFrameworkCore;
 
 namespace CMS_Infrastructure.Context

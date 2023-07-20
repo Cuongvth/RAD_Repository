@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pc\\Source\\Repos\\Computer_Vision\\Back_End\\CMS_Web\\CMS_Web.csproj": {}
+    "D:\\Computer_Vision\\Back_End\\CMS_Web\\CMS_Web.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pc\\Source\\Repos\\Computer_Vision\\Back_End\\CMS_Infrastructure\\CMS_Infrastructure.csproj": {
+    "D:\\Computer_Vision\\Back_End\\CMS_Infrastructure\\CMS_Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pc\\Source\\Repos\\Computer_Vision\\Back_End\\CMS_Infrastructure\\CMS_Infrastructure.csproj",
+        "projectUniqueName": "D:\\Computer_Vision\\Back_End\\CMS_Infrastructure\\CMS_Infrastructure.csproj",
         "projectName": "CMS_Infrastructure",
-        "projectPath": "C:\\Users\\pc\\Source\\Repos\\Computer_Vision\\Back_End\\CMS_Infrastructure\\CMS_Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pc\\Source\\Repos\\Computer_Vision\\Back_End\\CMS_Infrastructure\\obj\\",
+        "projectPath": "D:\\Computer_Vision\\Back_End\\CMS_Infrastructure\\CMS_Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\cuongvl\\.nuget\\packages\\",
+        "outputPath": "D:\\Computer_Vision\\Back_End\\CMS_Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\cuongvl\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,14 +26,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\pc\\Source\\Repos\\Computer_Vision\\Back_End\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj": {
-                "projectPath": "C:\\Users\\pc\\Source\\Repos\\Computer_Vision\\Back_End\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj"
+              "D:\\Computer_Vision\\Back_End\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj": {
+                "projectPath": "D:\\Computer_Vision\\Back_End\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj"
               }
             }
           }
@@ -44,13 +49,21 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Aspose.PDF": {
+              "target": "Package",
+              "version": "[23.7.0, )"
+            },
+            "Aspose.Words": {
+              "target": "Package",
+              "version": "[23.7.0, )"
+            },
             "Google.Apis": {
               "target": "Package",
-              "version": "[1.60.0, )"
+              "version": "[1.61.0, )"
             },
             "Google.Apis.Vision.v1": {
               "target": "Package",
-              "version": "[1.60.0.3080, )"
+              "version": "[1.61.0.3112, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -89,21 +102,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\pc\\Source\\Repos\\Computer_Vision\\Back_End\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj": {
+    "D:\\Computer_Vision\\Back_End\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pc\\Source\\Repos\\Computer_Vision\\Back_End\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj",
+        "projectUniqueName": "D:\\Computer_Vision\\Back_End\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj",
         "projectName": "CMS_WebDesignCore",
-        "projectPath": "C:\\Users\\pc\\Source\\Repos\\Computer_Vision\\Back_End\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj",
-        "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pc\\Source\\Repos\\Computer_Vision\\Back_End\\CMS_WebDesignCore\\obj\\",
+        "projectPath": "D:\\Computer_Vision\\Back_End\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj",
+        "packagesPath": "C:\\Users\\cuongvl\\.nuget\\packages\\",
+        "outputPath": "D:\\Computer_Vision\\Back_End\\CMS_WebDesignCore\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\cuongvl\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -111,6 +128,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -129,6 +147,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Google.Apis.Vision.v1": {
+              "target": "Package",
+              "version": "[1.61.0.3112, )"
+            },
             "Microsoft.AspNetCore.Http.Features": {
               "target": "Package",
               "version": "[5.0.17, )"
@@ -150,21 +172,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\pc\\Source\\Repos\\Computer_Vision\\Back_End\\CMS_Web\\CMS_Web.csproj": {
+    "D:\\Computer_Vision\\Back_End\\CMS_Web\\CMS_Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pc\\Source\\Repos\\Computer_Vision\\Back_End\\CMS_Web\\CMS_Web.csproj",
+        "projectUniqueName": "D:\\Computer_Vision\\Back_End\\CMS_Web\\CMS_Web.csproj",
         "projectName": "CMS_Web",
-        "projectPath": "C:\\Users\\pc\\Source\\Repos\\Computer_Vision\\Back_End\\CMS_Web\\CMS_Web.csproj",
-        "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pc\\Source\\Repos\\Computer_Vision\\Back_End\\CMS_Web\\obj\\",
+        "projectPath": "D:\\Computer_Vision\\Back_End\\CMS_Web\\CMS_Web.csproj",
+        "packagesPath": "C:\\Users\\cuongvl\\.nuget\\packages\\",
+        "outputPath": "D:\\Computer_Vision\\Back_End\\CMS_Web\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\cuongvl\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -172,18 +198,19 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\sdk\\7.0.304\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\pc\\Source\\Repos\\Computer_Vision\\Back_End\\CMS_Infrastructure\\CMS_Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\pc\\Source\\Repos\\Computer_Vision\\Back_End\\CMS_Infrastructure\\CMS_Infrastructure.csproj"
+              "D:\\Computer_Vision\\Back_End\\CMS_Infrastructure\\CMS_Infrastructure.csproj": {
+                "projectPath": "D:\\Computer_Vision\\Back_End\\CMS_Infrastructure\\CMS_Infrastructure.csproj"
               },
-              "C:\\Users\\pc\\Source\\Repos\\Computer_Vision\\Back_End\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj": {
-                "projectPath": "C:\\Users\\pc\\Source\\Repos\\Computer_Vision\\Back_End\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj"
+              "D:\\Computer_Vision\\Back_End\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj": {
+                "projectPath": "D:\\Computer_Vision\\Back_End\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj"
               }
             }
           }
@@ -222,7 +249,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
         }
       }
     }

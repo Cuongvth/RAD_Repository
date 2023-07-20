@@ -1,12 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "OnqJdfNS9TEhbNJDH10QQu1D0EygbGt9lqSUFXzWsYitgrUsqh8uNrWRQjWCh4EPaV1qZ3QXKM7V2HyLC9F4uw==",
+  "dgSpecHash": "GV4Ch84DTJlZH6KKDNzMQaljxo2I7e0mKCQiQPooAPV6NF4jIhRyOt8LiBpE65nJJoZlArNVPrid9oXApSAAOw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\pc\\Source\\Repos\\Computer_Vision\\Back_End\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj",
+  "projectFilePath": "D:\\Computer_Vision\\Back_End\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\pc\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
-    "C:\\Users\\pc\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.1\\microsoft.extensions.primitives.5.0.1.nupkg.sha512",
-    "C:\\Users\\pc\\.nuget\\packages\\system.io.pipelines\\5.0.2\\system.io.pipelines.5.0.2.nupkg.sha512"
+    "C:\\Users\\cuongvl\\.nuget\\packages\\google.apis\\1.61.0\\google.apis.1.61.0.nupkg.sha512",
+    "C:\\Users\\cuongvl\\.nuget\\packages\\google.apis.auth\\1.61.0\\google.apis.auth.1.61.0.nupkg.sha512",
+    "C:\\Users\\cuongvl\\.nuget\\packages\\google.apis.core\\1.61.0\\google.apis.core.1.61.0.nupkg.sha512",
+    "C:\\Users\\cuongvl\\.nuget\\packages\\google.apis.vision.v1\\1.61.0.3112\\google.apis.vision.v1.1.61.0.3112.nupkg.sha512",
+    "C:\\Users\\cuongvl\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
+    "C:\\Users\\cuongvl\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.1\\microsoft.extensions.primitives.5.0.1.nupkg.sha512",
+    "C:\\Users\\cuongvl\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\cuongvl\\.nuget\\packages\\system.io.pipelines\\5.0.2\\system.io.pipelines.5.0.2.nupkg.sha512"
   ],
   "logs": []
 }

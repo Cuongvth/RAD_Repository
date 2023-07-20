@@ -34,3 +34,15 @@ W:\Git\Computer_Vision\Back_End\CMS_WebDesignCore\obj\Release\net6.0\CMS_WebDesi
 W:\Git\Computer_Vision\Back_End\CMS_WebDesignCore\obj\Release\net6.0\refint\CMS_WebDesignCore.dll
 W:\Git\Computer_Vision\Back_End\CMS_WebDesignCore\obj\Release\net6.0\CMS_WebDesignCore.pdb
 W:\Git\Computer_Vision\Back_End\CMS_WebDesignCore\obj\Release\net6.0\ref\CMS_WebDesignCore.dll
+D:\Computer_Vision\Back_End\CMS_WebDesignCore\bin\Release\net6.0\CMS_WebDesignCore.deps.json
+D:\Computer_Vision\Back_End\CMS_WebDesignCore\bin\Release\net6.0\CMS_WebDesignCore.dll
+D:\Computer_Vision\Back_End\CMS_WebDesignCore\bin\Release\net6.0\CMS_WebDesignCore.pdb
+D:\Computer_Vision\Back_End\CMS_WebDesignCore\obj\Release\net6.0\CMS_WebDesignCore.csproj.AssemblyReference.cache
+D:\Computer_Vision\Back_End\CMS_WebDesignCore\obj\Release\net6.0\CMS_WebDesignCore.GeneratedMSBuildEditorConfig.editorconfig
+D:\Computer_Vision\Back_End\CMS_WebDesignCore\obj\Release\net6.0\CMS_WebDesignCore.AssemblyInfoInputs.cache
+D:\Computer_Vision\Back_End\CMS_WebDesignCore\obj\Release\net6.0\CMS_WebDesignCore.AssemblyInfo.cs
+D:\Computer_Vision\Back_End\CMS_WebDesignCore\obj\Release\net6.0\CMS_WebDesignCore.csproj.CoreCompileInputs.cache
+D:\Computer_Vision\Back_End\CMS_WebDesignCore\obj\Release\net6.0\CMS_WebDesignCore.dll
+D:\Computer_Vision\Back_End\CMS_WebDesignCore\obj\Release\net6.0\refint\CMS_WebDesignCore.dll
+D:\Computer_Vision\Back_End\CMS_WebDesignCore\obj\Release\net6.0\CMS_WebDesignCore.pdb
+D:\Computer_Vision\Back_End\CMS_WebDesignCore\obj\Release\net6.0\ref\CMS_WebDesignCore.dll

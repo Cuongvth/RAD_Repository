@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pc\\Source\\Repos\\Computer_Vision\\Back_End\\DJ_UploadFile\\DJ_UploadFile.csproj": {}
+    "D:\\Computer_Vision\\Back_End\\DJ_UploadFile\\DJ_UploadFile.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pc\\Source\\Repos\\Computer_Vision\\Back_End\\DJ_UploadFile\\DJ_UploadFile.csproj": {
+    "D:\\Computer_Vision\\Back_End\\DJ_UploadFile\\DJ_UploadFile.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pc\\Source\\Repos\\Computer_Vision\\Back_End\\DJ_UploadFile\\DJ_UploadFile.csproj",
+        "projectUniqueName": "D:\\Computer_Vision\\Back_End\\DJ_UploadFile\\DJ_UploadFile.csproj",
         "projectName": "DJ_UploadFile",
-        "projectPath": "C:\\Users\\pc\\Source\\Repos\\Computer_Vision\\Back_End\\DJ_UploadFile\\DJ_UploadFile.csproj",
-        "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pc\\Source\\Repos\\Computer_Vision\\Back_End\\DJ_UploadFile\\obj\\",
+        "projectPath": "D:\\Computer_Vision\\Back_End\\DJ_UploadFile\\DJ_UploadFile.csproj",
+        "packagesPath": "C:\\Users\\cuongvl\\.nuget\\packages\\",
+        "outputPath": "D:\\Computer_Vision\\Back_End\\DJ_UploadFile\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\cuongvl\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -65,7 +70,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
         }
       }
     }

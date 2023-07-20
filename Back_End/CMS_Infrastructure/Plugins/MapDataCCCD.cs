@@ -1,5 +1,5 @@
 ﻿using CMS_WebDesignCore.DTO;
-using CMS_WebDesignCore.Entities;
+using CMS_WebDesignCore.Entities.Entities_OCR;
 using System.Text.RegularExpressions;
 
 namespace CMS_Infrastructure.Plugins
