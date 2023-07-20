@@ -242,3 +242,4 @@ D:\Computer_Vision\Back_End\CMS_Web\obj\Debug\net6.0\scopedcss\bundle\CMS_Web.st
 D:\Computer_Vision\Back_End\CMS_Web\obj\Debug\net6.0\CMS_Web.csproj.CopyComplete
 D:\Computer_Vision\Back_End\CMS_Web\obj\Debug\net6.0\CMS_Web.genruntimeconfig.cache
 D:\Computer_Vision\Back_End\CMS_Web\obj\Debug\net6.0\ref\CMS_Web.dll
+D:\Computer_Vision\Back_End\CMS_Web\obj\Debug\net6.0\CMS_Web.sourcelink.json

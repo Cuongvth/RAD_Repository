@@ -8,4 +8,5 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = CMS_Infrastructure
-build_property.ProjectDir = C:\Users\cuongvl\Downloads\Computer_Vision-35ad3ee92e09c638e12a6e8a4a3b4bb982ce6054\Computer_Vision-35ad3ee92e09c638e12a6e8a4a3b4bb982ce6054\Back_End\CMS_Infrastructure\
+build_property.ProjectDir = D:\Computer_Vision\Back_End\CMS_Infrastructure\
+build_property.EnableComHosting = 

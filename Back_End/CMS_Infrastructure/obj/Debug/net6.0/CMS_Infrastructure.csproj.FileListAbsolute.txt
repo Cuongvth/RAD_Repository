@@ -49,3 +49,4 @@ D:\Computer_Vision\Back_End\CMS_Infrastructure\obj\Debug\net6.0\CMS_Infrastructu
 D:\Computer_Vision\Back_End\CMS_Infrastructure\obj\Debug\net6.0\CMS_Infrastructure.csproj.CopyComplete
 D:\Computer_Vision\Back_End\CMS_Infrastructure\obj\Debug\net6.0\CMS_Infrastructure.genruntimeconfig.cache
 D:\Computer_Vision\Back_End\CMS_Infrastructure\obj\Debug\net6.0\ref\CMS_Infrastructure.dll
+D:\Computer_Vision\Back_End\CMS_Infrastructure\obj\Debug\net6.0\CMS_Infrastructure.sourcelink.json
