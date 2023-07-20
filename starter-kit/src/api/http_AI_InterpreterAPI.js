@@ -2,7 +2,7 @@ import axios from "axios";
 
 export class HTTPSingleton {
   static config = {
-    baseURL: "https://localhost:44342",
+    baseURL: "https://rd.dj-xuyenchi.edu.vn",
     
     headers: {
       "Content-Type": "application/json",
