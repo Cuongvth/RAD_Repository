@@ -7,7 +7,7 @@ export default [
   { heading: "LTS Tech R&D" },
   {
     title: "T6 - Nhận Dạng Thẻ",
-    icon: { icon: "tabler-smart-home" },
+    icon: { icon: "tabler-scan-eye" },
     children: [
       {
         title: "Nhận dạng trực tiếp",
@@ -30,22 +30,18 @@ export default [
   },
   {
     title: "T7 - ChatBot DMT du lịch Việt",
-    icon: { icon: "tabler-smart-home" },
+    icon: { icon: "tabler-brand-twitch" },
     children: [
       {
         title: "Chat Bot",
         to: { name: "travel_assistant_chatbot" },
-      },
-      {
-        title: "Road Map",
-        to: { name: "road-map" },
       },
     ],
     badgeClass: "bg-primary",
   },
   {
     title: "T7 - AI dịch tài liệu đa dinh dạng (EN-KR-JP)",
-    icon: { icon: "tabler-smart-home" },
+    icon: { icon: "tabler-language-hiragana" },
     children: [
       {
         title: "AI Dịch Tài Liệu",
