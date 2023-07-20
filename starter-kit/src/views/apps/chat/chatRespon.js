@@ -3,7 +3,7 @@ export const templateMess = info => {
   for (let index = 0; index < info.length; index++) {
     const element = info[index];
 
-    const link = element.pagemap.metatags[0]["og:image"];
+    var link = element.pagemap.metatags[0]["og:image"];
     if (link != undefined) {
       if (!link.includes("http")) {
         link = "https://career.lotus-qa.com/wp-content/uploads/sites/3/2022/05/LTS-GROUP-2.png";
