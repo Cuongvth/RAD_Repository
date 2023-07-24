@@ -2,7 +2,7 @@ import axios from "axios";
 
 export class HTTPSingleton {
   static config = {
-    baseURL: "https://rd.dj-xuyenchi.edu.vn",
+    baseURL: "https://apirad.ltsgroup.tech/api/OCRAPI",
     
     headers: {
       "Content-Type": "application/json",

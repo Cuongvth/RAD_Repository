@@ -2,7 +2,7 @@ import { HTTP } from "@/api/httpOCR";
 
 export function checkInData(id) {
   return new Promise((resolve, reject) => {
-    HTTP.get(`admin/nhandang?duLieuId=${id}`)
+    HTTP.get(`nhandang?duLieuId=${id}`)
       .then(response => {
         resolve(response.data);
       })

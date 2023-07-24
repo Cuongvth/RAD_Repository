@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CMS_Web.Controllers.Controllers_AI_Interpreter
 {
+    [Route("api/[controller]")]
     public class DocumentAPI : BaseAPI
     {
         private readonly DocumentService _documentService;

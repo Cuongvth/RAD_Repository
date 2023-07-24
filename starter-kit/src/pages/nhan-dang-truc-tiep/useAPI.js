@@ -2,7 +2,7 @@ import { HTTP } from "@/api/httpOCR";
 
 export function checkDataLocal(form) {
   return new Promise((resolve, reject) => {
-    HTTP.post(`admin/nhandangtructiep`, form, {
+    HTTP.post(`nhandangtructiep`, form, {
       headers: {
         "Content-Type": "multipart/form-data",
         "Access-Control-Allow-Origin": "*",

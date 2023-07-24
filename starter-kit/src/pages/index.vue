@@ -9,7 +9,7 @@
     >
       <VListGroup
         :value="item.key"
-        style="margin: 0 24px 4px 24px;"
+        style="margin: 0 24px 4px 24px"
       >
         <template #activator="{ props }">
           <VListItem
@@ -34,7 +34,7 @@
           </VCol>
           <VCol>
             <iframe
-              style="border-radius: 10px;"
+              style="border-radius: 10px"
               width="100%"
               height="400px"
               :src="item.linkdemo"
@@ -53,12 +53,16 @@
         </VRow>
         <VRow>
           <VList
-            v-model:opened="open['roadmap']"
+            v-model:opened="open[item.key + 'roadmap']"
             width="100vw"
           >
             <VListGroup
-              value="roadmap"
-              style="border: 1px solid rgb(222, 221, 224); border-radius: 10px; overflow: hidden;"
+              :value="item.key + 'roadmap'"
+              style="
+                border: 1px solid rgb(222, 221, 224);
+                border-radius: 10px;
+                overflow: hidden;
+              "
               density="compact"
             >
               <template #activator="{ props }">
@@ -88,5 +92,5 @@
 import CardReadMore from "./CardReadMore.vue";
 import { content } from "./pageHome";
 
-const open = ref({ }) ;
+const open = ref({});
 </script>

@@ -2,7 +2,7 @@ import { HTTP } from "@/api/httpOCR";
 
 export function getBLX(page, pageSize) {
   return new Promise((resolve, reject) => {
-    HTTP.get(`admin/getblx?page=${page}&pageSize=${pageSize}`)
+    HTTP.get(`getblx?page=${page}&pageSize=${pageSize}`)
       .then(response => {
         resolve(response.data);
       })
@@ -13,7 +13,7 @@ export function getBLX(page, pageSize) {
 }
 export function getBLXCount() {
   return new Promise((resolve, reject) => {
-    HTTP.get(`admin/getblxcount`)
+    HTTP.get(`getblxcount`)
       .then(response => {
         resolve(response.data);
       })

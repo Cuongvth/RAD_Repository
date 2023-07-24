@@ -7,14 +7,14 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CMS_Web.Controllers.Controllers_OCR
 {
-    [Route("admin")]
-    public class AdminAPIs : BaseAPI
+    [Route("api/[controller]")]
+    public class OCRAPI : BaseAPI
     {
         private readonly IAdminService _admin;
         private readonly ComputerVisionContext _context;
-        public AdminAPIs()
+        public OCRAPI()
         {
-            _admin = new AdminService();
+            _admin = new OCRService();
             _context = new ComputerVisionContext();
         }
 

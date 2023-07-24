@@ -2,7 +2,7 @@ import { HTTP } from "@/api/httpOCR";
 
 export function getDuLieuCount() {
   return new Promise((resolve, reject) => {
-    HTTP.get(`admin/getdulieucount`)
+    HTTP.get(`getdulieucount`)
       .then(response => {
         resolve(response.data);
       })
@@ -13,7 +13,7 @@ export function getDuLieuCount() {
 }
 export function getDuLieu(page, pageSize) {
   return new Promise((resolve, reject) => {
-    HTTP.get(`admin/getdulieu?page=${page}&pageSize=${pageSize}`)
+    HTTP.get(`getdulieu?page=${page}&pageSize=${pageSize}`)
       .then(response => {
         resolve(response.data);
       })

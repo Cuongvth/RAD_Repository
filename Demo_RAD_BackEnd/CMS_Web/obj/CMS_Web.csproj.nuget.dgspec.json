@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "W:\\LTSGroup\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_Web\\CMS_Web.csproj": {}
+    "D:\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_Web\\CMS_Web.csproj": {}
   },
   "projects": {
-    "W:\\LTSGroup\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_Infrastructure\\CMS_Infrastructure.csproj": {
+    "D:\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_Infrastructure\\CMS_Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "W:\\LTSGroup\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_Infrastructure\\CMS_Infrastructure.csproj",
+        "projectUniqueName": "D:\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_Infrastructure\\CMS_Infrastructure.csproj",
         "projectName": "CMS_Infrastructure",
-        "projectPath": "W:\\LTSGroup\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_Infrastructure\\CMS_Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\VuLanhCuong\\.nuget\\packages\\",
-        "outputPath": "W:\\LTSGroup\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_Infrastructure\\obj\\",
+        "projectPath": "D:\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_Infrastructure\\CMS_Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\cuongvl\\.nuget\\packages\\",
+        "outputPath": "D:\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "S:\\VisualStudio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\VuLanhCuong\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\cuongvl\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -33,8 +33,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "W:\\LTSGroup\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj": {
-                "projectPath": "W:\\LTSGroup\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj"
+              "D:\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj": {
+                "projectPath": "D:\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj"
               }
             }
           }
@@ -102,24 +102,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "W:\\LTSGroup\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj": {
+    "D:\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "W:\\LTSGroup\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj",
+        "projectUniqueName": "D:\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj",
         "projectName": "CMS_WebDesignCore",
-        "projectPath": "W:\\LTSGroup\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj",
-        "packagesPath": "C:\\Users\\VuLanhCuong\\.nuget\\packages\\",
-        "outputPath": "W:\\LTSGroup\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_WebDesignCore\\obj\\",
+        "projectPath": "D:\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj",
+        "packagesPath": "C:\\Users\\cuongvl\\.nuget\\packages\\",
+        "outputPath": "D:\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_WebDesignCore\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "S:\\VisualStudio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\VuLanhCuong\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\cuongvl\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -172,24 +172,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "W:\\LTSGroup\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_Web\\CMS_Web.csproj": {
+    "D:\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_Web\\CMS_Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "W:\\LTSGroup\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_Web\\CMS_Web.csproj",
+        "projectUniqueName": "D:\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_Web\\CMS_Web.csproj",
         "projectName": "CMS_Web",
-        "projectPath": "W:\\LTSGroup\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_Web\\CMS_Web.csproj",
-        "packagesPath": "C:\\Users\\VuLanhCuong\\.nuget\\packages\\",
-        "outputPath": "W:\\LTSGroup\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_Web\\obj\\",
+        "projectPath": "D:\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_Web\\CMS_Web.csproj",
+        "packagesPath": "C:\\Users\\cuongvl\\.nuget\\packages\\",
+        "outputPath": "D:\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_Web\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "S:\\VisualStudio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\VuLanhCuong\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\cuongvl\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -199,18 +199,18 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
-          "C:\\Program Files\\dotnet\\sdk\\7.0.304\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "W:\\LTSGroup\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_Infrastructure\\CMS_Infrastructure.csproj": {
-                "projectPath": "W:\\LTSGroup\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_Infrastructure\\CMS_Infrastructure.csproj"
+              "D:\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_Infrastructure\\CMS_Infrastructure.csproj": {
+                "projectPath": "D:\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_Infrastructure\\CMS_Infrastructure.csproj"
               },
-              "W:\\LTSGroup\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj": {
-                "projectPath": "W:\\LTSGroup\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj"
+              "D:\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj": {
+                "projectPath": "D:\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj"
               }
             }
           }
@@ -253,7 +253,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
         }
       }
     }

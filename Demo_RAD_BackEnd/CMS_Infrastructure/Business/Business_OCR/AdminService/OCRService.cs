@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CMS_Infrastructure.Business.Business_OCR.AdminService
 {
-    public class AdminService : BaseBusiness, IAdminService
+    public class OCRService : BaseBusiness, IAdminService
     {
         public async Task<IQueryable<CanCuocCongDan>> GetCanCuocPage(int page, int pageSize)
         {

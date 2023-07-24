@@ -1,17 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "fug1yTL8dfwMytejM1YoHRXHEtf+4NjqHCi5zOMnqgGXfrcV6Fh4/H+6hzan+Fxru7MMDavjdrsVnVS0PUWdZg==",
+  "dgSpecHash": "z4Y5XyLlhfs1tCKWcE7fLtooTDN7PYoW8hQGh/V8p/Y5R486wC6Y0o/rwfLLRfSlGBhqrFYY6Gs67XKFYAdjLA==",
   "success": true,
-  "projectFilePath": "W:\\LTSGroup\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj",
+  "projectFilePath": "D:\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\VuLanhCuong\\.nuget\\packages\\google.apis\\1.61.0\\google.apis.1.61.0.nupkg.sha512",
-    "C:\\Users\\VuLanhCuong\\.nuget\\packages\\google.apis.auth\\1.61.0\\google.apis.auth.1.61.0.nupkg.sha512",
-    "C:\\Users\\VuLanhCuong\\.nuget\\packages\\google.apis.core\\1.61.0\\google.apis.core.1.61.0.nupkg.sha512",
-    "C:\\Users\\VuLanhCuong\\.nuget\\packages\\google.apis.vision.v1\\1.61.0.3112\\google.apis.vision.v1.1.61.0.3112.nupkg.sha512",
-    "C:\\Users\\VuLanhCuong\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
-    "C:\\Users\\VuLanhCuong\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.1\\microsoft.extensions.primitives.5.0.1.nupkg.sha512",
-    "C:\\Users\\VuLanhCuong\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
-    "C:\\Users\\VuLanhCuong\\.nuget\\packages\\system.io.pipelines\\5.0.2\\system.io.pipelines.5.0.2.nupkg.sha512"
+    "C:\\Users\\cuongvl\\.nuget\\packages\\google.apis\\1.61.0\\google.apis.1.61.0.nupkg.sha512",
+    "C:\\Users\\cuongvl\\.nuget\\packages\\google.apis.auth\\1.61.0\\google.apis.auth.1.61.0.nupkg.sha512",
+    "C:\\Users\\cuongvl\\.nuget\\packages\\google.apis.core\\1.61.0\\google.apis.core.1.61.0.nupkg.sha512",
+    "C:\\Users\\cuongvl\\.nuget\\packages\\google.apis.vision.v1\\1.61.0.3112\\google.apis.vision.v1.1.61.0.3112.nupkg.sha512",
+    "C:\\Users\\cuongvl\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
+    "C:\\Users\\cuongvl\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.1\\microsoft.extensions.primitives.5.0.1.nupkg.sha512",
+    "C:\\Users\\cuongvl\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\cuongvl\\.nuget\\packages\\system.io.pipelines\\5.0.2\\system.io.pipelines.5.0.2.nupkg.sha512"
   ],
   "logs": []
 }

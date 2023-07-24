@@ -2,7 +2,7 @@ import { HTTP } from "@/api/httpOCR";
 
 export function getOneCanCuoc(id) {
   return new Promise((resolve, reject) => {
-    HTTP.get(`admin/getonecancuoc?id=${id}`)
+    HTTP.get(`getonecancuoc?id=${id}`)
       .then(response => {
         resolve(response.data);
       })
@@ -33,7 +33,7 @@ export function danhGiaDuLieu(
   if (type == 4) {
     return new Promise((resolve, reject) => {
       HTTP.get(
-        `admin/danhgiadulieublx?BLXID=${id}&isSo=${checkTruong[0]}&isHoTen=${checkTruong[1]}&isNoiCuTru=${checkTruong[3]}&isNgayThang=${checkTruong[2]}&isQuocTich=${checkTruong[4]}&isHang=${checkTruong[5]}&isMoTaXeDuocSuDung=${checkTruong[6]}&isNgayTrungTuyen=${checkTruong[7]}&isNgayDangKi=${checkTruong[8]}&isMatTruoc=${googleMatTruoc}&isMatSau=${googleMatSau}&isLoaiThe=${loaiThe}`,
+        `danhgiadulieublx?BLXID=${id}&isSo=${checkTruong[0]}&isHoTen=${checkTruong[1]}&isNoiCuTru=${checkTruong[3]}&isNgayThang=${checkTruong[2]}&isQuocTich=${checkTruong[4]}&isHang=${checkTruong[5]}&isMoTaXeDuocSuDung=${checkTruong[6]}&isNgayTrungTuyen=${checkTruong[7]}&isNgayDangKi=${checkTruong[8]}&isMatTruoc=${googleMatTruoc}&isMatSau=${googleMatSau}&isLoaiThe=${loaiThe}`,
       )
         .then(response => {
           resolve(response.data);

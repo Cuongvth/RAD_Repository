@@ -7,7 +7,7 @@ const props = defineProps({
   linkdoc: String,
 });
 
-const articles= [{ img: rocket, subtitle: "Whether you\'re new or you\'re a power user.", title: "Getting Started" }, { img: lightbulb, subtitle: "Are you a new customer wondering how to get started?", title: "First Steps" }, { img: discord, subtitle: "Documentation of the development process", title: "Documentation" }];
+const articles= [{ img: rocket, subtitle: "LTS Edu trực thuộc tập đoàn công nghệ LTS Group", title: "Về chúng tôi" }, { img: lightbulb, subtitle: "Đọc thêm về dự án này", title: "Tài liệu" }, { img: discord, subtitle: "Cộng đồng của LTS Group", title: "Cộng đồng" }];
 </script>
 
 <template>
@@ -39,7 +39,7 @@ const articles= [{ img: rocket, subtitle: "Whether you\'re new or you\'re a powe
                 {{ article.subtitle }}
               </p>
 
-              <a :href="article.title == 'Documentation'? props.linkdoc: '#'">
+              <a :href="article.title == 'Tài liệu'? props.linkdoc: '#'">
                 <VBtn
                   size="small"
                   variant="tonal"

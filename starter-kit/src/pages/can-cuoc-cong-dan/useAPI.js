@@ -2,7 +2,7 @@ import { HTTP } from "@/api/httpOCR";
 
 export function getCanCuoc(page, pageSize) {
   return new Promise((resolve, reject) => {
-    HTTP.get(`admin/getcancuoc?page=${page}&pageSize=${pageSize}`)
+    HTTP.get(`getcancuoc?page=${page}&pageSize=${pageSize}`)
       .then(response => {
         resolve(response.data);
       })
@@ -13,7 +13,7 @@ export function getCanCuoc(page, pageSize) {
 }
 export function getCanCuocCount() {
   return new Promise((resolve, reject) => {
-    HTTP.get(`admin/getcancuoccount`)
+    HTTP.get(`getcancuoccount`)
       .then(response => {
         resolve(response.data);
       })
