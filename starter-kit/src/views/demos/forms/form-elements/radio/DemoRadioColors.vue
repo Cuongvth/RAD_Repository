@@ -1,5 +1,5 @@
 <script setup>
-const selectedRadio = ref('primary')
+const selectedRadio = ref('primary');
 
 const colorsRadio = [
   'Primary',
@@ -8,7 +8,7 @@ const colorsRadio = [
   'Info',
   'Warning',
   'Error',
-]
+];
 </script>
 
 <template>

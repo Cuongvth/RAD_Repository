@@ -1,6 +1,6 @@
 <script setup>
-const columnRadio = ref('radio-1')
-const inlineRadio = ref('radio-1')
+const columnRadio = ref('radio-1');
+const inlineRadio = ref('radio-1');
 </script>
 
 <template>

@@ -52,7 +52,7 @@ export const colors = { ts: `<template>
     </VAvatar>
   </div>
 </template>
-` }
+` };
 
 export const group = { ts: `<script setup lang="ts">
 import avatar1 from '@images/avatars/avatar-1.png'
@@ -198,7 +198,7 @@ import avatar6 from '@images/avatars/avatar-6.png'
     </VAvatar>
   </div>
 </template>
-` }
+` };
 
 export const icons = { ts: `<template>
   <div class="demo-space-x">
@@ -266,7 +266,7 @@ export const icons = { ts: `<template>
     />
   </div>
 </template>
-` }
+` };
 
 export const images = { ts: `<script setup lang="ts">
 import avatar1 from '@images/avatars/avatar-1.png'
@@ -316,7 +316,7 @@ import avatar6 from '@images/avatars/avatar-6.png'
     <VAvatar :image="avatar6" />
   </div>
 </template>
-` }
+` };
 
 export const rounded = { ts: `<template>
   <div class="demo-space-x">
@@ -394,7 +394,7 @@ export const rounded = { ts: `<template>
     />
   </div>
 </template>
-` }
+` };
 
 export const sizes = { ts: `<template>
   <div class="demo-space-x">
@@ -466,7 +466,7 @@ export const sizes = { ts: `<template>
     </VAvatar>
   </div>
 </template>
-` }
+` };
 
 export const tonal = { ts: `<template>
   <div class="demo-space-x">
@@ -550,5 +550,5 @@ export const tonal = { ts: `<template>
     </VAvatar>
   </div>
 </template>
-` }
+` };
 

@@ -1,6 +1,6 @@
 <script setup>
-const includeFiles = ref(true)
-const isInputEnabled = ref(false)
+const includeFiles = ref(true);
+const isInputEnabled = ref(false);
 </script>
 
 <template>

@@ -1,14 +1,14 @@
 <script setup>
-const currentTab = ref('Appetizers')
+const currentTab = ref('Appetizers');
 
 const items = [
   'Fixed Tab 1',
   'Fixed Tab 2',
   'Fixed Tab 3',
   'Fixed Tab 4',
-]
+];
 
-const tabItemText = 'hortbread chocolate bar marshmallow bear claw tiramisu chocolate cookie wafer. Gummies sweet brownie brownie marshmallow chocolate cake pastry. Topping macaroon shortbread liquorice dragée macaroon.'
+const tabItemText = 'hortbread chocolate bar marshmallow bear claw tiramisu chocolate cookie wafer. Gummies sweet brownie brownie marshmallow chocolate cake pastry. Topping macaroon shortbread liquorice dragée macaroon.';
 </script>
 
 <template>

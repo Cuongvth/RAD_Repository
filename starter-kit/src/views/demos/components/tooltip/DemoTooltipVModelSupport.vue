@@ -1,5 +1,5 @@
 <script setup>
-const isTooltipVisible = ref(false)
+const isTooltipVisible = ref(false);
 </script>
 
 <template>

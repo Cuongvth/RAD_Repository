@@ -1,6 +1,6 @@
 <script setup>
-const length = ref(5)
-const rating = ref(2)
+const length = ref(5);
+const rating = ref(2);
 </script>
 
 <template>

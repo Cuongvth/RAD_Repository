@@ -64,10 +64,10 @@ const countryList = [
     label: 'Burkina Faso',
     value: 'burkina',
   },
-]
+];
 
-const selectedCountry = ref('')
-const isDialogVisible = ref(false)
+const selectedCountry = ref('');
+const isDialogVisible = ref(false);
 </script>
 
 <template>

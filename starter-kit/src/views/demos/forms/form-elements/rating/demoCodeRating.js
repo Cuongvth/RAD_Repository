@@ -4,7 +4,7 @@ export const basic = { ts: `<template>
 `, js: `<template>
   <VRating />
 </template>
-` }
+` };
 
 export const clearable = { ts: `<template>
   <VRating clearable />
@@ -12,7 +12,7 @@ export const clearable = { ts: `<template>
 `, js: `<template>
   <VRating clearable />
 </template>
-` }
+` };
 
 export const colors = { ts: `<script lang="ts" setup>
 const rating = ref(4)
@@ -52,7 +52,7 @@ const ratingColors = [
     />
   </div>
 </template>
-` }
+` };
 
 export const density = { ts: `<template>
   <VRating density="compact" />
@@ -60,7 +60,7 @@ export const density = { ts: `<template>
 `, js: `<template>
   <VRating density="compact" />
 </template>
-` }
+` };
 
 export const hover = { ts: `<template>
   <VRating hover />
@@ -68,7 +68,7 @@ export const hover = { ts: `<template>
 `, js: `<template>
   <VRating hover />
 </template>
-` }
+` };
 
 export const incremented = { ts: `<script lang="ts" setup>
 const rating = ref(4.5)
@@ -92,7 +92,7 @@ const rating = ref(4.5)
     hover
   />
 </template>
-` }
+` };
 
 export const itemSlot = { ts: `<script lang="ts" setup>
 const rating = ref(4.5)
@@ -128,7 +128,7 @@ const rating = ref(4.5)
     </template>
   </VRating>
 </template>
-` }
+` };
 
 export const length = { ts: `<script lang="ts" setup>
 const length = ref(5)
@@ -178,7 +178,7 @@ const rating = ref(2)
     Model: {{ rating }}
   </p>
 </template>
-` }
+` };
 
 export const readonly = { ts: `<template>
   <VRating
@@ -192,7 +192,7 @@ export const readonly = { ts: `<template>
     :model-value="4"
   />
 </template>
-` }
+` };
 
 export const size = { ts: `<script lang="ts" setup>
 const rating = ref(4)
@@ -252,5 +252,5 @@ const rating = ref(4)
     />
   </div>
 </template>
-` }
+` };
 

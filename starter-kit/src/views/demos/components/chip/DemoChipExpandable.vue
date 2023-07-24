@@ -1,5 +1,5 @@
 <script setup>
-const isMenuVisible = ref(false)
+const isMenuVisible = ref(false);
 </script>
 
 <template>

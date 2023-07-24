@@ -4,19 +4,19 @@ const seasons = [
   'Spring',
   'Summer',
   'Fall',
-]
+];
 
 const icons = [
   'tabler-snowflake',
   'tabler-leaf',
   'tabler-flame',
   'tabler-droplet',
-]
+];
 
 const sliderValues = ref([
   1,
   2,
-])
+]);
 </script>
 
 <template>

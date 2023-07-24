@@ -1,11 +1,11 @@
 <script setup>
-const isDefaultChipVisible = ref(true)
-const isPrimaryChipVisible = ref(true)
-const isSecondaryChipVisible = ref(true)
-const isSuccessChipVisible = ref(true)
-const isInfoChipVisible = ref(true)
-const isWarningChipVisible = ref(true)
-const isErrorChipVisible = ref(true)
+const isDefaultChipVisible = ref(true);
+const isPrimaryChipVisible = ref(true);
+const isSecondaryChipVisible = ref(true);
+const isSuccessChipVisible = ref(true);
+const isInfoChipVisible = ref(true);
+const isWarningChipVisible = ref(true);
+const isErrorChipVisible = ref(true);
 </script>
 
 <template>

@@ -2,7 +2,7 @@
 const selectedOption = ref({
   state: 'Florida',
   abbr: 'FL',
-})
+});
 
 const items = [
   {
@@ -25,7 +25,7 @@ const items = [
     state: 'New York',
     abbr: 'NY',
   },
-]
+];
 </script>
 
 <template>

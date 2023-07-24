@@ -1,7 +1,7 @@
 <script setup>
-const sliderColorValue = ref(25)
-const sliderTrackColorValue = ref(75)
-const sliderThumbColorValue = ref(50)
+const sliderColorValue = ref(25);
+const sliderTrackColorValue = ref(75);
+const sliderThumbColorValue = ref(50);
 </script>
 
 <template>

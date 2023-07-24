@@ -90,7 +90,7 @@ import avatar1 from '@images/avatars/avatar-1.png'
     </VBadge>
   </div>
 </template>
-` }
+` };
 
 export const color = { ts: `<template>
   <div class="demo-space-x">
@@ -218,7 +218,7 @@ export const color = { ts: `<template>
     </VBadge>
   </div>
 </template>
-` }
+` };
 
 export const dynamicNotifications = { ts: `<script lang="ts" setup>
 const notifications = ref<number>()
@@ -284,7 +284,7 @@ const notifications = ref()
     </div>
   </div>
 </template>
-` }
+` };
 
 export const icon = { ts: `<script setup lang="ts">
 import avatar1 from '@images/avatars/avatar-1.png'
@@ -336,7 +336,7 @@ import avatar1 from '@images/avatars/avatar-1.png'
     </VBadge>
   </div>
 </template>
-` }
+` };
 
 export const maximumValue = { ts: `<script setup lang="ts">
 import avatar1 from '@images/avatars/avatar-1.png'
@@ -418,7 +418,7 @@ import avatar1 from '@images/avatars/avatar-1.png'
     </VBadge>
   </div>
 </template>
-` }
+` };
 
 export const position = { ts: `<script setup lang="ts">
 import avatar1 from '@images/avatars/avatar-1.png'
@@ -514,7 +514,7 @@ import avatar1 from '@images/avatars/avatar-1.png'
     </VBadge>
   </div>
 </template>
-` }
+` };
 
 export const showOnHover = { ts: `<script lang="ts" setup>
 const tRefInstagramBadge = ref()
@@ -613,7 +613,7 @@ const showWhatsappBadgeOnHover = useElementHover(tRefWhatsappBadge)
     </VBadge>
   </div>
 </template>
-` }
+` };
 
 export const style = { ts: `<script setup lang="ts">
 import avatar1 from '@images/avatars/avatar-1.png'
@@ -727,7 +727,7 @@ import avatar1 from '@images/avatars/avatar-1.png'
     </VBadge>
   </div>
 </template>
-` }
+` };
 
 export const tabs = { ts: `<script setup lang="ts">
 const tabs = [
@@ -797,5 +797,5 @@ const tabs = [
     </VTab>
   </VTabs>
 </template>
-` }
+` };
 

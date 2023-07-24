@@ -1,5 +1,5 @@
 <script setup>
-const value = ref(0)
+const value = ref(0);
 </script>
 
 <template>

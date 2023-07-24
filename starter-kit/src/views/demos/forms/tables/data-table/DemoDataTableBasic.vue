@@ -1,6 +1,6 @@
 <script setup>
-import { VDataTable } from 'vuetify/labs/VDataTable'
-import data from '@/views/demos/forms/tables/data-table/datatable'
+import { VDataTable } from 'vuetify/labs/VDataTable';
+import data from '@/views/demos/forms/tables/data-table/datatable';
 
 const headers = [
   {
@@ -28,7 +28,7 @@ const headers = [
     title: 'AGE',
     key: 'age',
   },
-]
+];
 </script>
 
 <template>

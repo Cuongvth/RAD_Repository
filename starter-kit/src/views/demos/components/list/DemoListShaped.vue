@@ -12,7 +12,7 @@ const items = [
     text: 'Bonbon macaroon gummies pie jelly',
     icon: 'tabler-brand-twitter',
   },
-]
+];
 </script>
 
 <template>

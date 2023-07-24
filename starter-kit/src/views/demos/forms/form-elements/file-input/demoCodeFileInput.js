@@ -10,7 +10,7 @@ export const accept = { ts: `<template>
     label="File input"
   />
 </template>
-` }
+` };
 
 export const basic = { ts: `<template>
   <VFileInput label="File input" />
@@ -18,7 +18,7 @@ export const basic = { ts: `<template>
 `, js: `<template>
   <VFileInput label="File input" />
 </template>
-` }
+` };
 
 export const chips = { ts: `<template>
   <VFileInput
@@ -32,7 +32,7 @@ export const chips = { ts: `<template>
     label="File input w/ chips"
   />
 </template>
-` }
+` };
 
 export const counter = { ts: `<template>
   <VFileInput
@@ -50,7 +50,7 @@ export const counter = { ts: `<template>
     label="File input"
   />
 </template>
-` }
+` };
 
 export const density = { ts: `<template>
   <VFileInput
@@ -64,7 +64,7 @@ export const density = { ts: `<template>
     density="compact"
   />
 </template>
-` }
+` };
 
 export const loading = { ts: `<script setup lang="ts">
 const file = ref()
@@ -100,7 +100,7 @@ watch(file, () => {
     label="File input"
   />
 </template>
-` }
+` };
 
 export const multiple = { ts: `<template>
   <VFileInput
@@ -114,7 +114,7 @@ export const multiple = { ts: `<template>
     label="File input"
   />
 </template>
-` }
+` };
 
 export const prependIcon = { ts: `<template>
   <VFileInput
@@ -128,7 +128,7 @@ export const prependIcon = { ts: `<template>
     prepend-icon="tabler-camera"
   />
 </template>
-` }
+` };
 
 export const selectionSlot = { ts: `<script lang="ts" setup>
 const files = ref<File[]>([])
@@ -190,7 +190,7 @@ const files = ref([])
     </template>
   </VFileInput>
 </template>
-` }
+` };
 
 export const showSize = { ts: `<template>
   <VFileInput
@@ -204,7 +204,7 @@ export const showSize = { ts: `<template>
     label="File input"
   />
 </template>
-` }
+` };
 
 export const validation = { ts: `<script lang="ts" setup>
 const rules = [
@@ -234,7 +234,7 @@ const rules = [fileList => !fileList || !fileList.length || fileList[0].size < 1
     prepend-icon="tabler-camera"
   />
 </template>
-` }
+` };
 
 export const variant = { ts: `<template>
   <VRow>
@@ -336,5 +336,5 @@ export const variant = { ts: `<template>
     </VCol>
   </VRow>
 </template>
-` }
+` };
 

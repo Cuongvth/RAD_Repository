@@ -32,7 +32,7 @@ const items = [
     title: 'Toffee gingerbread muffin macaroon cotton candy bonbon lollipop.',
     value: 8,
   },
-]
+];
 </script>
 
 <template>

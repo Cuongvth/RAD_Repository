@@ -11,12 +11,12 @@ const stateList = [
   'Florida',
   'Georgia',
   'Hawaii',
-]
+];
 
-const radios = ref('home')
-const deliveryOption = ref('standard')
-const paymentMethod = ref('credit-debit-card')
-const panel = ref(0)
+const radios = ref('home');
+const deliveryOption = ref('standard');
+const paymentMethod = ref('credit-debit-card');
+const panel = ref(0);
 
 const paymentMethods = [
   {
@@ -29,7 +29,7 @@ const paymentMethods = [
     radioLabel: 'Cash On Delivery',
     icon: 'tabler-help',
   },
-]
+];
 </script>
 
 <template>

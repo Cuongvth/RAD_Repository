@@ -64,7 +64,7 @@ export const color = { ts: `<template>
     />
   </div>
 </template>
-` }
+` };
 
 export const indeterminate = { ts: `<template>
   <div class="demo-space-x">
@@ -132,7 +132,7 @@ export const indeterminate = { ts: `<template>
     />
   </div>
 </template>
-` }
+` };
 
 export const rotate = { ts: `<script setup lang="ts">
 const interval = ref()
@@ -253,7 +253,7 @@ onBeforeUnmount(() => {
     </VProgressCircular>
   </div>
 </template>
-` }
+` };
 
 export const size = { ts: `<template>
   <div class="demo-space-x">
@@ -311,5 +311,5 @@ export const size = { ts: `<template>
     />
   </div>
 </template>
-` }
+` };
 

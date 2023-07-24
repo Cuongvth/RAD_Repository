@@ -2,7 +2,7 @@
 const sliderValues = ref([
   10,
   60,
-])
+]);
 </script>
 
 <template>

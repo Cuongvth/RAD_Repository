@@ -12,7 +12,7 @@ const files = [
     subtitle: 'Jan 10, 2014',
     title: 'Kitchen remodel',
   },
-]
+];
 
 const folders = [
   {
@@ -27,7 +27,7 @@ const folders = [
     subtitle: 'Jan 28, 2014',
     title: 'Work',
   },
-]
+];
 </script>
 
 <template>

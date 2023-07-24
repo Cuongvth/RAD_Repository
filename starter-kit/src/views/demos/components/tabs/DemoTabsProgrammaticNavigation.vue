@@ -1,25 +1,25 @@
 <script setup>
-const currentTab = ref(0)
+const currentTab = ref(0);
 
 const items = [
   'Appetizers',
   'Entrees',
   'Deserts',
   'Cocktails',
-]
+];
 
-const tabItemText = 'Chocolate cake marshmallow toffee sweet caramels tootsie roll chocolate bar. Chocolate candy lemon drops cupcake macaroon liquorice. Icing tiramisu cake pastry jujubes lollipop gummies sugar plum pie.'
-const totalTabs = items.length
+const tabItemText = 'Chocolate cake marshmallow toffee sweet caramels tootsie roll chocolate bar. Chocolate candy lemon drops cupcake macaroon liquorice. Icing tiramisu cake pastry jujubes lollipop gummies sugar plum pie.';
+const totalTabs = items.length;
 
 const preTab = () => {
   if (currentTab.value !== 1)
-    currentTab.value -= 1
-}
+    currentTab.value -= 1;
+};
 
 const nextTab = () => {
   if (currentTab.value !== totalTabs)
-    currentTab.value += 1
-}
+    currentTab.value += 1;
+};
 </script>
 
 <template>

@@ -1,9 +1,9 @@
 <script setup>
-const firstName = ref('')
-const email = ref('')
-const mobile = ref()
-const password = ref()
-const checkbox = ref(false)
+const firstName = ref('');
+const email = ref('');
+const mobile = ref();
+const password = ref();
+const checkbox = ref(false);
 </script>
 
 <template>

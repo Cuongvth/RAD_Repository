@@ -18,7 +18,7 @@ const date = ref('')
     label="Default"
   />
 </template>
-` }
+` };
 
 export const dateAndTime = { ts: `<script setup lang="ts">
 const date = ref('')
@@ -42,7 +42,7 @@ const date = ref('')
     :config="{ enableTime: true, dateFormat: 'Y-m-d H:i' }"
   />
 </template>
-` }
+` };
 
 export const disabledRange = { ts: `<script setup lang="ts">
 const now = new Date()
@@ -72,7 +72,7 @@ const date = ref('')
     :config="{ dateFormat: 'Y-m-d', disable: [{ from: \`\${currentYear}-\${currentMonth}-20\`, to: \`\${currentYear}-\${currentMonth}-25\` }] }"
   />
 </template>
-` }
+` };
 
 export const humanFriendly = { ts: `<script setup lang="ts">
 const date = ref('')
@@ -96,7 +96,7 @@ const date = ref('')
     :config="{ dateFormat: 'F j, Y' }"
   />
 </template>
-` }
+` };
 
 export const inline = { ts: `<script setup lang="ts">
 const date = ref('')
@@ -120,7 +120,7 @@ const date = ref('')
     :config="{ inline: true }"
   />
 </template>
-` }
+` };
 
 export const multipleDates = { ts: `<script setup lang="ts">
 const multipleDate = ref('')
@@ -144,7 +144,7 @@ const multipleDate = ref('')
     :config="{ mode: 'multiple', dateFormat: 'Y-m-d' }"
   />
 </template>
-` }
+` };
 
 export const range = { ts: `<script setup lang="ts">
 const dateRange = ref('')
@@ -168,7 +168,7 @@ const dateRange = ref('')
     :config="{ mode: 'range' }"
   />
 </template>
-` }
+` };
 
 export const timePicker = { ts: `<script setup lang="ts">
 const time = ref('')
@@ -192,5 +192,5 @@ const time = ref('')
     :config="{ enableTime: true, noCalendar: true, dateFormat: 'H:i' }"
   />
 </template>
-` }
+` };
 

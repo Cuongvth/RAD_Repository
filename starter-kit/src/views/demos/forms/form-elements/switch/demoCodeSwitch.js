@@ -46,7 +46,7 @@ const capitalizedLabel = label => {
     />
   </div>
 </template>
-` }
+` };
 
 export const colors = { ts: `<script lang="ts" setup>
 const selectedSwitch = ref(['Primary', 'Secondary', 'Success', 'Info', 'Warning', 'Error'])
@@ -97,7 +97,7 @@ const switches = ref([
     />
   </div>
 </template>
-` }
+` };
 
 export const inset = { ts: `<script lang="ts" setup>
 const insetSwitch1 = ref(true)
@@ -137,7 +137,7 @@ const insetSwitch2 = ref(false)
     />
   </div>
 </template>
-` }
+` };
 
 export const labelSlot = { ts: `<script lang="ts" setup>
 const switchMe = ref(false)
@@ -167,7 +167,7 @@ const switchMe = ref(false)
     </template>
   </VSwitch>
 </template>
-` }
+` };
 
 export const modelAsArray = { ts: `<script lang="ts" setup>
 const people = ref(['John'])
@@ -215,7 +215,7 @@ const people = ref(['John'])
     {{ people }}
   </p>
 </template>
-` }
+` };
 
 export const states = { ts: `<script setup lang="ts">
 const switchOn = ref('on')
@@ -299,7 +299,7 @@ const switchOnLoading = ref('on')
     />
   </div>
 </template>
-` }
+` };
 
 export const trueAndFalseValue = { ts: `<script lang="ts" setup>
 const switch1 = ref(1)
@@ -345,5 +345,5 @@ const switch2 = ref('Show')
     />
   </div>
 </template>
-` }
+` };
 

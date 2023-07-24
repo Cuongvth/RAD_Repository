@@ -6,7 +6,7 @@ const menusVariant = [
   'info',
   'warning',
   'error',
-]
+];
 
 const items = [
   {
@@ -21,7 +21,7 @@ const items = [
     title: 'Option 3',
     value: 'Option 3',
   },
-]
+];
 </script>
 
 <template>

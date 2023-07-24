@@ -12,9 +12,9 @@ const checkboxContent = [
     desc: 'Get Updates regarding related products.',
     value: 'updates',
   },
-]
+];
 
-const selectedCheckbox = ref(['basic'])
+const selectedCheckbox = ref(['basic']);
 </script>
 
 <template>

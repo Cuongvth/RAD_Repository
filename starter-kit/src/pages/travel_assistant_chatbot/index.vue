@@ -11,7 +11,7 @@ import { useChatStore } from "@/views/apps/chat/useChatStore";
 import { useResponsiveLeftSidebar } from "@core/composable/useResponsiveSidebar";
 import { avatarText } from "@core/utils/formatters";
 import typing from "@images/New folder/typing.gif";
-import { ggSearch } from "../../views/apps/chat/library";
+import { searchGoogle } from "@/views/apps/chat/useAPI";
 
 const vuetifyDisplays = useDisplay();
 const store = useChatStore();
@@ -77,12 +77,12 @@ const sendMessage = async () => {
     for (var item of lstSpan) {
       const str = item.childNodes[1].nodeValue;
 
-      const result = await ggSearch(str + " " + message);
+      const result = await searchGoogle(str + " " + message, 5);
 
       item.addEventListener("mouseover", function (event) {
         var mouseY = event.clientY;
         var screenHeight = window.innerHeight;
-        if (mouseY < screenHeight / 2) {
+        if (mouseY < screenHeight / 2 - 150) {
           this.childNodes[0].style.top = "20px";
         } else {
           this.childNodes[0].style.bottom = "20px";
@@ -202,31 +202,6 @@ const chatContentContainerBg = computed(() => {
 
 <template>
   <VLayout class="chat-app-layout">
-    <div class="text-center">
-      <VDialog
-        v-model="dialog"
-        width="70vw"
-      >
-        <VCard>
-          <VCardText class="text-center">
-            <img
-              :src="src"
-              alt="Hình ảnh"
-              style="width: 100%"
-            >
-          </VCardText>
-          <VCardActions>
-            <VBtn
-              color="primary"
-              block
-              @click="dialog = false"
-            >
-              Đóng
-            </VBtn>
-          </VCardActions>
-        </VCard>
-      </VDialog>
-    </div>
     <!-- 👉 user profile sidebar -->
 
     <VNavigationDrawer

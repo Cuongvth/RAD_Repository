@@ -1,8 +1,8 @@
 <script setup>
-import avatar1 from '@images/avatars/avatar-1.png'
-import avatar2 from '@images/avatars/avatar-2.png'
-import avatar3 from '@images/avatars/avatar-3.png'
-import avatar4 from '@images/avatars/avatar-4.png'
+import avatar1 from '@images/avatars/avatar-1.png';
+import avatar2 from '@images/avatars/avatar-2.png';
+import avatar3 from '@images/avatars/avatar-3.png';
+import avatar4 from '@images/avatars/avatar-4.png';
 
 const users = [
   {
@@ -29,14 +29,14 @@ const users = [
     status: 'In Meeting',
     lastVisited: '28 minutes ago',
   },
-]
+];
 
 const resolveStatusColor = {
   'Online': 'success',
   'Away': 'warning',
   'Offline': 'secondary',
   'In Meeting': 'error',
-}
+};
 </script>
 
 <template>

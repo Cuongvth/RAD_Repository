@@ -1,5 +1,5 @@
 <script setup>
-const isSnackbarVisibility = ref(false)
+const isSnackbarVisibility = ref(false);
 </script>
 
 <template>

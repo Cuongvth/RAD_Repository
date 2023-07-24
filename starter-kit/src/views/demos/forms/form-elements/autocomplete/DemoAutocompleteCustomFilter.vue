@@ -25,14 +25,14 @@ const states = [
     abbr: 'NY',
     id: 5,
   },
-]
+];
 
 function customFilter(item, queryText, itemText) {
-  const textOne = itemText.title.toLowerCase()
-  const textTwo = itemText.value.toLowerCase()
-  const searchText = queryText.toLocaleLowerCase()
+  const textOne = itemText.title.toLowerCase();
+  const textTwo = itemText.value.toLowerCase();
+  const searchText = queryText.toLocaleLowerCase();
   
-  return textOne.includes(searchText) || textTwo.includes(searchText)
+  return textOne.includes(searchText) || textTwo.includes(searchText);
 }
 </script>
 

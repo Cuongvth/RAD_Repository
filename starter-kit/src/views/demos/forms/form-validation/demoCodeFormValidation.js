@@ -98,7 +98,7 @@ const refForm = ref()
     </VRow>
   </VForm>
 </template>
-` }
+` };
 
 export const validatingMultipleRules = { ts: `<script lang="ts" setup>
 // eslint-disable-next-line @typescript-eslint/consistent-type-imports
@@ -265,7 +265,7 @@ const confirmPassword = ref('')
     </VRow>
   </VForm>
 </template>
-` }
+` };
 
 export const validationTypes = { ts: `<script lang="ts" setup>
 // eslint-disable-next-line @typescript-eslint/consistent-type-imports
@@ -659,5 +659,5 @@ const refForm = ref()
     </VRow>
   </VForm>
 </template>
-` }
+` };
 

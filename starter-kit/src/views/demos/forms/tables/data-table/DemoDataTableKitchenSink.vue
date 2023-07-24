@@ -1,9 +1,9 @@
 <script setup>
-import { VDataTable } from 'vuetify/labs/VDataTable'
-import axios from '@axios'
+import { VDataTable } from 'vuetify/labs/VDataTable';
+import axios from '@axios';
 
-const search = ref('')
-const productList = ref([])
+const search = ref('');
+const productList = ref([]);
 
 // headers
 const headers = [
@@ -38,13 +38,13 @@ const headers = [
     key: 'delete',
     sortable: false,
   },
-]
+];
 
 const deleteItem = itemId => {
-  const index = productList.value.findIndex(item => item.product.id === itemId)
+  const index = productList.value.findIndex(item => item.product.id === itemId);
 
-  productList.value.splice(index, 1)
-}
+  productList.value.splice(index, 1);
+};
 
 const categoryIcons = [
   {
@@ -152,36 +152,36 @@ const categoryIcons = [
     icon: 'tabler-brand-apple',
     color: 'warning',
   },
-]
+];
 
 const resolveStatusColor = status => {
   if (status === 'Confirmed')
-    return 'primary'
+    return 'primary';
   if (status === 'Completed')
-    return 'success'
+    return 'success';
   if (status === 'Cancelled')
-    return 'error'
-}
+    return 'error';
+};
 
 const categoryIconFilter = categoryName => {
-  const index = categoryIcons.findIndex(category => category.name === categoryName)
+  const index = categoryIcons.findIndex(category => category.name === categoryName);
   if (index !== -1)
     return [{
       icon: categoryIcons[index].icon,
       color: categoryIcons[index].color,
-    }]
+    }];
   
   return [{
     icon: 'mdi-help-circle-outline',
     color: 'primary',
-  }]
-}
+  }];
+};
 
 onMounted(() => {
   axios.get('pages/datatables').then(res => {
-    productList.value = res.data
-  })
-})
+    productList.value = res.data;
+  });
+});
 </script>
 
 <template>

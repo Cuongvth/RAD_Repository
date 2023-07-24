@@ -1,5 +1,5 @@
 <script setup>
-const people = ref(['John'])
+const people = ref(['John']);
 </script>
 
 <template>

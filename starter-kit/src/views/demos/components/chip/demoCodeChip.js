@@ -148,7 +148,7 @@ const isErrorChipVisible = ref(true)
     </VChip>
   </div>
 </template>
-` }
+` };
 
 export const color = { ts: `<template>
   <div class="demo-space-x">
@@ -212,7 +212,7 @@ export const color = { ts: `<template>
     </VChip>
   </div>
 </template>
-` }
+` };
 
 export const elevated = { ts: `<template>
   <div class="demo-space-x">
@@ -312,7 +312,7 @@ export const elevated = { ts: `<template>
     </VChip>
   </div>
 </template>
-` }
+` };
 
 export const expandable = { ts: `<script lang="ts" setup>
 const isMenuVisible = ref(false)
@@ -402,7 +402,7 @@ const isMenuVisible = ref(false)
     </VList>
   </VMenu>
 </template>
-` }
+` };
 
 export const inSelects = { ts: `<script lang="ts" setup>
 const chips = ref(['Programming', 'Playing video games', 'Sleeping'])
@@ -451,7 +451,7 @@ const items = ref([
     prepend-icon="tabler-filter"
   />
 </template>
-` }
+` };
 
 export const label = { ts: `<template>
   <div class="demo-space-x">
@@ -551,7 +551,7 @@ export const label = { ts: `<template>
     </VChip>
   </div>
 </template>
-` }
+` };
 
 export const outlined = { ts: `<template>
   <div class="demo-space-x">
@@ -651,7 +651,7 @@ export const outlined = { ts: `<template>
     </VChip>
   </div>
 </template>
-` }
+` };
 
 export const sizes = { ts: `<template>
   <div class="demo-space-x">
@@ -699,7 +699,7 @@ export const sizes = { ts: `<template>
     </VChip>
   </div>
 </template>
-` }
+` };
 
 export const withAvatar = { ts: `<script setup lang="ts">
 import avatar1 from '@images/avatars/avatar-1.png'
@@ -785,7 +785,7 @@ import avatar4 from '@images/avatars/avatar-4.png'
     </VChip>
   </div>
 </template>
-` }
+` };
 
 export const withIcon = { ts: `<template>
   <div class="demo-space-x">
@@ -919,5 +919,5 @@ export const withIcon = { ts: `<template>
     </VChip>
   </div>
 </template>
-` }
+` };
 

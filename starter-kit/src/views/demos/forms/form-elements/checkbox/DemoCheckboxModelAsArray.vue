@@ -1,5 +1,5 @@
 <script setup>
-const selected = ref(['John'])
+const selected = ref(['John']);
 </script>
 
 <template>

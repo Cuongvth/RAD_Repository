@@ -4,14 +4,14 @@ const items = [
   'bar',
   'fizz',
   'buzz',
-]
+];
 
 const selected = ref([
   'foo',
   'bar',
   'fizz',
   'buzz',
-])
+]);
 </script>
 
 <template>

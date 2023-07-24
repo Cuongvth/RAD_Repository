@@ -1,7 +1,7 @@
 <script setup>
-import bg1 from '@images/pages/custom-checkbox-img-1.png'
-import bg2 from '@images/pages/custom-checkbox-img-2.png'
-import bg3 from '@images/pages/custom-checkbox-img-3.png'
+import bg1 from '@images/pages/custom-checkbox-img-1.png';
+import bg2 from '@images/pages/custom-checkbox-img-2.png';
+import bg3 from '@images/pages/custom-checkbox-img-3.png';
 
 const checkboxContent = [
   {
@@ -16,9 +16,9 @@ const checkboxContent = [
     bgImage: bg3,
     value: 'enterprise',
   },
-]
+];
 
-const selectedCheckbox = ref(['basic'])
+const selectedCheckbox = ref(['basic']);
 </script>
 
 <template>

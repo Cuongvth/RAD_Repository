@@ -27,9 +27,9 @@ const radioContent = [
       size: '28',
     },
   },
-]
+];
 
-const selectedRadio = ref('basic')
+const selectedRadio = ref('basic');
 </script>
 
 <template>

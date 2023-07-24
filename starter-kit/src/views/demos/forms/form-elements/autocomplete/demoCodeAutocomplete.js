@@ -188,7 +188,7 @@ watch(search, query => {
     :menu-props="{ maxHeight: '200px' }"
   />
 </template>
-` }
+` };
 
 export const basic = { ts: `<script setup lang="ts">
 const items = ['California', 'Colorado', 'Florida', 'Georgia', 'Texas', 'Wyoming']
@@ -217,7 +217,7 @@ const items = [
     :items="items"
   />
 </template>
-` }
+` };
 
 export const chips = { ts: `<script setup lang="ts">
 const items = ['California', 'Colorado', 'Florida', 'Georgia', 'Texas', 'Wyoming']
@@ -250,7 +250,7 @@ const items = [
     multiple
   />
 </template>
-` }
+` };
 
 export const clearable = { ts: `<script setup lang="ts">
 const items = ['California', 'Colorado', 'Florida', 'Georgia', 'Texas', 'Wyoming']
@@ -283,7 +283,7 @@ const items = [
     clearable
   />
 </template>
-` }
+` };
 
 export const customFilter = { ts: `<script setup lang="ts">
 const states = [
@@ -359,7 +359,7 @@ function customFilter(item, queryText, itemText) {
     item-value="abbr"
   />
 </template>
-` }
+` };
 
 export const density = { ts: `<script setup lang="ts">
 const select = ref(['Florida'])
@@ -395,7 +395,7 @@ const items = [
     :items="items"
   />
 </template>
-` }
+` };
 
 export const multiple = { ts: `<script setup lang="ts">
 const items = ['California', 'Colorado', 'Florida', 'Georgia', 'Texas', 'Wyoming']
@@ -428,7 +428,7 @@ const items = [
     eager
   />
 </template>
-` }
+` };
 
 export const slots = { ts: `<script setup lang="ts">
 import avatar1 from '@images/avatars/avatar-1.png'
@@ -571,7 +571,7 @@ const people = [
     </template>
   </AppAutocomplete>
 </template>
-` }
+` };
 
 export const stateSelector = { ts: `<script setup lang="ts">
 const isEditing = ref(false)
@@ -753,7 +753,7 @@ const states = [
     </template>
   </AppAutocomplete>
 </template>
-` }
+` };
 
 export const validation = { ts: `<script setup lang="ts">
 const items = ['foo', 'bar', 'fizz', 'buzz']
@@ -789,7 +789,7 @@ const nameRules = [v => !!v.length || 'Select at least one option.']
     multiple
   />
 </template>
-` }
+` };
 
 export const variant = { ts: `<script setup lang="ts">
 const items = ['California', 'Colorado', 'Florida', 'Georgia', 'Texas', 'Wyoming']
@@ -934,5 +934,5 @@ const items = [
     </VCol>
   </VRow>
 </template>
-` }
+` };
 

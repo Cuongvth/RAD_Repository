@@ -1,8 +1,8 @@
 <script setup>
-const toggleCheckbox = ref(true)
-const toggleIndeterminateCheckbox = ref(true)
-const disabledCheckbox = ref(true)
-const toggleOffCheckbox = ref(false)
+const toggleCheckbox = ref(true);
+const toggleIndeterminateCheckbox = ref(true);
+const disabledCheckbox = ref(true);
+const toggleOffCheckbox = ref(false);
 </script>
 
 <template>

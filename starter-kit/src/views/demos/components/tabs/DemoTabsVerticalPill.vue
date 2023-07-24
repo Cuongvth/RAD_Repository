@@ -1,5 +1,5 @@
 <script setup>
-const currentTab = ref(0)
+const currentTab = ref(0);
 </script>
 
 <template>

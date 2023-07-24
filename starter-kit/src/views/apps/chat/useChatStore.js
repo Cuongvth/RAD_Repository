@@ -1,12 +1,13 @@
 import axios from "@axios";
 import { Configuration, OpenAIApi } from "openai";
 import { templateMess } from "./chatRespon";
-import { ggSearch, reFormat } from "./library";
+import { reFormat } from "./library";
 import { isTravel } from "./temp";
+import { callChatGPT } from "./useAPI";
 
 const openaiGPT = new OpenAIApi(
   new Configuration({
-    apiKey: "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",
+    apiKey: "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",
   }),
 );
 
@@ -55,11 +56,10 @@ export const useChatStore = defineStore("chat", {
     async botSendMsg(message) {
       var  result = { content: "Tôi là một mô hình AI được huấn luyện bởi LTS Edu. Hiện tại tôi chỉ có thể trả lời các câu hỏi về du lịch" };
 
-      // if(await this.isTravelContext(message))
-      // {
-      result = await  this.callChatGPT({ role: "user", content: `Trả lời câu hỏi "${message}" dưới dạng danh sách với gạch đầu dòng (-) và viết một câu mô tả khoảng 20 từ sau dấu hai chấm (:)` });
-
-      // }
+      if(await this.isTravelContext(message))
+      {
+        result = await  callChatGPT({ role: "user", content: `Trả lời câu hỏi "${message}" dưới dạng danh sách với gạch đầu dòng (-) và viết một câu mô tả khoảng 20 từ sau dấu hai chấm (:)` });
+      }
 
       const { data } = await axios.post(
         `/apps/chat/chats/${this.activeChat?.contact.id}`,
@@ -83,7 +83,7 @@ export const useChatStore = defineStore("chat", {
       this.postMsg(data);
     },
     async botSendMsgCustomEnd(message) {
-      const result = await  this.callChatGPT({ role: "user", content: `Hãy cho tôi thông tin về\nThời điểm phù hợp\nSố lượng người phù hợp\nChi phí ước tính\nCác thông tin bên lề\nVề việc đi du lịch với ${message}` });
+      const result = await  callChatGPT({ role: "user", content: `Hãy cho tôi thông tin về\nThời điểm phù hợp\nSố lượng người phù hợp\nChi phí ước tính\nCác thông tin bên lề\nVề việc đi du lịch với ${message}` });
 
       const { data } = await axios.post(
         `/apps/chat/chats/${this.activeChat?.contact.id}`,
@@ -132,18 +132,8 @@ export const useChatStore = defineStore("chat", {
 
       contact.chat.lastMessage = msg;
     },
-    async callChatGPT(context) {
-      const result = await openaiGPT.createChatCompletion({
-        model: "gpt-3.5-turbo-16k",
-        messages: [
-          context,
-        ],
-      });
-    
-      return { role: "assistant", content: result.data.choices[0].message.content };
-    },
     async isTravelContext(message) {
-      const result = await this.callChatGPT(isTravel(message));
+      const result = await callChatGPT(isTravel(message));
 
       const content = result.content;
 

@@ -1,13 +1,13 @@
 <script setup>
-const isDialogVisible = ref(false)
+const isDialogVisible = ref(false);
 
 watch(isDialogVisible, value => {
   if (!value)
-    return
+    return;
   setTimeout(() => {
-    isDialogVisible.value = false
-  }, 4000)
-})
+    isDialogVisible.value = false;
+  }, 4000);
+});
 </script>
 
 <template>

@@ -74,7 +74,7 @@ watch(modelValue, () => {
     />
   </div>
 </template>
-` }
+` };
 
 export const color = { ts: `<template>
   <div class="demo-space-y">
@@ -118,7 +118,7 @@ export const color = { ts: `<template>
     />
   </div>
 </template>
-` }
+` };
 
 export const indeterminate = { ts: `<template>
   <VProgressLinear
@@ -132,7 +132,7 @@ export const indeterminate = { ts: `<template>
     color="primary"
   />
 </template>
-` }
+` };
 
 export const reversed = { ts: `<template>
   <VProgressLinear
@@ -148,7 +148,7 @@ export const reversed = { ts: `<template>
     reverse
   />
 </template>
-` }
+` };
 
 export const rounded = { ts: `<template>
   <div class="demo-space-y">
@@ -198,7 +198,7 @@ export const rounded = { ts: `<template>
     />
   </div>
 </template>
-` }
+` };
 
 export const slots = { ts: `<script setup lang="ts">
 const skill = ref(20)
@@ -266,7 +266,7 @@ const power = ref(78)
     </VProgressLinear>
   </div>
 </template>
-` }
+` };
 
 export const striped = { ts: `<template>
   <div class="demo-space-y">
@@ -310,5 +310,5 @@ export const striped = { ts: `<template>
     />
   </div>
 </template>
-` }
+` };
 

@@ -1,7 +1,7 @@
 <script setup>
-const title = ref('Preliminary report')
-const description = ref('California is a state in the western United States')
-const rules = [v => v.length <= 25 || 'Max 25 characters']
+const title = ref('Preliminary report');
+const description = ref('California is a state in the western United States');
+const rules = [v => v.length <= 25 || 'Max 25 characters'];
 </script>
 
 <template>

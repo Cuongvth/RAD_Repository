@@ -1,10 +1,10 @@
 <script setup>
-const tab = ref('personal-info')
-const firstName = ref('')
-const lastName = ref('')
-const country = ref()
-const birthDate = ref('')
-const phoneNo = ref()
+const tab = ref('personal-info');
+const firstName = ref('');
+const lastName = ref('');
+const country = ref();
+const birthDate = ref('');
+const phoneNo = ref();
 
 const countryList = [
   'USA',
@@ -15,7 +15,7 @@ const countryList = [
   'Iceland',
   'Israel',
   'Mexico',
-]
+];
 
 const languageList = [
   'English',
@@ -25,21 +25,21 @@ const languageList = [
   'Portuguese',
   'Russian',
   'Korean',
-]
+];
 
-const username = ref('')
-const email = ref('')
-const password = ref('')
-const cPassword = ref('')
-const twitterLink = ref('')
-const facebookLink = ref('')
-const googlePlusLink = ref('')
-const linkedInLink = ref('')
-const instagramLink = ref('')
-const quoraLink = ref('')
-const languages = ref([])
-const isPasswordVisible = ref(false)
-const isCPasswordVisible = ref(false)
+const username = ref('');
+const email = ref('');
+const password = ref('');
+const cPassword = ref('');
+const twitterLink = ref('');
+const facebookLink = ref('');
+const googlePlusLink = ref('');
+const linkedInLink = ref('');
+const instagramLink = ref('');
+const quoraLink = ref('');
+const languages = ref([]);
+const isPasswordVisible = ref(false);
+const isCPasswordVisible = ref(false);
 </script>
 
 <template>

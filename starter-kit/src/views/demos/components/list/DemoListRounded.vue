@@ -32,7 +32,7 @@ const items = [
       rounded: 'xl',
     },
   },
-]
+];
 </script>
 
 <template>

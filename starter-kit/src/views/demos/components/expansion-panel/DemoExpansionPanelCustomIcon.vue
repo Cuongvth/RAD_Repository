@@ -1,5 +1,5 @@
 <script setup>
-const panel = ref(0)
+const panel = ref(0);
 </script>
 
 <template>

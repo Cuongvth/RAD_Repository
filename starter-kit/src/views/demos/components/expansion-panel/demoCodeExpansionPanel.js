@@ -28,7 +28,7 @@ export const accordion = { ts: `<template>
     </VExpansionPanel>
   </VExpansionPanels>
 </template>
-` }
+` };
 
 export const basic = { ts: `<template>
   <VExpansionPanels multiple>
@@ -60,7 +60,7 @@ export const basic = { ts: `<template>
     </VExpansionPanel>
   </VExpansionPanels>
 </template>
-` }
+` };
 
 export const customIcon = { ts: `<script setup lang="ts">
 const panel = ref(0)
@@ -178,7 +178,7 @@ const panel = ref(0)
     </VExpansionPanel>
   </VExpansionPanels>
 </template>
-` }
+` };
 
 export const inset = { ts: `<template>
   <VExpansionPanels variant="inset">
@@ -206,7 +206,7 @@ export const inset = { ts: `<template>
     </VExpansionPanel>
   </VExpansionPanels>
 </template>
-` }
+` };
 
 export const model = { ts: `<script lang="ts" setup>
 const openedPanels = ref<number[]>([])
@@ -314,7 +314,7 @@ const none = () => {
     </VExpansionPanels>
   </div>
 </template>
-` }
+` };
 
 export const popout = { ts: `<template>
   <VExpansionPanels variant="popout">
@@ -342,7 +342,7 @@ export const popout = { ts: `<template>
     </VExpansionPanel>
   </VExpansionPanels>
 </template>
-` }
+` };
 
 export const withBorder = { ts: `<template>
   <VExpansionPanels
@@ -384,5 +384,5 @@ export const withBorder = { ts: `<template>
     </VExpansionPanel>
   </VExpansionPanels>
 </template>
-` }
+` };
 

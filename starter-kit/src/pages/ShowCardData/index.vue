@@ -30,7 +30,7 @@ const props = defineProps({
 
 import ShowCard from "@/views/ShowData/ShowCard.vue";
 import GetImage from "./getImage.vue";
-import { checkInData } from "../../api/DemoRD/DemoAPI";
+import { checkInData } from "./useAPI";
 import { useStore } from "vuex";
 
 const store = useStore();

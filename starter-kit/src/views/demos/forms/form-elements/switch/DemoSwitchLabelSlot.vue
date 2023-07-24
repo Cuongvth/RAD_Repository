@@ -1,5 +1,5 @@
 <script setup>
-const switchMe = ref(false)
+const switchMe = ref(false);
 </script>
 
 <template>

@@ -11,21 +11,21 @@ import {
   regexValidator,
   requiredValidator,
   urlValidator,
-} from '@validators'
+} from '@validators';
 
-const requiredField = ref('')
-const numberBetween10to20 = ref('')
-const onlyConsistNumber = ref('')
-const matchRegularEx = ref('')
-const onlyAlphabeticCharacters = ref('')
-const specifiedLength = ref('')
-const password = ref('')
-const digits = ref('')
-const repeatPassword = ref('')
-const onlyAlphabeticNumbersDashesUnderscores = ref('')
-const email = ref('')
-const validURL = ref('')
-const refForm = ref()
+const requiredField = ref('');
+const numberBetween10to20 = ref('');
+const onlyConsistNumber = ref('');
+const matchRegularEx = ref('');
+const onlyAlphabeticCharacters = ref('');
+const specifiedLength = ref('');
+const password = ref('');
+const digits = ref('');
+const repeatPassword = ref('');
+const onlyAlphabeticNumbersDashesUnderscores = ref('');
+const email = ref('');
+const validURL = ref('');
+const refForm = ref();
 </script>
 
 <template>

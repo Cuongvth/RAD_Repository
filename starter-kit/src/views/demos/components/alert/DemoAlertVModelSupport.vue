@@ -1,5 +1,5 @@
 <script setup>
-const isAlertVisible = ref(true)
+const isAlertVisible = ref(true);
 </script>
 
 <template>

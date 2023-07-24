@@ -1,12 +1,12 @@
 <script setup>
-const loadings = ref([])
+const loadings = ref([]);
 
 const load = i => {
-  loadings.value[i] = true
+  loadings.value[i] = true;
   setTimeout(() => {
-    loadings.value[i] = false
-  }, 3000)
-}
+    loadings.value[i] = false;
+  }, 3000);
+};
 </script>
 
 <template>

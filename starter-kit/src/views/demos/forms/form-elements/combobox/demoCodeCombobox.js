@@ -26,7 +26,7 @@ const items = [
     :items="items"
   />
 </template>
-` }
+` };
 
 export const clearable = { ts: `<script lang="ts" setup>
 const select = ref(['Vuetify', 'Programming'])
@@ -65,7 +65,7 @@ const items = [
     clearable
   />
 </template>
-` }
+` };
 
 export const density = { ts: `<script lang="ts" setup>
 const select = ref(['Vuetify', 'Programming'])
@@ -104,7 +104,7 @@ const items = [
     multiple
   />
 </template>
-` }
+` };
 
 export const multiple = { ts: `<script lang="ts" setup>
 const selectedItem = ref(['Vuetify', 'Programming'])
@@ -237,7 +237,7 @@ const items = [
     </VCol>
   </VRow>
 </template>
-` }
+` };
 
 export const noDataWithChips = { ts: `<script lang="ts" setup>
 const items = ['Gaming', 'Programming', 'Vue', 'Vuetify']
@@ -309,7 +309,7 @@ watch(selectedList, value => {
     </template>
   </AppCombobox>
 </template>
-` }
+` };
 
 export const variant = { ts: `<script lang="ts" setup>
 const selectedItem = ref(['Programming'])
@@ -425,5 +425,5 @@ const items = [
     </VCol>
   </VRow>
 </template>
-` }
+` };
 

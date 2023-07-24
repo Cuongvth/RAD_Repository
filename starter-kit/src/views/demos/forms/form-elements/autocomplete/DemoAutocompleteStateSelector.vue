@@ -1,6 +1,6 @@
 <script setup>
-const isEditing = ref(false)
-const selectedState = ref(null)
+const isEditing = ref(false);
+const selectedState = ref(null);
 
 const states = [
   'Alabama',
@@ -62,7 +62,7 @@ const states = [
   'West Virginia',
   'Wisconsin',
   'Wyoming',
-]
+];
 </script>
 
 <template>

@@ -1,9 +1,9 @@
 <script setup>
-const isDefaultSnackbarVisible = ref(false)
-const isTonalSnackbarVisible = ref(false)
-const isTextSnackbarVisible = ref(false)
-const isOutlinedSnackbarVisible = ref(false)
-const isFlatSnackbarVisible = ref(false)
+const isDefaultSnackbarVisible = ref(false);
+const isTonalSnackbarVisible = ref(false);
+const isTextSnackbarVisible = ref(false);
+const isOutlinedSnackbarVisible = ref(false);
+const isFlatSnackbarVisible = ref(false);
 </script>
 
 <template>

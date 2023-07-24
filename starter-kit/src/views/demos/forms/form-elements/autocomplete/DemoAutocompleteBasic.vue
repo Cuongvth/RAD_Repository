@@ -6,7 +6,7 @@ const items = [
   'Georgia',
   'Texas',
   'Wyoming',
-]
+];
 </script>
 
 <template>

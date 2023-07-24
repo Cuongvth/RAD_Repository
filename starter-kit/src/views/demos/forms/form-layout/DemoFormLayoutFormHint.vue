@@ -1,17 +1,17 @@
 <script setup>
-const username = ref('')
-const email = ref('')
-const password = ref()
-const checkbox = ref(false)
+const username = ref('');
+const email = ref('');
+const password = ref();
+const checkbox = ref(false);
 
 const items = [
   'foo',
   'bar',
   'fizz',
   'buzz',
-]
+];
 
-const values = ref([])
+const values = ref([]);
 </script>
 
 <template>

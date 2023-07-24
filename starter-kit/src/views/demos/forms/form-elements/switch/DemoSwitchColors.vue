@@ -6,7 +6,7 @@ const selectedSwitch = ref([
   'Info',
   'Warning',
   'Error',
-])
+]);
 
 const switches = ref([
   'Primary',
@@ -15,7 +15,7 @@ const switches = ref([
   'Info',
   'Warning',
   'Error',
-])
+]);
 </script>
 
 <template>

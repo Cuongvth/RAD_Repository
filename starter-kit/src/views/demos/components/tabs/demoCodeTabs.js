@@ -62,7 +62,7 @@ export const alignment = { ts: `<template>
     </VCardText>
   </VCard>
 </template>
-` }
+` };
 
 export const basic = { ts: `<script lang="ts" setup>
 const currentTab = ref(0)
@@ -114,7 +114,7 @@ const tabItemContent = 'Candy canes donut chupa chups candy canes lemon drops oa
     </VCardText>
   </VCard>
 </template>
-` }
+` };
 
 export const basicPill = { ts: `<script lang="ts" setup>
 const currentTab = ref(0)
@@ -172,7 +172,7 @@ const tabItemContent = 'Candy canes donut chupa chups candy canes lemon drops oa
     </VCardText>
   </VCard>
 </template>
-` }
+` };
 
 export const customIcons = { ts: `<script setup lang="ts">
 const currentTab = ref(0)
@@ -238,7 +238,7 @@ const tabItemText = 'hortbread chocolate bar marshmallow bear claw tiramisu choc
     </VCardText>
   </VCard>
 </template>
-` }
+` };
 
 export const dynamic = { ts: `<script lang="ts" setup>
 const totalTabs = ref(3)
@@ -316,7 +316,7 @@ watch(totalTabs, newValue => {
     </VCardText>
   </VCard>
 </template>
-` }
+` };
 
 export const fixed = { ts: `<script lang="ts" setup>
 const currentTab = ref('Appetizers')
@@ -393,7 +393,7 @@ const tabItemText = 'hortbread chocolate bar marshmallow bear claw tiramisu choc
     </VCardText>
   </VCard>
 </template>
-` }
+` };
 
 export const grow = { ts: `<script lang="ts" setup>
 const currentTab = ref('Appetizers')
@@ -470,7 +470,7 @@ const tabItemText = 'hortbread chocolate bar marshmallow bear claw tiramisu choc
     </VCardText>
   </VCard>
 </template>
-` }
+` };
 
 export const pagination = { ts: `<script setup lang="ts">
 const currentTab = ref(0)
@@ -532,7 +532,7 @@ const tabItemText = 'hortbread chocolate bar marshmallow bear claw tiramisu choc
     </VCardText>
   </VCard>
 </template>
-` }
+` };
 
 export const programmaticNavigation = { ts: `<script lang="ts" setup>
 const currentTab = ref(0)
@@ -667,7 +667,7 @@ const nextTab = () => {
     </VCardText>
   </VCard>
 </template>
-` }
+` };
 
 export const stacked = { ts: `<script lang="ts" setup>
 const currentTab = ref('tab-1')
@@ -769,7 +769,7 @@ const tabItemText = 'Biscuit cheesecake gingerbread oat cake tiramisu. Marzipan 
     </VCardText>
   </VCard>
 </template>
-` }
+` };
 
 export const vertical = { ts: `<script setup lang="ts">
 const currentTab = ref(0)
@@ -909,7 +909,7 @@ const currentTab = ref(0)
     </div>
   </VCard>
 </template>
-` }
+` };
 
 export const verticalPill = { ts: `<script setup lang="ts">
 const currentTab = ref(0)
@@ -1045,5 +1045,5 @@ const currentTab = ref(0)
     </VCard>
   </div>
 </template>
-` }
+` };
 
