@@ -7,11 +7,16 @@ export const content = [
     subtitle:
       "Giới thiệu sản phẩm: Hệ thống Nhận dạng Giấy tờ Cá nhân và Bóc tách Thông tin.",
     content: [
-      "Chào mừng! Chúng tôi giới thiệu sản phẩm của mình - Hệ thống Nhận dạng Giấy tờ Cá nhân và Bóc tách Thông tin. Đây là một giải pháp hiệu quả trong lĩnh vực công nghệ thông tin, giúp tự động nhận dạng các giấy tờ cá nhân và trích xuất thông tin từ chúng nhanh chóng và chính xác.Sứ mệnh của chúng tôi là giúp giảm thiểu công sức và thời gian xử lý hàng nghìn giấy tờ cá nhân hàng ngày. Với công nghệ tiên tiến, sản phẩm của chúng tôi có khả năng phân tích, nhận dạng và trích xuất thông tin từ các loại giấy tờ cá nhân như thẻ căn cước, giấy phép lái xe.Hệ thống sử dụng các rule nhận dạng và công nghệ xử lý hình ảnh bằng Google Vision để tự động nhận dạng và trích xuất nội dung từ giấy tờ cá nhân. \nĐiều này đảm bảo tính chính xác cao và có khả năng xử lý hàng loạt giấy tờ trong thời gian ngắn, giúp tiết kiệm thời gian và tăng năng suất công việc.Sản phẩm của chúng tôi có thể tích hợp vào các ứng dụng và hệ thống tự động hiện có của bạn, phù hợp với mọi loại tổ chức cần quản lý thông tin cá nhân một cách linh hoạt và đáng tin cậy.Cảm ơn bạn đã quan tâm đến sản phẩm của chúng tôi. \nHy vọng hệ thống Nhận dạng Giấy tờ Cá nhân và Bóc tách Thông tin sẽ mang lại giá trị và hỗ trợ tốt cho bạn và tổ chức của bạn.",
+      `Chào mừng! Chúng tôi giới thiệu sản phẩm mới - Hệ thống Nhận dạng Giấy tờ Cá nhân và Bóc tách Thông tin. Giải pháp hiệu quả trong lĩnh vực công nghệ thông tin, giúp tự động nhận dạng và trích xuất nhanh chóng thông tin từ giấy tờ cá nhân với độ chính xác cao.`, `
+Sứ mệnh của chúng tôi là giúp giảm thiểu công sức và thời gian xử lý hàng nghìn giấy tờ cá nhân hàng ngày. Với công nghệ tiên tiến, sản phẩm của chúng tôi có khả năng phân tích, nhận dạng và trích xuất thông tin từ các loại giấy tờ cá nhân như thẻ căn cước, giấy phép lái xe.
+`, `
+Hệ thống sử dụng các rule nhận dạng và công nghệ xử lý hình ảnh bằng Google Vision để tự động nhận dạng và trích xuất nội dung từ giấy tờ cá nhân. Điều này đảm bảo tính chính xác cao và có khả năng xử lý hàng loạt giấy tờ trong thời gian ngắn, giúp tiết kiệm thời gian và tăng năng suất công việc.`, `
+Sản phẩm của chúng tôi tích hợp linh hoạt vào các ứng dụng và hệ thống tự động hiện có của bạn, phù hợp với mọi loại tổ chức cần quản lý thông tin cá nhân một cách đáng tin cậy.
+`,
     ],
     linkdemo: "https://www.youtube.com/embed/z0KErzaQ0es",
-    linkdoc:
-      "https://lotuslts-my.sharepoint.com/:p:/r/personal/cuongvl_ltsgroup_tech/Documents/R%26D%20%20OCR%20Identify%20documents.pptx?d=wa73987b668274508901cbff4a6cf1029&csf=1&web=1&e=CheIiB",
+    linkdoc: "https://docs.google.com/presentation/d/1rV5c7fziORB6zsJlQ_xQ3DgBT8ZWrDAm/edit?usp=sharing&ouid=108919603466553999726&rtpof=true&sd=true"
+    ,
     roadmap: [
       {
         title: `Xác định mục tiêu của OCR`,
@@ -110,15 +115,17 @@ export const content = [
     title: "T7 - ChatBot DMT du lịch Việt 🔒",
     subtitle: "Giới thiệu sản phẩm: Chatbot Hướng dẫn Du lịch thông minh.",
     content: [
-      "Xin chào! Chúng tôi xin giới thiệu đến bạn một công nghệ trong lĩnh vực du lịch - Chatbot Hướng dẫn Du lịch thông minh. Đây là một sản phẩm sáng tạo được phát triển để cung cấp thông tin và hướng dẫn du lịch tận hưởng và khám phá các địa điểm du lịch trên toàn thế giới một cách dễ dàng và tiện lợi.",
-      "Sứ mệnh của chúng tôi là tạo ra một trợ lý du lịch ảo thông minh, một chatbot có khả năng trò chuyện và cung cấp thông tin chi tiết, gợi ý và lời khuyên về các điểm đến du lịch. Chatbot Hướng dẫn Du lịch thông minh của chúng tôi sử dụng trí tuệ nhân tạo để hiểu và phản hồi các câu hỏi và yêu cầu của người dùng một cách tự nhiên và chính xác.",
-      "Với Chatbot Hướng dẫn Du lịch thông minh, bạn có thể nhận được thông tin về các địa điểm du lịch nổi tiếng, như danh lam thắng cảnh, di sản văn hóa, những địa điểm ẩm thực hấp dẫn và nhiều hơn nữa. Chatbot có thể cung cấp thông tin về lịch trình du lịch, khuyến nghị hoạt động và trải nghiệm thú vị tại từng điểm đến. Ngoài ra, nó còn có thể đề xuất các chương trình du lịch phù hợp với sở thích và ngân sách của bạn.",
-      "Chatbot Hướng dẫn Du lịch thông minh của chúng tôi cũng cung cấp thông tin về khách sạn, nhà hàng, cửa hàng mua sắm và dịch vụ du lịch khác tại các địa điểm du lịch. Bạn có thể tìm kiếm và đặt chỗ trực tuyến, nhận thông tin về giá cả, đánh giá và đề xuất dựa trên những đánh giá từ du khách khác.",
-      "Cảm ơn bạn đã dành thời gian để tìm hiểu về sản phẩm của chúng tôi. Chúng tôi hy vọng rằng Chatbot Hướng dẫn Du lịch thông minh sẽ mang lại cho bạn trải nghiệm du lịch tuyệt vời và giúp bạn khám phá những điểm đến mới một cách dễ dàng và thú vị.",
+      `Giới thiệu sản phẩm: Chatbot Hướng dẫn Du lịch thông minh.`, `
+
+Xin chào! Chúng tôi xin giới thiệu đến bạn một công nghệ sáng tạo trong lĩnh vực du lịch - Chatbot Hướng dẫn Du lịch thông minh. Đây là trợ lý du lịch ảo được phát triển để cung cấp thông tin và hướng dẫn du lịch một cách dễ dàng và tiện lợi.`, `
+
+Chatbot Hướng dẫn Du lịch thông minh của chúng tôi sử dụng trí tuệ nhân tạo để hiểu và đáp ứng các yêu cầu của bạn về các điểm đến du lịch. Bạn có thể nhận được thông tin về các địa điểm du lịch nổi tiếng, lịch trình du lịch, hoạt động và trải nghiệm thú vị. Nó cũng đề xuất các chương trình du lịch phù hợp với sở thích và ngân sách của bạn.
+`, `
+Chatbot cũng cung cấp thông tin về khách sạn, nhà hàng, cửa hàng mua sắm và dịch vụ du lịch khác tại các địa điểm du lịch. Bạn có thể tìm kiếm và đặt chỗ trực tuyến, nhận thông tin về giá cả và đánh giá từ du khách khác.`,
     ],
     linkdemo: "https://www.youtube.com/embed/Kl_ViOGY7Tw",
     linkdoc:
-      "https://lotuslts-my.sharepoint.com/:p:/r/personal/cuongvl_ltsgroup_tech/Documents/R%26D%20ChatBot%20Travel%20Assistant.pptx?d=wc9adfcc5805e4d1aa232ee35208d8a3f&csf=1&web=1&e=0zzOdH",
+      "https://docs.google.com/presentation/d/1Qt33fo-_vxPMciYdar-7sU1bbS00hvo_/edit?usp=sharing&ouid=108919603466553999726&rtpof=true&sd=true",
     roadmap: [
       {
         title: `Xác định mục tiêu của chatbot`,
@@ -218,15 +225,16 @@ export const content = [
     subtitle:
       "Giới thiệu sản phẩm: Dịch tài liệu PDF, Excel, Word, PowerPoint và xuất ra hình ảnh đã dịch từng trang.",
     content: [
-      "Xin chào! Chúng tôi xin giới thiệu đến bạn một công nghệ đột phá trong lĩnh vực dịch tài liệu - Sản phẩm Dịch tài liệu PDF, Excel, Word, PowerPoint và xuất ra hình ảnh đã dịch từng trang. Đây là một giải pháp tiên tiến và thuận tiện để dịch các tài liệu văn bản chính xác và nhanh chóng từ định dạng PDF, Excel, Word và PowerPoint sang hình ảnh đã dịch.",
-      "Sứ mệnh của chúng tôi là giúp bạn dễ dàng chuyển đổi và dịch các tài liệu văn bản sang ngôn ngữ mong muốn một cách nhanh chóng và hiệu quả. Sản phẩm của chúng tôi sử dụng công nghệ dịch máy thông minh và xử lý hình ảnh để nhận diện và dịch các văn bản trong tài liệu. Bạn chỉ cần tải lên tài liệu của mình và chọn ngôn ngữ đích, sau đó sản phẩm sẽ tự động xử lý, dịch và xuất ra hình ảnh đã dịch từng trang.",
-      "Với Sản phẩm Dịch tài liệu PDF, Excel, Word, PowerPoint và xuất ra hình ảnh đã dịch từng trang của chúng tôi, bạn có thể dễ dàng chuyển đổi các tài liệu quan trọng, báo cáo, hợp đồng, tài liệu học tập và nhiều loại tài liệu khác sang ngôn ngữ mà bạn mong muốn. Bạn không cần phải tự mình dịch hoặc tìm kiếm dịch giả, tiết kiệm thời gian và công sức đáng kể.",
-      "Sản phẩm của chúng tôi hỗ trợ nhiều ngôn ngữ phổ biến và có khả năng xử lý các định dạng tài liệu phổ biến như PDF, Excel, Word và PowerPoint.",
-      "Cảm ơn bạn đã dành thời gian để tìm hiểu về sản phẩm của chúng tôi. Chúng tôi hy vọng rằng Sản phẩm Dịch tài liệu PDF, Excel, Word, PowerPoint và xuất ra hình ảnh đã dịch từng trang sẽ là một công cụ hữu ích và giá trị trong quá trình làm việc và trao đổi thông tin.",
+      `Với Sản phẩm Dịch tài liệu của chúng tôi, bạn sẽ tiết kiệm thời gian và nỗ lực trong việc dịch tài liệu văn bản. Công nghệ thông minh và xử lý hình ảnh tiên tiến của chúng tôi sẽ tự động nhận diện và dịch các văn bản từ các định dạng phổ biến như PDF, Excel, Word và PowerPoint. Bạn chỉ cần tải lên tài liệu và chọn ngôn ngữ đích, sau đó sản phẩm sẽ tự động xử lý, dịch và xuất ra hình ảnh đã dịch từng trang.
+`, `
+Dễ dàng chuyển đổi các tài liệu quan trọng, báo cáo, hợp đồng, tài liệu học tập và nhiều loại tài liệu khác sang ngôn ngữ mà bạn mong muốn. Sản phẩm của chúng tôi hỗ trợ nhiều ngôn ngữ phổ biến và xử lý các định dạng tài liệu phổ biến nhất.
+`, `
+Không cần tốn thời gian và tiền bạc để tìm kiếm dịch giả hoặc sử dụng các công cụ dịch trực tuyến không chính xác. Sản phẩm Dịch tài liệu PDF, Excel, Word, PowerPoint và xuất ra hình ảnh đã dịch từng trang của chúng tôi là lựa chọn hoàn hảo để giải quyết mọi thách thức về dịch tài liệu văn bản của bạn.
+`,
     ],
     linkdemo: "https://www.youtube.com/embed/cPZL7CcjdFo",
     linkdoc:
-      "https://lotuslts-my.sharepoint.com/:p:/r/personal/cuongvl_ltsgroup_tech/Documents/AI_Interpreter.pptx?d=wa25cf0b39d114c14854e801271548c48&csf=1&web=1&e=8nZeQ5",
+      "https://docs.google.com/presentation/d/1WtuGo-yOeeFDXgJFF0AB1qKdgv-BGUYS/edit?usp=sharing&ouid=108919603466553999726&rtpof=true&sd=true",
     roadmap: [
       {
         title: `Xác định mục tiêu của Ai_Interpreter`,
