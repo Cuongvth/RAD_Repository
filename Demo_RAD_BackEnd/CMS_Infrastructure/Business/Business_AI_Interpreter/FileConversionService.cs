@@ -2,7 +2,9 @@
 using Aspose.Cells;
 using Aspose.Cells.Rendering;
 using Aspose.Pdf.Devices;
+using Aspose.Slides;
 using CMS_WebDesignCore.IBusiness.IDusiness_AI_Interpreter;
+using System.Drawing;
 using AsposeDoc = Aspose.Words.Document;
 using AsposePdf = Aspose.Pdf.Document;
 using SaveFormatWord = Aspose.Words.SaveFormat;
@@ -107,7 +109,20 @@ namespace CMS_Infrastructure.Business.Business_AI_Interpreter
         {
             List<string> convertedImagePaths = new List<string>();
 
-            //Code
+            using (Presentation powerPointPresentation = new Presentation(filePath))
+            {
+                for (int slideIndex = 0; slideIndex < powerPointPresentation.Slides.Count; slideIndex++)
+                {
+                    ISlide slide = powerPointPresentation.Slides[slideIndex];
+
+                    Bitmap bmp = slide.GetThumbnail(1f, 1f);
+
+                    string outputImagePath = Path.Combine(Path.GetDirectoryName(filePath), $"{slide.SlideNumber}.jpg");
+                    bmp.Save(outputImagePath, System.Drawing.Imaging.ImageFormat.Jpeg);
+
+                    convertedImagePaths.Add(outputImagePath);
+                }
+            }
 
             return convertedImagePaths;
         }
