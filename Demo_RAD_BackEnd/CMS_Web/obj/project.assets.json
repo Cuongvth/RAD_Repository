@@ -2,6 +2,24 @@
   "version": 3,
   "targets": {
     "net7.0": {
+      "Aspose.Cells/23.7.0": {
+        "type": "package",
+        "dependencies": {
+          "SkiaSharp": "2.88.3",
+          "System.Security.Cryptography.Pkcs": "6.0.3",
+          "System.Text.Encoding.CodePages": "4.7.0"
+        },
+        "compile": {
+          "lib/net7.0/Aspose.Cells.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0/Aspose.Cells.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Aspose.PDF/23.7.0": {
         "type": "package",
         "dependencies": {
@@ -21,6 +39,23 @@
         },
         "runtime": {
           "lib/net7.0/Aspose.PDF.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Aspose.Slides.NET/23.7.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Drawing.Common": "7.0.0",
+          "System.Text.Encoding.CodePages": "4.4.0"
+        },
+        "compile": {
+          "lib/net6.0/Aspose.Slides.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Aspose.Slides.dll": {
             "related": ".xml"
           }
         }
@@ -790,26 +825,47 @@
           }
         }
       },
-      "SkiaSharp/2.80.1": {
+      "SkiaSharp/2.88.3": {
         "type": "package",
         "dependencies": {
-          "System.Memory": "4.5.3"
+          "SkiaSharp.NativeAssets.Win32": "2.88.3",
+          "SkiaSharp.NativeAssets.macOS": "2.88.3"
         },
         "compile": {
-          "lib/netstandard2.0/SkiaSharp.dll": {
-            "related": ".xml"
+          "lib/net6.0/SkiaSharp.dll": {
+            "related": ".pdb;.xml"
           }
         },
         "runtime": {
-          "lib/netstandard2.0/SkiaSharp.dll": {
-            "related": ".xml"
+          "lib/net6.0/SkiaSharp.dll": {
+            "related": ".pdb;.xml"
           }
+        }
+      },
+      "SkiaSharp.NativeAssets.macOS/2.88.3": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/_._": {}
+        },
+        "runtime": {
+          "lib/net5.0/_._": {}
         },
         "runtimeTargets": {
           "runtimes/osx/native/libSkiaSharp.dylib": {
             "assetType": "native",
             "rid": "osx"
-          },
+          }
+        }
+      },
+      "SkiaSharp.NativeAssets.Win32/2.88.3": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/_._": {}
+        },
+        "runtime": {
+          "lib/net5.0/_._": {}
+        },
+        "runtimeTargets": {
           "runtimes/win-arm64/native/libSkiaSharp.dll": {
             "assetType": "native",
             "rid": "win-arm64"
@@ -1487,7 +1543,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
+          "Aspose.Cells": "23.7.0",
           "Aspose.PDF": "23.7.0",
+          "Aspose.Slides.NET": "23.7.0",
           "Aspose.Words": "23.7.0",
           "CMS_WebDesignCore": "1.0.0",
           "Google.Apis": "1.61.0",
@@ -1519,6 +1577,36 @@
     }
   },
   "libraries": {
+    "Aspose.Cells/23.7.0": {
+      "sha512": "XsG3LYU2pIRPqrinNDYYQs0IvPj13fhB+o3KpGlF8XYwWgsHwSW/ClvjJo3XPlzrjqoxkTBxF8qZvfm6ZOJMSA==",
+      "type": "package",
+      "path": "aspose.cells/23.7.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Help/Aspose.Cells For .NET Documentation.chm",
+        "Help/Aspose.Cells.GridJs for .NETSTANDARD Documentation.chm",
+        "License/Aspose_End-User-License-Agreement.txt",
+        "License/thirdpartylicenses.Aspose.Cells.for.NET.pdf",
+        "aspose.cells.23.7.0.nupkg.sha512",
+        "aspose.cells.nuspec",
+        "images/aspose_cells-for-net.png",
+        "lib/net40-client/Aspose.Cells.dll",
+        "lib/net40-client/Aspose.Cells.xml",
+        "lib/net40/Aspose.Cells.dll",
+        "lib/net40/Aspose.Cells.xml",
+        "lib/net6.0-windows7.0/Aspose.Cells.dll",
+        "lib/net6.0-windows7.0/Aspose.Cells.xml",
+        "lib/net6.0/Aspose.Cells.dll",
+        "lib/net6.0/Aspose.Cells.xml",
+        "lib/net7.0-windows7.0/Aspose.Cells.dll",
+        "lib/net7.0-windows7.0/Aspose.Cells.xml",
+        "lib/net7.0/Aspose.Cells.dll",
+        "lib/net7.0/Aspose.Cells.xml",
+        "lib/netstandard2.0/Aspose.Cells.dll",
+        "lib/netstandard2.0/Aspose.Cells.xml"
+      ]
+    },
     "Aspose.PDF/23.7.0": {
       "sha512": "Ee4lQT7kuCN19m0M24nULol/LrJkzEmB9TjOfq2rE6KvLfh4Nd5UniIpDIkbUjQpGeCdvknjOJ8N/IlOEM8GFQ==",
       "type": "package",
@@ -1542,6 +1630,29 @@
         "license/End User License Agreement.html",
         "license/aspose_end-user-license-agreement.txt",
         "license/thirdpartylicenses-Aspose.PDF for .NET.txt"
+      ]
+    },
+    "Aspose.Slides.NET/23.7.0": {
+      "sha512": "8QIt8XFhcithmTYzsx9EoGawO7LZUAB3PHZDWteAuVk5glKIWUHuP6Q49JEJ0rKzVVasLWDizdXSRSnhKE6UBA==",
+      "type": "package",
+      "path": "aspose.slides.net/23.7.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Aspose_End-User-License-Agreement.md",
+        "Help/Aspose.Slides.chm",
+        "aspose.slides.net.23.7.0.nupkg.sha512",
+        "aspose.slides.net.nuspec",
+        "aspose_slides-for-net-min.png",
+        "lib/net2.0/Aspose.Slides.dll",
+        "lib/net2.0/Aspose.Slides.xml",
+        "lib/net4.0-client/Aspose.Slides.dll",
+        "lib/net4.0-client/Aspose.Slides.xml",
+        "lib/net6.0/Aspose.Slides.dll",
+        "lib/net6.0/Aspose.Slides.xml",
+        "lib/netstandard2.0/Aspose.Slides.dll",
+        "lib/netstandard2.0/Aspose.Slides.xml",
+        "thirdpartylicenses.Aspose.Slides.for.NET.pdf"
       ]
     },
     "Aspose.Words/23.7.0": {
@@ -2881,82 +2992,129 @@
         "packageIcon.png"
       ]
     },
-    "SkiaSharp/2.80.1": {
-      "sha512": "CiQwnDzG+1JNGzjAN9G/9n/lJgUVA/NPOFgSlEtu6c7qQ0O7P1tMjrXp/+PtWfX0xyyY9ABsFAZK2kW34U7r/A==",
+    "SkiaSharp/2.88.3": {
+      "sha512": "GG8X3EdfwyBfwjl639UIiOVOKEdeoqDgYrz0P1MUCnefXt9cofN+AK8YB/v1+5cLMr03ieWCQdDmPqnFIzSxZw==",
       "type": "package",
-      "path": "skiasharp/2.80.1",
+      "path": "skiasharp/2.88.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.txt",
         "THIRD-PARTY-NOTICES.txt",
-        "build/monoandroid1.0/SkiaSharp.targets",
-        "build/monoandroid1.0/arm/libSkiaSharp.so",
-        "build/monoandroid1.0/arm64/libSkiaSharp.so",
-        "build/monoandroid1.0/x64/libSkiaSharp.so",
-        "build/monoandroid1.0/x86/libSkiaSharp.so",
-        "build/net462/SkiaSharp.targets",
-        "build/tizen40/SkiaSharp.targets",
-        "build/tizen40/arm/libSkiaSharp.so",
-        "build/tizen40/x86/libSkiaSharp.so",
-        "build/xamarinios1.0/SkiaSharp.targets",
-        "build/xamarinios1.0/libSkiaSharp.framework/Info.plist",
-        "build/xamarinios1.0/libSkiaSharp.framework/Modules/module.modulemap",
-        "build/xamarinios1.0/libSkiaSharp.framework/_CodeSignature/CodeResources",
-        "build/xamarinios1.0/libSkiaSharp.framework/libSkiaSharp",
-        "build/xamarinmac2.0/SkiaSharp.targets",
-        "build/xamarintvos1.0/SkiaSharp.targets",
-        "build/xamarintvos1.0/libSkiaSharp.framework/Info.plist",
-        "build/xamarintvos1.0/libSkiaSharp.framework/Modules/module.modulemap",
-        "build/xamarintvos1.0/libSkiaSharp.framework/_CodeSignature/CodeResources",
-        "build/xamarintvos1.0/libSkiaSharp.framework/libSkiaSharp",
-        "build/xamarinwatchos1.0/SkiaSharp.targets",
-        "build/xamarinwatchos1.0/libSkiaSharp.framework/Info.plist",
-        "build/xamarinwatchos1.0/libSkiaSharp.framework/Modules/module.modulemap",
-        "build/xamarinwatchos1.0/libSkiaSharp.framework/_CodeSignature/CodeResources",
-        "build/xamarinwatchos1.0/libSkiaSharp.framework/libSkiaSharp",
-        "buildTransitive/net462/SkiaSharp.targets",
+        "interactive-extensions/dotnet/SkiaSharp.DotNet.Interactive.dll",
         "lib/monoandroid1.0/SkiaSharp.dll",
+        "lib/monoandroid1.0/SkiaSharp.pdb",
         "lib/monoandroid1.0/SkiaSharp.xml",
         "lib/net462/SkiaSharp.dll",
+        "lib/net462/SkiaSharp.pdb",
         "lib/net462/SkiaSharp.xml",
+        "lib/net5.0/SkiaSharp.dll",
+        "lib/net5.0/SkiaSharp.pdb",
+        "lib/net5.0/SkiaSharp.xml",
+        "lib/net6.0-android30.0/SkiaSharp.dll",
+        "lib/net6.0-android30.0/SkiaSharp.pdb",
+        "lib/net6.0-android30.0/SkiaSharp.xml",
+        "lib/net6.0-ios13.6/SkiaSharp.dll",
+        "lib/net6.0-ios13.6/SkiaSharp.pdb",
+        "lib/net6.0-ios13.6/SkiaSharp.xml",
+        "lib/net6.0-maccatalyst13.5/SkiaSharp.dll",
+        "lib/net6.0-maccatalyst13.5/SkiaSharp.pdb",
+        "lib/net6.0-maccatalyst13.5/SkiaSharp.xml",
+        "lib/net6.0-macos10.15/SkiaSharp.dll",
+        "lib/net6.0-macos10.15/SkiaSharp.pdb",
+        "lib/net6.0-macos10.15/SkiaSharp.xml",
+        "lib/net6.0-tizen7.0/SkiaSharp.dll",
+        "lib/net6.0-tizen7.0/SkiaSharp.pdb",
+        "lib/net6.0-tizen7.0/SkiaSharp.xml",
+        "lib/net6.0-tvos13.4/SkiaSharp.dll",
+        "lib/net6.0-tvos13.4/SkiaSharp.pdb",
+        "lib/net6.0-tvos13.4/SkiaSharp.xml",
+        "lib/net6.0/SkiaSharp.dll",
+        "lib/net6.0/SkiaSharp.pdb",
+        "lib/net6.0/SkiaSharp.xml",
+        "lib/netcoreapp3.1/SkiaSharp.dll",
+        "lib/netcoreapp3.1/SkiaSharp.pdb",
+        "lib/netcoreapp3.1/SkiaSharp.xml",
         "lib/netstandard1.3/SkiaSharp.dll",
+        "lib/netstandard1.3/SkiaSharp.pdb",
         "lib/netstandard1.3/SkiaSharp.xml",
         "lib/netstandard2.0/SkiaSharp.dll",
+        "lib/netstandard2.0/SkiaSharp.pdb",
         "lib/netstandard2.0/SkiaSharp.xml",
+        "lib/netstandard2.1/SkiaSharp.dll",
+        "lib/netstandard2.1/SkiaSharp.pdb",
+        "lib/netstandard2.1/SkiaSharp.xml",
         "lib/tizen40/SkiaSharp.dll",
+        "lib/tizen40/SkiaSharp.pdb",
         "lib/tizen40/SkiaSharp.xml",
         "lib/uap10.0.10240/SkiaSharp.dll",
+        "lib/uap10.0.10240/SkiaSharp.pdb",
         "lib/uap10.0.10240/SkiaSharp.xml",
         "lib/uap10.0.16299/SkiaSharp.dll",
+        "lib/uap10.0.16299/SkiaSharp.pdb",
         "lib/uap10.0.16299/SkiaSharp.xml",
         "lib/xamarinios1.0/SkiaSharp.dll",
+        "lib/xamarinios1.0/SkiaSharp.pdb",
         "lib/xamarinios1.0/SkiaSharp.xml",
         "lib/xamarinmac2.0/SkiaSharp.dll",
+        "lib/xamarinmac2.0/SkiaSharp.pdb",
         "lib/xamarinmac2.0/SkiaSharp.xml",
         "lib/xamarintvos1.0/SkiaSharp.dll",
+        "lib/xamarintvos1.0/SkiaSharp.pdb",
         "lib/xamarintvos1.0/SkiaSharp.xml",
         "lib/xamarinwatchos1.0/SkiaSharp.dll",
+        "lib/xamarinwatchos1.0/SkiaSharp.pdb",
         "lib/xamarinwatchos1.0/SkiaSharp.xml",
+        "skiasharp.2.88.3.nupkg.sha512",
+        "skiasharp.nuspec"
+      ]
+    },
+    "SkiaSharp.NativeAssets.macOS/2.88.3": {
+      "sha512": "CEbWAXMGFkPV3S1snBKK7jEG3+xud/9kmSAhu0BEUKKtlMdxx+Qal0U9bntQREM9QpqP5xLWZooodi8IlV8MEg==",
+      "type": "package",
+      "path": "skiasharp.nativeassets.macos/2.88.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "THIRD-PARTY-NOTICES.txt",
+        "build/net462/SkiaSharp.NativeAssets.macOS.targets",
+        "build/net6.0-macos10.15/SkiaSharp.NativeAssets.macOS.targets",
+        "build/xamarinmac2.0/SkiaSharp.NativeAssets.macOS.targets",
+        "buildTransitive/net462/SkiaSharp.NativeAssets.macOS.targets",
+        "buildTransitive/net6.0-macos10.15/SkiaSharp.NativeAssets.macOS.targets",
+        "buildTransitive/xamarinmac2.0/SkiaSharp.NativeAssets.macOS.targets",
+        "lib/net462/_._",
+        "lib/net5.0/_._",
+        "lib/net6.0-macos10.15/_._",
+        "lib/netcoreapp3.1/_._",
+        "lib/netstandard1.3/_._",
+        "lib/xamarinmac2.0/_._",
         "runtimes/osx/native/libSkiaSharp.dylib",
+        "skiasharp.nativeassets.macos.2.88.3.nupkg.sha512",
+        "skiasharp.nativeassets.macos.nuspec"
+      ]
+    },
+    "SkiaSharp.NativeAssets.Win32/2.88.3": {
+      "sha512": "MU4ASL8VAbTv5vSw1PoiWjjjpjtGhWtFYuJnrN4sNHFCePb2ohQij9JhSdqLLxk7RpRtWPdV93fbA53Pt+J0yw==",
+      "type": "package",
+      "path": "skiasharp.nativeassets.win32/2.88.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "THIRD-PARTY-NOTICES.txt",
+        "build/net462/SkiaSharp.NativeAssets.Win32.targets",
+        "buildTransitive/net462/SkiaSharp.NativeAssets.Win32.targets",
+        "lib/net462/_._",
+        "lib/net5.0/_._",
+        "lib/netcoreapp3.1/_._",
+        "lib/netstandard1.3/_._",
         "runtimes/win-arm64/native/libSkiaSharp.dll",
         "runtimes/win-x64/native/libSkiaSharp.dll",
         "runtimes/win-x86/native/libSkiaSharp.dll",
-        "runtimes/win10-arm/nativeassets/uap10.0/libEGL.dll",
-        "runtimes/win10-arm/nativeassets/uap10.0/libGLESv2.dll",
-        "runtimes/win10-arm/nativeassets/uap10.0/libSkiaSharp.dll",
-        "runtimes/win10-arm64/nativeassets/uap10.0/libEGL.dll",
-        "runtimes/win10-arm64/nativeassets/uap10.0/libGLESv2.dll",
-        "runtimes/win10-arm64/nativeassets/uap10.0/libSkiaSharp.dll",
-        "runtimes/win10-x64/nativeassets/uap10.0/libEGL.dll",
-        "runtimes/win10-x64/nativeassets/uap10.0/libGLESv2.dll",
-        "runtimes/win10-x64/nativeassets/uap10.0/libSkiaSharp.dll",
-        "runtimes/win10-x86/nativeassets/uap10.0/libEGL.dll",
-        "runtimes/win10-x86/nativeassets/uap10.0/libGLESv2.dll",
-        "runtimes/win10-x86/nativeassets/uap10.0/libSkiaSharp.dll",
-        "skiasharp.2.80.1.nupkg.sha512",
-        "skiasharp.nuspec",
-        "xamarin.interactive/SkiaSharp.Workbooks.dll"
+        "skiasharp.nativeassets.win32.2.88.3.nupkg.sha512",
+        "skiasharp.nativeassets.win32.nuspec"
       ]
     },
     "Swashbuckle.AspNetCore/6.5.0": {
@@ -4586,24 +4744,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\cuongvl\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\qknzt\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_Web\\CMS_Web.csproj",
+      "projectUniqueName": "C:\\Users\\qknzt\\OneDrive\\Documents\\GitHub\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_Web\\CMS_Web.csproj",
       "projectName": "CMS_Web",
-      "projectPath": "D:\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_Web\\CMS_Web.csproj",
-      "packagesPath": "C:\\Users\\cuongvl\\.nuget\\packages\\",
-      "outputPath": "D:\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_Web\\obj\\",
+      "projectPath": "C:\\Users\\qknzt\\OneDrive\\Documents\\GitHub\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_Web\\CMS_Web.csproj",
+      "packagesPath": "C:\\Users\\qknzt\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\qknzt\\OneDrive\\Documents\\GitHub\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_Web\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\cuongvl\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\qknzt\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4611,19 +4764,17 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
-        "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "D:\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_Infrastructure\\CMS_Infrastructure.csproj": {
-              "projectPath": "D:\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_Infrastructure\\CMS_Infrastructure.csproj"
+            "C:\\Users\\qknzt\\OneDrive\\Documents\\GitHub\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_Infrastructure\\CMS_Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\qknzt\\OneDrive\\Documents\\GitHub\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_Infrastructure\\CMS_Infrastructure.csproj"
             },
-            "D:\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj": {
-              "projectPath": "D:\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj"
+            "C:\\Users\\qknzt\\OneDrive\\Documents\\GitHub\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj": {
+              "projectPath": "C:\\Users\\qknzt\\OneDrive\\Documents\\GitHub\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj"
             }
           }
         }
@@ -4632,6 +4783,9 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "default"
       }
     },
     "frameworks": {
@@ -4658,6 +4812,24 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[7.0.5, 7.0.5]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[7.0.5, 7.0.5]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[7.0.5, 7.0.5]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[7.0.5, 7.0.5]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -4666,7 +4838,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100-preview.5.23303.2\\RuntimeIdentifierGraph.json"
       }
     }
   }

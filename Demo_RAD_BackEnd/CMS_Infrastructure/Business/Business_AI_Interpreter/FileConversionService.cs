@@ -1,4 +1,6 @@
 ﻿
+using Aspose.Cells;
+using Aspose.Cells.Rendering;
 using Aspose.Pdf.Devices;
 using CMS_WebDesignCore.IBusiness.IDusiness_AI_Interpreter;
 using AsposeDoc = Aspose.Words.Document;
@@ -78,7 +80,25 @@ namespace CMS_Infrastructure.Business.Business_AI_Interpreter
         {
             List<string> convertedImagePaths = new List<string>();
 
-            //Code
+            using (Workbook workbook = new Workbook(filePath))
+            {
+                for (int i = 0; i < workbook.Worksheets.Count; i++)
+                {
+                    Worksheet worksheet = workbook.Worksheets[i];
+                    string imagePathTemplate = Path.Combine(Path.GetDirectoryName(filePath), $"worksheet{i + 1}_{{0}}.jpg");
+
+                    ImageOrPrintOptions imgOptions = new ImageOrPrintOptions();
+
+                    SheetRender sr = new SheetRender(worksheet, imgOptions);
+
+                    for (int j = 0; j < sr.PageCount; j++)
+                    {
+                        string imagePath = string.Format(imagePathTemplate, j + 1);
+                        sr.ToImage(j, imagePath);
+                        convertedImagePaths.Add(imagePath);
+                    }
+                }
+            }
 
             return convertedImagePaths;
         }
