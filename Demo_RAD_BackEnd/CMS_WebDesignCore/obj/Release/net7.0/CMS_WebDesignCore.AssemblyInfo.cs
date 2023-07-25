@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CMS_WebDesignCore")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ab102ab0de3ddea028bb843036606a7ff3f0c5f5")]
 [assembly: System.Reflection.AssemblyProductAttribute("CMS_WebDesignCore")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CMS_WebDesignCore")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

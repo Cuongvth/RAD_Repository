@@ -22,3 +22,16 @@ D:\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Release\net7.0\CMS_Web
 D:\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Release\net7.0\refint\CMS_WebDesignCore.dll
 D:\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Release\net7.0\CMS_WebDesignCore.pdb
 D:\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Release\net7.0\ref\CMS_WebDesignCore.dll
+C:\Users\qknzt\OneDrive\Documents\GitHub\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\bin\Release\net7.0\CMS_WebDesignCore.deps.json
+C:\Users\qknzt\OneDrive\Documents\GitHub\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\bin\Release\net7.0\CMS_WebDesignCore.dll
+C:\Users\qknzt\OneDrive\Documents\GitHub\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\bin\Release\net7.0\CMS_WebDesignCore.pdb
+C:\Users\qknzt\OneDrive\Documents\GitHub\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Release\net7.0\CMS_WebDesignCore.csproj.AssemblyReference.cache
+C:\Users\qknzt\OneDrive\Documents\GitHub\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Release\net7.0\CMS_WebDesignCore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\qknzt\OneDrive\Documents\GitHub\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Release\net7.0\CMS_WebDesignCore.AssemblyInfoInputs.cache
+C:\Users\qknzt\OneDrive\Documents\GitHub\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Release\net7.0\CMS_WebDesignCore.AssemblyInfo.cs
+C:\Users\qknzt\OneDrive\Documents\GitHub\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Release\net7.0\CMS_WebDesignCore.csproj.CoreCompileInputs.cache
+C:\Users\qknzt\OneDrive\Documents\GitHub\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Release\net7.0\CMS_WebDesignCore.sourcelink.json
+C:\Users\qknzt\OneDrive\Documents\GitHub\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Release\net7.0\CMS_WebDesignCore.dll
+C:\Users\qknzt\OneDrive\Documents\GitHub\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Release\net7.0\refint\CMS_WebDesignCore.dll
+C:\Users\qknzt\OneDrive\Documents\GitHub\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Release\net7.0\CMS_WebDesignCore.pdb
+C:\Users\qknzt\OneDrive\Documents\GitHub\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Release\net7.0\ref\CMS_WebDesignCore.dll

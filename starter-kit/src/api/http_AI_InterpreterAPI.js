@@ -3,7 +3,7 @@ import axios from "axios";
 export class HTTPSingleton {
   static config = {
     baseURL: "https://apirad.ltsgroup.tech/api/DocumentAPI",
-    
+v    
     headers: {
       "Content-Type": "application/json",
       "Access-Control-Allow-Origin": "*",

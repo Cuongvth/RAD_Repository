@@ -7,7 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Aspose.Cells" Version="23.7.0" />
     <PackageReference Include="Aspose.PDF" Version="23.7.0" />
+    <PackageReference Include="Aspose.Slides.NET" Version="23.7.0" />
     <PackageReference Include="Aspose.Words" Version="23.7.0" />
     <PackageReference Include="Google.Apis" Version="1.61.0" />
     <PackageReference Include="Google.Apis.Vision.v1" Version="1.61.0.3112" />

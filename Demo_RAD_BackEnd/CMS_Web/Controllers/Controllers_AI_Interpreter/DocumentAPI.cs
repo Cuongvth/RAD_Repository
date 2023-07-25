@@ -47,7 +47,8 @@ namespace CMS_Web.Controllers.Controllers_AI_Interpreter
         }
 
         [HttpPost("download")]
-        public async Task<IActionResult> ConvertDocumentToPdf([FromBody] List<ImageBlock> requests, string filePath)
+        [RequestSizeLimit(1000_000_000)]
+        public async Task<IActionResult> DownloadDocument([FromBody] List<ImageBlock> requests, string filePath)
         {
             var fileBytes = await _documentService.DownloadConvertedDocument(requests, filePath);
             return new FileContentResult(fileBytes, "application/octet-stream")
