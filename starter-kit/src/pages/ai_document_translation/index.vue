@@ -174,6 +174,7 @@ const isLoading = ref(false);
 const isUploading = ref(false);
 const uploadedFileName = ref("");
 const targetLanguage = ref({ title: "Việt Nam", abbr: "vi" });
+const maxFileSize = 29 * 1024 * 1024; // 29 MB in bytes
 
 const languages = ref([
   { title: "Việt Nam", abbr: "vi" },
@@ -203,6 +204,11 @@ const handleError = errorMessage => {
 
 const onFileSelected = event => {
   const [file] = event.target.files;
+
+  if (file.size > maxFileSize) {
+    handleError("Tệp quá lớn. Vui lòng chọn tệp có kích thước dưới 30 MB.");
+    return;
+  }
 
   selectedFile.value = file;
 };
