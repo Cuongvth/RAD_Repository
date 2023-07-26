@@ -52,43 +52,17 @@
         <VCard outlined>
           <VCardTitle class="text-center">
             <h3 class="headline">
-              Văn bản gốc
+              Ảnh gốc
             </h3>
-            <VProgressCircular
-              v-if="isLoading"
-              indeterminate
-              color="primary"
-            />
           </VCardTitle>
           <VCardText>
-            <VList v-if="!isLoading">
+            <VList>
               <VListItem
-                v-for="(block, blockIndex) in translatedBlocks"
-                :key="blockIndex"
+                v-for="(image, imageIndex) in originalImages"
+                :key="imageIndex"
               >
-                <div class="text-container">
-                  <h4>Trang {{ blockIndex + 1 }}</h4>
-                  <div
-                    v-for="annotation in block.textAnnotations"
-                    :key="annotation"
-                  >
-                    <div
-                      v-for="item in annotation"
-                      :key="item.text"
-                    >
-                      <VCard
-                        v-if="item.text && item.translatedText"
-                        class="text-border mt-4"
-                        outlined
-                        tile
-                      >
-                        <VCardText class="custom-padding">
-                          {{ item.text }}
-                        </VCardText>
-                      </VCard>
-                    </div>
-                  </div>
-                </div>
+              <h3 class="mb-3" :style="{ color: 'white' }">Trang {{ imageIndex + 1 }}</h3>
+              <img :src="getImageUrl(image.imagePath)" class="image-border" />
               </VListItem>
             </VList>
           </VCardText>
@@ -98,7 +72,7 @@
         <VCard outlined>
           <VCardTitle class="text-center">
             <h3 class="headline">
-              Văn bản đã dịch
+              Ảnh đã dịch
             </h3>
             <VProgressCircular
               v-if="isLoading"
@@ -109,30 +83,11 @@
           <VCardText>
             <VList v-if="!isLoading">
               <VListItem
-                v-for="(block, blockIndex) in translatedBlocks"
-                :key="blockIndex"
+                v-for="(image, imageIndex) in convertedImage"
+                :key="imageIndex"
               >
-                <div class="text-container">
-                  <h4>Trang {{ blockIndex + 1 }}</h4>
-                  <div
-                    v-for="annotation in block.textAnnotations"
-                    :key="annotation"
-                  >
-                    <div
-                      v-for="item in annotation"
-                      :key="item.text"
-                      class="mt-4"
-                    >
-                      <VTextarea
-                        v-if="item.text && item.translatedText"
-                        v-model="item.translatedText"
-                        auto-grow
-                        variant="solo-filled"
-                        rows="1"
-                      />
-                    </div>
-                  </div>
-                </div>
+              <h3 class="mb-3" :style="{ color: 'white' }">Trang {{ imageIndex + 1 }}</h3>
+              <img :src="getImageUrl(image.imagePath)" class="image-border" />
               </VListItem>
             </VList>
             <VRow
@@ -160,16 +115,16 @@
 <script setup>
 import { useStore } from "vuex";
 import {
-  convertDocument,
-  downloadDocument,
-  uploadDocument,
+convertDocument,
+downloadDocument,
+uploadDocument,
 } from "./AI_InterpreterAPI";
 
 const store = useStore();
 
 const selectedFile = ref(null);
 const originalImages = ref([]);
-const translatedBlocks = ref([]);
+const convertedImage = ref([]);
 const isLoading = ref(false);
 const isUploading = ref(false);
 const uploadedFileName = ref("");
@@ -190,12 +145,15 @@ watchEffect(() => {
 });
 
 const showDownloadButton = computed(() => {
-  return translatedBlocks.value.some(block =>
-    block.textAnnotations.some(annotation =>
-      annotation.some(item => item.text && item.translatedText),
-    ),
+  return convertedImage.value.some(imagePath =>
+    imagePath
   );
 });
+
+const getImageUrl = (imagePath) => {
+  const randomString = Math.random().toString(36).substring(7);
+  return `https://localhost:7247/api/DocumentAPI/images/${encodeURIComponent(imagePath)}?rand=${randomString}`;
+};
 
 const handleError = errorMessage => {
   store.commit("setSnackBarContent", errorMessage);
@@ -214,7 +172,6 @@ const onFileSelected = event => {
 };
 
 async function upload() {
-  isUploading.value = true;
 
   const formData = new FormData();
 
@@ -227,11 +184,11 @@ async function upload() {
       imagePath,
     }));
     uploadedFileName.value = selectedFile.value.name;
+
+    convertedImage.value = [];
   } catch (error) {
     handleError("Đã xảy ra lỗi trong quá trình tải lên tài liệu.");
   }
-
-  isUploading.value = false;
 }
 
 async function convert() {
@@ -246,10 +203,13 @@ async function convert() {
 
     const response = await convertDocument(
       targetLanguage.value.abbr,
+      uploadedFileName.value,
       imagePaths,
     );
 
-    translatedBlocks.value = response.data.map(block => ({ ...block }));
+    convertedImage.value = Object.values(response.data).map(imagePath => ({
+      imagePath,
+    }));
 
     isLoading.value = false;
   } catch (error) {
@@ -260,29 +220,26 @@ async function convert() {
 
 async function download() {
   try {
-    const response = await downloadDocument(
-      uploadedFileName.value,
-      translatedBlocks.value,
-    );
+    const folderName = getRarFileName(uploadedFileName.value)
+    const response = await downloadDocument(folderName);
 
-    const blob = new Blob([response.data], {
-      type: "application/octet-stream",
-    });
+    const blob = new Blob([response.data], { type: 'application/zip' });
 
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement("a");
+        const url = window.URL.createObjectURL(blob);
 
-    link.href = url;
-    link.setAttribute("download", `${getRarFileName()}.rar`);
-    document.body.appendChild(link);
-    link.click();
-    URL.revokeObjectURL(url);
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', `${folderName}.zip`);
+        document.body.appendChild(link);
+        link.click();
+
+        window.URL.revokeObjectURL(url);
   } catch (error) {
     handleError("Đã xảy ra lỗi trong quá trình tải xuống.");
   }
 }
 
-const getRarFileName = () => uploadedFileName.value.replace(/\.[^.]+$/, "");
+const getRarFileName = (uploadedFileName) => uploadedFileName.replace(/\.[^.]+$/, "");
 </script>
 
 <style lang="scss">
@@ -293,4 +250,12 @@ const getRarFileName = () => uploadedFileName.value.replace(/\.[^.]+$/, "");
 .custom-padding {
   padding: 8px 16px;
 }
+
+.image-border {
+  border: 2px solid #ff0000;
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+}
+
 </style>
