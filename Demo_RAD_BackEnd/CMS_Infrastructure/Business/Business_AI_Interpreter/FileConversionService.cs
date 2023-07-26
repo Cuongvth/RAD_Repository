@@ -43,7 +43,9 @@ namespace CMS_Infrastructure.Business.Business_AI_Interpreter
             using (AsposePdf pdfDocument = new AsposePdf(filePath))
             {
                 pageCount = pdfDocument.Pages.Count;
-                JpegDevice jpegDevice = new JpegDevice();
+
+                Resolution resolution = new Resolution(300);
+                JpegDevice jpegDevice = new JpegDevice(resolution);
 
                 for (int pageIndex = 1; pageIndex <= pageCount; pageIndex++)
                 {
@@ -90,6 +92,8 @@ namespace CMS_Infrastructure.Business.Business_AI_Interpreter
                     string imagePathTemplate = Path.Combine(Path.GetDirectoryName(filePath), $"worksheet{i + 1}_{{0}}.jpg");
 
                     ImageOrPrintOptions imgOptions = new ImageOrPrintOptions();
+                    imgOptions.HorizontalResolution = 300;
+                    imgOptions.VerticalResolution = 300;
 
                     SheetRender sr = new SheetRender(worksheet, imgOptions);
 
@@ -115,7 +119,11 @@ namespace CMS_Infrastructure.Business.Business_AI_Interpreter
                 {
                     ISlide slide = powerPointPresentation.Slides[slideIndex];
 
-                    Bitmap bmp = slide.GetThumbnail(1f, 1f);
+                    float dpi = 300;
+                    float scaleX = dpi / 96;
+                    float scaleY = dpi / 96;
+
+                    Bitmap bmp = slide.GetThumbnail(scaleX, scaleY);
 
                     string outputImagePath = Path.Combine(Path.GetDirectoryName(filePath), $"{slide.SlideNumber}.jpg");
                     bmp.Save(outputImagePath, System.Drawing.Imaging.ImageFormat.Jpeg);

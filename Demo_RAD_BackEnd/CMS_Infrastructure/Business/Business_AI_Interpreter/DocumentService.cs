@@ -130,14 +130,12 @@ namespace CMS_Infrastructure.Business.Business_AI_Interpreter
 
         private List<string> BoundingPolyOnTopOfImages(List<ImageBlock> requests, string filePath)
         {
-            int supersamplingFactor = 2;
-
             var imagePaths = requests.Select(request =>
             {
                 using (var image = new Bitmap(request.ImagePath))
                 using (var graphics = Graphics.FromImage(image))
                 {
-                    image.SetResolution(image.HorizontalResolution * supersamplingFactor, image.VerticalResolution * supersamplingFactor);
+                    image.SetResolution(300, 300);
 
                     // Use anti-aliasing and high-quality text rendering
                     graphics.SmoothingMode = SmoothingMode.AntiAlias;
@@ -184,8 +182,6 @@ namespace CMS_Infrastructure.Business.Business_AI_Interpreter
                             graphics.DrawString(textObject.TranslatedText, font, Brushes.Black, textRect);
                         }
                     }
-
-                    image.SetResolution(image.HorizontalResolution / supersamplingFactor, image.VerticalResolution / supersamplingFactor);
 
                     var imageOutputPath = Path.Combine(Path.GetDirectoryName(filePath), Path.GetFileName(request.ImagePath));
                     image.Save(imageOutputPath, ImageFormat.Jpeg);
