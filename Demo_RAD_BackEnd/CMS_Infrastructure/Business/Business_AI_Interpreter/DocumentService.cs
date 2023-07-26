@@ -18,44 +18,52 @@ namespace CMS_Infrastructure.Business.Business_AI_Interpreter
         public DocumentService(IFileConversionService fileConversionService, string visionApiKey, string translationApiKey)
         {
             this.fileConversionService = fileConversionService;
-            this.textRecognitionService = new TextRecognitionService(visionApiKey, translationApiKey);
+            textRecognitionService = new TextRecognitionService(visionApiKey, translationApiKey);
         }
 
-        public async Task<byte[]> DownloadConvertedDocument(List<ImageBlock> requests, string filePath)
+        public byte[] GetImageBytes(string imageName)
         {
-            var imagePaths = BoundingPolyOnTopOfImages(requests, filePath);
-            var archivePath = CreateArchive(filePath, imagePaths);
-
-            var fileBytes = await ReadAllBytesAsync(archivePath);
-
-            DeleteFileAndDirectory(archivePath);
-
-            return fileBytes;
+            string imagePath = imageName;
+            return File.ReadAllBytes(imagePath);
         }
 
-
-        public async Task<List<ImageBlock>> ConvertDocument(List<string> convertedImagePaths, string targetLanguage)
+        public async Task<byte[]> DownloadConvertedDocument(string folderName)
         {
-            List<ImageBlock> result = new List<ImageBlock>();
-            foreach (string imagePath in convertedImagePaths)
+            string folderPath = Path.Combine("path", "images", "save", folderName);
+
+            if (!Directory.Exists(folderPath))
             {
-                string imageName = Path.GetFileName(imagePath);
-
-                if (!File.Exists(imagePath))
-                {
-                    throw new ArgumentException($"Image file not found: {imageName}");
-                }
-
-                List<List<ParagraphInfo>> paragraphInfos = await GetTranslatedTextBlocks(imagePath, targetLanguage);
-                ImageBlock block = new ImageBlock
-                {
-                    ImagePath = imagePath,
-                    TextAnnotations = paragraphInfos
-                };
-                result.Add(block);
+                throw new ArgumentException($"Folder not found: {folderName}");
             }
-            return result;
+
+            string zipFilePath = Path.Combine(Path.GetTempPath(), $"{folderName}.zip");
+            ZipFile.CreateFromDirectory(folderPath, zipFilePath);
+
+            byte[] zipBytes = await File.ReadAllBytesAsync(zipFilePath);
+
+            File.Delete(zipFilePath);
+
+            return zipBytes;
         }
+
+        public async Task<List<string>> ConvertDocument(List<string> convertedImagePaths, string targetLanguage, string filePath)
+        {
+            var tasks = convertedImagePaths.Select(imagePath => ProcessImageAsync(imagePath, targetLanguage));
+
+            var result = await Task.WhenAll(tasks);
+            var resultList = result.ToList();
+
+            var imagePaths = BoundingPolyOnTopOfImages(resultList, filePath);
+
+            string folderName = Path.GetFileNameWithoutExtension(filePath);
+            string folderPath = Path.Combine("path", "images", "save", folderName);
+            Directory.CreateDirectory(folderPath);
+
+            var movedImagePaths = await MoveImagesAsync(imagePaths, folderPath);
+
+            return movedImagePaths.ToList();
+        }
+
 
         public async Task<List<string>> UploadDocument(IFormFile documentUpload)
         {
@@ -156,7 +164,6 @@ namespace CMS_Infrastructure.Business.Business_AI_Interpreter
                             var fontSizeToFitHeight = CalculateFontSizeToFitText(textRect, graphics, textObject.TranslatedText, "Arial");
                             var font = new Font("Arial", fontSizeToFitHeight, FontStyle.Bold);
 
-                            // Draw the text with the updated font
                             var textSize = graphics.MeasureString(textObject.TranslatedText, font);
                             var textTop = (textRect.Y + textRect.Height) - textSize.Height;
                             if (textTop < maxY)
@@ -245,62 +252,46 @@ namespace CMS_Infrastructure.Business.Business_AI_Interpreter
             return lines;
         }
 
-        private IEnumerable<string> SplitIntoLines(IEnumerable<string> words, float maxWidth, Graphics graphics, Font font)
+        private async Task<ImageBlock> ProcessImageAsync(string imagePath, string targetLanguage)
         {
-            var lines = new List<string>();
+            string imageName = Path.GetFileName(imagePath);
 
-            var line = "";
-            foreach (var word in words)
+            if (!File.Exists(imagePath))
             {
-                if (graphics.MeasureString(line + word, font).Width > maxWidth)
+                throw new ArgumentException($"Image file not found: {imageName}");
+            }
+
+            List<List<ParagraphInfo>> paragraphInfos = await GetTranslatedTextBlocks(imagePath, targetLanguage);
+
+            return new ImageBlock
+            {
+                ImagePath = imagePath,
+                TextAnnotations = paragraphInfos
+            };
+        }
+
+
+        private async Task<List<string>> MoveImagesAsync(List<string> imagePaths, string destinationFolder)
+        {
+            var moveTasks = imagePaths.Select(async imagePath =>
+            {
+                string imageFileName = Path.GetFileName(imagePath);
+                string destinationPath = Path.Combine(destinationFolder, imageFileName);
+
+                if (File.Exists(destinationPath))
                 {
-                    lines.Add(line);
-                    line = "";
+                    File.Delete(destinationPath);
                 }
-                line += word + " ";
-            }
 
-            if (!string.IsNullOrWhiteSpace(line))
-            {
-                lines.Add(line);
-            }
+                await Task.Run(() => File.Move(imagePath, destinationPath));
 
-            return lines;
-        }
+                return destinationPath;
+            });
 
-        private string CreateArchive(string filePath, List<string> imagePaths)
-        {
-            var tempFolderPath = Path.Combine(Path.GetTempPath(), "temp_folder");
-            Directory.CreateDirectory(tempFolderPath);
+            var movedImagePaths = await Task.WhenAll(moveTasks);
 
-            var archivePath = Path.Combine(tempFolderPath, $"archive_{DateTime.Now:yyyyMMddHHmmss}.rar");
-
-            using (var archive = ZipFile.Open(archivePath, ZipArchiveMode.Create))
-            {
-
-                var folderName = Path.GetFileName(filePath);
-                var folderEntry = archive.CreateEntry(folderName + "/");
-
-                imagePaths.ForEach(imagePath =>
-                {
-                    var entryName = Path.GetFileName(imagePath);
-                    archive.CreateEntryFromFile(imagePath, folderName + "/" + entryName);
-                });
-            }
-
-            return archivePath;
-        }
-
-        private async Task<byte[]> ReadAllBytesAsync(string filePath)
-        {
-            return await File.ReadAllBytesAsync(filePath);
-        }
-
-        private void DeleteFileAndDirectory(string filePath)
-        {
-            File.Delete(filePath);
-            var tempFolderPath = Path.GetDirectoryName(filePath);
-            Directory.Delete(tempFolderPath, true);
+            return movedImagePaths.ToList();
         }
     }
+
 }

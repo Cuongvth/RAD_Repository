@@ -7,8 +7,11 @@ namespace CMS_WebDesignCore.IBusiness.IDusiness_AI_Interpreter
     {
         Task<List<string>> UploadDocument(IFormFile documentDownload);
 
-        Task<List<ImageBlock>> ConvertDocument(List<string> convertedImagePaths, string targetLanguage);
+        Task<List<string>> ConvertDocument(List<string> convertedImagePaths, string targetLanguage, string filePath);
 
-        Task<byte[]> DownloadConvertedDocument(List<ImageBlock> requests, string filePath);
+        Task<byte[]> DownloadConvertedDocument(string folderName);
+
+        byte[] GetImageBytes(string imageName);
+
     }
 }
