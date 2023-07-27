@@ -35,3 +35,15 @@ C:\Users\qknzt\OneDrive\Documents\GitHub\Computer_Vision\Demo_RAD_BackEnd\CMS_We
 C:\Users\qknzt\OneDrive\Documents\GitHub\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Release\net7.0\refint\CMS_WebDesignCore.dll
 C:\Users\qknzt\OneDrive\Documents\GitHub\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Release\net7.0\CMS_WebDesignCore.pdb
 C:\Users\qknzt\OneDrive\Documents\GitHub\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Release\net7.0\ref\CMS_WebDesignCore.dll
+C:\Users\DJ XuyenChi\Documents\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\bin\Release\net7.0\CMS_WebDesignCore.deps.json
+C:\Users\DJ XuyenChi\Documents\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\bin\Release\net7.0\CMS_WebDesignCore.dll
+C:\Users\DJ XuyenChi\Documents\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\bin\Release\net7.0\CMS_WebDesignCore.pdb
+C:\Users\DJ XuyenChi\Documents\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Release\net7.0\CMS_WebDesignCore.csproj.AssemblyReference.cache
+C:\Users\DJ XuyenChi\Documents\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Release\net7.0\CMS_WebDesignCore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DJ XuyenChi\Documents\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Release\net7.0\CMS_WebDesignCore.AssemblyInfoInputs.cache
+C:\Users\DJ XuyenChi\Documents\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Release\net7.0\CMS_WebDesignCore.AssemblyInfo.cs
+C:\Users\DJ XuyenChi\Documents\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Release\net7.0\CMS_WebDesignCore.csproj.CoreCompileInputs.cache
+C:\Users\DJ XuyenChi\Documents\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Release\net7.0\CMS_WebDesignCore.dll
+C:\Users\DJ XuyenChi\Documents\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Release\net7.0\refint\CMS_WebDesignCore.dll
+C:\Users\DJ XuyenChi\Documents\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Release\net7.0\CMS_WebDesignCore.pdb
+C:\Users\DJ XuyenChi\Documents\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Release\net7.0\ref\CMS_WebDesignCore.dll

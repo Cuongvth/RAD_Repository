@@ -1,20 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "4BQ9FeSfXPKe9iLKwrxH0f7c3ulvn9YhKnM9HHVYNus1c81cnBkAliNr40gSu60BwYogY2LGg9xQiKw86iKmaQ==",
+  "dgSpecHash": "50G1szbBKyS09bv3UGVADp4hR3AUCFSmSw7TFKqM9R9bB7FnxWsu50a70Dc89npxFd1iiDjPY5YsG3NtIOOAew==",
   "success": true,
-  "projectFilePath": "C:\\Users\\qknzt\\OneDrive\\Documents\\GitHub\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj",
+  "projectFilePath": "C:\\Users\\DJ XuyenChi\\Documents\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\qknzt\\.nuget\\packages\\google.apis\\1.61.0\\google.apis.1.61.0.nupkg.sha512",
-    "C:\\Users\\qknzt\\.nuget\\packages\\google.apis.auth\\1.61.0\\google.apis.auth.1.61.0.nupkg.sha512",
-    "C:\\Users\\qknzt\\.nuget\\packages\\google.apis.core\\1.61.0\\google.apis.core.1.61.0.nupkg.sha512",
-    "C:\\Users\\qknzt\\.nuget\\packages\\google.apis.vision.v1\\1.61.0.3112\\google.apis.vision.v1.1.61.0.3112.nupkg.sha512",
-    "C:\\Users\\qknzt\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
-    "C:\\Users\\qknzt\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.1\\microsoft.extensions.primitives.5.0.1.nupkg.sha512",
-    "C:\\Users\\qknzt\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
-    "C:\\Users\\qknzt\\.nuget\\packages\\system.io.pipelines\\5.0.2\\system.io.pipelines.5.0.2.nupkg.sha512",
-    "C:\\Users\\qknzt\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.5\\microsoft.windowsdesktop.app.ref.7.0.5.nupkg.sha512",
-    "C:\\Users\\qknzt\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.5\\microsoft.netcore.app.ref.7.0.5.nupkg.sha512",
-    "C:\\Users\\qknzt\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.5\\microsoft.aspnetcore.app.ref.7.0.5.nupkg.sha512"
+    "C:\\Users\\DJ XuyenChi\\.nuget\\packages\\google.apis\\1.61.0\\google.apis.1.61.0.nupkg.sha512",
+    "C:\\Users\\DJ XuyenChi\\.nuget\\packages\\google.apis.auth\\1.61.0\\google.apis.auth.1.61.0.nupkg.sha512",
+    "C:\\Users\\DJ XuyenChi\\.nuget\\packages\\google.apis.core\\1.61.0\\google.apis.core.1.61.0.nupkg.sha512",
+    "C:\\Users\\DJ XuyenChi\\.nuget\\packages\\google.apis.vision.v1\\1.61.0.3112\\google.apis.vision.v1.1.61.0.3112.nupkg.sha512",
+    "C:\\Users\\DJ XuyenChi\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
+    "C:\\Users\\DJ XuyenChi\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.1\\microsoft.extensions.primitives.5.0.1.nupkg.sha512",
+    "C:\\Users\\DJ XuyenChi\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\DJ XuyenChi\\.nuget\\packages\\system.io.pipelines\\5.0.2\\system.io.pipelines.5.0.2.nupkg.sha512"
   ],
   "logs": []
 }
