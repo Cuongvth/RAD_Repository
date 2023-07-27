@@ -69,6 +69,7 @@ export const templateMess = info => {
           src="${link}"
           height="200px"
           width="100%"
+          class="mixImageFunction"
         />
       </div>
     </div>`;
