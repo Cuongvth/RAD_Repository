@@ -44,7 +44,15 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "Aspose.Cells": {
+              "target": "Package",
+              "version": "[23.7.0, )"
+            },
             "Aspose.PDF": {
+              "target": "Package",
+              "version": "[23.7.0, )"
+            },
+            "Aspose.Slides.NET": {
               "target": "Package",
               "version": "[23.7.0, )"
             },

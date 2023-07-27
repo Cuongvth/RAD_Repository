@@ -17,9 +17,9 @@ export function uploadDocument(formData) {
   });
 }
 
-export function convertDocument(targetLanguage, imagePaths) {
+export function convertDocument(targetLanguage, filePath, imagePaths) {
   return new Promise((resolve, reject) => {
-    HTTP.post(`convert?targetLanguage=${targetLanguage}`, imagePaths)
+    HTTP.post(`convert?targetLanguage=${targetLanguage}&filePath=${filePath}`, imagePaths)
       .then(response => {
         resolve({ data: response.data });
       })
@@ -30,10 +30,10 @@ export function convertDocument(targetLanguage, imagePaths) {
   });
 }
 
-export function downloadDocument(filePath, translatedBlocks) {
+export function downloadDocument(folderName) {
   return new Promise((resolve, reject) => {
-    HTTP.post(`download?filePath=${filePath}`, translatedBlocks, {
-      responseType: "arraybuffer",
+    HTTP.get(`download/${folderName}`, {
+      responseType: 'blob',
     })
       .then(response => {
         resolve({ data: response.data });

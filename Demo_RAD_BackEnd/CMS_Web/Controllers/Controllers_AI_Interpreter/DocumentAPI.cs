@@ -19,6 +19,7 @@ namespace CMS_Web.Controllers.Controllers_AI_Interpreter
         }
 
         [HttpPost("upload")]
+        [RequestSizeLimit(1000_000_000)]
         public async Task<IActionResult> UploadDocument(IFormFile documentUpload)
         {
             try
@@ -33,12 +34,32 @@ namespace CMS_Web.Controllers.Controllers_AI_Interpreter
         }
 
         [HttpPost("convert")]
-        public async Task<IActionResult> ConvertDocument(List<string> convertedImagePaths, string targetLanguage)
+        public async Task<IActionResult> ConvertDocument(List<string> convertedImagePaths, string targetLanguage, string filePath)
         {
             try
             {
-                List<ImageBlock> imageBlocks = await _documentService.ConvertDocument(convertedImagePaths, targetLanguage);
-                return Ok(imageBlocks);
+                List<string> convertedImages = await _documentService.ConvertDocument(convertedImagePaths, targetLanguage, filePath);
+                return Ok(convertedImages);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+       
+        [HttpGet("download/{folderName}")]
+        public async Task<IActionResult> DownloadDocument(string folderName)
+        {
+            try
+            {
+                byte[] zipBytes = await _documentService.DownloadConvertedDocument(folderName);
+
+                if (zipBytes == null)
+                {
+                    return NotFound();
+                }
+
+                return File(zipBytes, "application/zip", $"{folderName}.zip");
             }
             catch (ArgumentException ex)
             {
@@ -46,15 +67,20 @@ namespace CMS_Web.Controllers.Controllers_AI_Interpreter
             }
         }
 
-        [HttpPost("download")]
-        public async Task<IActionResult> ConvertDocumentToPdf([FromBody] List<ImageBlock> requests, string filePath)
+        [HttpGet("images/{imageName}")]
+        public IActionResult GetImage(string imageName)
         {
-            var fileBytes = await _documentService.DownloadConvertedDocument(requests, filePath);
-            return new FileContentResult(fileBytes, "application/octet-stream")
+            try
             {
-                FileDownloadName = $"{filePath}.rar"
-            };
+                byte[] imageBytes = _documentService.GetImageBytes(imageName);
+                return File(imageBytes, "image/jpeg");
+            }
+            catch (Exception)
+            {
+                return NotFound();
+            }
         }
+
 
     }
 }

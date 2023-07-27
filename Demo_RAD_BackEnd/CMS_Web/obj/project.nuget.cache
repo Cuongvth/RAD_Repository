@@ -1,10 +1,20 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "JUVOGDu1dxLiDIgzx7C4jHiZOE3jHtPUXxrRUtirJqvBIxHUyv8mNuBPvXfQsjAQ3t3i9wizdc7Jc/yMUIuYxw==",
   "success": true,
   "projectFilePath": "C:\\Users\\DJ XuyenChi\\Documents\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_Web\\CMS_Web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DJ XuyenChi\\.nuget\\packages\\aspose.pdf\\23.7.0\\aspose.pdf.23.7.0.nupkg.sha512",
+=======
+  "dgSpecHash": "gEVmGBvMQIkTcVIqos+BkOaw8/AknvkHlBozWVKzHV9jGb6x3N6qADjbgv8zoUYV7NemfQPdbxs62/UfRY4v9A==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\DJ XuyenChi\\Documents\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_Web\\CMS_Web.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\DJ XuyenChi\\.nuget\\packages\\aspose.cells\\23.7.0\\aspose.cells.23.7.0.nupkg.sha512",
+    "C:\\Users\\DJ XuyenChi\\.nuget\\packages\\aspose.pdf\\23.7.0\\aspose.pdf.23.7.0.nupkg.sha512",
+    "C:\\Users\\DJ XuyenChi\\.nuget\\packages\\aspose.slides.net\\23.7.0\\aspose.slides.net.23.7.0.nupkg.sha512",
+>>>>>>> Phuong
     "C:\\Users\\DJ XuyenChi\\.nuget\\packages\\aspose.words\\23.7.0\\aspose.words.23.7.0.nupkg.sha512",
     "C:\\Users\\DJ XuyenChi\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\DJ XuyenChi\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
@@ -49,7 +59,13 @@
     "C:\\Users\\DJ XuyenChi\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
     "C:\\Users\\DJ XuyenChi\\.nuget\\packages\\microsoft.win32.systemevents\\7.0.0\\microsoft.win32.systemevents.7.0.0.nupkg.sha512",
     "C:\\Users\\DJ XuyenChi\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+<<<<<<< HEAD
     "C:\\Users\\DJ XuyenChi\\.nuget\\packages\\skiasharp\\2.80.1\\skiasharp.2.80.1.nupkg.sha512",
+=======
+    "C:\\Users\\DJ XuyenChi\\.nuget\\packages\\skiasharp\\2.88.3\\skiasharp.2.88.3.nupkg.sha512",
+    "C:\\Users\\DJ XuyenChi\\.nuget\\packages\\skiasharp.nativeassets.macos\\2.88.3\\skiasharp.nativeassets.macos.2.88.3.nupkg.sha512",
+    "C:\\Users\\DJ XuyenChi\\.nuget\\packages\\skiasharp.nativeassets.win32\\2.88.3\\skiasharp.nativeassets.win32.2.88.3.nupkg.sha512",
+>>>>>>> Phuong
     "C:\\Users\\DJ XuyenChi\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
     "C:\\Users\\DJ XuyenChi\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
     "C:\\Users\\DJ XuyenChi\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
