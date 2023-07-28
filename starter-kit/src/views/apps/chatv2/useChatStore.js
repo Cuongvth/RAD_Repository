@@ -39,6 +39,8 @@ export const useChatStore = defineStore("chat", {
     async botSendMsg(message) {
       const result = await  callChatGPT({ role: "user", content: message });
 
+      console.log(result);
+
       const { data } = await axios.post(
         `/apps/chatv2/chats/${this.activeChat?.contact.id}`,
         {

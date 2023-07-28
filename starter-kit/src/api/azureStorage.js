@@ -3,7 +3,7 @@ import axios from "axios";
 
 export class HTTPSingleton {
   static config = {
-    baseURL: " https://ltsdemostorage.blob.core.windows.net",
+    baseURL: " https://ltsgroupchatstorage.blob.core.windows.net",
     headers: {
       "Content-Type": "application/json",
       "Access-Control-Allow-Origin": "*",

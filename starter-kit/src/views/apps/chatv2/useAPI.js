@@ -1,4 +1,5 @@
-import { HTTP } from "@/api/azureOpenAI";
+import { HTTP } from "@/api/azureSearch";
+import { Configuration, OpenAIApi } from "openai";
 
 export function callChatGPT(context) {
   return new Promise((resolve, reject) => {
@@ -15,10 +16,11 @@ export function callChatGPT(context) {
     }, {
       headers: {
         'Content-Type': 'application/json',
-        'api-key': "eae45a744ee042e184ec05670de74933",
+        'api-key': "2109cd8e197d441bac41dd8e96a02c16",
       },
     })
       .then(response => {
+        console.log(response);
         resolve({ role: "assistant", content: response.data.choices[0].message.content });
       })
       .catch(error => {
