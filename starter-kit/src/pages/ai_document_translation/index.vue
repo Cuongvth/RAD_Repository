@@ -61,16 +61,8 @@
                 v-for="(image, imageIndex) in originalImages"
                 :key="imageIndex"
               >
-                <h3
-                  class="mb-3"
-                  :style="{ color: 'white' }"
-                >
-                  Trang {{ imageIndex + 1 }}
-                </h3>
-                <img
-                  :src="getImageUrl(image.imagePath)"
-                  class="image-border"
-                >
+              <h3 class="mb-3" :style="{ color: 'white' }">Trang {{ imageIndex + 1 }}</h3>
+              <img :src="getImageUrl(image.imagePath)" class="image-border" />
               </VListItem>
             </VList>
           </VCardText>
@@ -94,16 +86,8 @@
                 v-for="(image, imageIndex) in convertedImage"
                 :key="imageIndex"
               >
-                <h3
-                  class="mb-3"
-                  :style="{ color: 'white' }"
-                >
-                  Trang {{ imageIndex + 1 }}
-                </h3>
-                <img
-                  :src="getImageUrl(image.imagePath)"
-                  class="image-border"
-                >
+              <h3 class="mb-3" :style="{ color: 'white' }">Trang {{ imageIndex + 1 }}</h3>
+              <img :src="getImageUrl(image.imagePath)" class="image-border" />
               </VListItem>
             </VList>
             <VRow
@@ -131,9 +115,9 @@
 <script setup>
 import { useStore } from "vuex";
 import {
-  convertDocument,
-  downloadDocument,
-  uploadDocument,
+convertDocument,
+downloadDocument,
+uploadDocument,
 } from "./AI_InterpreterAPI";
 
 const store = useStore();
@@ -162,13 +146,12 @@ watchEffect(() => {
 
 const showDownloadButton = computed(() => {
   return convertedImage.value.some(imagePath =>
-    imagePath,
+    imagePath
   );
 });
 
-const getImageUrl = imagePath => {
+const getImageUrl = (imagePath) => {
   const randomString = Math.random().toString(36).substring(7);
-  
   return `https://localhost:7247/api/DocumentAPI/images/${encodeURIComponent(imagePath)}?rand=${randomString}`;
 };
 
@@ -182,7 +165,6 @@ const onFileSelected = event => {
 
   if (file.size > maxFileSize) {
     handleError("Tệp quá lớn. Vui lòng chọn tệp có kích thước dưới 30 MB.");
-    
     return;
   }
 
@@ -238,27 +220,26 @@ async function convert() {
 
 async function download() {
   try {
-    const folderName = getRarFileName(uploadedFileName.value);
+    const folderName = getRarFileName(uploadedFileName.value)
     const response = await downloadDocument(folderName);
 
     const blob = new Blob([response.data], { type: 'application/zip' });
 
-    const url = window.URL.createObjectURL(blob);
+        const url = window.URL.createObjectURL(blob);
 
-    const link = document.createElement('a');
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', `${folderName}.zip`);
+        document.body.appendChild(link);
+        link.click();
 
-    link.href = url;
-    link.setAttribute('download', `${folderName}.zip`);
-    document.body.appendChild(link);
-    link.click();
-
-    window.URL.revokeObjectURL(url);
+        window.URL.revokeObjectURL(url);
   } catch (error) {
     handleError("Đã xảy ra lỗi trong quá trình tải xuống.");
   }
 }
 
-const getRarFileName = uploadedFileName => uploadedFileName.replace(/\.[^.]+$/, "");
+const getRarFileName = (uploadedFileName) => uploadedFileName.replace(/\.[^.]+$/, "");
 </script>
 
 <style lang="scss">
@@ -276,4 +257,5 @@ const getRarFileName = uploadedFileName => uploadedFileName.replace(/\.[^.]+$/, 
   width: 100%;
   height: 100%;
 }
+
 </style>

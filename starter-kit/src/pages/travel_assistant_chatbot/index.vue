@@ -1,17 +1,17 @@
 <script setup>
+import { PerfectScrollbar } from "vue3-perfect-scrollbar";
+import { useDisplay, useTheme } from "vuetify";
 import vuetifyInitialThemes from "@/plugins/vuetify/theme";
 import ChatActiveChatUserProfileSidebarContent from "@/views/apps/chat/ChatActiveChatUserProfileSidebarContent.vue";
 import ChatLeftSidebarContent from "@/views/apps/chat/ChatLeftSidebarContent.vue";
 import ChatLog from "@/views/apps/chat/ChatLog.vue";
 import ChatUserProfileSidebarContent from "@/views/apps/chat/ChatUserProfileSidebarContent.vue";
-import { searchGoogle } from "@/views/apps/chat/useAPI";
 import { useChat } from "@/views/apps/chat/useChat";
 import { useChatStore } from "@/views/apps/chat/useChatStore";
 import { useResponsiveLeftSidebar } from "@core/composable/useResponsiveSidebar";
 import { avatarText } from "@core/utils/formatters";
 import typing from "@images/New folder/typing.gif";
-import { PerfectScrollbar } from "vue3-perfect-scrollbar";
-import { useDisplay, useTheme } from "vuetify";
+import { searchGoogle } from "@/views/apps/chat/useAPI";
 
 const vuetifyDisplays = useDisplay();
 const store = useChatStore();
@@ -121,10 +121,10 @@ const sendMessage = async () => {
         for (var i of lstImg) {
           const srcLink = i.src;
 
-          item.addEventListener("click", function () {
+          i.onclick = () => {
             src.value = srcLink;
             dialog.value = true;
-          });
+          };
         }
 
         isTyping.value = false;
@@ -203,32 +203,6 @@ const chatContentContainerBg = computed(() => {
 <template>
   <VLayout class="chat-app-layout">
     <!-- 👉 user profile sidebar -->
-
-    <div class="text-center">
-      <VDialog
-        v-model="dialog"
-        width="70vw"
-      >
-        <VCard>
-          <VCardText class="text-center">
-            <img
-              :src="src"
-              alt="Hình ảnh"
-              style="width:100%"
-            >
-          </VCardText>
-          <VCardActions>
-            <VBtn
-              color="primary"
-              block
-              @click="dialog = false"
-            >
-              Đóng
-            </VBtn>
-          </VCardActions>
-        </VCard>
-      </VDialog>
-    </div>
 
     <VNavigationDrawer
       v-model="isUserProfileSidebarOpen"

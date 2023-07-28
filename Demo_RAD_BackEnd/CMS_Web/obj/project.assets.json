@@ -4744,24 +4744,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\cuongvl\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\DJ XuyenChi\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_Web\\CMS_Web.csproj",
+      "projectUniqueName": "C:\\Users\\DJ XuyenChi\\Documents\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_Web\\CMS_Web.csproj",
       "projectName": "CMS_Web",
-      "projectPath": "D:\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_Web\\CMS_Web.csproj",
-      "packagesPath": "C:\\Users\\cuongvl\\.nuget\\packages\\",
-      "outputPath": "D:\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_Web\\obj\\",
+      "projectPath": "C:\\Users\\DJ XuyenChi\\Documents\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_Web\\CMS_Web.csproj",
+      "packagesPath": "C:\\Users\\DJ XuyenChi\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\DJ XuyenChi\\Documents\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_Web\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\cuongvl\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\DJ XuyenChi\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4769,7 +4764,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
@@ -4777,11 +4771,11 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "D:\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_Infrastructure\\CMS_Infrastructure.csproj": {
-              "projectPath": "D:\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_Infrastructure\\CMS_Infrastructure.csproj"
+            "C:\\Users\\DJ XuyenChi\\Documents\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_Infrastructure\\CMS_Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\DJ XuyenChi\\Documents\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_Infrastructure\\CMS_Infrastructure.csproj"
             },
-            "D:\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj": {
-              "projectPath": "D:\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj"
+            "C:\\Users\\DJ XuyenChi\\Documents\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj": {
+              "projectPath": "C:\\Users\\DJ XuyenChi\\Documents\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj"
             }
           }
         }
@@ -4827,13 +4821,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file D:\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_Web\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }
