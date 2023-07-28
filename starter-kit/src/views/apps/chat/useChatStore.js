@@ -1,15 +1,8 @@
 import axios from "@axios";
-import { Configuration, OpenAIApi } from "openai";
 import { templateMess } from "./chatRespon";
 import { reFormat } from "./library";
 import { isTravel } from "./temp";
 import { callChatGPT } from "./useAPI";
-
-const openaiGPT = new OpenAIApi(
-  new Configuration({
-    apiKey: "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",
-  }),
-);
 
 export const useChatStore = defineStore("chat", {
   // ℹ️ arrow function recommended for full type inference
@@ -20,11 +13,6 @@ export const useChatStore = defineStore("chat", {
     activeChat: null,
   }),
   actions: {
-    async isTravel(sentence) {
-      const { data } = await axios.get(`/apps/chat/chats/${userId}`);
-
-      this.activeChat = data;
-    },
     async fetchChatsAndContacts(q) {
       const { data } = await axios.get("/apps/chat/chats-and-contacts", {
         params: { q },
@@ -43,8 +31,6 @@ export const useChatStore = defineStore("chat", {
     },
     async sendMsg(message) {
       const senderId = this.profileUser?.id;
-
-      this.ngucanh = message;
 
       const { data } = await axios.post(
         `/apps/chat/chats/${this.activeChat?.contact.id}`,

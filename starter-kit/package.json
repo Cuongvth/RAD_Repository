@@ -11,6 +11,7 @@
     "postinstall": "npm run build:icons"
   },
   "dependencies": {
+    "@azure/storage-blob": "^12.15.0",
     "@casl/ability": "6.5.0",
     "@casl/vue": "2.2.1",
     "@floating-ui/dom": "1.2.7",
@@ -21,6 +22,7 @@
     "apexcharts-clevision": "3.28.5",
     "axios": "1.4.0",
     "axios-mock-adapter": "1.21.4",
+    "Buffer": "^0.0.0",
     "chart.js": "4.3.0",
     "eslint-import-resolver-alias": "^1.1.2",
     "jwt-decode": "3.1.2",

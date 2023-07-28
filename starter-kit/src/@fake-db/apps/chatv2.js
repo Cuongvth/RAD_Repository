@@ -24,7 +24,7 @@ const database = {
   contacts: [
     {
       id: 1,
-      fullName: "LTS Travel AI",
+      fullName: "LTS Chat Bot",
       role: "AI Assistant",
       about: "Do you need any help?",
       avatar: avatar5,
@@ -39,7 +39,7 @@ const database = {
       messages: [
         {
           message:
-            "Xin chào! Tôi là mô hình AI được phát triển bởi LTS Edu chuyên trả lời các vấn đề về du lịch, một trợ lý ảo sẵn sàng hỗ trợ bạn trong mọi thắc mắc về du lịch, đưa ra gợi ý hấp dẫn về điểm đến, cung cấp thông tin về địa điểm, hoạt động và hướng dẫn lịch trình. Hãy đặt câu hỏi cho tôi và tận hưởng một hành trình khám phá thú vị!",
+            "Xin chào! Tôi là mô hình AI được phát triển bởi LTS Edu",
           time: String(new Date()),
           senderId: 1,
           feedback: {
@@ -56,7 +56,7 @@ const database = {
 // ------------------------------------------------
 // GET: Return Chats Contacts and Contacts
 // ------------------------------------------------
-mock.onGet("/apps/chat/chats-and-contacts").reply(config => {
+mock.onGet("/apps/chatv2/chats-and-contacts").reply(config => {
   const { q = "" } = config.params;
   const qLowered = q.toLowerCase();
 
@@ -95,13 +95,13 @@ mock.onGet("/apps/chat/chats-and-contacts").reply(config => {
 // GET: Return Single Chat
 // ------------------------------------------------
 mock
-  .onGet("/apps/chat/users/profile-user")
+  .onGet("/apps/chatv2/users/profile-user")
   .reply(() => [200, database.profileUser]);
 
 // ------------------------------------------------
 // GET: Return Single Chat
 // ------------------------------------------------
-mock.onGet(/\/apps\/chat\/chats\/\d+/).reply(config => {
+mock.onGet(/\/apps\/chatv2\/chats\/\d+/).reply(config => {
   // Get user id from URL
   const userId = Number(config.url?.substring(config.url.lastIndexOf("/") + 1));
   const chat = database.chats.find(c => c.userId === userId);
@@ -119,7 +119,7 @@ mock.onGet(/\/apps\/chat\/chats\/\d+/).reply(config => {
 // ------------------------------------------------
 // POST: Add new chat message
 // ------------------------------------------------
-mock.onPost(/\/apps\/chat\/chats\/\d+/).reply(config => {
+mock.onPost(/\/apps\/chatv2\/chats\/\d+/).reply(config => {
   // Get user id from URL
   const contactId = Number(
     config.url?.substring(config.url.lastIndexOf("/") + 1),

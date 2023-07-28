@@ -36,6 +36,14 @@ export default [
         title: "Chat Bot",
         to: { name: "travel_assistant_chatbot" },
       },
+      {
+        title: "Chat Bot V2",
+        to: { name: "chat-bot-v2" },
+      },
+      {
+        title: "Chat Bot V2 Upload File",
+        to: { name: "chat-bot-v2-upload-file" },
+      },
     ],
     badgeClass: "bg-primary",
   },
