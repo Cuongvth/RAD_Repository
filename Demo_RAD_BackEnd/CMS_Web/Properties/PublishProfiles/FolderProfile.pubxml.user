@@ -4,8 +4,8 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 -->
 <Project>
   <PropertyGroup>
-    <_PublishTargetUrl>C:\Users\DJ XuyenChi\Documents\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\bin\Release\net7.0\publish\</_PublishTargetUrl>
-    <History>True|2023-07-27T02:20:17.7148118Z;True|2023-07-21T16:20:27.5844288+07:00;True|2023-07-21T16:18:37.4439944+07:00;True|2023-07-21T09:10:17.5552402+07:00;True|2023-07-20T18:30:27.5916071+07:00;True|2023-07-20T18:30:18.8650139+07:00;</History>
+    <_PublishTargetUrl>D:\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\bin\Release\net7.0\publish\</_PublishTargetUrl>
+    <History>True|2023-07-31T04:00:15.7874070Z;True|2023-07-31T10:59:42.4009642+07:00;True|2023-07-27T09:20:17.7148118+07:00;True|2023-07-21T16:20:27.5844288+07:00;True|2023-07-21T16:18:37.4439944+07:00;True|2023-07-21T09:10:17.5552402+07:00;True|2023-07-20T18:30:27.5916071+07:00;True|2023-07-20T18:30:18.8650139+07:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
 </Project>

@@ -367,3 +367,5 @@ C:\Users\DJ XuyenChi\Documents\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\obj\Rele
 C:\Users\DJ XuyenChi\Documents\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\obj\Release\net7.0\CMS_Web.pdb
 C:\Users\DJ XuyenChi\Documents\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\obj\Release\net7.0\CMS_Web.genruntimeconfig.cache
 C:\Users\DJ XuyenChi\Documents\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\obj\Release\net7.0\ref\CMS_Web.dll
+D:\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\bin\Release\net7.0\Aspose.Cells.dll
+D:\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\bin\Release\net7.0\Aspose.Slides.dll

@@ -5,7 +5,9 @@ D:\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\obj\Release\net7.0\PubTmp\Out\CMS_We
 D:\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\obj\Release\net7.0\PubTmp\Out\CMS_Web.deps.json
 D:\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\obj\Release\net7.0\PubTmp\Out\CMS_Web.runtimeconfig.json
 D:\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\obj\Release\net7.0\PubTmp\Out\CMS_Web.pdb
+D:\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\obj\Release\net7.0\PubTmp\Out\Aspose.Cells.dll
 D:\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\obj\Release\net7.0\PubTmp\Out\Aspose.PDF.dll
+D:\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\obj\Release\net7.0\PubTmp\Out\Aspose.Slides.dll
 D:\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\obj\Release\net7.0\PubTmp\Out\Aspose.Words.Pdf2Word.dll
 D:\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\obj\Release\net7.0\PubTmp\Out\Aspose.Words.dll
 D:\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\obj\Release\net7.0\PubTmp\Out\Azure.Core.dll

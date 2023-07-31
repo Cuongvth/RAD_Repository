@@ -6,7 +6,6 @@ using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.Drawing.Text;
 using System.IO.Compression;
-using System.Text;
 
 namespace CMS_Infrastructure.Business.Business_AI_Interpreter
 {
@@ -130,122 +129,120 @@ namespace CMS_Infrastructure.Business.Business_AI_Interpreter
 
         private List<string> BoundingPolyOnTopOfImages(List<ImageBlock> requests, string filePath)
         {
-            var imagePaths = requests.Select(request =>
-            {
-                using (var image = new Bitmap(request.ImagePath))
-                using (var graphics = Graphics.FromImage(image))
-                {
-                    image.SetResolution(300, 300);
-
-                    // Use anti-aliasing and high-quality text rendering
-                    graphics.SmoothingMode = SmoothingMode.AntiAlias;
-                    graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
-                    graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
-                    graphics.TextRenderingHint = TextRenderingHint.AntiAliasGridFit;
-
-                    foreach (var textBlock in request.TextAnnotations)
-                    {
-                        foreach (var textObject in textBlock)
-                        {
-                            var boundingPoly = textObject.BoundingPoly;
-
-                            if (boundingPoly.Vertices.Count < 2 || string.IsNullOrEmpty(textObject.TranslatedText))
-                                continue;
-
-                            var minX = boundingPoly.Vertices.Min(v => v.X);
-                            var minY = boundingPoly.Vertices.Min(v => v.Y);
-                            var maxX = boundingPoly.Vertices.Max(v => v.X);
-                            var maxY = boundingPoly.Vertices.Max(v => v.Y);
-
-                            var textRect = RectangleF.FromLTRB((int)minX, (int)minY, (int)maxX, (int)maxY);
-
-                            var fontSizeToFitHeight = CalculateFontSizeToFitText(textRect, graphics, textObject.TranslatedText, "Arial");
-                            var font = new Font("Arial", fontSizeToFitHeight, FontStyle.Bold);
-
-                            var textSize = graphics.MeasureString(textObject.TranslatedText, font);
-                            var textTop = (textRect.Y + textRect.Height) - textSize.Height;
-                            if (textTop < maxY)
-                            {
-                                textRect.Height += (int)maxY - textTop;
-                            }
-
-                            var path = new GraphicsPath();
-                            path.AddRectangle(textRect);
-
-                            var pen = new Pen(Color.Red, 1);
-                            graphics.DrawPath(pen, path);
-
-                            var backgroundColor = Color.Aqua;
-                            var brush = new SolidBrush(backgroundColor);
-                            graphics.FillPath(brush, path);
-
-                            graphics.DrawString(textObject.TranslatedText, font, Brushes.Black, textRect);
-                        }
-                    }
-
-                    var imageOutputPath = Path.Combine(Path.GetDirectoryName(filePath), Path.GetFileName(request.ImagePath));
-                    image.Save(imageOutputPath, ImageFormat.Jpeg);
-                    return imageOutputPath;
-                }
-            }).ToList();
-
+            var imagePaths = requests.Select(request => ProcessImageBlock(request, filePath)).ToList();
             return imagePaths;
         }
 
+        private string ProcessImageBlock(ImageBlock request, string filePath)
+        {
+            var outputPath = Path.Combine(Path.GetDirectoryName(filePath), Path.GetFileName(request.ImagePath));
+            using (var image = new Bitmap(request.ImagePath))
+            using (var graphics = Graphics.FromImage(image))
+            {
+                image.SetResolution(300, 300);
+                ConfigureGraphics(graphics);
+
+                var textObjects = request.TextAnnotations
+                    .SelectMany(textBlock => textBlock)
+                    .Where(textObject => textObject.BoundingPoly.Vertices.Count >= 2 && !string.IsNullOrEmpty(textObject.TranslatedText));
+
+                foreach (var textObject in textObjects)
+                {
+                    ProcessTextObject(textObject, graphics);
+                }
+
+                image.Save(outputPath, ImageFormat.Jpeg);
+            }
+            return outputPath;
+        }
+
+        private void ConfigureGraphics(Graphics graphics)
+        {
+            // Use anti-aliasing and high-quality text rendering
+            graphics.SmoothingMode = SmoothingMode.AntiAlias;
+            graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
+            graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
+            graphics.TextRenderingHint = TextRenderingHint.AntiAliasGridFit;
+        }
+
+        private void ProcessTextObject(ParagraphInfo textObject, Graphics graphics)
+        {
+            var boundingPoly = textObject.BoundingPoly;
+            var vertices = boundingPoly.Vertices;
+
+            var (minX, minY) = (vertices.Min(v => v.X), vertices.Min(v => v.Y));
+            var (maxX, maxY) = (vertices.Max(v => v.X), vertices.Max(v => v.Y));
+
+            var textRect = RectangleF.FromLTRB((int)minX, (int)minY, (int)maxX, (int)maxY);
+
+            var fontSizeToFitHeight = CalculateFontSizeToFitText(textRect, graphics, textObject.TranslatedText, "Arial");
+            var font = new Font("Arial", fontSizeToFitHeight, FontStyle.Bold);
+
+            var words = textObject.TranslatedText.Split(' ');
+            var isSingleWord = words.Length == 1;
+
+            if (isSingleWord)
+            {
+                var wordSize = graphics.MeasureString(textObject.TranslatedText, font);
+                textRect.Width = wordSize.Width;
+
+                var fontSizeToFitWidth = CalculateFontSizeToFitText(textRect, graphics, textObject.TranslatedText, "Arial");
+                while (textRect.Width >= maxY && fontSizeToFitWidth > 6)
+                {
+                    fontSizeToFitWidth--;
+                    font = new Font("Arial", fontSizeToFitWidth, FontStyle.Bold);
+                    wordSize = graphics.MeasureString(textObject.TranslatedText, font);
+                    textRect.Width = wordSize.Width;
+                }
+            }
+            else
+            {
+                var lines = GetTextLines(graphics, textObject.TranslatedText, font, textRect.Width);
+                var lineHeight = graphics.MeasureString("A", font).Height;
+                var newHeight = lineHeight * lines.Count;
+
+                textRect.Height += (int)((textRect.Y + newHeight - maxY) ?? 0);
+
+                var maxFontSize = 100;
+                fontSizeToFitHeight = Math.Min(fontSizeToFitHeight, maxFontSize);
+                font = new Font("Arial", fontSizeToFitHeight, FontStyle.Bold);
+            }
+
+            graphics.DrawRectangle(new Pen(Color.Red, 1), textRect);
+            graphics.FillRectangle(new SolidBrush(Color.Aqua), textRect);
+            graphics.DrawString(textObject.TranslatedText, font, Brushes.Black, textRect);
+        }
+
+
         private int CalculateFontSizeToFitText(RectangleF textRect, Graphics graphics, string text, string fontName)
         {
-            int fontSize = 6;
-            Font font;
-            int maxFontSize = 100;
-
-            do
-            {
-                font = new Font(fontName, fontSize);
-                var lines = GetTextLines(graphics, text, font, textRect.Width);
-                var totalTextHeight = lines.Sum(line => graphics.MeasureString(line, font).Height);
-
-                if (totalTextHeight <= textRect.Height)
+            int fontSize = (int)(Enumerable.Range(6, 95)
+                .Select(size => new Font(fontName, size))
+                .FirstOrDefault(font =>
                 {
-                    fontSize++;
-                }
-                else
-                {
-                    font.Dispose();
-                    break;
-                }
-            } while (fontSize <= maxFontSize);
+                    var lines = GetTextLines(graphics, text, font, textRect.Width);
+                    var totalTextHeight = lines.Sum(line => graphics.MeasureString(line, font).Height);
+                    return totalTextHeight > textRect.Height;
+                })?.Size ?? 100);
 
             return fontSize - 1;
         }
 
         private List<string> GetTextLines(Graphics graphics, string text, Font font, float maxWidth)
         {
-            var lines = new List<string>();
-            var words = text.Split(' ');
-
-            var currentLine = new StringBuilder();
-            foreach (var word in words)
+            return text.Split(' ').Aggregate(new List<string>(), (lines, word) =>
             {
-                var currentLineWithWord = currentLine.Length == 0 ? word : $"{currentLine} {word}";
-                var wordSize = graphics.MeasureString(currentLineWithWord, font);
+                string currentLine = lines.LastOrDefault() ?? "";
+                string currentLineWithWord = currentLine + (currentLine != "" ? " " : "") + word;
+                float wordWidth = graphics.MeasureString(currentLineWithWord, font).Width;
 
-                if (wordSize.Width <= maxWidth)
-                {
-                    currentLine.Append(word).Append(" ");
-                }
+                if (!string.IsNullOrEmpty(currentLine) && wordWidth <= maxWidth)
+                    lines[lines.Count - 1] = currentLineWithWord;
                 else
-                {
-                    lines.Add(currentLine.ToString().TrimEnd());
-                    currentLine = new StringBuilder(word);
-                }
-            }
+                    lines.Add(word);
 
-            if (currentLine.Length > 0)
-            {
-                lines.Add(currentLine.ToString().TrimEnd());
-            }
-
-            return lines;
+                return lines;
+            });
         }
 
         private async Task<ImageBlock> ProcessImageAsync(string imagePath, string targetLanguage)
@@ -271,13 +268,10 @@ namespace CMS_Infrastructure.Business.Business_AI_Interpreter
         {
             var moveTasks = imagePaths.Select(async imagePath =>
             {
-                string imageFileName = Path.GetFileName(imagePath);
-                string destinationPath = Path.Combine(destinationFolder, imageFileName);
+                string destinationPath = Path.Combine(destinationFolder, Path.GetFileName(imagePath));
 
                 if (File.Exists(destinationPath))
-                {
                     File.Delete(destinationPath);
-                }
 
                 await Task.Run(() => File.Move(imagePath, destinationPath));
 
@@ -288,6 +282,7 @@ namespace CMS_Infrastructure.Business.Business_AI_Interpreter
 
             return movedImagePaths.ToList();
         }
+
     }
 
 }

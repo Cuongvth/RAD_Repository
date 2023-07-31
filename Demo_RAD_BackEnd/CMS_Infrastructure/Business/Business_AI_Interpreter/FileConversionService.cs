@@ -17,122 +17,86 @@ namespace CMS_Infrastructure.Business.Business_AI_Interpreter
         {
             string extension = Path.GetExtension(filePath).ToLower();
 
-            switch (extension)
+            return extension switch
             {
-                case ".pdf":
-                    return ConvertPdfToImages(filePath);
-                case ".doc":
-                case ".docx":
-                    return ConvertWordToImages(filePath);
-                case ".xls":
-                case ".xlsx":
-                    return ConvertExcelToImages(filePath);
-                case ".ppt":
-                case ".pptx":
-                    return ConvertPowerPointToImages(filePath);
-                default:
-                    throw new NotSupportedException("Unsupported file format.");
-            }
+                ".pdf" => ConvertPdfToImages(filePath),
+                ".doc" or ".docx" => ConvertWordToImages(filePath),
+                ".xls" or ".xlsx" => ConvertExcelToImages(filePath),
+                ".ppt" or ".pptx" => ConvertPowerPointToImages(filePath),
+                _ => throw new NotSupportedException("Unsupported file format.")
+            };
         }
+
 
         private List<string> ConvertPdfToImages(string filePath)
         {
-            List<string> convertedImagePaths = new List<string>();
-
-            int pageCount;
-            using (AsposePdf pdfDocument = new AsposePdf(filePath))
+            using (var pdfDocument = new AsposePdf(filePath))
             {
-                pageCount = pdfDocument.Pages.Count;
+                var jpegDevice = new JpegDevice(new Resolution(300));
 
-                Resolution resolution = new Resolution(300);
-                JpegDevice jpegDevice = new JpegDevice(resolution);
-
-                for (int pageIndex = 1; pageIndex <= pageCount; pageIndex++)
-                {
-                    string outputImagePath = Path.Combine(Path.GetDirectoryName(filePath), $"{pageIndex}.jpg");
-
-                    using (FileStream imageStream = new FileStream(outputImagePath, FileMode.Create))
+                return Enumerable.Range(1, pdfDocument.Pages.Count)
+                    .Select(pageIndex =>
                     {
-                        jpegDevice.Process(pdfDocument.Pages[pageIndex], imageStream);
-                    }
-
-                    convertedImagePaths.Add(outputImagePath);
-                }
+                        var outputImagePath = Path.Combine(Path.GetDirectoryName(filePath), $"{pageIndex}.jpg");
+                        using (var imageStream = new FileStream(outputImagePath, FileMode.Create))
+                            jpegDevice.Process(pdfDocument.Pages[pageIndex], imageStream);
+                        return outputImagePath;
+                    })
+                    .ToList();
             }
-
-            return convertedImagePaths;
         }
 
         private List<string> ConvertWordToImages(string filePath)
         {
-            List<string> convertedImagePaths = new List<string>();
-
             AsposeDoc wordDocument = new AsposeDoc(filePath);
 
-            for (int pageIndex = 0; pageIndex < wordDocument.PageCount; pageIndex++)
-            {
-                var extractedPage = wordDocument.ExtractPages(pageIndex, 1);
-                string outputImagePath = Path.Combine(Path.GetDirectoryName(filePath), $"{pageIndex + 1}.jpg");
-                extractedPage.Save(outputImagePath, SaveFormatWord.Jpeg);
-                convertedImagePaths.Add(outputImagePath);
-            }
-
-            return convertedImagePaths;
+            return Enumerable.Range(0, wordDocument.PageCount)
+                .Select(pageIndex =>
+                {
+                    var extractedPage = wordDocument.ExtractPages(pageIndex, 1);
+                    string outputImagePath = Path.Combine(Path.GetDirectoryName(filePath), $"{pageIndex + 1}.jpg");
+                    extractedPage.Save(outputImagePath, SaveFormatWord.Jpeg);
+                    return outputImagePath;
+                })
+                .ToList();
         }
 
         private List<string> ConvertExcelToImages(string filePath)
         {
-            List<string> convertedImagePaths = new List<string>();
-
             using (Workbook workbook = new Workbook(filePath))
             {
-                for (int i = 0; i < workbook.Worksheets.Count; i++)
-                {
-                    Worksheet worksheet = workbook.Worksheets[i];
-                    string imagePathTemplate = Path.Combine(Path.GetDirectoryName(filePath), $"worksheet{i + 1}_{{0}}.jpg");
-
-                    ImageOrPrintOptions imgOptions = new ImageOrPrintOptions();
-                    imgOptions.HorizontalResolution = 300;
-                    imgOptions.VerticalResolution = 300;
-
-                    SheetRender sr = new SheetRender(worksheet, imgOptions);
-
-                    for (int j = 0; j < sr.PageCount; j++)
-                    {
-                        string imagePath = string.Format(imagePathTemplate, j + 1);
-                        sr.ToImage(j, imagePath);
-                        convertedImagePaths.Add(imagePath);
-                    }
-                }
+                return Enumerable.Range(0, workbook.Worksheets.Count)
+                    .SelectMany(i => Enumerable.Range(0, new SheetRender(workbook.Worksheets[i], new ImageOrPrintOptions { HorizontalResolution = 300, VerticalResolution = 300 }).PageCount)
+                        .Select(j =>
+                        {
+                            string imagePath = Path.Combine(Path.GetDirectoryName(filePath), $"worksheet{i + 1}_{j + 1}.jpg");
+                            new SheetRender(workbook.Worksheets[i], new ImageOrPrintOptions { HorizontalResolution = 300, VerticalResolution = 300 }).ToImage(j, imagePath);
+                            return imagePath;
+                        }))
+                    .ToList();
             }
-
-            return convertedImagePaths;
         }
 
         private List<string> ConvertPowerPointToImages(string filePath)
         {
-            List<string> convertedImagePaths = new List<string>();
-
             using (Presentation powerPointPresentation = new Presentation(filePath))
             {
-                for (int slideIndex = 0; slideIndex < powerPointPresentation.Slides.Count; slideIndex++)
-                {
-                    ISlide slide = powerPointPresentation.Slides[slideIndex];
+                float dpi = 700;
+                float scaleX = dpi / 96;
+                float scaleY = dpi / 96;
 
-                    float dpi = 300;
-                    float scaleX = dpi / 96;
-                    float scaleY = dpi / 96;
+                List<string> convertedImagePaths = powerPointPresentation.Slides
+                    .Select((slide, index) =>
+                    {
+                        Bitmap bmp = slide.GetThumbnail(scaleX, scaleY);
+                        string outputImagePath = Path.Combine(Path.GetDirectoryName(filePath), $"{slide.SlideNumber}.jpg");
+                        bmp.Save(outputImagePath, System.Drawing.Imaging.ImageFormat.Jpeg);
+                        return outputImagePath;
+                    })
+                    .ToList();
 
-                    Bitmap bmp = slide.GetThumbnail(scaleX, scaleY);
-
-                    string outputImagePath = Path.Combine(Path.GetDirectoryName(filePath), $"{slide.SlideNumber}.jpg");
-                    bmp.Save(outputImagePath, System.Drawing.Imaging.ImageFormat.Jpeg);
-
-                    convertedImagePaths.Add(outputImagePath);
-                }
+                return convertedImagePaths;
             }
-
-            return convertedImagePaths;
         }
     }
 }

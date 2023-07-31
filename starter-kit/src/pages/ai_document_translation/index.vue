@@ -54,9 +54,14 @@
             <h3 class="headline">
               Ảnh gốc
             </h3>
+            <VProgressCircular
+              v-if="isUploading"
+              indeterminate
+              color="primary"
+            />
           </VCardTitle>
           <VCardText>
-            <VList>
+            <VList v-if="!isUploading">
               <VListItem
                 v-for="(image, imageIndex) in originalImages"
                 :key="imageIndex"
@@ -156,6 +161,7 @@ const languages = ref([
 
 watchEffect(() => {
   if (selectedFile.value) {
+    convertedImage.value = [];
     upload();
   }
 });
@@ -169,7 +175,7 @@ const showDownloadButton = computed(() => {
 const getImageUrl = imagePath => {
   const randomString = Math.random().toString(36).substring(7);
   
-  return `https://localhost:7247/api/DocumentAPI/images/${encodeURIComponent(imagePath)}?rand=${randomString}`;
+  return `https://apirad.ltsgroup.tech/api/DocumentAPI/images/${encodeURIComponent(imagePath)}?rand=${randomString}`;
 };
 
 const handleError = errorMessage => {
@@ -196,6 +202,8 @@ async function upload() {
   formData.append("documentUpload", selectedFile.value);
 
   try {
+    isUploading.value = true;
+
     const response = await uploadDocument(formData);
 
     originalImages.value = Object.values(response.data).map(imagePath => ({
@@ -203,16 +211,15 @@ async function upload() {
     }));
     uploadedFileName.value = selectedFile.value.name;
 
-    convertedImage.value = [];
+    isUploading.value = false;
   } catch (error) {
     handleError("Đã xảy ra lỗi trong quá trình tải lên tài liệu.");
+    isUploading.value = false;
   }
 }
 
 async function convert() {
-  while (isUploading.value) {
-    await new Promise(resolve => setTimeout(resolve, 100));
-  }
+  
 
   try {
     isLoading.value = true;
