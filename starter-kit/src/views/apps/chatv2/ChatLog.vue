@@ -1,5 +1,5 @@
 <script setup>
-import { useChatStore } from '@/views/apps/chat/useChatStore';
+import { useChatStore } from '@/views/apps/chatv2/useChatStore';
 import { formatDate } from '@core/utils/formatters';
 
 const store = useChatStore();

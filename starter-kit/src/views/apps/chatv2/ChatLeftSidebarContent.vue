@@ -1,8 +1,8 @@
 <script setup>
 import { PerfectScrollbar } from 'vue3-perfect-scrollbar';
 import { useChat } from './useChat';
-import ChatContact from '@/views/apps/chat/ChatContact.vue';
-import { useChatStore } from '@/views/apps/chat/useChatStore';
+import ChatContact from '@/views/apps/chatv2/ChatContact.vue';
+import { useChatStore } from '@/views/apps/chatv2/useChatStore';
 
 const props = defineProps({
   search: {

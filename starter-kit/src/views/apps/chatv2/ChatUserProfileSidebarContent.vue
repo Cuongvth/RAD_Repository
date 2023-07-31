@@ -1,7 +1,7 @@
 <script setup>
 import { PerfectScrollbar } from 'vue3-perfect-scrollbar';
 import { useChat } from './useChat';
-import { useChatStore } from '@/views/apps/chat/useChatStore';
+import { useChatStore } from '@/views/apps/chatv2/useChatStore';
 import { avatarText } from '@core/utils/formatters';
 
 const emit = defineEmits(['close']);

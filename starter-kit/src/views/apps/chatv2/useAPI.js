@@ -3,9 +3,7 @@ import { HTTP } from "@/api/azureOpenAI";
 export function callChatGPT(context) {
   return new Promise((resolve, reject) => {
     HTTP.post(`deployments/model/chat/completions?api-version=2023-03-15-preview`, {
-      messages: [
-        context,
-      ],
+      messages: context,
       max_tokens: 800,
       temperature: 0,
       frequency_penalty: 0,
@@ -15,7 +13,7 @@ export function callChatGPT(context) {
     }, {
       headers: {
         'Content-Type': 'application/json',
-        'api-key': "eae45a744ee042e184ec05670de74933",
+        'api-key': "bfcb4d1d09004142ab767973df177c59",
       },
     })
       .then(response => {

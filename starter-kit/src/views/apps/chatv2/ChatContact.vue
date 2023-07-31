@@ -1,6 +1,6 @@
 <script setup>
-import { useChat } from '@/views/apps/chat/useChat';
-import { useChatStore } from '@/views/apps/chat/useChatStore';
+import { useChat } from '@/views/apps/chatv2/useChat';
+import { useChatStore } from '@/views/apps/chatv2/useChatStore';
 import {
   avatarText,
   formatDateToMonthShort,

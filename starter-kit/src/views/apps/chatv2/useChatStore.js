@@ -1,13 +1,14 @@
 import axios from "@axios";
 import { callChatGPT } from "./useAPI";
 
-export const useChatStore = defineStore("chat", {
+export const useChatStore = defineStore("chatv2", {
   // ℹ️ arrow function recommended for full type inference
   state: () => ({
     contacts: [],
     chatsContacts: [],
     profileUser: undefined,
     activeChat: null,
+    nguCanh: [],
   }),
   actions: {
     async fetchChatsAndContacts(q) {
@@ -37,7 +38,11 @@ export const useChatStore = defineStore("chat", {
       this.postMsg(data);
     },
     async botSendMsg(message) {
-      const result = await  callChatGPT({ role: "user", content: message });
+      this.nguCanh.push({ role: "user", content: message });
+
+      const result = await callChatGPT(this.nguCanh);
+
+      this.nguCanh.push(result);
 
       const { data } = await axios.post(
         `/apps/chatv2/chats/${this.activeChat?.contact.id}`,

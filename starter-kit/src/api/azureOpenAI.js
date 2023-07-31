@@ -3,7 +3,7 @@ import axios from "axios";
 
 export class HTTPSingleton {
   static config = {
-    baseURL: " https://ltsdemoopenai.openai.azure.com/openai",
+    baseURL: " https://ltsdemochatopenai.openai.azure.com/openai",
     headers: {
       "Content-Type": "application/json",
       "Access-Control-Allow-Origin": "*",

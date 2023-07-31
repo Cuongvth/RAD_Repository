@@ -2,8 +2,8 @@ import { BlobServiceClient } from "@azure/storage-blob";
 import axios from "axios";
 
 const containerName = `data`;
-const sasToken = "sv=2022-11-02&ss=bfqt&srt=sco&sp=rwdlacupiytfx&se=2024-07-28T09:50:07Z&st=2023-07-28T01:50:07Z&spr=https,http&sig=q1z39z1cQ3FaJ0gFCdrl1yOOIIX991Qzf0JY3dq8mhc%3D";
-const storageAccountName = "ltsdemostorage";
+const sasToken = "sv=2022-11-02&ss=bfqt&srt=sco&sp=rwdlacupiytfx&se=2025-07-28T14:30:45Z&st=2023-07-28T06:30:45Z&spr=https,http&sig=KNWyZZQuXIzpICuPBE1DjH0S%2FzXtM3iIbQ1mIc055ls%3D";
+const storageAccountName = "ltsdemochatstorage";
 
 const uploadUrl = `https://${storageAccountName}.blob.core.windows.net/?${sasToken}`;
 
@@ -44,6 +44,11 @@ const createBlobInContainer = async file => {
 
   // upload file
   await blobClient.uploadData(file, options);
+};
+
+export const deleteBlobInContainer = async name => {
+  // create blobClient for container
+  await containerClient.deleteBlob(name);
 };
 
 export const uploadFileToBlob = async file => {

@@ -287,7 +287,7 @@ const chatContentContainerBg = computed(() => {
         >
           <span v-if="isTyping">
             <span style="font-size: 12px; margin-left: 12px">
-              LTS Travel AI Assistant is typing </span><img
+              LTS Chat Bot is typing </span><img
               :src="typing"
               alt="loading"
               style="height: 18px; width: 40px; margin-left: 4px"

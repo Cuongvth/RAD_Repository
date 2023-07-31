@@ -13,7 +13,7 @@ export function getOneCanCuoc(id) {
 }
 export function getOneBLX(id) {
   return new Promise((resolve, reject) => {
-    HTTP.get(`admin/getoneblx?id=${id}`)
+    HTTP.get(`getoneblx?id=${id}`)
       .then(response => {
         resolve(response.data);
       })
@@ -45,7 +45,7 @@ export function danhGiaDuLieu(
   } else if (type == 1) {
     return new Promise((resolve, reject) => {
       HTTP.get(
-        `admin/danhgiadulieucccd?CCCDID=${id}&isSo=${checkTruong[0]}&isHoTen=${checkTruong[1]}&isCoGiaTriDen=${checkTruong[5]}&isNgayThang=${checkTruong[2]}&isGioiTinh=${checkTruong[3]}&isQuocTich=${checkTruong[4]}&isQueQuan=${checkTruong[7]}&isvnm=${checkTruong[10]}&isNoiThuongTru=${checkTruong[6]}&isDacDien=${checkTruong[8]}&isNgayDangKi=${checkTruong[9]}&isMatTruoc=${googleMatTruoc}&isMatSau=${googleMatSau}&isLoaiThe=${loaiThe}`,
+        `danhgiadulieucccd?CCCDID=${id}&isSo=${checkTruong[0]}&isHoTen=${checkTruong[1]}&isCoGiaTriDen=${checkTruong[5]}&isNgayThang=${checkTruong[2]}&isGioiTinh=${checkTruong[3]}&isQuocTich=${checkTruong[4]}&isQueQuan=${checkTruong[7]}&isvnm=${checkTruong[10]}&isNoiThuongTru=${checkTruong[6]}&isDacDien=${checkTruong[8]}&isNgayDangKi=${checkTruong[9]}&isMatTruoc=${googleMatTruoc}&isMatSau=${googleMatSau}&isLoaiThe=${loaiThe}`,
       )
         .then(response => {
           resolve(response.data);

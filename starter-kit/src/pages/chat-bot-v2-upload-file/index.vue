@@ -19,7 +19,8 @@
     <VCard style="margin-top: 20px; padding: 10px 20px;">
       <VFileInput
         v-if="typeupload == 1"
-        @change="onFileSelected"
+        v-model="selectedFile"
+        multiple
       />
       <VTextField v-if="typeupload == 2" />
       <VBtn
@@ -45,6 +46,7 @@
               Content Type
             </th>
             <th class="text-left" />
+            <th class="text-left" />
           </tr>
         </thead>
         <tbody>
@@ -63,6 +65,12 @@
                 rel="noopener noreferrer"
               ><VBtn text="Tải xuống" /></a>
             </td>
+            <td>
+              <VBtn
+                text="Xóa"
+                @click="deleteBlob(item.name)"
+              />
+            </td>
           </tr>
         </tbody>
       </VTable>
@@ -71,7 +79,7 @@
 </template>
 
 <script setup>
-import { uploadFileToBlob, getBlobsInContainer } from "./useAPI";
+import { uploadFileToBlob, getBlobsInContainer, deleteBlobInContainer } from "./useAPI";
 import { useStore } from "vuex";
 
 const store = useStore();
@@ -83,19 +91,12 @@ onMounted(async () => {
   data.value = await getBlobsInContainer();
 });
 
-const training = async ()=>{
-  if(!selectedFile.value)
-  {
-    store.commit("setSnackBarContent", "Không có dữ liệu");
-    
-    return;
-  }
+const deleteBlob = async name=>
+{
   try {
     store.commit("setOverlayVisible", true);
-    await uploadFileToBlob(selectedFile.value);
+    await deleteBlobInContainer(name);
     data.value = await getBlobsInContainer();
-
-    //await runIndexer();
     store.commit("setOverlayVisible", false);
     store.commit("setSnackBarContent", "Complete");
   } catch (error) {
@@ -104,13 +105,47 @@ const training = async ()=>{
   }
 };
 
+const training = async ()=>{if(typeupload.value == 2)
+{
+  store.commit("setSnackBarContent", "Coming Soon");
+    
+  return;
+}
+if(!selectedFile.value)
+{
+  store.commit("setSnackBarContent", "Không có dữ liệu");
+    
+  return;
+}
+if(data.value.length == 20)
+{
+  store.commit("setSnackBarContent", "Quá số lượng quy định");
+    
+  return;
+}
+try {
+  store.commit("setOverlayVisible", true);
+  for (const element of selectedFile.value) {
+    await uploadFileToBlob(element);
+  };
+  data.value = await getBlobsInContainer();
+
+  //await runIndexer();
+  store.commit("setOverlayVisible", false);
+  store.commit("setSnackBarContent", "Complete");
+} catch (error) {
+  store.commit("setOverlayVisible", false);
+  store.commit("setSnackBarContent", error);
+}
+};
+
 const setTypeFile = value =>{
   typeupload.value = value;
 };
 
-const onFileSelected = event => {
-  const [file] = event.target.files;
+// const onFileSelected = event => {
+//   const [file] = event.target.files;
 
-  selectedFile.value = file;
-};
+//   selectedFile.value = file;
+// };
 </script>
