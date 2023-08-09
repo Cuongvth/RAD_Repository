@@ -58,4 +58,15 @@ export default [
     ],
     badgeClass: "bg-primary",
   },
+  {
+    title: "T8 - Nhận dạng hình ảnh",
+    icon: { icon: "tabler-language-hiragana" },
+    children: [
+      {
+        title: "Nhận dạng hình ảnh",
+        to: { name: "nhan_dang_hinh_anh" },
+      },
+    ],
+    badgeClass: "bg-primary",
+  },
 ];
