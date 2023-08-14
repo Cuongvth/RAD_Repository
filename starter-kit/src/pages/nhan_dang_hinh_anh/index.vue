@@ -100,7 +100,7 @@ const takeSnapshot = async () => {
   let config = {
     method: 'post',
     maxBodyLength: Infinity,
-    url: 'https://apirad.ltsgroup.tech/cplus/upload',
+    url: 'http://localhost:8080/upload',
     headers: { 
       'Content-Type': 'application/json',
       'Access-Control-Allow-Origin': "*",
