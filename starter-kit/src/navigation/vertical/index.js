@@ -60,7 +60,7 @@ export default [
   },
   {
     title: "T8 - Nhận dạng hình ảnh",
-    icon: { icon: "tabler-language-hiragana" },
+    icon: { icon: "tabler-device-cctv" },
     children: [
       {
         title: "Nhận dạng hình ảnh",

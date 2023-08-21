@@ -25,6 +25,7 @@
     "Buffer": "^0.0.0",
     "chart.js": "4.3.0",
     "eslint-import-resolver-alias": "^1.1.2",
+    "gif.js": "^0.2.0",
     "jwt-decode": "3.1.2",
     "natural": "^6.5.0",
     "openai": "^3.3.0",

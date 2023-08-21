@@ -1,6 +1,33 @@
 <template>
   <div>
-    <h1>Camera Feed</h1>
+    <VRow>
+      <VCol cols="6">
+        <VTextField
+          v-model="number1"
+          label="Thời gian ghi hình"
+        />
+      </VCol>
+      <VCol cols="6">
+        <VTextField
+          v-model="number2"
+          label="Số lượng hình ảnh muốn trích xuất"
+        />
+      </VCol>
+    </VRow>
+    <VRow>
+      <VCol>
+        <VBtn
+          color="primary"
+          @click="calculate"
+        >
+          Tính toán
+        </VBtn>
+      </VCol>
+    </VRow>
+    <VLabel
+      :text="'Còn lại: ' + time + 's'"
+      class="my-3"
+    />
     <div>
       <VRow>
         <VCol>
@@ -14,34 +41,21 @@
             style="display: none;"
           />
         </VCol>
-        <VCol>
-          <img
-            v-if="snapshotUrl"
-            :src="`data:image/jpeg;base64, ` + snapshotUrl"
-          >
+      </VRow>
+      <VRow>
+        <VCol
+          v-for="item in lstImage"
+          :key="item"
+          cols="3"
+        >
+          <VImg
+            v-if="item"
+            width="100%"
+            :src="`data:image/jpeg;base64, ` + item"
+          />
         </VCol>
       </VRow>
     </div>
-    
-    <VRow>
-      <VCol
-        v-for="item in lstImage"
-        :key="item"
-        cols="3"
-      >
-        <VImg
-          v-if="item"
-          width="100%"
-          :src="`data:image/jpeg;base64, ` + item"
-        />
-      </VCol>
-    </VRow>
-    <VBtn
-      style="margin-top: 20px;"
-      @click="takeSnapshot"
-    >
-      Take Snap Shot
-    </VBtn>
   </div>
 </template>
 
@@ -52,20 +66,94 @@ import axios from '@axios';
 const videoElement = ref(null);
 const canvas = ref(null);
 let animationFrameId = null;
-const snapshotUrl = ref(null);
-const lstImage = ref(["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]);
+const lstImage = ref([]);
+const number1 = ref('');
+const number2 = ref('');
+const time = ref('');
+
+const calculate = async () => {
+  lstImage.value = [];
+
+  if(isNaN(number1.value) || isNaN(number2.value) || number1.value == "" || number2.value == "")
+  {
+    return;
+  }
+  time.value = number1.value;
+
+  const interval =  setInterval(() => {
+    if(time.value -1 == 0)
+    {
+      clearInterval(interval);
+    }
+    time.value--;
+  }, 1000);
+
+  var index = number2.value - 1;
+
+  if(index < 0)
+  {
+    return;
+  }
+
+  await takeImage();
+  if(index > 0)
+  {
+    await performIntervalWork(index);
+  }
+};
+
+async function performIntervalWork(index) {
+  return new Promise(resolve => {
+    const interval = setInterval(async () => {
+      if (index == 1) {
+        clearInterval(interval);
+        resolve(); 
+      }
+
+      await takeImage();
+
+      index--;
+    }, (number1.value /(number2.value - 1)) * 1000);
+  });
+}
+
+const takeImage = async ()=>{
+  const ctx = canvas.value.getContext('2d');
+  const videoWidth = videoElement.value.videoWidth;
+  const videoHeight = videoElement.value.videoHeight;
+  
+  canvas.value.width = videoWidth;
+  canvas.value.height = videoHeight;
+  
+  ctx.drawImage(videoElement.value, 0, 0, videoWidth, videoHeight);
+
+  const url = canvas.value.toDataURL('image/png');
+
+  let config = {
+    method: 'post',
+    maxBodyLength: Infinity,
+    url: 'https://apirad.ltsgroup.tech/cplus/upload',
+    headers: { 
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': "*",
+    },
+    data: await dataURLToBlob(url),
+  };
+
+  axios.request(config)
+    .then(response => {
+      lstImage.value.push(response.data);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+};
 
 const startCamera = async () => {
   try {
     const stream = await navigator.mediaDevices.getUserMedia({ video: true });
 
     videoElement.value.srcObject = stream;
-
-    setInterval(() => {
-      const firstElement = lstImage.value.shift();
-
-      takeSnapshot();
-    }, 6000);
   } catch (error) {
     console.error('Error accessing camera:', error);
   }
@@ -85,45 +173,10 @@ function dataURLToBlob(dataURL) {
   return new Blob([uint8Array], { type: contentType });
 }
 
-const takeSnapshot = async () => {
-  const ctx = canvas.value.getContext('2d');
-  const videoWidth = videoElement.value.videoWidth;
-  const videoHeight = videoElement.value.videoHeight;
-  
-  canvas.value.width = videoWidth;
-  canvas.value.height = videoHeight;
-  
-  ctx.drawImage(videoElement.value, 0, 0, videoWidth, videoHeight);
-
-  const url = canvas.value.toDataURL('image/png');
-
-  let config = {
-    method: 'post',
-    maxBodyLength: Infinity,
-    url: 'http://localhost:8080/upload',
-    headers: { 
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': "*",
-    },
-    data: await dataURLToBlob(url),
-  };
-
-  axios.request(config)
-    .then(response => {
-      snapshotUrl.value = response.data;
-      lstImage.value.push(response.data);
-    })
-    .catch(error => {
-      console.log(error);
-    });
-};
-
 const handleCanPlay = () => {
-  // Khởi tạo canvas với kích thước tương tự video
   canvas.value.width = videoElement.value.videoWidth;
   canvas.value.height = videoElement.value.videoHeight;
 
-  // Bắt đầu lắng nghe sự kiện requestAnimationFrame
   animationFrameId = requestAnimationFrame(drawFrame);
 };
 
@@ -131,19 +184,14 @@ const drawFrame = () => {
   const ctx = canvas.value.getContext('2d');
 
   ctx.drawImage(videoElement.value, 0, 0, canvas.value.width, canvas.value.height);
-
-  /////////////////////////////////////////////////
   
-  // Tiếp tục lắng nghe sự kiện requestAnimationFrame cho frame tiếp theo
   animationFrameId = requestAnimationFrame(drawFrame);
 };
 
-// Khởi chạy khi component được mounted
 onMounted(() => {
   startCamera();
 });
 
-// Đảm bảo ngừng lắng nghe khi component bị unmounted
 onBeforeUnmount(() => {
   cancelAnimationFrame(animationFrameId);
 });
