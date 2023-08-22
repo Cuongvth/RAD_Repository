@@ -369,3 +369,13 @@ C:\Users\DJ XuyenChi\Documents\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\obj\Rele
 C:\Users\DJ XuyenChi\Documents\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\obj\Release\net7.0\ref\CMS_Web.dll
 D:\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\bin\Release\net7.0\Aspose.Cells.dll
 D:\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\bin\Release\net7.0\Aspose.Slides.dll
+D:\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\bin\Release\net7.0\Magick.NET-Q16-AnyCPU.dll
+D:\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\bin\Release\net7.0\Magick.NET.Core.dll
+D:\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\bin\Release\net7.0\runtimes\linux-arm64\native\Magick.Native-Q16-arm64.dll.so
+D:\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\bin\Release\net7.0\runtimes\linux-musl-x64\native\Magick.Native-Q16-x64.dll.so
+D:\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\bin\Release\net7.0\runtimes\linux-x64\native\Magick.Native-Q16-x64.dll.so
+D:\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\bin\Release\net7.0\runtimes\osx-arm64\native\Magick.Native-Q16-arm64.dll.dylib
+D:\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\bin\Release\net7.0\runtimes\osx-x64\native\Magick.Native-Q16-x64.dll.dylib
+D:\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\bin\Release\net7.0\runtimes\win-arm64\native\Magick.Native-Q16-arm64.dll
+D:\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\bin\Release\net7.0\runtimes\win-x64\native\Magick.Native-Q16-x64.dll
+D:\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\bin\Release\net7.0\runtimes\win-x86\native\Magick.Native-Q16-x86.dll

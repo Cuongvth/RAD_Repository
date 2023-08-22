@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "g9PLvof6LS62lBKPNGHyBpbZ/y8hjSWRQYOwKIx/YVyS2Jyhqsv4rh5WmX2gqWaxtT4OXIhNJRj4KxCVpj+eig==",
+  "dgSpecHash": "q48c8H0UwpiqyMt/C7GgEgwfnyHXcwumDkvt+4c13KFfSXcOK5yKLH9YfwUjYL0rBC22C/qxZ3yGy9b+J2O0YA==",
   "success": true,
   "projectFilePath": "D:\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_Web\\CMS_Web.csproj",
   "expectedPackageFiles": [
@@ -14,6 +14,8 @@
     "C:\\Users\\cuongvl\\.nuget\\packages\\google.apis.auth\\1.61.0\\google.apis.auth.1.61.0.nupkg.sha512",
     "C:\\Users\\cuongvl\\.nuget\\packages\\google.apis.core\\1.61.0\\google.apis.core.1.61.0.nupkg.sha512",
     "C:\\Users\\cuongvl\\.nuget\\packages\\google.apis.vision.v1\\1.61.0.3112\\google.apis.vision.v1.1.61.0.3112.nupkg.sha512",
+    "C:\\Users\\cuongvl\\.nuget\\packages\\magick.net-q16-anycpu\\13.2.0\\magick.net-q16-anycpu.13.2.0.nupkg.sha512",
+    "C:\\Users\\cuongvl\\.nuget\\packages\\magick.net.core\\13.2.0\\magick.net.core.13.2.0.nupkg.sha512",
     "C:\\Users\\cuongvl\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
     "C:\\Users\\cuongvl\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.7\\microsoft.aspnetcore.openapi.7.0.7.nupkg.sha512",
     "C:\\Users\\cuongvl\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",

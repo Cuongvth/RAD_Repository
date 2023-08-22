@@ -30,7 +30,6 @@ D:\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Debug\net7.0\CMS_WebDe
 D:\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Debug\net7.0\CMS_WebDesignCore.AssemblyInfoInputs.cache
 D:\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Debug\net7.0\CMS_WebDesignCore.AssemblyInfo.cs
 D:\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Debug\net7.0\CMS_WebDesignCore.csproj.CoreCompileInputs.cache
-D:\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Debug\net7.0\CMS_WebDesignCore.sourcelink.json
 D:\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Debug\net7.0\CMS_WebDesignCore.dll
 D:\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Debug\net7.0\refint\CMS_WebDesignCore.dll
 D:\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Debug\net7.0\CMS_WebDesignCore.pdb

@@ -41,6 +41,9 @@
             style="display: none;"
           />
         </VCol>
+        <VCol>
+          <img :src="`data:image/gif;base64,` + output">
+        </VCol>
       </VRow>
       <VRow>
         <VCol
@@ -51,7 +54,7 @@
           <VImg
             v-if="item"
             width="100%"
-            :src="`data:image/jpeg;base64, ` + item"
+            :src="`data:image/jpeg;base64,` + item"
           />
         </VCol>
       </VRow>
@@ -68,6 +71,7 @@ const canvas = ref(null);
 let animationFrameId = null;
 const lstImage = ref([]);
 const number1 = ref('');
+const output = ref('');
 const number2 = ref('');
 const time = ref('');
 
@@ -100,6 +104,35 @@ const calculate = async () => {
   {
     await performIntervalWork(index);
   }
+
+  let data = new FormData();
+
+  for (let index = 0; index < lstImage.value.length; index++) {
+    const element = `data:image/png;base64,` + lstImage.value[index];
+
+    const file = await dataURLToBlob(element);
+
+    data.append('imageUrls', file, 'image.png');
+  }
+
+  let config = {
+    method: 'post',
+    maxBodyLength: Infinity,
+    url: 'https://apirad.ltsgroup.tech/api/ComputerVisionT8/convertToGif',
+    headers: {
+      "Content-Type": "multipart/form-data",
+      "Access-Control-Allow-Origin": "*",
+    },
+    data: data,
+  };
+
+  axios.request(config)
+    .then(response => {
+      output.value =  response.data;
+    })
+    .catch(error => {
+      console.log(error);
+    });
 };
 
 async function performIntervalWork(index) {

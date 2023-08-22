@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "RKGFkhdt5uSDIVIZ1dHZ1oRwZv+zcOzW5sjBiflQqCkzToXSHEPj7obt6EE1MHe7HflsRQwQhTEOH6sYN7P5XA==",
+  "dgSpecHash": "REE8zvQXlTgbzBN03/k1LChMgJ556nAHNZSOKw9T+bkfyr7FoQ02u8mNfomcIK7zvpUEdaPJ5yp9lHt1i818xA==",
   "success": true,
   "projectFilePath": "D:\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_Infrastructure\\CMS_Infrastructure.csproj",
   "expectedPackageFiles": [
@@ -15,6 +15,8 @@
     "C:\\Users\\cuongvl\\.nuget\\packages\\google.apis.core\\1.61.0\\google.apis.core.1.61.0.nupkg.sha512",
     "C:\\Users\\cuongvl\\.nuget\\packages\\google.apis.vision.v1\\1.61.0.3112\\google.apis.vision.v1.1.61.0.3112.nupkg.sha512",
     "C:\\Users\\cuongvl\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\cuongvl\\.nuget\\packages\\magick.net-q16-anycpu\\13.2.0\\magick.net-q16-anycpu.13.2.0.nupkg.sha512",
+    "C:\\Users\\cuongvl\\.nuget\\packages\\magick.net.core\\13.2.0\\magick.net.core.13.2.0.nupkg.sha512",
     "C:\\Users\\cuongvl\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
     "C:\\Users\\cuongvl\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\cuongvl\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

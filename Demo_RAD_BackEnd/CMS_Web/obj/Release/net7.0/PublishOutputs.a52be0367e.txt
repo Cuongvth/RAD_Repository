@@ -17,6 +17,8 @@ D:\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\obj\Release\net7.0\PubTmp\Out\Google
 D:\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\obj\Release\net7.0\PubTmp\Out\Google.Apis.Auth.dll
 D:\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\obj\Release\net7.0\PubTmp\Out\Google.Apis.Core.dll
 D:\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\obj\Release\net7.0\PubTmp\Out\Google.Apis.Vision.v1.dll
+D:\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\obj\Release\net7.0\PubTmp\Out\Magick.NET-Q16-AnyCPU.dll
+D:\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\obj\Release\net7.0\PubTmp\Out\Magick.NET.Core.dll
 D:\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\obj\Release\net7.0\PubTmp\Out\Microsoft.AspNetCore.OpenApi.dll
 D:\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\obj\Release\net7.0\PubTmp\Out\Microsoft.Bcl.AsyncInterfaces.dll
 D:\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\obj\Release\net7.0\PubTmp\Out\Microsoft.Data.SqlClient.dll
@@ -50,6 +52,14 @@ D:\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\obj\Release\net7.0\PubTmp\Out\System
 D:\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\obj\Release\net7.0\PubTmp\Out\System.Security.Cryptography.ProtectedData.dll
 D:\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\obj\Release\net7.0\PubTmp\Out\System.Security.Permissions.dll
 D:\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\obj\Release\net7.0\PubTmp\Out\System.Windows.Extensions.dll
+D:\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\obj\Release\net7.0\PubTmp\Out\runtimes\linux-arm64\native\Magick.Native-Q16-arm64.dll.so
+D:\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\obj\Release\net7.0\PubTmp\Out\runtimes\linux-musl-x64\native\Magick.Native-Q16-x64.dll.so
+D:\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\obj\Release\net7.0\PubTmp\Out\runtimes\linux-x64\native\Magick.Native-Q16-x64.dll.so
+D:\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\obj\Release\net7.0\PubTmp\Out\runtimes\osx-arm64\native\Magick.Native-Q16-arm64.dll.dylib
+D:\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\obj\Release\net7.0\PubTmp\Out\runtimes\osx-x64\native\Magick.Native-Q16-x64.dll.dylib
+D:\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\obj\Release\net7.0\PubTmp\Out\runtimes\win-arm64\native\Magick.Native-Q16-arm64.dll
+D:\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\obj\Release\net7.0\PubTmp\Out\runtimes\win-x64\native\Magick.Native-Q16-x64.dll
+D:\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\obj\Release\net7.0\PubTmp\Out\runtimes\win-x86\native\Magick.Native-Q16-x86.dll
 D:\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\obj\Release\net7.0\PubTmp\Out\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 D:\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\obj\Release\net7.0\PubTmp\Out\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 D:\Computer_Vision\Demo_RAD_BackEnd\CMS_Web\obj\Release\net7.0\PubTmp\Out\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
