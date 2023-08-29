@@ -6,7 +6,7 @@ const cx = "370680eb1781b459c";
 
 const openaiGPT = new OpenAIApi(
   new Configuration({
-    apiKey: "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",
+    apiKey: "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",
   }),
 );
 

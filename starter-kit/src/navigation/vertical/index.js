@@ -66,6 +66,10 @@ export default [
         title: "Nhận dạng hình ảnh",
         to: { name: "nhan_dang_hinh_anh" },
       },
+      {
+        title: "Nhận dạng khói lửa",
+        to: { name: "nhan_dang_khoi_lua" },
+      },
     ],
     badgeClass: "bg-primary",
   },

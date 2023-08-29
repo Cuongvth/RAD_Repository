@@ -65,7 +65,9 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import axios from '@axios';
+import { useStore } from "vuex";
 
+const store = useStore();
 const videoElement = ref(null);
 const canvas = ref(null);
 let animationFrameId = null;
@@ -77,6 +79,13 @@ const time = ref('');
 
 const calculate = async () => {
   lstImage.value = [];
+
+  if((number1.value /(number2.value - 1)) * 1000 < 1500)
+  {
+    store.commit("setSnackBarContent", "Khoảng thời gian quá nhanh");
+    
+    return;
+  }
 
   if(isNaN(number1.value) || isNaN(number2.value) || number1.value == "" || number2.value == "")
   {

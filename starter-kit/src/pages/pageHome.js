@@ -88,7 +88,7 @@ Sản phẩm của chúng tôi tích hợp linh hoạt vào các ứng dụng v�
         title: `Xây dựng giao diện với Mobie App`,
         timeLine: `
         dd-mm-yyyy`,
-        description: `Sử dụng Mobie App để xây dựng giao diện người dùng cho phép nhận dạng trực tiếp với camera hoặc gửi dữ liệu sãn sàng nhận dạng
+        description: `Sử dụng Mobie App để xây dựng giao diện người dùng cho phép nhận dạng trực tiếp với camera hoặc gửi dữ liệu sãn sàng nhận dạng.
   `,
         author: `Nguyễn Đổng Khánh`,
         role: `CTO`,
@@ -142,7 +142,7 @@ Chatbot cũng cung cấp thông tin về khách sạn, nhà hàng, cửa hàng m
         title: `Xác định người dùng`,
         timeLine: `
         dd-mm-yyyy`,
-        description: `Khách du lịch tự do, khách du lịch gia đình, khách doanh nhân, v.v. Đặt các yêu cầu chức năng và phi chức năng cho chatbot, ví dụ: tìm kiếm điểm đến, đặt phòng, tính toán ngân sách, v.v. Thu thập dữ liệu: Tìm kiếm và thu thập dữ liệu về các điểm du lịch, khách sạn, nhà hàng, hoạt động giải trí , và hơn thế nữa. Thu thập thông tin về thị thực, thủ tục nhập cảnh, tiền tệ, ngôn ngữ và văn hóa địa phương`,
+        description: `Khách du lịch tự do, khách du lịch gia đình, khách doanh nhân, v.v. Đặt các yêu cầu chức năng và phi chức năng cho chatbot, ví dụ: tìm kiếm điểm đến, đặt phòng, tính toán ngân sách, v.v. Thu thập dữ liệu: Tìm kiếm và thu thập dữ liệu về các điểm du lịch, khách sạn, nhà hàng, hoạt động giải trí , và hơn thế nữa. Thu thập thông tin về thị thực, thủ tục nhập cảnh, tiền tệ, ngôn ngữ và văn hóa địa phương.`,
         author: `Nguyễn Đổng Khánh`,
         role: `CTO`,
         avatar: avatar1,
@@ -152,7 +152,7 @@ Chatbot cũng cung cấp thông tin về khách sạn, nhà hàng, cửa hàng m
         title: `Xây dựng cơ sở tri thức`,
         timeLine: `
         dd-mm-yyyy`,
-        description: `Xây dựng cơ sở dữ liệu cho chatbot, hoạt động, v.v. bao gồm các thông tin về điểm đến, khách sạn, nhà hàng, giải trí Sắp xếp và cấu trúc dữ liệu một cách logic để chatbot có thể truy xuất thông tin dễ dàng`,
+        description: `Xây dựng cơ sở dữ liệu cho chatbot, hoạt động, v.v. bao gồm các thông tin về điểm đến, khách sạn, nhà hàng, giải trí Sắp xếp và cấu trúc dữ liệu một cách logic để chatbot có thể truy xuất thông tin dễ dàng.`,
         author: `Nguyễn Đổng Khánh`,
         role: `CTO`,
         avatar: avatar1,
@@ -353,7 +353,7 @@ Không cần tốn thời gian và tiền bạc để tìm kiếm dịch giả h
         title: `Lập kế hoạch và thiết lập dự án`,
         timeLine: `
         dd-mm-yyyy`,
-        description: `Nghiên cứu nuget để sử dụng cho dự án. Xác định các yêu cầu và thông số kỹ thuật của dự án, đồng thời chọn và thiết lập môi trường phát triển`,
+        description: `Nghiên cứu nuget để sử dụng cho dự án. Xác định các yêu cầu và thông số kỹ thuật của dự án, đồng thời chọn và thiết lập môi trường phát triển.`,
         author: `Nguyễn Đổng Khánh`,
         role: `CTO`,
         avatar: avatar1,
@@ -363,7 +363,7 @@ Không cần tốn thời gian và tiền bạc để tìm kiếm dịch giả h
         title: `Chuyển đổi tài liệu và tạo hình ảnh`,
         timeLine: `
         dd-mm-yyyy`,
-        description: `Triển khai chức năng tải lên các định dạng tài liệu khác nhau Tích hợp các nuget chuyển đổi tài liệu để chuyển đổi từng trang tài liệu thành hình ảnh`,
+        description: `Triển khai chức năng tải lên các định dạng tài liệu khác nhau Tích hợp các nuget chuyển đổi tài liệu để chuyển đổi từng trang tài liệu thành hình ảnh.`,
         author: `Nguyễn Đổng Khánh`,
         role: `CTO`,
         avatar: avatar1,
@@ -408,6 +408,198 @@ Không cần tốn thời gian và tiền bạc để tìm kiếm dịch giả h
         timeLine: `
         dd-mm-yyyy`,
         description: `Triển khai mã giao diện từ thiết kế và kết nối với API từ back-end.
+    `,
+        author: `Nguyễn Đổng Khánh`,
+        role: `CTO`,
+        avatar: avatar1,
+        icon: `tabler-send`,
+      },
+    ],
+  },
+  {
+    key: "T8.1",
+    title: "T8 - AI theo dõi khung xương nười và nhận dạng quần áo 🔒",
+    subtitle:
+      "Giới thiệu sản phẩm: AI theo dõi khung xương nười và nhận dạng quần áo",
+    content: [
+      `Với Sản phẩm nhận dạng của chúng tôi, bạn sẽ tiết kiệm thời gian và nỗ lực trong việc theo dõi khung xương và trang phục của các cá nhân trong tổ chức. Công nghệ thông minh và xử lý hình ảnh tiên tiến của chúng tôi sẽ tự động nhận diện và theo khung xương, quần áo. Bạn chỉ đặt nó ở nơi có camera, sau đó sản phẩm sẽ tự động xử lý, vẽ lên khung xương của con người và thông tin quần áo.
+`,
+      `
+Dễ dàng nhận diện và theo dõi khung xương, quần áo và trả về thông tin một cách nhanh chóng. Sản phẩm của chúng tôi hỗ trợ nhiều loại quần áo khác nhau.
+`,
+      `
+Không cần tốn nhân lực vào công việc nhận dạng đôi khi không chính xác. Sản phẩm theo dõi khung xương nười và nhận dạng quần áo của chúng tôi là lựa chọn hoàn hảo để giải quyết mọi thách thức về nhận dạng của bạn.
+`,
+    ],
+    linkdemo: "https://www.youtube.com/embed/mqjg5x1J_2w",
+    linkdoc:
+      "https://docs.google.com/presentation/d/1lfRBrwUsAWhUFZWDGbk7zEZa3HsKMKeA/edit?usp=sharing&ouid=110127705578679387675&rtpof=true&sd=true",
+    roadmap: [
+      {
+        title: `Xác định mục tiêu của mô hình`,
+        timeLine: `
+        dd-mm-yyyy`,
+        description: `Theo dõi khung xương tự động và nhận dạng quần áo.`,
+        author: `Nguyễn Đổng Khánh`,
+        role: `CTO`,
+        avatar: avatar1,
+        icon: `tabler-send`,
+      },
+      {
+        title: `Lập kế hoạch và thiết lập dự án`,
+        timeLine: `
+        dd-mm-yyyy`,
+        description: `Nghiên cứu nuget để sử dụng cho dự án. Xác định các yêu cầu và thông số kỹ thuật của dự án, đồng thời chọn và thiết lập môi trường phát triển.`,
+        author: `Nguyễn Đổng Khánh`,
+        role: `CTO`,
+        avatar: avatar1,
+        icon: `tabler-send`,
+      },
+      {
+        title: `Nhận dạng các đặc trưng của khung xương`,
+        timeLine: `
+        dd-mm-yyyy`,
+        description: `Triển khai chức năng nhận dạng 18 điểm đặc trưng của khung xương con người bằng AILIA SDK.`,
+        author: `Nguyễn Đổng Khánh`,
+        role: `CTO`,
+        avatar: avatar1,
+        icon: `tabler-send`,
+      },
+      {
+        title: `Vẽ khung xương của con người`,
+        timeLine: `
+        dd-mm-yyyy`,
+        description: `Nối các điểm đặc trưng tạo nên khung xương của con người.
+        `,
+        author: `Nguyễn Đổng Khánh`,
+        role: `CTO`,
+        avatar: avatar1,
+        icon: `tabler-send`,
+      },
+      {
+        title: `Triển khai mô hình training nhận dạng quần áo dựa trên label`,
+        timeLine: `
+        dd-mm-yyyy`,
+        description: `Training mô hình nhận dạng quần áo dự trên dữ liệu đã đánh nhã sẵn bằng Yolox sau đó chuyển sang ONNX.
+    `,
+        author: `Nguyễn Đổng Khánh`,
+        role: `CTO`,
+        avatar: avatar1,
+        icon: `tabler-send`,
+      },
+      {
+        title: `Triển khai mô hình nhận dạng quần áo`,
+        timeLine: `
+        dd-mm-yyyy`,
+        description: `Nhận dạng quần áo dựng trên dữ liệu đã training bằng AILIA SDK.
+    `,
+        author: `Nguyễn Đổng Khánh`,
+        role: `CTO`,
+        avatar: avatar1,
+        icon: `tabler-send`,
+      },
+
+      {
+        title: `Triển khai giao diện và gọi API`,
+        timeLine: `
+        dd-mm-yyyy`,
+        description: `Triển khai mã giao diện từ thiết kế và kết nối với API từ back-end.
+    `,
+        author: `Nguyễn Đổng Khánh`,
+        role: `CTO`,
+        avatar: avatar1,
+        icon: `tabler-send`,
+      },
+    ],
+  },
+  {
+    key: "T8.2",
+    title: "T8 - AI theo dõi nhận dạng lửa và khói 🔒",
+    subtitle:
+      "Giới thiệu sản phẩm: AI theo dõi nhận dạng lửa và khói",
+    content: [
+      `Chào mừng bạn đến với sản phẩm tiên tiến của chúng tôi - Hệ thống Nhận diện và Phân đoạn Khói.
+`,
+      `
+      Với khả năng phân tích hình ảnh và xử lý dữ liệu nhanh chóng, hệ thống của chúng tôi có thể tự động nhận diện và phân loại các hình ảnh, video hoặc dữ liệu trực tiếp. Nó sử dụng thuật toán thông minh để phát hiện và phân đoạn các vùng khói trong thời gian thực, cho phép bạn nắm bắt ngay lập tức thông tin quan trọng về khói trong môi trường của mình.
+`,
+      `
+      Với ứng dụng đa dạng, hệ thống Nhận diện và Phân đoạn Khói của chúng tôi có thể được sử dụng trong nhiều lĩnh vực. Trong lĩnh vực an ninh và an toàn, sản phẩm của chúng tôi có thể giúp giám sát và phát hiện khói từ các hệ thống báo động cháy hoặc hệ thống xử lý khí thải. Bên cạnh đó, nó cũng có thể được ứng dụng trong lĩnh vực y tế để theo dõi khói trong quá trình phẫu thuật hoặc trong các môi trường làm việc có nguy cơ cháy nổ cao.
+`,
+    ],
+    linkdemo: "https://www.youtube.com/embed/BaPX9Rh_glY",
+    linkdoc:
+      "https://docs.google.com/presentation/d/1qOn0dljcujjtjpGUYl58XdnZvAGPZrZ94j1UuZbBrs8/edit#slide=id.g23d686a2799_0_348",
+    roadmap: [
+      {
+        title: `Xác định mục tiêu của model object detection`,
+        timeLine: `
+        dd-mm-yyyy`,
+        description: `Nhận dạng khói và lửa ở công trường và những vị trí khác.`,
+        author: `Nguyễn Đổng Khánh`,
+        role: `CTO`,
+        avatar: avatar1,
+        icon: `tabler-send`,
+      },
+      {
+        title: `Xác định người dùng mục tiêu`,
+        timeLine: `
+        dd-mm-yyyy`,
+        description: `Các công ty, doanh nghiệp hoặc công trường có nguy cơ cháy nổ cao.`,
+        author: `Nguyễn Đổng Khánh`,
+        role: `CTO`,
+        avatar: avatar1,
+        icon: `tabler-send`,
+      },
+      {
+        title: `Xác định vị trí của vật thể`,
+        timeLine: `
+        dd-mm-yyyy`,
+        description: `Nhận diện khói và lửa và phân đoạn dựa trên hình ảnh, video hoặc webcam.`,
+        author: `Nguyễn Đổng Khánh`,
+        role: `CTO`,
+        avatar: avatar1,
+        icon: `tabler-send`,
+      },
+      {
+        title: `Xây dựng mô hình`,
+        timeLine: `
+        dd-mm-yyyy`,
+        description: `Sử dụng pre-trained model YOLO v8n và YOLO v8n-seg để đạt được giá trị chính xác cao.
+        `,
+        author: `Nguyễn Đổng Khánh`,
+        role: `CTO`,
+        avatar: avatar1,
+        icon: `tabler-send`,
+      },
+      {
+        title: `Quá trình huấn luyện mô hình nhận diện khói`,
+        timeLine: `
+        dd-mm-yyyy`,
+        description: `Với mô hình nhận diện được tận dụng các trọng số của mô hình yollo v8-n được huấn luyện với bộ dữ liệu coco và tiếp tục train với 100 epoch.
+    `,
+        author: `Nguyễn Đổng Khánh`,
+        role: `CTO`,
+        avatar: avatar1,
+        icon: `tabler-send`,
+      },
+      {
+        title: `Quá trình huấn luyện mô hình phân khúc khói`,
+        timeLine: `
+        dd-mm-yyyy`,
+        description: `Mô hình phân khúc cũng được sử dụng trọng số với bộ dữ liệu được huấn luyện trên tập dữ liệu coco và tiếp tục training với 150 epoch.
+    `,
+        author: `Nguyễn Đổng Khánh`,
+        role: `CTO`,
+        avatar: avatar1,
+        icon: `tabler-send`,
+      },
+
+      {
+        title: `Đánh giá mô hình`,
+        timeLine: `
+        dd-mm-yyyy`,
+        description: `Mô hình được đánh giá dựa trên các chỉ số như: Mean Average Precision, Average Precision, Mean Intersection Over Union.
     `,
         author: `Nguyễn Đổng Khánh`,
         role: `CTO`,
