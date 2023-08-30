@@ -420,7 +420,7 @@ Không cần tốn thời gian và tiền bạc để tìm kiếm dịch giả h
     key: "T8.1",
     title: "T8 - AI theo dõi khung xương nười và nhận dạng quần áo 🔒",
     subtitle:
-      "Giới thiệu sản phẩm: AI theo dõi khung xương nười và nhận dạng quần áo",
+      "Giới thiệu sản phẩm: AI theo dõi khung xương người và nhận dạng quần áo",
     content: [
       `Với Sản phẩm nhận dạng của chúng tôi, bạn sẽ tiết kiệm thời gian và nỗ lực trong việc theo dõi khung xương và trang phục của các cá nhân trong tổ chức. Công nghệ thông minh và xử lý hình ảnh tiên tiến của chúng tôi sẽ tự động nhận diện và theo khung xương, quần áo. Bạn chỉ đặt nó ở nơi có camera, sau đó sản phẩm sẽ tự động xử lý, vẽ lên khung xương của con người và thông tin quần áo.
 `,
@@ -428,7 +428,7 @@ Không cần tốn thời gian và tiền bạc để tìm kiếm dịch giả h
 Dễ dàng nhận diện và theo dõi khung xương, quần áo và trả về thông tin một cách nhanh chóng. Sản phẩm của chúng tôi hỗ trợ nhiều loại quần áo khác nhau.
 `,
       `
-Không cần tốn nhân lực vào công việc nhận dạng đôi khi không chính xác. Sản phẩm theo dõi khung xương nười và nhận dạng quần áo của chúng tôi là lựa chọn hoàn hảo để giải quyết mọi thách thức về nhận dạng của bạn.
+Không cần tốn nhân lực vào công việc nhận dạng đôi khi không chính xác. Sản phẩm theo dõi khung xương người và nhận dạng quần áo của chúng tôi là lựa chọn hoàn hảo để giải quyết mọi thách thức về nhận dạng của bạn.
 `,
     ],
     linkdemo: "https://www.youtube.com/embed/mqjg5x1J_2w",

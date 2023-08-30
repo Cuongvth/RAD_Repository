@@ -1,0 +1,24 @@
+﻿  yolox.cpp
+D:\yolox\yolox\yolox.cpp(33,1): warning C4005: 'WEIGHT_PATH': macro redefinition
+D:\yolox\yolox\yolox_support.cpp(31,1): message : see previous definition of 'WEIGHT_PATH'
+D:\yolox\yolox\yolox.cpp(34,1): warning C4005: 'MODEL_PATH': macro redefinition
+D:\yolox\yolox\yolox_support.cpp(32,1): message : see previous definition of 'MODEL_PATH'
+D:\yolox\yolox\yolox.cpp(41,1): warning C4005: 'SAVE_IMAGE_PATH': macro redefinition
+D:\yolox\yolox\yolox_support.cpp(35,1): message : see previous definition of 'SAVE_IMAGE_PATH'
+D:\yolox\yolox\yolox.cpp(43,1): warning C4005: 'MODEL_INPUT_WIDTH': macro redefinition
+D:\yolox\yolox\yolox_support.cpp(37,1): message : see previous definition of 'MODEL_INPUT_WIDTH'
+D:\yolox\yolox\yolox.cpp(44,1): warning C4005: 'MODEL_INPUT_HEIGHT': macro redefinition
+D:\yolox\yolox\yolox_support.cpp(38,1): message : see previous definition of 'MODEL_INPUT_HEIGHT'
+D:\yolox\yolox\yolox.cpp(45,1): warning C4005: 'IMAGE_WIDTH': macro redefinition
+D:\yolox\yolox\yolox_support.cpp(39,1): message : see previous definition of 'IMAGE_WIDTH'
+D:\yolox\yolox\yolox.cpp(46,1): warning C4005: 'IMAGE_HEIGHT': macro redefinition
+D:\yolox\yolox\yolox_support.cpp(40,1): message : see previous definition of 'IMAGE_HEIGHT'
+D:\yolox\yolox\yolox.cpp(200,55): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\yolox\yolox\yolox.cpp(202,10): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\yolox\yolox\yolox.cpp(203,10): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\yolox\yolox\yolox.cpp(204,10): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\yolox\yolox\yolox.cpp(205,10): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\yolox\yolox\yolox.cpp(224,20): warning C4018: '<': signed/unsigned mismatch
+D:\yolox\yolox\yolox.cpp(378,20): warning C4018: '<': signed/unsigned mismatch
+D:\yolox\yolox\yolox.cpp(467,21): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+  yolox.vcxproj -> D:\yolox\x64\Debug\yolox.exe
