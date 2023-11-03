@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj": {}
+    "D:\\RAD_Repository\\Back_End\\CSharp_Back_End\\Demo_RAD_BackEnd\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj": {}
   },
   "projects": {
-    "D:\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj": {
+    "D:\\RAD_Repository\\Back_End\\CSharp_Back_End\\Demo_RAD_BackEnd\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj",
+        "projectUniqueName": "D:\\RAD_Repository\\Back_End\\CSharp_Back_End\\Demo_RAD_BackEnd\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj",
         "projectName": "CMS_WebDesignCore",
-        "projectPath": "D:\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj",
+        "projectPath": "D:\\RAD_Repository\\Back_End\\CSharp_Back_End\\Demo_RAD_BackEnd\\CMS_WebDesignCore\\CMS_WebDesignCore.csproj",
         "packagesPath": "C:\\Users\\cuongvl\\.nuget\\packages\\",
-        "outputPath": "D:\\Computer_Vision\\Demo_RAD_BackEnd\\CMS_WebDesignCore\\obj\\",
+        "outputPath": "D:\\RAD_Repository\\Back_End\\CSharp_Back_End\\Demo_RAD_BackEnd\\CMS_WebDesignCore\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -70,7 +70,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -47,3 +47,15 @@ C:\Users\DJ XuyenChi\Documents\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCor
 C:\Users\DJ XuyenChi\Documents\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Release\net7.0\refint\CMS_WebDesignCore.dll
 C:\Users\DJ XuyenChi\Documents\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Release\net7.0\CMS_WebDesignCore.pdb
 C:\Users\DJ XuyenChi\Documents\Computer_Vision\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Release\net7.0\ref\CMS_WebDesignCore.dll
+D:\RAD_Repository\Back_End\CSharp_Back_End\Demo_RAD_BackEnd\CMS_WebDesignCore\bin\Release\net7.0\CMS_WebDesignCore.deps.json
+D:\RAD_Repository\Back_End\CSharp_Back_End\Demo_RAD_BackEnd\CMS_WebDesignCore\bin\Release\net7.0\CMS_WebDesignCore.dll
+D:\RAD_Repository\Back_End\CSharp_Back_End\Demo_RAD_BackEnd\CMS_WebDesignCore\bin\Release\net7.0\CMS_WebDesignCore.pdb
+D:\RAD_Repository\Back_End\CSharp_Back_End\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Release\net7.0\CMS_WebDesignCore.csproj.AssemblyReference.cache
+D:\RAD_Repository\Back_End\CSharp_Back_End\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Release\net7.0\CMS_WebDesignCore.GeneratedMSBuildEditorConfig.editorconfig
+D:\RAD_Repository\Back_End\CSharp_Back_End\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Release\net7.0\CMS_WebDesignCore.AssemblyInfoInputs.cache
+D:\RAD_Repository\Back_End\CSharp_Back_End\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Release\net7.0\CMS_WebDesignCore.AssemblyInfo.cs
+D:\RAD_Repository\Back_End\CSharp_Back_End\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Release\net7.0\CMS_WebDesignCore.csproj.CoreCompileInputs.cache
+D:\RAD_Repository\Back_End\CSharp_Back_End\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Release\net7.0\CMS_WebDesignCore.dll
+D:\RAD_Repository\Back_End\CSharp_Back_End\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Release\net7.0\refint\CMS_WebDesignCore.dll
+D:\RAD_Repository\Back_End\CSharp_Back_End\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Release\net7.0\CMS_WebDesignCore.pdb
+D:\RAD_Repository\Back_End\CSharp_Back_End\Demo_RAD_BackEnd\CMS_WebDesignCore\obj\Release\net7.0\ref\CMS_WebDesignCore.dll

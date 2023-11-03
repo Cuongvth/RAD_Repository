@@ -67,3 +67,20 @@ C:\Users\DJ XuyenChi\Documents\Computer_Vision\Demo_RAD_BackEnd\CMS_Infrastructu
 C:\Users\DJ XuyenChi\Documents\Computer_Vision\Demo_RAD_BackEnd\CMS_Infrastructure\obj\Release\net7.0\CMS_Infrastructure.pdb
 C:\Users\DJ XuyenChi\Documents\Computer_Vision\Demo_RAD_BackEnd\CMS_Infrastructure\obj\Release\net7.0\CMS_Infrastructure.genruntimeconfig.cache
 C:\Users\DJ XuyenChi\Documents\Computer_Vision\Demo_RAD_BackEnd\CMS_Infrastructure\obj\Release\net7.0\ref\CMS_Infrastructure.dll
+D:\RAD_Repository\Back_End\CSharp_Back_End\Demo_RAD_BackEnd\CMS_Infrastructure\bin\Release\net7.0\CMS_Infrastructure.deps.json
+D:\RAD_Repository\Back_End\CSharp_Back_End\Demo_RAD_BackEnd\CMS_Infrastructure\bin\Release\net7.0\CMS_Infrastructure.runtimeconfig.json
+D:\RAD_Repository\Back_End\CSharp_Back_End\Demo_RAD_BackEnd\CMS_Infrastructure\bin\Release\net7.0\CMS_Infrastructure.dll
+D:\RAD_Repository\Back_End\CSharp_Back_End\Demo_RAD_BackEnd\CMS_Infrastructure\bin\Release\net7.0\CMS_Infrastructure.pdb
+D:\RAD_Repository\Back_End\CSharp_Back_End\Demo_RAD_BackEnd\CMS_Infrastructure\bin\Release\net7.0\CMS_WebDesignCore.dll
+D:\RAD_Repository\Back_End\CSharp_Back_End\Demo_RAD_BackEnd\CMS_Infrastructure\bin\Release\net7.0\CMS_WebDesignCore.pdb
+D:\RAD_Repository\Back_End\CSharp_Back_End\Demo_RAD_BackEnd\CMS_Infrastructure\obj\Release\net7.0\CMS_Infrastructure.csproj.AssemblyReference.cache
+D:\RAD_Repository\Back_End\CSharp_Back_End\Demo_RAD_BackEnd\CMS_Infrastructure\obj\Release\net7.0\CMS_Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\RAD_Repository\Back_End\CSharp_Back_End\Demo_RAD_BackEnd\CMS_Infrastructure\obj\Release\net7.0\CMS_Infrastructure.AssemblyInfoInputs.cache
+D:\RAD_Repository\Back_End\CSharp_Back_End\Demo_RAD_BackEnd\CMS_Infrastructure\obj\Release\net7.0\CMS_Infrastructure.AssemblyInfo.cs
+D:\RAD_Repository\Back_End\CSharp_Back_End\Demo_RAD_BackEnd\CMS_Infrastructure\obj\Release\net7.0\CMS_Infrastructure.csproj.CoreCompileInputs.cache
+D:\RAD_Repository\Back_End\CSharp_Back_End\Demo_RAD_BackEnd\CMS_Infrastructure\obj\Release\net7.0\CMS_Infrastructure.csproj.CopyComplete
+D:\RAD_Repository\Back_End\CSharp_Back_End\Demo_RAD_BackEnd\CMS_Infrastructure\obj\Release\net7.0\CMS_Infrastructure.dll
+D:\RAD_Repository\Back_End\CSharp_Back_End\Demo_RAD_BackEnd\CMS_Infrastructure\obj\Release\net7.0\refint\CMS_Infrastructure.dll
+D:\RAD_Repository\Back_End\CSharp_Back_End\Demo_RAD_BackEnd\CMS_Infrastructure\obj\Release\net7.0\CMS_Infrastructure.pdb
+D:\RAD_Repository\Back_End\CSharp_Back_End\Demo_RAD_BackEnd\CMS_Infrastructure\obj\Release\net7.0\CMS_Infrastructure.genruntimeconfig.cache
+D:\RAD_Repository\Back_End\CSharp_Back_End\Demo_RAD_BackEnd\CMS_Infrastructure\obj\Release\net7.0\ref\CMS_Infrastructure.dll

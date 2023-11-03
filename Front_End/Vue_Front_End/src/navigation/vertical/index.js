@@ -73,4 +73,15 @@ export default [
     ],
     badgeClass: "bg-primary",
   },
+  {
+    title: "T8 - Insight 2.0",
+    icon: { icon: "tabler-apps" },
+    children: [
+      {
+        title: "Demo Insight 2.0",
+        to: { name: "demo_insight" },
+      },
+    ],
+    badgeClass: "bg-primary",
+  },
 ];
