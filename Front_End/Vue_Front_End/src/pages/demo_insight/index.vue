@@ -65,16 +65,19 @@
         </p>
       </li>
     </ul>
-    <video
-      controls
-      class="mt-5"
-      width="800"
-    >
-      <source
-        src="./troGiangAoDemo.mkv"
-        type="video/mp4"
-      >
-    </video>
+    <iframe
+      style="border-radius: 10px"
+      width="800px"
+      height="500px"
+      src="https://www.youtube.com/embed/wvbk4dVjFvI"
+      title="
+              YouTube
+              video
+              player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+    />
     <h2
       class="headline"
       style="margin-top: 50px;"
@@ -98,16 +101,19 @@
         </p>
       </li>
     </ul>
-    <video
-      controls
-      class="mt-5"
-      width="800"
-    >
-      <source
-        src="./danhGiaHocVienDemo.mkv"
-        type="video/mp4"
-      >
-    </video>
+    <iframe
+      style="border-radius: 10px"
+      width="800px"
+      height="500px"
+      src="https://www.youtube.com/embed/LW9bMUcPYbA"
+      title="
+              YouTube
+              video
+              player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+    />
     <h2
       class="headline"
       style="margin-top: 50px;"
@@ -126,15 +132,18 @@
         </p>
       </li>
     </ul>
-    <video
-      controls
-      class="mt-5"
-      width="800"
-    >
-      <source
-        src="./daNgonNguDemo.mkv"
-        type="video/mp4"
-      >
-    </video>
+    <iframe
+      style="border-radius: 10px"
+      width="800px"
+      height="500px"
+      src="https://www.youtube.com/embed/T_-wZvoCews"
+      title="
+              YouTube
+              video
+              player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+    />
   </VContainer>
 </template>

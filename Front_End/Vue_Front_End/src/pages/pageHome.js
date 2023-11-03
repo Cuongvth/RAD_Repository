@@ -608,4 +608,25 @@ Không cần tốn nhân lực vào công việc nhận dạng đôi khi không 
       },
     ],
   },
+  {
+    key: "T9 & T10",
+    title: "T9 & T10 - Sản phẩm Insight 2.0 🔒",
+    subtitle:
+      "Giới thiệu sản phẩm: Nền tảng học lập trình thế hệ mới",
+    content: [
+      `Chào mừng bạn đến với sản phẩm tiên tiến của chúng tôi - Hệ thống dạy học lập trình.
+`,
+      `
+      Với sự giúp đỡ của AI chúng tôi đã mang đến một giải pháp, một nền tảng dạy và học lập trình hoàn toàn mới. Các bài tập của học viên sẽ được theo dõi liên tục bới AI và được đánh giá thường xuyên. Sử dụng 6 tiêu chí đánh giá các bài tập của học viên được đánh giá một cách tổng quan ở nhiều khía cạnh. Hệ thống đánh giá bởi con người cũng được tích hợp vào hệ thống này. Với 11 tiêu chí đánh giá mọi học viên đề sẽ theo dõi được khả năng, điểm mạnh điểm yếu của mình để cải thiện. Các đánh giá sẽ được cập nhật liên tục vào dashboard của bạn và bạn có thể theo dõi quá trình học của mình
+`,
+      `
+      Với sự phát triển của AI chúng tôi đã cho ra đời trợ giảng ảo. AI sẽ giúp đỡ bạn bất cứ khi nào bạn gặp vấn đề. Bạn cũng có thể nhờ AI của mình tạo thêm bài tập dựa trên năng lực của bạn. "Trợ giảng" cũng có thể đưa ra cho bạn những tự khóa, những kiến thức liên quan tới bài tập sẽ giúp bạn giải quyết bài tập của mình dễ dàng
+`,
+    ],
+    linkdemo: "https://www.youtube.com/embed/9U2TxIEW8T4",
+    linkdoc:
+      "http://rad.ltsgroup.tech/#/demo_insight",
+    roadmap: [
+    ],
+  },
 ];
